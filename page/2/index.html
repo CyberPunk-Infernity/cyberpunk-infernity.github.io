@@ -1,0 +1,938 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Infernity&#39;s Blog
+    
+  </title>
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="" />
+  <meta name="description" content="blog" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/I.png">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 59,
+      randomYouSrc: '/img/background/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: true,
+	  appId: 'AU8',
+	  appKey: '4cU',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			主页
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/qq.png" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/weixin.jpg" target="_blank">
+				<span class="icon-weixin"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
+				<span class="icon-csdn"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			
+
+
+
+	<!--cart style-->
+	<div class="layout-cart">
+	<div id="layout-cart">
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" title=" JAVA反序列化——另一条CC1链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 17日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" title="JAVA反序列化——另一条CC1链">							
+							
+	<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" itemprop="url">
+		JAVA反序列化——另一条CC1链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							之前的CC1链是利用TransformedMap的checkSetValue方法来调用ChainedTransformer.transform
+而另一种写...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/_visitors" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" data-title="JAVA反序列化——另一条CC1链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/_likes" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-%E5%8F%A6%E4%B8%80%E6%9D%A1CC1%E9%93%BE/" data-title="JAVA反序列化——另一条CC1链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" title=" JAVA反序列化——CC2链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 17日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" title="JAVA反序列化——CC2链">							
+							
+	<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" itemprop="url">
+		JAVA反序列化——CC2链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							详细请看CC4链。CC2链跟CC4链几乎一样，就是在CC4利用InstantiateTransformer类的基础上改成了直接使用InvokerTrans...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/_visitors" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" data-title="JAVA反序列化——CC2链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/_likes" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC2%E9%93%BE/" data-title="JAVA反序列化——CC2链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" title=" JAVA反序列化——CC4链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 17日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" title="JAVA反序列化——CC4链">							
+							
+	<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" itemprop="url">
+		JAVA反序列化——CC4链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							新依赖：
+12345&lt;dependency&gt;    &lt;groupId&gt;org.apache.commons&lt;/groupId...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/_visitors" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" data-title="JAVA反序列化——CC4链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/_likes" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC4%E9%93%BE/" data-title="JAVA反序列化——CC4链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" title=" JAVA反序列化——CC3链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 17日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" title="JAVA反序列化——CC3链">							
+							
+	<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" itemprop="url">
+		JAVA反序列化——CC3链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							这条链是利用动态类加载来经行代码执行。
+原理根据java类的动态加载原理，我们知道动态类加载可以通过ClassLoader来完成。而其中有个ClassLo...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/_visitors" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" data-title="JAVA反序列化——CC3链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/_likes" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" data-title="JAVA反序列化——CC3链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title=" JAVA反序列化——CC6链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 10日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链">							
+							
+	<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" itemprop="url">
+		JAVA反序列化——CC6链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							CC6链其实就是URLDNS链的前半加上CC1链的后半。
+
+链子构建入口类跟CC1链完全一致，这里不再赘述。
+在找哪里调用了ChainedTransfor...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/_visitors" data-url="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" data-title="JAVA反序列化——CC6链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/_likes" data-url="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" data-title="JAVA反序列化——CC6链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/09/XYCTF2024/" title=" XYCTF2024 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 9日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024">							
+							
+	<a href="/2024/04/09/XYCTF2024/" itemprop="url">
+		XYCTF2024
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							ezhttp打开是登录页面，先看源码，源码提示：
+1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;
+
+第一反应是robots.tx...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/09/XYCTF2024/_visitors" data-url="/2024/04/09/XYCTF2024/" data-title="XYCTF2024">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/09/XYCTF2024/_likes" data-url="/2024/04/09/XYCTF2024/" data-title="XYCTF2024" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title=" JAVA反序列化——CC1链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						四月 2日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">							
+							
+	<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" itemprop="url">
+		JAVA反序列化——CC1链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。
+cc1链要求java版本小于jdk8u71
+我这里用的J...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_visitors" data-url="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_likes" data-url="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title=" java反序列化——URLDNS链 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						三月 29日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">							
+							
+	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
+		java反序列化——URLDNS链
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。
+
+而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_visitors" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_likes" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/03/25/NKCTF2024/" title=" NKCTF2024 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/background/4.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						三月 25日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024">							
+							
+	<a href="/2024/03/25/NKCTF2024/" itemprop="url">
+		NKCTF2024
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							my first cmshttps://avd.aliyun.com/detail?id=AVD-2024-27622
+弱口令登录
+username : ...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/03/25/NKCTF2024/_visitors" data-url="/2024/03/25/NKCTF2024/" data-title="NKCTF2024">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/03/25/NKCTF2024/_likes" data-url="/2024/03/25/NKCTF2024/" data-title="NKCTF2024" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+			<div class="post" id="post">
+				<a class="post-cover" href="/2024/03/19/DubheCTF-2024/" title=" DubheCTF_2024 " target="_blank">
+					
+					<img class="lazy" src="/img/lazy.gif" data-src="/img/background/28.jpg"/>
+				</a>
+
+				<div class="post-text">
+					<p class="post-time">
+						三月 19日, 2024
+					</p>	
+					<h3 class="post-title" id="post-title-index">
+						<a href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">							
+							
+	<a href="/2024/03/19/DubheCTF-2024/" itemprop="url">
+		DubheCTF_2024
+	</a>
+
+						</a>
+					</h3>
+					<p class="post-content">
+						
+							师傅们太强了，跟师傅们打比赛能学到很多东西，我就作出来一个最简单的题&#x3D;-&#x3D;
+Master of Profile参考链接：https:/...
+						
+					</p>
+					<p class="post-meta">
+						
+
+	
+    <span class="leancloud_visitors" id="/2024/03/19/DubheCTF-2024/_visitors" data-url="/2024/03/19/DubheCTF-2024/" data-title="DubheCTF_2024">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/03/19/DubheCTF-2024/_likes" data-url="/2024/03/19/DubheCTF-2024/" data-title="DubheCTF_2024" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+					</p>
+				</div>
+			</div>
+		
+	</div>
+	
+	
+	<div id="pagination">
+		
+			<a href="/page/3/" data-title="加载更多" data-status="没有了">加载更多</a>
+		
+	</div>
+
+	
+
+</div>
+	
+
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2024, content by Infernity. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
+
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+  
+<script src="/plugin/leancloud/av-min.js"></script>
+<script src="/js/leancloud-count.js"></script>
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
