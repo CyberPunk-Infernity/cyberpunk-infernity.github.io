@@ -1,1018 +1,688 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      VNCTF 2024 | Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="Checkin打转块小游戏奥，直接F12找game.js，里面有这么几行很明显把中间两行放在控制台打出来就好了， VNCTF{W31c0m3_t0_VNCTF_2024_g@od_J0B!!!!} TrySentthinkphp Sentcms去网上找相关漏洞，找到这么一篇文章：https:&#x2F;&#x2F;blog.hanayuzu.top&#x2F;articles&#x2F;37dacab4是无需登录的任意文件上传漏洞，在&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VNCTF 2024">
+<meta property="og:url" content="http://example.com/2024/02/17/VNCTF%202024/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="Checkin打转块小游戏奥，直接F12找game.js，里面有这么几行很明显把中间两行放在控制台打出来就好了， VNCTF{W31c0m3_t0_VNCTF_2024_g@od_J0B!!!!} TrySentthinkphp Sentcms去网上找相关漏洞，找到这么一篇文章：https:&#x2F;&#x2F;blog.hanayuzu.top&#x2F;articles&#x2F;37dacab4是无需登录的任意文件上传漏洞，在&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/background/27.jpg">
+<meta property="article:published_time" content="2024-02-17T07:05:35.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:36:30.810Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/background/27.jpg">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>VNCTF 2024 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			「VNCTF 2024」
-		
-	</p>
-
-	
-	
-		<span id="star-button" rel="unlike">
-			<i class="icon-heart"></i>
-		</span>
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-<script src="/plugin/toc/katelog.min.js"></script>
-
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-		<div class="article-title">
-			
-	<a href="/2024/02/17/VNCTF%202024/" itemprop="url">
-		VNCTF 2024
-	</a>
-
-		</div>
-
-		<div class="article-meta">
-			<span>
-				<i class="icon-calendar1"></i>
-				
-				
-
-
-
-
-	更新于
-
-	<a href="/2024/02/17/VNCTF%202024/" itemprop="url">
-		<time datetime="2024-02-17T07:05:35.000Z" itemprop="dateUpdated">
-	  		2024-06-18
-	  </time>
-	</a> 
-
-
-
-			</span>
-			<span>
-				
-	<i class="icon-price-tags"></i>
-	
-		<a href="/tags/WPs/" class=" ">
-			WPs
-		</a>
-	
-		
-			</span>
-			
-			
-
-	
-    <span class="leancloud_visitors" id="/2024/02/17/VNCTF%202024/_visitors" data-url="/2024/02/17/VNCTF%202024/" data-title="VNCTF 2024">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
-                   
-    </span>
+  <header>
     
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">VNCTF 2024</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-17 15:05" pubdate>
+          2024年2月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          682 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
 
 
-	
-    <span class="leancloud_likes" id="/2024/02/17/VNCTF%202024/_likes" data-url="/2024/02/17/VNCTF%202024/" data-title="VNCTF 2024" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
+        
+      </div>
 
-		</div>
+      
+    </div>
+  </div>
+</div>
 
-		<div class="article-content" id="article-content">
-			<h1 id="Checkin"><a href="#Checkin" class="headerlink" title="Checkin"></a>Checkin</h1><p>打转块小游戏奥，直接F12找game.js，里面有这么几行<br><img src="/img/VNCTF_2024/1.png" alt="图片.png"><br>很明显把中间两行放在控制台打出来就好了，<br><img src="/img/VNCTF_2024/2.png" alt="图片.png"></p>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">VNCTF 2024</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Checkin"><a href="#Checkin" class="headerlink" title="Checkin"></a>Checkin</h1><p>打转块小游戏奥，直接F12找game.js，里面有这么几行<br><img src="/img/VNCTF_2024/1.png" srcset="/img/loading.gif" lazyload alt="图片.png"><br>很明显把中间两行放在控制台打出来就好了，<br><img src="/img/VNCTF_2024/2.png" srcset="/img/loading.gif" lazyload alt="图片.png"></p>
 <p><strong>VNCTF{W31c0m3_t0_VNCTF_2024_g@od_J0B!!!!}</strong></p>
-<h1 id="TrySent"><a href="#TrySent" class="headerlink" title="TrySent"></a>TrySent</h1><p>thinkphp Sentcms去网上找相关漏洞，找到这么一篇文章：<br><a target="_blank" rel="noopener" href="https://blog.hanayuzu.top/articles/37dacab4">https://blog.hanayuzu.top/articles/37dacab4</a><br>是无需登录的任意文件上传漏洞，在&#x2F;admin&#x2F;upload&#x2F;upload页面抓包后，修改包为文章的内容，然后上传，进入<br><img src="/img/VNCTF_2024/3.png" alt="图片.png"></p>
-<p>这里面，就发现该页面变成phpinfo了，<br><img src="/img/VNCTF_2024/4.png" alt="图片.png"></p>
+<h1 id="TrySent"><a href="#TrySent" class="headerlink" title="TrySent"></a>TrySent</h1><p>thinkphp Sentcms去网上找相关漏洞，找到这么一篇文章：<br><a target="_blank" rel="noopener" href="https://blog.hanayuzu.top/articles/37dacab4">https://blog.hanayuzu.top/articles/37dacab4</a><br>是无需登录的任意文件上传漏洞，在&#x2F;admin&#x2F;upload&#x2F;upload页面抓包后，修改包为文章的内容，然后上传，进入<br><img src="/img/VNCTF_2024/3.png" srcset="/img/loading.gif" lazyload alt="图片.png"></p>
+<p>这里面，就发现该页面变成phpinfo了，<br><img src="/img/VNCTF_2024/4.png" srcset="/img/loading.gif" lazyload alt="图片.png"></p>
 <p><strong>vnctf{6f2f29dd-934f-4490-9054-6a6f11892a86}</strong></p>
-<h1 id="CutePath"><a href="#CutePath" class="headerlink" title="CutePath"></a>CutePath</h1><p>这道题是目录穿越，在url里加上&#x2F;#&#x2F;..&#x2F;即可到上一目录，<br><img src="/img/VNCTF_2024/5.png" alt="图片.png"><br>第二个文件明显是base64加密，拿去解密后，得到管理员密码，admin:gdgm.edu.cn@M1n9K1n9P@as<br>登录后继续穿越，&#x2F;#&#x2F;..&#x2F;..&#x2F;..&#x2F;&#x2F;flag&#x2F;flag在这个文件夹下找到flag.txt，但是我们没法下载，也打不开他，我们需要把他移动到网站根目录才能看见，<br>这里修改flag.txt名字为<br>..&#x2F;..&#x2F;..&#x2F;home&#x2F;ming&#x2F;share_main&#x2F;flag.txt<br>这样就可以在网站根目录下找到flag.txt，然后下载下来拿到flag。<br><strong>VNCTF{564e406840636b3156315f6764676d}</strong></p>
-<h1 id="codefever-again"><a href="#codefever-again" class="headerlink" title="codefever_again"></a>codefever_again</h1><p>这道题是需要在网上找源码的，我是运气好做出来的。<br><a target="_blank" rel="noopener" href="https://or4ngesec.github.io/post/xhlj-writeup-by-or4nge/#real-world-git">https://or4ngesec.github.io/post/xhlj-writeup-by-or4nge/#real-world-git</a><br>忘记密码的逻辑中，生成的验证码只跟邮箱和时间戳有关系，没有引入随机数，本地跑一下就能跑出来，然后利用这个验证码重置<a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#99;&#111;&#100;&#x65;&#x66;&#x65;&#118;&#x65;&#114;&#x2e;&#x63;&#110;">&#x72;&#x6f;&#111;&#x74;&#64;&#99;&#111;&#100;&#x65;&#x66;&#x65;&#118;&#x65;&#114;&#x2e;&#x63;&#110;</a>的密码。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// this function use to generated uuid</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">service</span>\<span class="title class_">Utility</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;TOTP_SALT&#x27;</span>, <span class="string">&#x27;codefever-salt&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TOTP</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">SALT</span> = <span class="string">&#x27;codefever_salt&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">TOTP_REFRESH_INTERVAL</span> = <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">TOTP_CHECK_WINDOW_MIN</span> = -<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">TOTP_CHECK_WINDOW_MAX</span> = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">PASSWORD_LENGTH</span> = <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">static</span> <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">hashInput</span> (<span class="params"><span class="keyword">string</span> <span class="variable">$input</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$salt</span> = <span class="built_in">self</span>::<span class="variable constant_">SALT</span>;</span><br><span class="line">        <span class="keyword">if</span> (TOTP_SALT) &#123;</span><br><span class="line">            <span class="variable">$salt</span> = TOTP_SALT;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$input</span> = <span class="variable">$input</span> ? <span class="variable">$input</span> : <span class="built_in">self</span>::<span class="variable constant_">SALT</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">hash</span>(<span class="string">&#x27;sha256&#x27;</span>, <span class="title function_ invoke__">md5</span>(<span class="variable">$input</span>) . <span class="title function_ invoke__">md5</span>(<span class="variable">$salt</span>), <span class="literal">FALSE</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">static</span> <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">genTotp</span> (<span class="params"><span class="keyword">string</span> <span class="variable">$hashedInput</span>, <span class="keyword">int</span> <span class="variable">$timestamp</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$sequence</span> = <span class="title function_ invoke__">floor</span>(<span class="variable">$timestamp</span> / <span class="number">30</span>);</span><br><span class="line">        <span class="variable">$code</span> = <span class="title function_ invoke__">hash_hmac</span>(<span class="string">&#x27;sha256&#x27;</span>, <span class="variable">$hashedInput</span> . <span class="title function_ invoke__">md5</span>(<span class="variable">$sequence</span>), <span class="title function_ invoke__">md5</span>(<span class="variable">$sequence</span>), <span class="literal">TRUE</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$finalValue</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="variable">$index</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="variable">$finalValue</span> += <span class="title function_ invoke__">ord</span>(<span class="variable">$code</span>[<span class="variable">$index</span>]);</span><br><span class="line">            <span class="variable">$finalValue</span> = <span class="variable">$finalValue</span> &lt;&lt; <span class="number">2</span>;</span><br><span class="line">            <span class="variable">$index</span>++;</span><br><span class="line">        &#125; <span class="keyword">while</span> (<span class="keyword">isset</span>(<span class="variable">$code</span>[<span class="variable">$index</span>]));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$finalValue</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">static</span> <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">trimTotp</span> (<span class="params"><span class="keyword">int</span> <span class="variable">$sourceTotp</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$trimedTotp</span> = <span class="variable">$sourceTotp</span> % <span class="title function_ invoke__">pow</span>(<span class="number">10</span>, <span class="built_in">self</span>::<span class="variable constant_">PASSWORD_LENGTH</span>);</span><br><span class="line">        <span class="variable">$format</span> = <span class="string">&quot;%&#x27;.0&quot;</span>. <span class="built_in">self</span>::<span class="variable constant_">PASSWORD_LENGTH</span> .<span class="string">&quot;u&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">sprintf</span>(<span class="variable">$format</span>, <span class="title function_ invoke__">abs</span>(<span class="variable">$trimedTotp</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">generate</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$input</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">self</span>::<span class="title function_ invoke__">trimTotp</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">genTotp</span>(<span class="built_in">self</span>::<span class="title function_ invoke__">hashInput</span>(<span class="variable">$input</span>), <span class="title function_ invoke__">time</span>()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$input</span>, <span class="keyword">string</span> <span class="variable">$code</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$hashedInput</span> = <span class="built_in">self</span>::<span class="title function_ invoke__">hashInput</span>(<span class="variable">$input</span>);</span><br><span class="line">        <span class="variable">$currentTime</span> = <span class="title function_ invoke__">time</span>();</span><br><span class="line">        <span class="keyword">for</span> (</span><br><span class="line">            <span class="variable">$windowIndex</span> = <span class="built_in">self</span>::<span class="variable constant_">TOTP_CHECK_WINDOW_MIN</span>;</span><br><span class="line">            <span class="variable">$windowIndex</span> &lt;= <span class="built_in">self</span>::<span class="variable constant_">TOTP_CHECK_WINDOW_MAX</span>;</span><br><span class="line">            <span class="variable">$windowIndex</span>++</span><br><span class="line">        ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (</span><br><span class="line">                <span class="variable">$code</span> === <span class="built_in">self</span>::<span class="title function_ invoke__">trimTotp</span>(</span><br><span class="line">                    <span class="built_in">self</span>::<span class="title function_ invoke__">genTotp</span>(</span><br><span class="line">                        <span class="variable">$hashedInput</span>, </span><br><span class="line">                        <span class="variable">$currentTime</span> + (<span class="variable">$windowIndex</span> * <span class="built_in">self</span>::<span class="variable constant_">TOTP_REFRESH_INTERVAL</span>)</span><br><span class="line">                    )</span><br><span class="line">                )</span><br><span class="line">            ) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">TRUE</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">FALSE</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$email</span> = <span class="string">&#x27;root@codefever.cn&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> TOTP::<span class="title function_ invoke__">generate</span>(<span class="variable">$email</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>重置密码后，就可以以管理员的身份登录进去，<br><a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#x63;&#x6f;&#x64;&#x65;&#x66;&#101;&#x76;&#101;&#114;&#x2e;&#x63;&#x6e;">&#x72;&#111;&#111;&#116;&#64;&#x63;&#x6f;&#x64;&#x65;&#x66;&#101;&#x76;&#101;&#114;&#x2e;&#x63;&#x6e;</a>这是管理员账户。登录进去后<br><img src="/img/VNCTF_2024/6.png" alt="图片.png"></p>
-<p><img src="/img/VNCTF_2024/7.png" alt="图片.png"><br><img src="/img/VNCTF_2024/8.png" alt="图片.png"><br>把生成的密码记下来。然后登录<br><img src="/img/VNCTF_2024/9.png" alt="图片.png"><br><img src="/img/VNCTF_2024/10.png" alt="图片.png"><br>修改邮箱来反弹shell，保存后服务器开启监听，然后进入主界面，拿到flag<br><strong>VNCTF{C0de_F3eve!_i3nt_so_H4rd!ri9ht?}</strong></p>
-<p>剩下的题做不来了，还是挺难的QWQ<br><img src="/img/VNCTF_2024/11.png" alt="图片.png"></p>
-	
-		</div>
-		
-		<div id="current-post-cover" data-scr="/img/background/27.jpg"></div>
-
-		<!-- relate post, comment...-->
-		<div class="investment-container">
-			<div class="investment-header">
-				<div class="investment-title-1">
-					<div class="on">相关文章</div>
-					<div>评论</div>
-					<div>分享</div>
-				</div>
-				<div class="investment-title-2">	            
-					
-	<span>
-		<a id="totop-post-page">返回顶部</a>
-		
-			<a href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-
-
-      		
-				</div>	
-			</div>
-			
-			<div class="investment-content">
-				<div class="investment-content-list">
-					
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">
-								第八届西湖论剑初赛web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2025				
-							</p>
-							<p class="relate-post-content">
-								Rank-l
-可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302
-过滤了空格，用request.args.aaa可以参数逃逸。
-1phone_number=&#123;&#123;url_for.__global...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/xhlj8/XHLJ8.png" alt="第八届西湖论剑初赛web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
-								SUCTF 2025 WEB部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 14日, 2025				
-							</p>
-							<p class="relate-post-content">
-								SU_photogallery
-尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
-								2024鹏城杯web全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2024				
-							</p>
-							<p class="relate-post-content">
-								python口算-pcb2024123456789101112131415161718192021222324import requestsimport reurl = &quot;http://192.168.18.28&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/5.jpg" alt="2024鹏城杯web全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">
-								强网杯2024			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2024				
-							</p>
-							<p class="relate-post-content">
-								PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字，
-1234if check_for_blacklisted_symbols(block[&#x27;fields&#x27;][&#x27;TEXT&#x27;]...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" title="强网杯2024">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/qwb2024/qwb2024.png" alt="强网杯2024"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">
-								ByteCTF2024大师赛web部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 21日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezobj源码：
-12345678910111213141516171819&lt;?phpini_set(&quot;display_errors&quot;, &quot;On&quot;);include_once(&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024bytectf/bytectf.png" alt="ByteCTF2024大师赛web部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
-								第四届长城杯web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 8日, 2024				
-							</p>
-							<p class="relate-post-content">
-								WEB
-SQLUS
-
-
-
-猜测账户是admin密码是任意一个字符
-登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
-
-
-
-在头像前端看到了上传路径
-
-
-flag没有权...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
-								NepCTF2024部分web			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
-12if os.path.islink(new_file):    return &...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
-								2024第七届巅峰极客部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
-								2024春秋杯部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								七月 6日, 2024				
-							</p>
-							<p class="relate-post-content">
-								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
-
-一眼ssti模版注入，
-1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
-	
-</div>	
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-
-	(function gitalkComment(){
-		//Thanks O-R
-		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-		//去除尾部匹配正则数组的字符串  
-		//Remove redundant characters
-		String.prototype.trimEnd = function(regStr) {
-			let result = this;
-			if(regStr == undefined || regStr == null || regStr == "") {
-				return result;
-			}
-			let array = regStr.split(',');
-
-			if(array.length > 0) {
-
-				let c = array.shift(), 
-					str = this,
-					i = str.length,
-					rg = new RegExp(c),
-					matchArr = str.match(rg);
-
-				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-					matchStr = matchStr + '$';
-					result = str.replace(new RegExp(matchStr), "");
-				}
-
-				if(array.length > 0) {
-					return result.trimEnd(array.join())
-				} else {
-					return result;
-				}
-			}
-		};
-
-		//Create gitalk
-		let gitalk = new Gitalk({
-			clientID: '333--',
-			clientSecret: '333--',
-			//id: window.location.pathname,
-			//id: decodeURI(window.location.pathname),
-			//id: (window.location.pathname).split("/").pop().substring(0, 49),
-			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-			repo: 'annie-gitalk',
-			owner: 'Sariay',
-			admin: 'Sariay',
-			distractionFreeMode: 'true',
-		})
-		gitalk.render('gitalk-container');		
-	})();
-</script>
-
-		
-		
-	
-
-</div>
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
-
-
-				</div>
-			</div>	
-		</div>
-	</div>
-</div>
-
-<!-- show math formula -->
-
-
-
-	 
-	
-<script src="/plugin/clipboard/clipboard.js"></script>
-
-	<script>
-		// Copy code !
-	    function preprocessing() {
-	        $("#article-content .highlight").each(function() {
-	            $(this).wrap('<div id="post-code"></div>');
-	        })
-
-	        $("#article-content #post-code").each(function() {
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            let languageClass = $(this).next().attr('class'),
-	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-	            $(this).append('<span class="copy-btn icon-paste"></span>');
-	        });
-	    }
-
-		function copy() {
-		    $('#article-content #post-code').each(function(i) {
-		        let codeCopyId = 'codeCopy-' + i;
-
-		        let codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-   
-			let clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn icon-clipboard1');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn icon-paste');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');   
-			});
-			
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		}
-		
-		(function copyCode(){
-			if ($('.layout-post').length) {
-			    preprocessing();
-			    copy();
-			} 
-		})();
-	</script>
-
-
-
-
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-
-<script type="text/javascript">
-	(function gallerySet(){
-		let titleID = $('.article-title a'),
-			imageID = $('.article-content img'),
-			videoID = $('.article-content video');
-		
-		let postTitle = titleID.text() ? titleID.text() : "No post title!";
-		
-		imageID.each(function() {
-			let imgPath = $(this).attr('src'),
-				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
-		});
-		
-		videoID.each(function() {
-			let videoPath = $(this).attr('src');
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-		});
-		
-		//TODO：支持html5 video
-
-		if($('#layout-post').length) {
-			$('[data-fancybox="gallery"]').fancybox({
-				loop: true,
-				buttons: [
-					"zoom",
-					"share",
-					"slideShow",
-					"fullScreen",
-					//"download",
-					"thumbs",
-					"close"
-				],
-				protect: true
-			});
-		}
-	})();
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
+<h1 id="CutePath"><a href="#CutePath" class="headerlink" title="CutePath"></a>CutePath</h1><p>这道题是目录穿越，在url里加上&#x2F;#&#x2F;..&#x2F;即可到上一目录，<br><img src="/img/VNCTF_2024/5.png" srcset="/img/loading.gif" lazyload alt="图片.png"><br>第二个文件明显是base64加密，拿去解密后，得到管理员密码，admin:gdgm.edu.cn@M1n9K1n9P@as<br>登录后继续穿越，&#x2F;#&#x2F;..&#x2F;..&#x2F;..&#x2F;&#x2F;flag&#x2F;flag在这个文件夹下找到flag.txt，但是我们没法下载，也打不开他，我们需要把他移动到网站根目录才能看见，<br>这里修改flag.txt名字为<br>..&#x2F;..&#x2F;..&#x2F;home&#x2F;ming&#x2F;share_main&#x2F;flag.txt<br>这样就可以在网站根目录下找到flag.txt，然后下载下来拿到flag。<br><strong>VNCTF{564e406840636b3156315f6764676d}</strong></p>
+<h1 id="codefever-again"><a href="#codefever-again" class="headerlink" title="codefever_again"></a>codefever_again</h1><p>这道题是需要在网上找源码的，我是运气好做出来的。<br><a target="_blank" rel="noopener" href="https://or4ngesec.github.io/post/xhlj-writeup-by-or4nge/#real-world-git">https://or4ngesec.github.io/post/xhlj-writeup-by-or4nge/#real-world-git</a><br>忘记密码的逻辑中，生成的验证码只跟邮箱和时间戳有关系，没有引入随机数，本地跑一下就能跑出来，然后利用这个验证码重置<a href="mailto:&#114;&#111;&#111;&#116;&#x40;&#x63;&#x6f;&#100;&#x65;&#102;&#x65;&#x76;&#101;&#x72;&#46;&#99;&#110;">&#114;&#111;&#111;&#116;&#x40;&#x63;&#x6f;&#100;&#x65;&#102;&#x65;&#x76;&#101;&#x72;&#46;&#99;&#110;</a>的密码。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-comment">// this function use to generated uuid</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title class_">service</span>\<span class="hljs-title class_">Utility</span>;<br><br><span class="hljs-title function_ invoke__">define</span>(<span class="hljs-string">&#x27;TOTP_SALT&#x27;</span>, <span class="hljs-string">&#x27;codefever-salt&#x27;</span>);<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TOTP</span> </span>&#123;<br><br>    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">SALT</span> = <span class="hljs-string">&#x27;codefever_salt&#x27;</span>;<br>    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">TOTP_REFRESH_INTERVAL</span> = <span class="hljs-number">30</span>;<br>    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">TOTP_CHECK_WINDOW_MIN</span> = -<span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">TOTP_CHECK_WINDOW_MAX</span> = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">PASSWORD_LENGTH</span> = <span class="hljs-number">6</span>;<br><br>    <span class="hljs-built_in">static</span> <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hashInput</span> (<span class="hljs-params"><span class="hljs-keyword">string</span> <span class="hljs-variable">$input</span></span>) </span>&#123;<br>        <span class="hljs-variable">$salt</span> = <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">SALT</span>;<br>        <span class="hljs-keyword">if</span> (TOTP_SALT) &#123;<br>            <span class="hljs-variable">$salt</span> = TOTP_SALT;<br>        &#125;<br><br>        <span class="hljs-variable">$input</span> = <span class="hljs-variable">$input</span> ? <span class="hljs-variable">$input</span> : <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">SALT</span>;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">hash</span>(<span class="hljs-string">&#x27;sha256&#x27;</span>, <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$input</span>) . <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$salt</span>), <span class="hljs-literal">FALSE</span>);<br>    &#125;<br><br>    <span class="hljs-built_in">static</span> <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">genTotp</span> (<span class="hljs-params"><span class="hljs-keyword">string</span> <span class="hljs-variable">$hashedInput</span>, <span class="hljs-keyword">int</span> <span class="hljs-variable">$timestamp</span></span>) </span>&#123;<br>        <span class="hljs-variable">$sequence</span> = <span class="hljs-title function_ invoke__">floor</span>(<span class="hljs-variable">$timestamp</span> / <span class="hljs-number">30</span>);<br>        <span class="hljs-variable">$code</span> = <span class="hljs-title function_ invoke__">hash_hmac</span>(<span class="hljs-string">&#x27;sha256&#x27;</span>, <span class="hljs-variable">$hashedInput</span> . <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$sequence</span>), <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$sequence</span>), <span class="hljs-literal">TRUE</span>);<br><br>        <span class="hljs-variable">$finalValue</span> = <span class="hljs-number">0</span>;<br>        <span class="hljs-variable">$index</span> = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">do</span> &#123;<br>            <span class="hljs-variable">$finalValue</span> += <span class="hljs-title function_ invoke__">ord</span>(<span class="hljs-variable">$code</span>[<span class="hljs-variable">$index</span>]);<br>            <span class="hljs-variable">$finalValue</span> = <span class="hljs-variable">$finalValue</span> &lt;&lt; <span class="hljs-number">2</span>;<br>            <span class="hljs-variable">$index</span>++;<br>        &#125; <span class="hljs-keyword">while</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$code</span>[<span class="hljs-variable">$index</span>]));<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$finalValue</span>;<br>    &#125;<br><br>    <span class="hljs-built_in">static</span> <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">trimTotp</span> (<span class="hljs-params"><span class="hljs-keyword">int</span> <span class="hljs-variable">$sourceTotp</span></span>) </span>&#123;<br>        <span class="hljs-variable">$trimedTotp</span> = <span class="hljs-variable">$sourceTotp</span> % <span class="hljs-title function_ invoke__">pow</span>(<span class="hljs-number">10</span>, <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">PASSWORD_LENGTH</span>);<br>        <span class="hljs-variable">$format</span> = <span class="hljs-string">&quot;%&#x27;.0&quot;</span>. <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">PASSWORD_LENGTH</span> .<span class="hljs-string">&quot;u&quot;</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">sprintf</span>(<span class="hljs-variable">$format</span>, <span class="hljs-title function_ invoke__">abs</span>(<span class="hljs-variable">$trimedTotp</span>));<br>    &#125;<br><br><br>    <span class="hljs-built_in">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">generate</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> <span class="hljs-variable">$input</span></span>) </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">self</span>::<span class="hljs-title function_ invoke__">trimTotp</span>(<span class="hljs-built_in">self</span>::<span class="hljs-title function_ invoke__">genTotp</span>(<span class="hljs-built_in">self</span>::<span class="hljs-title function_ invoke__">hashInput</span>(<span class="hljs-variable">$input</span>), <span class="hljs-title function_ invoke__">time</span>()));<br>    &#125;<br><br>    <span class="hljs-built_in">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">check</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> <span class="hljs-variable">$input</span>, <span class="hljs-keyword">string</span> <span class="hljs-variable">$code</span></span>) </span>&#123;<br>        <span class="hljs-variable">$hashedInput</span> = <span class="hljs-built_in">self</span>::<span class="hljs-title function_ invoke__">hashInput</span>(<span class="hljs-variable">$input</span>);<br>        <span class="hljs-variable">$currentTime</span> = <span class="hljs-title function_ invoke__">time</span>();<br>        <span class="hljs-keyword">for</span> (<br>            <span class="hljs-variable">$windowIndex</span> = <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">TOTP_CHECK_WINDOW_MIN</span>;<br>            <span class="hljs-variable">$windowIndex</span> &lt;= <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">TOTP_CHECK_WINDOW_MAX</span>;<br>            <span class="hljs-variable">$windowIndex</span>++<br>        ) &#123;<br>            <span class="hljs-keyword">if</span> (<br>                <span class="hljs-variable">$code</span> === <span class="hljs-built_in">self</span>::<span class="hljs-title function_ invoke__">trimTotp</span>(<br>                    <span class="hljs-built_in">self</span>::<span class="hljs-title function_ invoke__">genTotp</span>(<br>                        <span class="hljs-variable">$hashedInput</span>, <br>                        <span class="hljs-variable">$currentTime</span> + (<span class="hljs-variable">$windowIndex</span> * <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">TOTP_REFRESH_INTERVAL</span>)<br>                    )<br>                )<br>            ) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">TRUE</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">FALSE</span>;<br>    &#125;<br>&#125;<br><span class="hljs-variable">$email</span> = <span class="hljs-string">&#x27;root@codefever.cn&#x27;</span>;<br><span class="hljs-keyword">echo</span> TOTP::<span class="hljs-title function_ invoke__">generate</span>(<span class="hljs-variable">$email</span>);<br><br></code></pre></td></tr></table></figure>
+
+<p>重置密码后，就可以以管理员的身份登录进去，<br><a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#99;&#x6f;&#100;&#101;&#102;&#101;&#118;&#101;&#x72;&#x2e;&#x63;&#110;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#99;&#x6f;&#100;&#101;&#102;&#101;&#118;&#101;&#x72;&#x2e;&#x63;&#110;</a>这是管理员账户。登录进去后<br><img src="/img/VNCTF_2024/6.png" srcset="/img/loading.gif" lazyload alt="图片.png"></p>
+<p><img src="/img/VNCTF_2024/7.png" srcset="/img/loading.gif" lazyload alt="图片.png"><br><img src="/img/VNCTF_2024/8.png" srcset="/img/loading.gif" lazyload alt="图片.png"><br>把生成的密码记下来。然后登录<br><img src="/img/VNCTF_2024/9.png" srcset="/img/loading.gif" lazyload alt="图片.png"><br><img src="/img/VNCTF_2024/10.png" srcset="/img/loading.gif" lazyload alt="图片.png"><br>修改邮箱来反弹shell，保存后服务器开启监听，然后进入主界面，拿到flag<br><strong>VNCTF{C0de_F3eve!_i3nt_so_H4rd!ri9ht?}</strong></p>
+<p>剩下的题做不来了，还是挺难的QWQ<br><img src="/img/VNCTF_2024/11.png" srcset="/img/loading.gif" lazyload alt="图片.png"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
 
 
-	
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>VNCTF 2024</div>
+      <div>http://example.com/2024/02/17/VNCTF 2024/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SICTF Round#3</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3">
+                        <span class="hidden-mobile">Hgame 2024 week 3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
   
 
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  
 
-	</body>	
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

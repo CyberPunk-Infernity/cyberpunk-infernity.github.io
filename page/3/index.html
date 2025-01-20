@@ -1,941 +1,1063 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="Infernity的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Infernity&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="Infernity的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Infernity">
+<meta name="twitter:card" content="summary_large_image">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
+  <header>
+    
 
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
 
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-	<!-- Page title -->
-	<p>
-		
-			主页
-		
-	</p>
-
-	
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 </nav>
-			
-		<!--main-->
-		<main>
-			
-
-
-
-	<!--cart style-->
-	<div class="layout-cart">
-	<div id="layout-cart">
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" title=" JAVA反序列化——CC3链 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						四月 17日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" title="JAVA反序列化——CC3链">							
-							
-	<a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" itemprop="url">
-		JAVA反序列化——CC3链
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							这条链是利用动态类加载来经行代码执行。
-原理根据java类的动态加载原理，我们知道动态类加载可以通过ClassLoader来完成。而其中有个ClassLo...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/_visitors" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" data-title="JAVA反序列化——CC3链">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/_likes" data-url="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" data-title="JAVA反序列化——CC3链" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title=" JAVA反序列化——CC6链 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						四月 10日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链">							
-							
-	<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" itemprop="url">
-		JAVA反序列化——CC6链
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							CC6链其实就是URLDNS链的前半加上CC1链的后半。
-
-链子构建入口类跟CC1链完全一致，这里不再赘述。
-在找哪里调用了ChainedTransfor...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/_visitors" data-url="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" data-title="JAVA反序列化——CC6链">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/_likes" data-url="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" data-title="JAVA反序列化——CC6链" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/04/09/XYCTF2024/" title=" XYCTF2024 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						四月 9日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024">							
-							
-	<a href="/2024/04/09/XYCTF2024/" itemprop="url">
-		XYCTF2024
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							ezhttp打开是登录页面，先看源码，源码提示：
-1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;
-
-第一反应是robots.tx...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/04/09/XYCTF2024/_visitors" data-url="/2024/04/09/XYCTF2024/" data-title="XYCTF2024">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/04/09/XYCTF2024/_likes" data-url="/2024/04/09/XYCTF2024/" data-title="XYCTF2024" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title=" JAVA反序列化——CC1链 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						四月 2日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">							
-							
-	<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" itemprop="url">
-		JAVA反序列化——CC1链
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。
-cc1链要求java版本小于jdk8u71
-我这里用的J...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_visitors" data-url="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_likes" data-url="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title=" java反序列化——URLDNS链 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						三月 29日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">							
-							
-	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
-		java反序列化——URLDNS链
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。
-
-而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_visitors" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_likes" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/03/25/NKCTF2024/" title=" NKCTF2024 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/background/4.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						三月 25日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024">							
-							
-	<a href="/2024/03/25/NKCTF2024/" itemprop="url">
-		NKCTF2024
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							my first cmshttps://avd.aliyun.com/detail?id=AVD-2024-27622
-弱口令登录
-username : ...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/03/25/NKCTF2024/_visitors" data-url="/2024/03/25/NKCTF2024/" data-title="NKCTF2024">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/03/25/NKCTF2024/_likes" data-url="/2024/03/25/NKCTF2024/" data-title="NKCTF2024" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/03/19/DubheCTF-2024/" title=" DubheCTF_2024 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/background/28.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						三月 19日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/03/19/DubheCTF-2024/" title="DubheCTF_2024">							
-							
-	<a href="/2024/03/19/DubheCTF-2024/" itemprop="url">
-		DubheCTF_2024
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							师傅们太强了，跟师傅们打比赛能学到很多东西，我就作出来一个最简单的题&#x3D;-&#x3D;
-Master of Profile参考链接：https:/...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/03/19/DubheCTF-2024/_visitors" data-url="/2024/03/19/DubheCTF-2024/" data-title="DubheCTF_2024">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/03/19/DubheCTF-2024/_likes" data-url="/2024/03/19/DubheCTF-2024/" data-title="DubheCTF_2024" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title=" 青少年ctf 2024 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/background/3.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						二月 29日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">							
-							
-	<a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" itemprop="url">
-		青少年ctf 2024
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							by:Infernity
-Easy md5需要我们上传两个md5相同的PDF文件。
-新建一个空白PDF文件，拖到fastcoll里得到另外两个pdf文件，...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/_visitors" data-url="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" data-title="青少年ctf 2024">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/_likes" data-url="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" data-title="青少年ctf 2024" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/02/20/Hgame-2024-week-4/" title=" Hgame 2024 week 4 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						二月 20日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/02/20/Hgame-2024-week-4/" title="Hgame 2024 week 4">							
-							
-	<a href="/2024/02/20/Hgame-2024-week-4/" itemprop="url">
-		Hgame 2024 week 4
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							by:Infernity
-Reverse and Escalation.一个find提权闹麻了
-这道题是ActiveMQ Jolokia 后台代码执行漏洞...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/02/20/Hgame-2024-week-4/_visitors" data-url="/2024/02/20/Hgame-2024-week-4/" data-title="Hgame 2024 week 4">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/02/20/Hgame-2024-week-4/_likes" data-url="/2024/02/20/Hgame-2024-week-4/" data-title="Hgame 2024 week 4" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-			<div class="post" id="post">
-				<a class="post-cover" href="/2024/02/17/SICTF-Round3/" title=" SICTF Round#3 " target="_blank">
-					
-					<img class="lazy" src="/img/lazy.gif" data-src="/img/background/2.jpg"/>
-				</a>
-
-				<div class="post-text">
-					<p class="post-time">
-						二月 17日, 2024
-					</p>	
-					<h3 class="post-title" id="post-title-index">
-						<a href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">							
-							
-	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
-		SICTF Round#3
-	</a>
-
-						</a>
-					</h3>
-					<p class="post-content">
-						
-							by:Infernity
-100％_upload可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.u...
-						
-					</p>
-					<p class="post-meta">
-						
-
-	
-    <span class="leancloud_visitors" id="/2024/02/17/SICTF-Round3/_visitors" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-                   
-    </span>
-    
-
-
-
-	
-    <span class="leancloud_likes" id="/2024/02/17/SICTF-Round3/_likes" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
-
-					</p>
-				</div>
-			</div>
-		
-	</div>
-	
-	
-	<div id="pagination">
-		
-			<a href="/page/4/" data-title="加载更多" data-status="没有了">加载更多</a>
-		
-	</div>
-
-	
-
-</div>
-	
-
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_site_pv">
-	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
-		</span>
-
-		<span id="busuanzi_container_site_uv">
-	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
-		</span>
-		
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-  
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
-
-
-	
 
   
 
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="愿有人陪你颠沛流离"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" target="_self">
+          <img src="/img/computer.jpg" srcset="/img/loading.gif" lazyload alt="JAVA反序列化——CC3链">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" target="_self">
+          JAVA反序列化——CC3链
+        </a>
+      </h2>
 
-	</body>	
+      
+      <a class="index-excerpt " href="/2024/04/17/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC3%E9%93%BE/" target="_self">
+        <div>
+          这条链是利用动态类加载来经行代码执行。 原理根据java类的动态加载原理，我们知道动态类加载可以通过ClassLoader来完成。而其中有个ClassLoader.defineClass可以从字节码加载任意类。 因为是动态类加载，我们先编写一个class类，以便后续我们加载这个类代码执行。 1234567891011import java.io.IOException;public class r
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-17 13:25" pubdate>
+              2024-04-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JAVA/">#JAVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" target="_self">
+          <img src="/img/computer.jpg" srcset="/img/loading.gif" lazyload alt="JAVA反序列化——CC6链">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" target="_self">
+          JAVA反序列化——CC6链
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" target="_self">
+        <div>
+          CC6链其实就是URLDNS链的前半加上CC1链的后半。  链子构建入口类跟CC1链完全一致，这里不再赘述。 在找哪里调用了ChainedTransformer.transform方法时，CC1链是找到了TransformedMap类。而这里是选择了LazyMap类里的get方法。  12345678public Object get(Object key) &#123;    if (map.c
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-10 10:13" pubdate>
+              2024-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JAVA/">#JAVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/09/XYCTF2024/" target="_self">
+          <img src="/img/background/2.jpg" srcset="/img/loading.gif" lazyload alt="XYCTF2024">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/09/XYCTF2024/" target="_self">
+          XYCTF2024
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/09/XYCTF2024/" target="_self">
+        <div>
+          ezhttp打开是登录页面，先看源码，源码提示： 1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;  第一反应是robots.txt，进去看看。  得到&#x2F;l0g1n.txt，进入得到帐号密码： 12username: XYCTFpassword: @JOILha!wuigqi123$  登录后，开始正常修改http请求头，先抓个包， 123提示：不是 yuansh
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-09 19:45" pubdate>
+              2024-04-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WPs/">#WPs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" target="_self">
+          <img src="/img/computer.jpg" srcset="/img/loading.gif" lazyload alt="JAVA反序列化——CC1链">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" target="_self">
+          JAVA反序列化——CC1链
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" target="_self">
+        <div>
+          前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。 cc1链要求java版本小于jdk8u71 我这里用的JDK版本是8u66 因为在高版本这条链子最后的annotationInvocationHandler类readObject之后，memberValues小版本有值，高版本是空 依赖工欲善其事，必先利其器关于apache commons colle
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-02 19:31" pubdate>
+              2024-04-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JAVA/">#JAVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" target="_self">
+          <img src="/img/computer.jpg" srcset="/img/loading.gif" lazyload alt="java反序列化——URLDNS链">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" target="_self">
+          java反序列化——URLDNS链
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" target="_self">
+        <div>
+          原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。  而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：   而在这个方法里，会执行getHostAddress方法，这是根据域名解析IP地址的函数。  结合DNS的相关知识，也就是说只要走到这个函数，就一定会发出DNS请求。 同样的
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-29 14:01" pubdate>
+              2024-03-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JAVA/">#JAVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/03/25/NKCTF2024/" target="_self">
+          <img src="/img/background/4.jpg" srcset="/img/loading.gif" lazyload alt="NKCTF2024">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/03/25/NKCTF2024/" target="_self">
+          NKCTF2024
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/03/25/NKCTF2024/" target="_self">
+        <div>
+          my first cmshttps://avd.aliyun.com/detail?id=AVD-2024-27622 弱口令登录 username : admin password : Admin123 登录进去后：  全世界最简单的CTF给了&#x2F;secret源码 12345678910111213141516171819202122232425262728293031323334353
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-25 16:19" pubdate>
+              2024-03-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WPs/">#WPs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/03/19/DubheCTF-2024/" target="_self">
+          <img src="/img/background/28.jpg" srcset="/img/loading.gif" lazyload alt="DubheCTF_2024">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/03/19/DubheCTF-2024/" target="_self">
+          DubheCTF_2024
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/03/19/DubheCTF-2024/" target="_self">
+        <div>
+          师傅们太强了，跟师傅们打比赛能学到很多东西，我就作出来一个最简单的题&#x3D;-&#x3D; Master of Profile参考链接：https://cn-sec.com/archives/2105254.html想读配置文件，这道题api_mode是flase，readConf首先没法，if语句无法控制。在审代码，如果要rce，必须得拿到token，token在config里，我在找如何能
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-19 10:13" pubdate>
+              2024-03-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WPs/">#WPs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" target="_self">
+          <img src="/img/background/3.jpg" srcset="/img/loading.gif" lazyload alt="青少年ctf 2024">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" target="_self">
+          青少年ctf 2024
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" target="_self">
+        <div>
+          by:Infernity Easy md5需要我们上传两个md5相同的PDF文件。 新建一个空白PDF文件，拖到fastcoll里得到另外两个pdf文件，上传进去得到flag。 php的后门是php 8.1dev版本漏洞 https://cloud.tencent.com/developer/article/1839234  PHP的XXEhttps://github.com/vulhub/vul
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-29 15:44" pubdate>
+              2024-02-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WPs/">#WPs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/02/20/Hgame-2024-week-4/" target="_self">
+          <img src="/img/Hgame_2024/HgameCTF2024.png" srcset="/img/loading.gif" lazyload alt="Hgame 2024 week 4">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/20/Hgame-2024-week-4/" target="_self">
+          Hgame 2024 week 4
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/02/20/Hgame-2024-week-4/" target="_self">
+        <div>
+          by:Infernity Reverse and Escalation.一个find提权闹麻了 这道题是ActiveMQ Jolokia 后台代码执行漏洞 https://blog.csdn.net/huangyongkang666/article/details/134814554 去github上下载一个poc  然后打入命令 1python3 poc.py -u admin -p admin
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-20 16:19" pubdate>
+              2024-02-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WPs/">#WPs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/02/17/SICTF-Round3/" target="_self">
+          <img src="/img/background/2.jpg" srcset="/img/loading.gif" lazyload alt="SICTF Round#3">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/02/17/SICTF-Round3/" target="_self">
+          SICTF Round#3
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/02/17/SICTF-Round3/" target="_self">
+        <div>
+          by:Infernity 100％_upload可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.user.ini没过滤，就一直围绕这个想办法，结果……  打开题目，很明显的提示，index.php里有Include函数，那么我们直接上传一个jpg马，然后包含他就出来了。  SICTF{ea391e30-b67e-4a5d-97ca-7c00f
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-17 16:19" pubdate>
+              2024-02-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WPs/">#WPs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>

