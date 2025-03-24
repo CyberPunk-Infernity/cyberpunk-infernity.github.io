@@ -241,6 +241,140 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" target="_self">
+          <img src="/img/computer.jpg" srcset="/img/loading.gif" lazyload alt="JAVA反序列化——CC1链">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" target="_self">
+          JAVA反序列化——CC1链
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" target="_self">
+        <div>
+          前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。 cc1链要求java版本小于jdk8u71 我这里用的JDK版本是8u66 因为在高版本这条链子最后的annotationInvocationHandler类readObject之后，memberValues小版本有值，高版本是空 依赖工欲善其事，必先利其器关于apache commons colle
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-02 19:31" pubdate>
+              2024-04-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JAVA/">#JAVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" target="_self">
+          <img src="/img/computer.jpg" srcset="/img/loading.gif" lazyload alt="java反序列化——URLDNS链">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" target="_self">
+          java反序列化——URLDNS链
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" target="_self">
+        <div>
+          原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。  而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：   而在这个方法里，会执行getHostAddress方法，这是根据域名解析IP地址的函数。  结合DNS的相关知识，也就是说只要走到这个函数，就一定会发出DNS请求。 同样的
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-29 14:01" pubdate>
+              2024-03-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JAVA/">#JAVA</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2024/03/25/NKCTF2024/" target="_self">
           <img src="/img/background/4.jpg" srcset="/img/loading.gif" lazyload alt="NKCTF2024">
         </a>
@@ -736,140 +870,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2024-02-06 16:19" pubdate>
               2024-02-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/WPs/">#WPs</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2024/02/05/Begin-CTF-2024/" target="_self">
-          <img src="/img/background/1.jpg" srcset="/img/loading.gif" lazyload alt="Begin CTF 2024">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/02/05/Begin-CTF-2024/" target="_self">
-          Begin CTF 2024
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2024/02/05/Begin-CTF-2024/" target="_self">
-        <div>
-          by:Infernity zupload给了源码，看下index.php 1234567891011121314&lt;?php  error_reporting(0);if ($_SERVER[&#x27;REQUEST_METHOD&#x27;] == &#x27;GET&#x27;) &#123;     //判断是否是GET方法  if (!isset($_GET[&#x27;action
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-05 15:44" pubdate>
-              2024-02-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/WPs/" class="category-chain-item">WPs</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/WPs/">#WPs</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2024/01/31/Hgame%202024%20week%201/" target="_self">
-          <img src="/img/Hgame_2024/HgameCTF2024.png" srcset="/img/loading.gif" lazyload alt="Hgame 2024 week 1">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/01/31/Hgame%202024%20week%201/" target="_self">
-          Hgame 2024 week 1
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2024/01/31/Hgame%202024%20week%201/" target="_self">
-        <div>
-          by:Infernity ezHTTP请从vidar.club访问这个页面 在请求头中插入 referer:vidar.club 请通过Mozilla&#x2F;5.0 (Vidar; VidarOS x86_64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;121.0.0.0 Safari&#x2F;537.36 Edg&#x
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-01-31 15:19" pubdate>
-              2024-01-31
             </time>
           </div>
         
