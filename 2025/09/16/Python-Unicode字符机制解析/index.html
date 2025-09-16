@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言在查阅一些师傅的文章后，我发现很多师傅的文章都把 python 的 Unicode 字符解析机制与 flask 或 bottle 等 Web 框架联系在一起。其实不然，这反而是 python 本身的一种特性。这一特性对Web手们可能很熟悉，但是对于其他人，甚至 python 开发者，甚至 ai 都不是很清楚。   那么我就在这篇文章中简单探求一下python这个小特性的背后原理。 问题引入猜猜">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python_Unicode字符机制解析">
+<meta property="og:url" content="http://example.com/2025/09/16/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="前言在查阅一些师傅的文章后，我发现很多师傅的文章都把 python 的 Unicode 字符解析机制与 flask 或 bottle 等 Web 框架联系在一起。其实不然，这反而是 python 本身的一种特性。这一特性对Web手们可能很熟悉，但是对于其他人，甚至 python 开发者，甚至 ai 都不是很清楚。   那么我就在这篇文章中简单探求一下python这个小特性的背后原理。 问题引入猜猜">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/python.png">
+<meta property="article:published_time" content="2025-09-16T11:05:43.000Z">
+<meta property="article:modified_time" content="2025-09-16T12:14:47.917Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="others">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/python.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Python_Unicode字符机制解析 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Python_Unicode字符机制解析</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-09-16 19:05" pubdate>
+          2025年9月16日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python_Unicode字符机制解析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在查阅一些师傅的文章后，我发现很多师傅的文章都把 python 的 Unicode 字符解析机制与 flask 或 bottle 等 Web 框架联系在一起。其实不然，这反而是 python 本身的一种特性。这一特性对Web手们可能很熟悉，但是对于其他人，甚至 python 开发者，甚至 ai 都不是很清楚。</p>
+<p><img src="/img/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/image-20250916191838810.png" srcset="/img/loading.gif" lazyload alt="image-20250916191838810"></p>
+<p><img src="/img/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/image-20250916191926097.png" srcset="/img/loading.gif" lazyload alt="image-20250916191926097"></p>
+<p>那么我就在这篇文章中简单探求一下python这个小特性的背后原理。</p>
+<h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>猜猜这四行python代码会输出些什么？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;ᵖrint&quot;</span> == <span class="hljs-string">&quot;print&quot;</span>)<br>ᵖrint(<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(ᵖrint <span class="hljs-keyword">is</span> <span class="hljs-built_in">print</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(ᵖrint))<br></code></pre></td></tr></table></figure>
+
+<p>他们输出了：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-literal">False</span><br><span class="hljs-number">1</span><br><span class="hljs-literal">True</span><br>&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;builtin_function_or_method&#x27;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>没错，即使肉眼上看上去不同，python在字符串比较上也能知道<code>ᵖrint</code>和<code>print</code>是不同的。但是<code>ᵖrint</code>在作为函数使用时、在判断 <code>print</code> 函数是否与其是同一个对象时、在查询其类型时，都与python的内置函数<code>print</code>一般无二。</p>
+<p>那么，为什么在作用上python会把<code>ᵖrint</code>当做<code>print</code>来用呢？</p>
+<h2 id="查阅资料"><a href="#查阅资料" class="headerlink" title="查阅资料"></a>查阅资料</h2><p>在查阅python官方文档后，我找到了答案：<a target="_blank" rel="noopener" href="https://peps.python.org/pep-3131/">https://peps.python.org/pep-3131/</a></p>
+<p>世界上许多人编写 Python 代码，他们不熟悉英语，甚至不熟悉拉丁书写系统。这些开发者通常希望用他们的母语定义类和函数的名称，而不是为他们想要命名的概念想出一个（通常不正确的）英文翻译。通过使用母语标识符，可以提高该语言使用者之间的代码清晰度和可维护性。</p>
+<p>有些语言存在通用的音译系统（尤其是以拉丁语为基础的书写系统）。而另一些语言的用户使用拉丁语书写母语词汇则面临较大困难。</p>
+<p>在这个问题的基础上，特殊字符的处理方法出现了，python的解决方法是：</p>
+<blockquote>
+<p>The following changes will need to be made to the parser:</p>
+<ol>
+<li>If a non-ASCII character is found in the UTF-8 representation of the source code, a forward scan is made to find the first ASCII non-identifier character (e.g. a space or punctuation character)</li>
+<li>The entire UTF-8 string is passed to a function to normalize the string to NFKC, and then verify that it follows the identifier syntax. No such callout is made for pure-ASCII identifiers, which continue to be parsed the way they are today. The Unicode database must start including the Other_ID_{Start|Continue} property.</li>
+<li>If this specification is implemented for 2.x, reflective libraries (such as pydoc) must be verified to continue to work when Unicode strings appear in <code>__dict__</code> slots as keys.</li>
+</ol>
+</blockquote>
+<p>翻译一下：</p>
+<ol>
+<li>如果在源代码的 UTF-8 表示中发现非 ASCII 字符，则进行正向扫描以找到第一个 ASCII 非标识符字符（例如空格或标点符号）。</li>
+<li>整个 UTF-8 字符串会被传递给<strong>一个函数</strong>，该函数会将字符串规范化为 NFKC 格式，然后验证其是否符合标识符语法。纯 ASCII 标识符则不会进行此类调用，因为它们仍按目前的方式进行解析。Unicode 数据库必须开始包含 Other_ID_{Start|Continue} 属性。</li>
+</ol>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>OK原来是这样，python官方还是很人性化的，为了全世界的人们都能使用python编程，创造出了这个办法。只要你输入的非 ASCII 字符存在于 python 的 Unicode 数据库，那么就会有一个函数会将该字符规范化为 NFKC 格式，以便后面的使用。</p>
+<p>所谓的<strong>“一个函数”</strong>，这个”函数”指的是 Python 解释器在词法分析（lexical analysis） 阶段内部调用的规范化处理机制。这个过程主要由 Python 的解释器核心实现，并不是一个直接暴露给用户的独立函数。官方文档里并没有列出来，但是我还是找到了一个类似作用的方法，就是 unicodedata 库的 normalize 方法：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">import</span> unicodedata<br><br>str0 = <span class="hljs-string">&quot;ᵖrint(1)&quot;</span><br>str1 = unicodedata.normalize(<span class="hljs-string">&#x27;NFKC&#x27;</span>, str0)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;原字符串: <span class="hljs-subst">&#123;str0&#125;</span>&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;规范化后字符串: <span class="hljs-subst">&#123;str1&#125;</span>&quot;</span>)<br><br><span class="hljs-built_in">exec</span>(str1)<br></code></pre></td></tr></table></figure>
+
+<p>上面的代码会输出：</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs isbl">原字符串: ᵖ<span class="hljs-function"><span class="hljs-title">rint</span>(<span class="hljs-number">1</span>)</span><br>规范化后字符串: <span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-number">1</span>)</span><br><span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你输入的字符过于 “特殊”，不存在于python 的 Unicode 数据库里，那么就会转化失败：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> unicodedata<br><br>str0 = <span class="hljs-string">&quot;priñt(1)&quot;</span><br>str1 = unicodedata.normalize(<span class="hljs-string">&#x27;NFKC&#x27;</span>, str0)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;原字符串: <span class="hljs-subst">&#123;str0&#125;</span>&quot;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;规范化后字符串: <span class="hljs-subst">&#123;str1&#125;</span>&quot;</span>)<br><br><span class="hljs-built_in">exec</span>(str1)<br></code></pre></td></tr></table></figure>
+
+<p>这段代码会报错：</p>
+<p><img src="/img/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/image-20250916194127141.png" srcset="/img/loading.gif" lazyload alt="image-20250916194127141"></p>
+<h2 id="运用"><a href="#运用" class="headerlink" title="运用"></a>运用</h2><p>假设有这样的一段代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> string<br><br>a = <span class="hljs-built_in">input</span>()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> string.ascii_letters:<br>    <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> a:<br>        exit(<span class="hljs-number">0</span>)<br><br><span class="hljs-built_in">eval</span>(a)<br></code></pre></td></tr></table></figure>
+
+<p>这里不允许[a-zA-Z]的字符出现，那么就可以特殊的 unicode 字符解析特性绕过：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">ºˢ=ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">14</span>]+ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">18</span>];ᵖʳⁱⁿᵗ(ª);ʷʰºªᵐⁱ=ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">22</span>]+ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">7</span>]+ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">14</span>]+ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">0</span>]+ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">12</span>]+ˢᵗʳⁱⁿᵍ.ªˢᶜⁱⁱ<span class="hljs-symbol">_</span>ˡºʷᵉʳᶜªˢᵉ[<span class="hljs-number">8</span>];<span class="hljs-symbol">__</span>ⁱᵐᵖºʳᵗ<span class="hljs-symbol">__</span>(ºˢ).ˢʸˢᵗᵉᵐ(ʷʰºªᵐⁱ)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/image-20250916201053906.png" srcset="/img/loading.gif" lazyload alt="image-20250916201053906"></p>
+<p>ok，那又有小伙伴说了，这么多特殊字符我去哪找呢？找到了一个一个替换多麻烦？</p>
+<p>可以用这个网站来查询：<a target="_blank" rel="noopener" href="https://www.compart.com/en/unicode/">https://www.compart.com/en/unicode/</a></p>
+<p>我也在这里给大家准备了脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python">unicode_str_dict = &#123;<span class="hljs-string">&quot;a&quot;</span>:<span class="hljs-string">&quot;ª&quot;</span>,<br>                    <span class="hljs-string">&quot;b&quot;</span>:<span class="hljs-string">&quot;ᵇ&quot;</span>,<br>                    <span class="hljs-string">&quot;c&quot;</span>:<span class="hljs-string">&quot;ᶜ&quot;</span>,<br>                    <span class="hljs-string">&quot;d&quot;</span>:<span class="hljs-string">&quot;ᵈ&quot;</span>,<br>                    <span class="hljs-string">&quot;e&quot;</span>:<span class="hljs-string">&quot;ᵉ&quot;</span>,<br>                    <span class="hljs-string">&quot;f&quot;</span>:<span class="hljs-string">&quot;ᶠ&quot;</span>,<br>                    <span class="hljs-string">&quot;g&quot;</span>:<span class="hljs-string">&quot;ᵍ&quot;</span>,<br>                    <span class="hljs-string">&quot;h&quot;</span>:<span class="hljs-string">&quot;ʰ&quot;</span>,<br>                    <span class="hljs-string">&quot;i&quot;</span>:<span class="hljs-string">&quot;ⁱ&quot;</span>,<br>                    <span class="hljs-string">&quot;j&quot;</span>:<span class="hljs-string">&quot;ⱼ&quot;</span>,<br>                    <span class="hljs-string">&quot;k&quot;</span>:<span class="hljs-string">&quot;ᵏ&quot;</span>,<br>                    <span class="hljs-string">&quot;l&quot;</span>:<span class="hljs-string">&quot;ˡ&quot;</span>,<br>                    <span class="hljs-string">&quot;m&quot;</span>:<span class="hljs-string">&quot;ᵐ&quot;</span>,<br>                    <span class="hljs-string">&quot;n&quot;</span>:<span class="hljs-string">&quot;ⁿ&quot;</span>,<br>                    <span class="hljs-string">&quot;o&quot;</span>:<span class="hljs-string">&quot;º&quot;</span>,<br>                    <span class="hljs-string">&quot;p&quot;</span>:<span class="hljs-string">&quot;ᵖ&quot;</span>,<br>                    <span class="hljs-string">&quot;q&quot;</span>:<span class="hljs-string">&quot;ｑ&quot;</span>,<br>                    <span class="hljs-string">&quot;r&quot;</span>:<span class="hljs-string">&quot;ʳ&quot;</span>,<br>                    <span class="hljs-string">&quot;s&quot;</span>:<span class="hljs-string">&quot;ˢ&quot;</span>,<br>                    <span class="hljs-string">&quot;t&quot;</span>:<span class="hljs-string">&quot;ᵗ&quot;</span>,<br>                    <span class="hljs-string">&quot;u&quot;</span>:<span class="hljs-string">&quot;ᵘ&quot;</span>,<br>                    <span class="hljs-string">&quot;v&quot;</span>:<span class="hljs-string">&quot;ᵛ&quot;</span>,<br>                    <span class="hljs-string">&quot;w&quot;</span>:<span class="hljs-string">&quot;ʷ&quot;</span>,<br>                    <span class="hljs-string">&quot;x&quot;</span>:<span class="hljs-string">&quot;ˣ&quot;</span>,<br>                    <span class="hljs-string">&quot;y&quot;</span>:<span class="hljs-string">&quot;ʸ&quot;</span>,<br>                    <span class="hljs-string">&quot;z&quot;</span>:<span class="hljs-string">&quot;ᶻ&quot;</span><br>                    &#125;<br><br>str0 = <span class="hljs-string">&quot;os=string.ascii_lowercase[14]+string.ascii_lowercase[18];print(a);whoami=string.ascii_lowercase[22]+string.ascii_lowercase[7]+string.ascii_lowercase[14]+string.ascii_lowercase[0]+string.ascii_lowercase[12]+string.ascii_lowercase[8];__import__(os).system(whoami)&quot;</span><br><span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> str0:<br>    <span class="hljs-keyword">if</span> s <span class="hljs-keyword">in</span> unicode_str_dict:<br>        str0 = str0.replace(s, unicode_str_dict[s])<br><br><span class="hljs-built_in">print</span>(str0)<br></code></pre></td></tr></table></figure>
+
+<p>最后，如果师傅们有任何问题，欢迎加我社交账号，与我一起探讨！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/others/" class="category-chain-item">others</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/others/" class="print-no-link">#others</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python_Unicode字符机制解析</div>
+      <div>http://example.com/2025/09/16/Python-Unicode字符机制解析/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年9月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/05/20/SpringAop%E6%96%B0%E9%93%BE%E5%AE%9E%E7%8E%B0%E4%BB%BB%E6%84%8F%E6%97%A0%E5%8F%82%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/" title="SpringAop新链实现任意无参方法调用">
+                        <span class="hidden-mobile">SpringAop新链实现任意无参方法调用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
